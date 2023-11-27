@@ -9,11 +9,16 @@ public class PlayerMove : MonoBehaviour
     public float speed;
     public float gravityMultiplier;
 
+    Vector3 move;
+
     [Header("Ground Check")]
     public Transform groundCheck;
     public float range;
     public float gravity;
-    Vector3 move;
+
+
+
+    [Header("Slope Collision")]
     public float downForce;
     public float slopeRayRange;
 
@@ -36,7 +41,7 @@ public class PlayerMove : MonoBehaviour
 
         
 
-        move = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
+        move = new Vector3(Input.GetAxisRaw("Horizontal"), gravity, Input.GetAxisRaw("Vertical"));
 
         Vector3 moveDir = (transform.forward * move.z + transform.right * move.x).normalized;
 
