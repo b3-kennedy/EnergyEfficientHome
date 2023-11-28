@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Window : TemperatureAlteringObject
 {
+    float baseHeatingRate;
+
+    private void Start()
+    {
+        baseHeatingRate = heatingRate;
+    }
 
     // Update is called once per frame
     void Update()
@@ -11,6 +17,10 @@ public class Window : TemperatureAlteringObject
         if(transform.parent.GetComponent<Room>().liveTemperature <= transform.parent.GetComponent<Room>().baseTemperature)
         {
             heatingRate = 0;
+        }
+        else
+        {
+            heatingRate = baseHeatingRate;
         }
     }
 }
