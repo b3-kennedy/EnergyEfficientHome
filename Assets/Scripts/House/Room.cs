@@ -5,7 +5,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Collider> colliders;
-    public TemperatureAlteringObject[] objects;
+    public RoomTempChanger[] objects;
     public float totalArea;
     public float baseTemperature;
     public float liveTemperature;
@@ -16,7 +16,7 @@ public class Room : MonoBehaviour
     void Start()
     {
         GetArea();
-        objects = transform.GetComponentsInChildren<TemperatureAlteringObject>();
+        objects = transform.GetComponentsInChildren<RoomTempChanger>();
         liveTemperature = baseTemperature;
         
     }
@@ -54,6 +54,21 @@ public class Room : MonoBehaviour
             {
                 liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime;
             }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<CharacterTemperature>())
+        {
+
+            other.GetComponent<CharacterTemperature>().temp = liveTemperature;
+            
+        }
+
+        if (other.GetComponent<AIMove>())
+        {
+            other.GetComponent<AIMove>().currentRoom = this;
         }
     }
 }

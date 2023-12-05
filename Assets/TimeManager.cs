@@ -13,9 +13,6 @@ public class TimeManager : MonoBehaviour
     private float startHour;
 
     [SerializeField]
-    private TextMeshProUGUI timeText;
-
-    [SerializeField]
     private Light sunLight;
 
     [SerializeField]
@@ -69,9 +66,9 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
-        if (timeText != null)
+        if (UIManager.Instance.timeText != null)
         {
-            timeText.text = currentTime.ToString("HH:mm");
+            UIManager.Instance.timeText.text = currentTime.ToString("HH:mm");
         }
     }
 
