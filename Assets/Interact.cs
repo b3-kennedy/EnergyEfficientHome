@@ -30,7 +30,6 @@ public class Interact : MonoBehaviour
                 }
                 else if(heatObject.GetComponent<RoomTempChanger>())
                 {
-                    Debug.Log("heat");
                     heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
                 }
 

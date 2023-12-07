@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
 
     public Room[] rooms;
 
+    public float budget;
+
+    public float dailyCost;
 
     private void Awake()
     {
@@ -24,6 +27,29 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void OnNewDay()
+    {
+        budget -= dailyCost;
+        dailyCost = 0;
+    }
+
+    public void AddCost()
+    {
+        foreach (Room room in rooms)
+        {
+            foreach (var item in room.objects)
+            {
+                if (item.GetComponent<Radiator>())
+                {
+                    if (item.GetComponent<Radiator>().isOn)
+                    {
+                        dailyCost += 1;
+                    }
+                }
+            }
+        }
     }
 }

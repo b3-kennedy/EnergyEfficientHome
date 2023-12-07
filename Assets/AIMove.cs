@@ -11,20 +11,68 @@ public class AIMove : MonoBehaviour
     public Transform target;
     CharacterTemperature characterTemp;
     public Room currentRoom;
+
+    public Room bedRoom;
+    public Room kitchen;
+    public Room livingRoom;
+
     public enum State {IDLE, TOO_HOT, TOO_COLD };
     public State state;
     bool stateChange;
+
+    public float entertainment = 100;
+    public float hunger = 100;
+    public float tiredness = 100;
+
+    Animator anim;
+
+    public bool entertain;
+    public bool sleep;
+    public bool eat;
+
+    public float hungerMultiplier;
+    public float tirednessMultiplier;
+    public float entertainmentMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         characterTemp = GetComponent<CharacterTemperature>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!sleep)
+        {
+            tiredness -= Time.deltaTime * tirednessMultiplier;
+            anim.SetFloat("Tiredness", tiredness);
+        }
+
+        if (!entertain)
+        {
+            entertainment -= Time.deltaTime * entertainmentMultiplier;
+            anim.SetFloat("Entertainment", entertainment);
+        }
+
+        if (!eat)
+        {
+            hunger -= Time.deltaTime * hungerMultiplier;
+            anim.SetFloat("Hunger", hunger);
+
+        }
+        
+        
+        
+
+
+        
+
+
+
+
 
         if(characterTemp.liveTemp > characterTemp.maxComfortableTemp)
         {
@@ -40,21 +88,21 @@ public class AIMove : MonoBehaviour
         }
 
 
-        if(currentRoom != null)
-        {
-            if(state == State.IDLE)
-            {
-                Idle();
-            }
-            else if(state == State.TOO_HOT)
-            {
-                TurnOffRadiator();
-            }
-            else if(state == State.TOO_COLD)
-            {
-                TurnOnRadiator();
-            }
-        }
+        //if(currentRoom != null)
+        //{
+        //    if(state == State.IDLE)
+        //    {
+        //        Idle();
+        //    }
+        //    else if(state == State.TOO_HOT)
+        //    {
+        //        TurnOffRadiator();
+        //    }
+        //    else if(state == State.TOO_COLD)
+        //    {
+        //        TurnOnRadiator();
+        //    }
+        //}
 
         
 
@@ -72,49 +120,49 @@ public class AIMove : MonoBehaviour
     }
 
 
-    void TurnOffRadiator()
-    {
+    //void TurnOffRadiator()
+    //{
 
 
-        foreach (var obj in currentRoom.objects)
-        {
-            if (obj.GetComponent<Radiator>() && obj.GetComponent<Radiator>().isOn)
-            {
-                if (Vector3.Distance(transform.position, obj.transform.position) > 1)
-                {
-                    agent.SetDestination(obj.transform.position);
-                }
-                else
-                {
-                    obj.GetComponent<Radiator>().isOn = false;
-                }
-            }
-        }
+    //    foreach (var obj in currentRoom.objects)
+    //    {
+    //        if (obj.GetComponent<Radiator>() && obj.GetComponent<Radiator>().isOn)
+    //        {
+    //            if (Vector3.Distance(transform.position, obj.transform.position) > 1)
+    //            {
+    //                agent.SetDestination(obj.transform.position);
+    //            }
+    //            else
+    //            {
+    //                obj.GetComponent<Radiator>().isOn = false;
+    //            }
+    //        }
+    //    }
             
         
-    }
+    //}
 
-    void TurnOnRadiator()
-    {
+    //void TurnOnRadiator()
+    //{
 
 
-        //turn radiator on
-        foreach (var obj in currentRoom.objects)
-        {
-            if (obj.GetComponent<Radiator>() && !obj.GetComponent<Radiator>().isOn)
-            {
-                if (Vector3.Distance(transform.position, obj.transform.position) > 1)
-                {
-                    agent.SetDestination(obj.transform.position);
-                }
-                else
-                {
-                    obj.GetComponent<Radiator>().isOn = true;
-                }
-            }
+    //    //turn radiator on
+    //    foreach (var obj in currentRoom.objects)
+    //    {
+    //        if (obj.GetComponent<Radiator>() && !obj.GetComponent<Radiator>().isOn)
+    //        {
+    //            if (Vector3.Distance(transform.position, obj.transform.position) > 1)
+    //            {
+    //                agent.SetDestination(obj.transform.position);
+    //            }
+    //            else
+    //            {
+    //                obj.GetComponent<Radiator>().isOn = true;
+    //            }
+    //        }
 
-        }
-            
-        
-    }
+    //    }
+
+
+    //}
 }

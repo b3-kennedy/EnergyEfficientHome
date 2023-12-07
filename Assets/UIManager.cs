@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI playerTempText;
-    public GameObject player;
+    public TextMeshProUGUI budgetText;
+    [HideInInspector] public GameObject player;
     [HideInInspector] public string degrees = "°C";
 
     private void Awake()
@@ -32,5 +33,7 @@ public class UIManager : MonoBehaviour
         float roundedTemp = Mathf.Round(player.GetComponent<CharacterTemperature>().liveTemp * 10) * 0.1f;
 
         playerTempText.text = "Player Temperature: " + roundedTemp.ToString() + " " + UIManager.Instance.degrees;
+        budgetText.text = "Budget: £" + LevelManager.Instance.budget.ToString();
+
     }
 }

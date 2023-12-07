@@ -11,13 +11,14 @@ public class Room : MonoBehaviour
     public float liveTemperature;
     public float returnToBaseMultiplier;
 
+    public float heatingCost;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
-        liveTemperature = baseTemperature;
         
     }
 
@@ -69,6 +70,22 @@ public class Room : MonoBehaviour
         if (other.GetComponent<AIMove>())
         {
             other.GetComponent<AIMove>().currentRoom = this;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<AIMove>())
+        {
+            var temp = other.GetComponent<CharacterTemperature>();
+            var anim = other.GetComponent<Animator>();
+
+            
+
+            if(temp.liveTemp < temp.minComfortableTemp)
+            {
+                anim.SetTrigger("RadiatorOn");
+            }
         }
     }
 }
