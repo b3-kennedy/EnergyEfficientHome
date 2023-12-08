@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class WeatherManager : MonoBehaviour
 {
-    public GameObject[] weatherArray; //0 for rainy, 1 for snowy
-    public int selectedWeather;
-
-   
-    public float rainLength = 5f;
+    public GameObject[] weatherArray; //0 for rainy, 1 for snowy, 2 for stormy
+  
    
 
     private float timer ;
 
-    private CurrentWeather currWeather;
+    private float minSeasonTemp = -3.5f;
+
+    private CurrentWeather currWeather ;
+
+    public TMP_Text weatherText;
+    public TMP_Text weatherSummaryText;
     public enum WeatherStatus  { rainy = 0,snowy= 1, clear=2 , Stormy =3};
     private void Start()
     {
+        currWeather = new CurrentWeather();
         currWeather.status = (int)WeatherStatus.clear;
        
-        Debug.Log(currWeather.status);
+        
 
     }
     private void ActivateWeatherEffect(int weatherIndex)
@@ -36,43 +41,80 @@ public class WeatherManager : MonoBehaviour
 
     private void Update()
     {
-        if(currWeather.status== (int)WeatherStatus.clear) {
-            float rand = Random.Range(0.1f, 100f);
-            float chanceOfRain = currWeather.GetCurrentChanceOfRain();
 
-            if (rand < chanceOfRain && currWeather.temperature>= 3)
+        Debug.Log(currWeather.temperature);
+        weatherText.text = currWeather.temperature.ToString().Split('.')[0] + "°C";
+        switch (currWeather.status)
+        {
+            case 0:
+                weatherSummaryText.text = "Rainy";
+                break;
+            case 1:
+                weatherSummaryText.text = "Snowy";
+                break;
+            case 2:
+                weatherSummaryText.text = "Cloudy";
+                break;
+            case 3:
+                weatherSummaryText.text = "Stormy";
+                break;
+        }
+       
+
+        if (currWeather.status== (int)WeatherStatus.clear) {
+            timer -= Time.deltaTime;
+            currWeather.humidity += 0.001f;
+            if (currWeather.temperature < 7)
+                currWeather.temperature += 0.0002f;
+
+            if (timer < 0) {
+
+                float rand = Random.Range(0.1f, 100f);
+                float chanceOfRain = currWeather.GetCurrentChanceOfRain();
+                if (rand < chanceOfRain && currWeather.temperature>= 3  )
             {
                 ActivateWeatherEffect((int)WeatherStatus.rainy);
                 currWeather.SetNewStatus((int)WeatherStatus.rainy);
-                timer = Random.Range(5, 20);
+                timer = currWeather.SetTimer();
 
-            } 
-            else if (rand < chanceOfRain && currWeather.temperature < 3)
+                } 
+            else if (rand < chanceOfRain && currWeather.temperature < 3 )
             {
                 ActivateWeatherEffect((int)WeatherStatus.snowy);
                 currWeather.SetNewStatus((int)WeatherStatus.snowy);
-                timer = Random.Range(5, 20);
+                    timer = currWeather.SetTimer();
+                }
+            else 
+            {
+                currWeather.SetNewStatus((int)WeatherStatus.clear);
+                    timer = currWeather.SetTimer();
+                }
             }
-
 
         }
         else if (currWeather.status == (int)WeatherStatus.rainy)
         {
             timer -= Time.deltaTime;
-            currWeather.humidity -= 0.5f;
-            currWeather.temperature -= 0.2f;
+                
+                currWeather.humidity -= 0.001f;
+            if(currWeather.temperature> 0)
+                currWeather.temperature -= 0.0005f;
+            
             if (timer < 0)
             {
                 DeactivateWeatherEffect((int)WeatherStatus.rainy);
+                
                 if (currWeather.humidity < 40)
                 {
                     currWeather.SetNewStatus((int)WeatherStatus.clear);
+                    timer = currWeather.SetTimer();
                 }
-                else if ( currWeather.humidity >= 40 || currWeather.temperature< 3)
+                else if ( currWeather.humidity >= 40 )
                 {
                   
                     ActivateWeatherEffect((int)WeatherStatus.snowy);
                     currWeather.SetNewStatus((int)WeatherStatus.snowy);
+                    timer = currWeather.SetTimer();
                 }
             }
             
@@ -82,11 +124,17 @@ public class WeatherManager : MonoBehaviour
         else if(currWeather.status == (int)WeatherStatus.snowy)
         {
             timer -= Time.deltaTime;
-            currWeather.temperature += 0.2f;
-            if (timer < 0 || currWeather.temperature > 3)
+           if(currWeather.temperature < 2)
+                currWeather.temperature += 0.0002f;
+           else if( currWeather.temperature> 3)
+                currWeather.temperature -= 0.0005f;
+            currWeather.humidity += 0.002f;
+            if (timer < 0 )
             {
                 DeactivateWeatherEffect((int)WeatherStatus.snowy);
+               
                 currWeather.SetNewStatus((int)WeatherStatus.clear);
+                timer = currWeather.SetTimer();
             }
 
         }
@@ -99,9 +147,9 @@ public class WeatherManager : MonoBehaviour
 class CurrentWeather
 {
     public int status;
-    public float chanceOfRain;
-    public bool isWindy;
-    public float temperature = 7;
+    public float chanceOfRain = 80;
+    public bool isWindy=false;
+    public float temperature = 3;
     public float humidity=80;
 
     public void SetNewStatus(int i)
@@ -110,20 +158,32 @@ class CurrentWeather
     }
     public float GetCurrentChanceOfRain()
     {
-        if(isWindy)
+        updateWindStatus();
+        if (isWindy)
         {
             chanceOfRain += 5;
         }
         if(temperature <= 3f && humidity > 50)
         {
-            chanceOfRain += 40;
+            chanceOfRain += 10;
         }
         if(humidity <= 10)
         {
-            chanceOfRain = 0;
+            chanceOfRain -= 10;
         }
+        
         return chanceOfRain;
 
+    }
+    public void updateWindStatus()
+    {
+      isWindy = (Random.Range(0, 1) == 0 ? true : false);
+        Debug.Log(isWindy);
+    }
+
+    public float SetTimer()
+    {
+        return Random.Range(60f, 120f);
     }
 
     
