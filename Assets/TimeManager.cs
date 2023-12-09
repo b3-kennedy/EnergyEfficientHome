@@ -6,14 +6,14 @@ using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField]
-    private float timeMultiplier;
+
+    public static TimeManager Instance;
+
+    
+    public float timeMultiplier;
 
     [SerializeField]
     private float startHour;
-
-    [SerializeField]
-    private TextMeshProUGUI timeText;
 
     [SerializeField]
     private Light sunLight;
@@ -42,11 +42,23 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     private float maxMoonLightIntensity;
 
-    private DateTime currentTime;
+    public DateTime currentTime;
 
     private TimeSpan sunriseTime;
 
     private TimeSpan sunsetTime;
+
+    int hour;
+    int newHour;
+
+    bool newDay;
+
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +67,7 @@ public class TimeManager : MonoBehaviour
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        newHour = hour;
     }
 
     // Update is called once per frame
@@ -63,17 +76,55 @@ public class TimeManager : MonoBehaviour
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
+        CalculateDayEnd();
+        CalculateHourPassed();
     }
 
     private void UpdateTimeOfDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
+       
 
-        if (timeText != null)
+        if (UIManager.Instance.timeText != null)
         {
-            timeText.text = currentTime.ToString("HH:mm");
+            UIManager.Instance.timeText.text = currentTime.ToString("HH:mm");
+
+        }
+
+
+
+    }
+
+    void CalculateHourPassed()
+    {
+        hour = currentTime.Hour;
+
+        if (hour != newHour)
+        {
+            LevelManager.Instance.AddCost();
+            newHour = hour;
         }
     }
+
+
+    void CalculateDayEnd()
+    {
+        if (currentTime.ToString("HH:mm") == "00:00")
+        {
+            if (!newDay)
+            {
+                LevelManager.Instance.OnNewDay();
+                newDay = true;
+            }
+
+        }
+        else
+        {
+            newDay = false;
+        }
+    }
+
+
 
     private void RotateSun()
     {

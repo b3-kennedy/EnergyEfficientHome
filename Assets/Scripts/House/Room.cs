@@ -5,19 +5,20 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Collider> colliders;
-    public TemperatureAlteringObject[] objects;
+    public RoomTempChanger[] objects;
     public float totalArea;
     public float baseTemperature;
     public float liveTemperature;
     public float returnToBaseMultiplier;
+
+    public float heatingCost;
 
 
     // Start is called before the first frame update
     void Start()
     {
         GetArea();
-        objects = transform.GetComponentsInChildren<TemperatureAlteringObject>();
-        liveTemperature = baseTemperature;
+        objects = transform.GetComponentsInChildren<RoomTempChanger>();
         
     }
 
@@ -53,6 +54,37 @@ public class Room : MonoBehaviour
             if (heater.isOn)
             {
                 liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<CharacterTemperature>())
+        {
+
+            other.GetComponent<CharacterTemperature>().temp = liveTemperature;
+            
+        }
+
+        if (other.GetComponent<AIMove>())
+        {
+            other.GetComponent<AIMove>().currentRoom = this;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<AIMove>())
+        {
+            var temp = other.GetComponent<CharacterTemperature>();
+            var anim = other.GetComponent<Animator>();
+
+            
+
+            if(temp.liveTemp < temp.minComfortableTemp)
+            {
+                anim.SetTrigger("RadiatorOn");
             }
         }
     }
