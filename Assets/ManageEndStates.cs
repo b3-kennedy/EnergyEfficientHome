@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManageEndStates : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class ManageEndStates : MonoBehaviour
     public GameObject endScreen;
 
     public TMP_Text endGamePrompt;
+    public Button restartBtn;
+    public Button settingBtn;
+    public Button exitBtn;
 
     public float minComfyTemp =5;
     public float maxComfyTemp = 45;
@@ -22,6 +27,8 @@ public class ManageEndStates : MonoBehaviour
     void Start()
     {
         budget = levelManager.GetComponent<LevelManager>().budget;
+        restartBtn.onClick.AddListener(RestartGame);
+        exitBtn.onClick.AddListener(ExitGame);
     }
 
     // Update is called once per frame
@@ -57,6 +64,15 @@ public class ManageEndStates : MonoBehaviour
             }
         }
       
-        
+    }
+    public void RestartGame() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+
     }
 }
