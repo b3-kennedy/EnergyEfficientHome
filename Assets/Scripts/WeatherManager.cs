@@ -41,9 +41,17 @@ public class WeatherManager : MonoBehaviour
 
     private void Update()
     {
-
-        
-        weatherText.text = currWeather.temperature.ToString().Split('.')[0] + "°C";
+        Debug.Log(currWeather.temperature);
+       if(currWeather.temperature>-1 && currWeather.temperature<0)
+        {
+           string tmp = currWeather.temperature.ToString().Split('-')[1];
+            weatherText.text = tmp.Split('.')[0] + "°C";
+        }
+        else
+        {
+            weatherText.text = currWeather.temperature.ToString().Split('.')[0] + "°C";
+        }
+  
         switch (currWeather.status)
         {
             case 0:

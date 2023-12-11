@@ -2589,7 +2589,7 @@ GameObject:
   - component: {fileID: 239054069}
   - component: {fileID: 239054068}
   m_Layer: 0
-  m_Name: mobilePhone
+  m_Name: mobilePhoneScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
