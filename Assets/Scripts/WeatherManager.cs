@@ -41,7 +41,6 @@ public class WeatherManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currWeather.temperature);
        if(currWeather.temperature>-1 && currWeather.temperature<0)
         {
            string tmp = currWeather.temperature.ToString().Split('-')[1];

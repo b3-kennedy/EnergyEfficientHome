@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +15,7 @@ public class ManageEndStates : MonoBehaviour
     public Button settingBtn;
     public Button exitBtn;
 
-    public float minComfyTemp =5;
+    public float minComfyTemp = 5;
     public float maxComfyTemp = 45;
 
     private float budget;
@@ -37,38 +34,46 @@ public class ManageEndStates : MonoBehaviour
         gameTimer += Time.deltaTime;
         if (gameTimer > 5)
         {
-        float playerTemp =  player.GetComponent<CharacterTemperature>().liveTemp;
-        float aiTemp = AICharacter.GetComponent<CharacterTemperature>().liveTemp;
-        if(playerTemp < minComfyTemp )
-        {
-            Debug.Log(playerTemp);
-            endScreen.SetActive(true);
-                endGamePrompt.text = "You Froze To Death!!";
-        }
-        else if(playerTemp > maxComfyTemp)
+            float playerTemp = player.GetComponent<CharacterTemperature>().liveTemp;
+            float aiTemp = AICharacter.GetComponent<CharacterTemperature>().liveTemp;
+            if (playerTemp < minComfyTemp)
             {
 
-                endScreen.SetActive(true);
+                End();
+                endGamePrompt.text = "You Froze To Death!!";
+            }
+            else if (playerTemp > maxComfyTemp)
+            {
+
+                End();
                 endGamePrompt.text = "You Melted!!";
             }
-        else if (aiTemp < minComfyTemp)
+            else if (aiTemp < minComfyTemp)
             {
 
-                endScreen.SetActive(true);
+                End();
                 endGamePrompt.text = "Your Friend Froze To Death!!";
             }
-        else if(aiTemp > maxComfyTemp)
+            else if (aiTemp > maxComfyTemp)
             {
-                endScreen.SetActive(true);
+                End();
                 endGamePrompt.text = "Your Friend Melted!!";
             }
         }
-      
+
     }
-    public void RestartGame() 
+    public void End()
+    {
+        endScreen.SetActive(true);
+        player.GetComponent<PlayerMove>().enabled = false;
+        AICharacter.GetComponent<AIMove>().enabled = false;
+    }
+    public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            
+        player.GetComponent<PlayerMove>().enabled = true;
+        AICharacter.GetComponent<AIMove>().enabled = true;
+
     }
     public void ExitGame()
     {
