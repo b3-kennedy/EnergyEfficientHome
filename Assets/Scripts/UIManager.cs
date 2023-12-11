@@ -30,7 +30,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float roundedTemp = Mathf.Round(player.GetComponent<CharacterTemperature>().liveTemp * 10) * 0.1f;
+        float roundedTemp = Mathf.Round(player.GetComponent<CharacterTemperature>().liveTemp ) ;
+
+
 
         playerTempText.text = "Player Temperature: " + roundedTemp.ToString() + " " + UIManager.Instance.degrees;
         budgetText.text = "Budget: £" + LevelManager.Instance.budget.ToString();
