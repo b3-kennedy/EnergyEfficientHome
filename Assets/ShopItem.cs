@@ -24,8 +24,8 @@ public class ShopItem : MonoBehaviour
 
     public void AddItemToBasket()
     {
-        Debug.Log("add item "+itemName.text+" to basket");
-        //OnClickBuy?.Invoke(itemPriceFloat,itemNameString,itemDescriptionString,itemImageT);
+        //Debug.Log("add item "+itemName.text+" to basket");
+        //OnClickBuy?.Invoke(itemPriceFloat, itemNameString, itemDescriptionString, itemImageT);
 
 
     }
@@ -39,6 +39,7 @@ public class ShopItem : MonoBehaviour
         itemNameString = name;
         itemPriceFloat = price;
 
+        Debug.Log(itemNameString);
 
     }
     public  void SetItemImage(Texture img)
