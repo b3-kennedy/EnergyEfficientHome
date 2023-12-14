@@ -49,8 +49,10 @@ public class ShopManager : MonoBehaviour
     }
     public void Add(int i) {
         Debug.Log("i : "+i);
-        if (i < shopItems.Length) 
-        Debug.Log("Add " + shopItems[i].name + " to basket.");
+        if (i < shopItems.Length)
+        {
+            Debug.Log("Add " + shopItems[i].name + " to basket.");
+        }
         
 
     }
