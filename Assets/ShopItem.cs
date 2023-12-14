@@ -22,20 +22,6 @@ public class ShopItem : MonoBehaviour
     public delegate void IsAddedToBasket(float price, string name, string des, Texture img);
     public static event IsAddedToBasket OnClickBuy;
 
-
-    void Start() 
-    {
-
-        //buyBtn.onClick.AddListener(AddItemToBasket);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-   
     public void AddItemToBasket()
     {
         Debug.Log("add item "+itemName.text+" to basket");
@@ -53,12 +39,10 @@ public class ShopItem : MonoBehaviour
         itemNameString = name;
         itemPriceFloat = price;
 
-        Debug.Log("here..."+itemNameString+" was "+itemPrice+" !!");
 
     }
     public  void SetItemImage(Texture img)
     {
-        Debug.Log("here... image?");
         if(image!=null)
             image.texture = img;
         itemImageT = img;

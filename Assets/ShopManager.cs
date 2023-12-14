@@ -25,16 +25,14 @@ public class ShopManager : MonoBehaviour
     
     private void Start()
     {
-        for (int i = 0; i < shopItems.Length; i++)
+        for (int i = 0; i < itemInfo.Length; i++)
         {
             
-            ShopItem item = shopItems[i].GetComponent<ShopItem>();
-            if (itemImages[i] != null)
+            if (itemImages[i] != null )
                 shopItems[i].GetComponent<ShopItem>().SetItemImage(itemImages[i]);
-            if (itemNames[i] != null && itemInfo[i] != null && itemPrices[i] != 0)
+            if (itemNames[i] != null && itemInfo[i] != null && itemPrices[i] != 0 )
                 shopItems[i].GetComponent<ShopItem>().SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
-            item = shopItems[i].GetComponent<ShopItem>();
-            Debug.Log(shopItems[i].GetComponent<ShopItem>().name);
+            
 
         }
     }
