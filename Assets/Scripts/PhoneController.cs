@@ -17,9 +17,9 @@ public class PhoneController : MonoBehaviour
 
     private void OnEnable()
     {
-        shopButton.onClick.AddListener(ActivateShopList);
-        moneyButton.onClick.AddListener(ActivateMoneyList);
-        temperatureButton.onClick.AddListener(ActivateTemperatureList);
+        shopButton.onClick.AddListener(ActivateShopTab);
+        moneyButton.onClick.AddListener(ActivateMoneyTab);
+        temperatureButton.onClick.AddListener(ActivateTemperatureTab);
     }
     private void OnDisable()
     {
@@ -43,21 +43,21 @@ public class PhoneController : MonoBehaviour
 
         }
     }
-    public void ActivateShopList()
+    public void ActivateShopTab()
     {   
         shopListObj.SetActive(true);    
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);    
 
     }
-    public void ActivateMoneyList()
+    public void ActivateMoneyTab()
     {
         moneyListObj.SetActive(true) ;  
         temperatureListObj.SetActive(false) ;
         shopListObj.SetActive(false) ;
 
     }
-    public void ActivateTemperatureList()
+    public void ActivateTemperatureTab()
     {
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(true);
