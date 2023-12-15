@@ -15,11 +15,29 @@ public class PhoneController : MonoBehaviour
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
 
+    CharacterController ch;
+
     private void OnEnable()
     {
         shopButton.onClick.AddListener(ActivateShopTab);
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
+
+        ch = GetComponent<CharacterController>();
+
+    }
+    private void Update()
+    {
+       if (Input.GetKey(KeyCode.F))
+        {
+            phoneGameObject.SetActive(true);
+        }
+        else if (Input.GetKey(KeyCode.Escape))
+        {
+            phoneGameObject.SetActive(false);
+        }
+
+
     }
     private void OnDisable()
     {
@@ -27,22 +45,22 @@ public class PhoneController : MonoBehaviour
         moneyButton.onClick.RemoveAllListeners();
         temperatureButton.onClick.RemoveAllListeners();
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            phoneGameObject.SetActive(true);
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        phoneGameObject.SetActive(true);
 
-        }
-    }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            phoneGameObject.SetActive(false);
+    //    }
+    //}
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        phoneGameObject.SetActive(false);
 
-        }
-    }
+    //    }
+    //}
     public void ActivateShopTab()
     {   
         shopListObj.SetActive(true);    
