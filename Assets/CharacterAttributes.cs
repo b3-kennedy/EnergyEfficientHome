@@ -33,7 +33,7 @@ public class CharacterAttributes : MonoBehaviour
     void Start()
     {
         baseHungerMul = hungerMultiplier;
-        baseBoredemMul = tirednessMultiplier;
+        baseBoredemMul = boredomMultiplier;
 
         hungerSleepMul = hungerMultiplier * sleepMultiplier;
         boredomSleepMul = boredomMultiplier * sleepMultiplier;
