@@ -24,10 +24,17 @@ public class ShopItem : MonoBehaviour
 
     public void AddItemToBasket()
     {
-        //Debug.Log("add item "+itemName.text+" to basket");
-        //OnClickBuy?.Invoke(itemPriceFloat, itemNameString, itemDescriptionString, itemImageT);
+        Debug.Log("add item " + itemName.text + " to basket");
 
 
+    }
+    private void OnEnable()
+    {
+        buyBtn.onClick.AddListener(AddItemToBasket);
+    }
+    private void OnDisable()
+    {
+        buyBtn.onClick.RemoveListener(AddItemToBasket);
     }
     public  void SetItemInfo(float price, string des, string name)
     {

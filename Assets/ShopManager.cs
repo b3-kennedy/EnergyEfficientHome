@@ -10,41 +10,39 @@ public class ShopManager : MonoBehaviour
     public string[] itemNames;
     public float[] itemPrices;
 
-    private ShopItem[] Basket;
+    public List<ShopItem> Basket = new List<ShopItem>();
 
     public GameObject itemPrefab;
     public GameObject MobilePhoneScreen;
 
 
-    private void OnEnable()
-    {
-          for(int i = 0; i< shopItems.Length;i++)
-        {
-
-            shopItems[i].GetComponent<ShopItem>().buyBtn.onClick.AddListener(()=>Add(i));
-           
-        }
-    }
+ 
     
     private void Start()
     {
+        //for (int i = 0; i < itemInfo.Length; i++)
+        //{
+
+        //    //shopItems[i] = Instantiate(itemPrefab, MobilePhoneScreen.transform.position, MobilePhoneScreen.transform.rotation);
+        //    shopItems[i].transform.name = itemNames[i];
+
+        //        shopItems[i].GetComponent<ShopItem>().SetItemImage(itemImages[i]);
+        //        shopItems[i].GetComponent<ShopItem>().SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
+        //}
+
+
+        Basket = new List<ShopItem>(); 
+
         for (int i = 0; i < itemInfo.Length; i++)
         {
+            GameObject newItem = Instantiate(itemPrefab, MobilePhoneScreen.transform);
+            newItem.transform.name = itemNames[i];
 
-            //shopItems[i] = Instantiate(itemPrefab, MobilePhoneScreen.transform.position, MobilePhoneScreen.transform.rotation);
-            shopItems[i].transform.name = itemNames[i];
+            ShopItem shopItem = newItem.GetComponent<ShopItem>();
+            shopItem.SetItemImage(itemImages[i]);
+            shopItem.SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
 
-
-
-
-
-
-                shopItems[i].GetComponent<ShopItem>().SetItemImage(itemImages[i]);
-                shopItems[i].GetComponent<ShopItem>().SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
-
-
-
-
+            shopItems[i] = newItem;
         }
     }
     public void Add(int i) {
