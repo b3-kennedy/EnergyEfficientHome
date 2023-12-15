@@ -19,6 +19,10 @@ public class UIManager : MonoBehaviour
     public GameObject NightIcon;
     public GameObject MorningIcon;
 
+    public Slider hungerSlider;
+    public Slider tirednessSlider;
+    public Slider boredomSlider;
+
 
     private void Awake()
     {
