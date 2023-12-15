@@ -1,4 +1,4 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
     public string[] itemNames;
     public float[] itemPrices;
 
-    public List<ShopItem> Basket = new List<ShopItem>();
+    public List<ShopItem> Basket = new();
 
     public GameObject itemPrefab;
     public GameObject MobilePhoneScreen;

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,6 @@ public class PhoneController : MonoBehaviour
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
 
-    CharacterController ch;
 
     private void OnEnable()
     {
@@ -23,7 +21,6 @@ public class PhoneController : MonoBehaviour
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
 
-        ch = GetComponent<CharacterController>();
 
     }
     private void Update()
