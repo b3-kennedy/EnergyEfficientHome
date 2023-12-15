@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class ShopManager : MonoBehaviour
 
     public GameObject itemPrefab;
     public GameObject MobilePhoneScreen;
+
+    public TMP_Text totalBasket;
 
     private void OnEnable()
     {
@@ -51,7 +54,9 @@ public class ShopManager : MonoBehaviour
         foreach (ShopItem shopItem in Basket)
         {
             total += shopItem.itemPriceFloat;
+            total = Mathf.RoundToInt(total * 100) / 100f;
         }
+        totalBasket.text = "Total : "+ total + " $";
         Debug.Log("current Basket is: "+total+" $");
 
 
