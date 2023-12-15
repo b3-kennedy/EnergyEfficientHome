@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class ShopManager : MonoBehaviour
 
     public GameObject itemPrefab;
     public GameObject MobilePhoneScreen;
+    public GameObject Headers;
+    public GameObject CheckoutPage;
 
     public TMP_Text totalBasket;
-
+    public Button checkoutBtn;
+   
     private void OnEnable()
     {
         Basket = new List<ShopItem>();
@@ -33,14 +37,25 @@ public class ShopManager : MonoBehaviour
             shopItems[i] = newItem;
             shopItem.buyBtn.onClick.AddListener(() => AddToBasket(shopItem));
         }
+        checkoutBtn.onClick.AddListener(Checkout);
+        
     }
+    public void Checkout()
+    {
+        Headers.SetActive(false);
+        CheckoutPage.SetActive(true);
+        MobilePhoneScreen.SetActive(false);
+    }
+   
 
     private void OnDisable()
     {
-        for (int i = 0; i < shopItems.Length; i++)
-        {
-            shopItems[i].GetComponent<ShopItem>().buyBtn.onClick.RemoveAllListeners();
-        }
+        //for (int i = 0; i < shopItems.Length; i++)
+        //{
+        //    shopItems[i].GetComponent<ShopItem>().buyBtn.onClick.RemoveAllListeners();
+        //}
+        checkoutBtn.onClick.RemoveAllListeners();
+     
     }
 
 
