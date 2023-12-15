@@ -48,6 +48,11 @@ public class ShopItem : MonoBehaviour
             image.texture = img;
         itemImageT = img;
     }
+
+    public static implicit operator ShopItem(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

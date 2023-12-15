@@ -52,6 +52,7 @@ public class ShopManager : MonoBehaviour
         if (i < shopItems.Length)
         {
             Debug.Log("Add " + shopItems[i].name + " to basket.");
+            Basket[i] = shopItems[i];
         }
         
 
