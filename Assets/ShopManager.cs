@@ -15,24 +15,9 @@ public class ShopManager : MonoBehaviour
     public GameObject itemPrefab;
     public GameObject MobilePhoneScreen;
 
-
- 
-    
-    private void Start()
+    private void OnEnable()
     {
-        //for (int i = 0; i < itemInfo.Length; i++)
-        //{
-
-        //    //shopItems[i] = Instantiate(itemPrefab, MobilePhoneScreen.transform.position, MobilePhoneScreen.transform.rotation);
-        //    shopItems[i].transform.name = itemNames[i];
-
-        //        shopItems[i].GetComponent<ShopItem>().SetItemImage(itemImages[i]);
-        //        shopItems[i].GetComponent<ShopItem>().SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
-        //}
-
-
-        Basket = new List<ShopItem>(); 
-
+        Basket = new List<ShopItem>();
         for (int i = 0; i < itemInfo.Length; i++)
         {
             GameObject newItem = Instantiate(itemPrefab, MobilePhoneScreen.transform);
@@ -43,17 +28,34 @@ public class ShopManager : MonoBehaviour
             shopItem.SetItemInfo(itemPrices[i], itemInfo[i], itemNames[i]);
 
             shopItems[i] = newItem;
+            shopItem.buyBtn.onClick.AddListener(() => AddToBasket(shopItem));
         }
     }
-    public void Add(int i) {
-        Debug.Log("i : "+i);
-        if (i < shopItems.Length)
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < shopItems.Length; i++)
         {
-            Debug.Log("Add " + shopItems[i].name + " to basket.");
-            Basket[i] = shopItems[i];
+            shopItems[i].GetComponent<ShopItem>().buyBtn.onClick.RemoveAllListeners();
         }
+    }
+
+
+  
+    public void AddToBasket(ShopItem item)
+    {
+        Debug.Log("add item " + item.itemNameString + " to basket");
+        Basket.Add(item);
         
+        float total = 0;
+        foreach (ShopItem shopItem in Basket)
+        {
+            total += shopItem.itemPriceFloat;
+        }
+        Debug.Log("current Basket is: "+total+" $");
+
 
     }
+
 
 }

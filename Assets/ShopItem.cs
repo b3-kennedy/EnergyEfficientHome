@@ -28,14 +28,7 @@ public class ShopItem : MonoBehaviour
 
 
     }
-    private void OnEnable()
-    {
-        buyBtn.onClick.AddListener(AddItemToBasket);
-    }
-    private void OnDisable()
-    {
-        buyBtn.onClick.RemoveListener(AddItemToBasket);
-    }
+
     public  void SetItemInfo(float price, string des, string name)
     {
         itemPrice.text = price + "$";
@@ -56,10 +49,7 @@ public class ShopItem : MonoBehaviour
         itemImageT = img;
     }
 
-    public static implicit operator ShopItem(GameObject v)
-    {
-        throw new NotImplementedException();
-    }
+  
 }
 
 
