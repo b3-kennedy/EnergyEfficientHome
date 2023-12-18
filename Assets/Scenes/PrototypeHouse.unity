@@ -12327,7 +12327,7 @@ MonoBehaviour:
   budget: 500
   dailyCost: 0
   tempObjects: []
-  breakChance: 100
+  breakChance: 50
 --- !u!4 &1498847101
 Transform:
   m_ObjectHideFlags: 0
