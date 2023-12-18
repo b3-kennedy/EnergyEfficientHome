@@ -16546,11 +16546,11 @@ PrefabInstance:
     - target: {fileID: 7028366507769319695, guid: 8ab97e985fccde944adfe5d4abab2bda, type: 3}
       propertyPath: weatherText
       value: 
-      objectReference: {fileID: 1627379028}
+      objectReference: {fileID: 560888729}
     - target: {fileID: 7028366507769319695, guid: 8ab97e985fccde944adfe5d4abab2bda, type: 3}
       propertyPath: weatherSummaryText
       value: 
-      objectReference: {fileID: 1047564412}
+      objectReference: {fileID: 1048447578}
     - target: {fileID: 7028366507769319695, guid: 8ab97e985fccde944adfe5d4abab2bda, type: 3}
       propertyPath: weatherArray.Array.data[0]
       value: 
