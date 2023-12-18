@@ -4333,6 +4333,12 @@ MonoBehaviour:
   maxSunLightIntensity: 0.75
   moonLight: {fileID: 662498751}
   maxMoonLightIntensity: 0.3
+  hourPassed:
+    m_PersistentCalls:
+      m_Calls: []
+  dayPassed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &492028683
 Transform:
   m_ObjectHideFlags: 0
@@ -12320,6 +12326,8 @@ MonoBehaviour:
   - {fileID: 2100744399}
   budget: 500
   dailyCost: 0
+  tempObjects: []
+  breakChance: 100
 --- !u!4 &1498847101
 Transform:
   m_ObjectHideFlags: 0

@@ -33,6 +33,17 @@ public class Interact : MonoBehaviour
                     heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
                 }
 
+                if (heatObject.GetComponent<Broken>())
+                {
+
+                    if (heatObject.GetComponent<Broken>().enabled)
+                    {
+                        interactText.gameObject.SetActive(false);
+                        LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
+                        heatObject.GetComponent<Broken>().enabled = false;
+                    }
+                }
+
             } 
         }
 

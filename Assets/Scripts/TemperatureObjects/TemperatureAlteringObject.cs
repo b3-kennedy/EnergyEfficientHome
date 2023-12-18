@@ -11,11 +11,22 @@ public class TemperatureAlteringObject : MonoBehaviour
     {
         if (other.GetComponent<Interact>())
         {
-            other.GetComponent<Interact>().interactText.gameObject.SetActive(true);
-            other.GetComponent<Interact>().interactText.text = "Press 'E' to Interact with " + objectName;
-            other.GetComponent<Interact>().inTrigger = true;
-            other.GetComponent<Interact>().heatObject = gameObject;
+            if (GetComponent<Broken>() && GetComponent<Broken>().enabled)
+            {
 
+                other.GetComponent<Interact>().interactText.gameObject.SetActive(true);
+                other.GetComponent<Interact>().interactText.text = "Press 'E' to Fix " + objectName + " This will cost £" + GetComponent<Broken>().fixCost.ToString();
+                other.GetComponent<Interact>().inTrigger = true;
+                other.GetComponent<Interact>().heatObject = gameObject;
+                
+            }
+            else
+            {
+                other.GetComponent<Interact>().interactText.gameObject.SetActive(true);
+                other.GetComponent<Interact>().interactText.text = "Press 'E' to Interact with " + objectName;
+                other.GetComponent<Interact>().inTrigger = true;
+                other.GetComponent<Interact>().heatObject = gameObject;
+            }
         }
     }
 
