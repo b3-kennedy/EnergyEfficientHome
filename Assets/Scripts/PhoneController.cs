@@ -1,4 +1,5 @@
 
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class PhoneController : MonoBehaviour
     public GameObject CheckoutPage;
     public Button backBtn;
     public Scrollbar scroll;
+
+    public ShopManager shopManager;
 
     private void OnEnable()
     {
@@ -76,6 +79,18 @@ public class PhoneController : MonoBehaviour
     }
     public void Back()
     {
+
+
+        
+      
+        
+        shopManager.DestroyCheckoutBasketList();
+
+        shopManager.Basket.Clear();
+        shopManager.totalAmountText.text = "total : " + shopManager.Basket.Count + " $";
+        shopManager.totalBasket.text = "total : " + shopManager.Basket.Count + " $";
+
+
         ToggleMenuAndIcon(0);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
