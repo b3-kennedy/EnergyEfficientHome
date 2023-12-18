@@ -65,7 +65,7 @@ public class ShopManager : MonoBehaviour
             basketList[i].transform.name = Basket[i].name;
             basketList[i].GetComponent<basketSummaryItem>().SetItemImage(Basket[i].itemImageT);
             basketList[i].GetComponent<basketSummaryItem>().SetItemInfo(Basket[i].itemPriceFloat, Basket[i].itemNameString);
-            basketList[i].GetComponent<basketSummaryItem>().removeBtn.onClick.AddListener(() => RemoveItemFromBasket(basketList[i]));
+            basketList[i].GetComponent<basketSummaryItem>().removeBtn.onClick.AddListener(() => Debug.Log(i));
             sum = sum + "\n" + Basket[i].itemNameString;
         }
         //basketSummary.text = sum;
@@ -122,7 +122,6 @@ public class ShopManager : MonoBehaviour
         }
         totalAmountText.text = "Total : " + total + " $";
         totalBasket.text = "Total : " + total + " $";
-        Debug.Log("current Basket is: " + total + " $");
 
 
     }

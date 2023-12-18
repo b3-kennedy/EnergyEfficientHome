@@ -24,7 +24,6 @@ public class TurnOnRadiator : StateMachineBehaviour
         {
             if (obj.GetComponent<Radiator>() && !obj.GetComponent<Radiator>().isOn)
             {
-                Debug.Log(agent.destination);
                 if (Vector3.Distance(animator.gameObject.transform.position, obj.transform.position) > 1)
                 {
                     agent.SetDestination(obj.transform.position);
