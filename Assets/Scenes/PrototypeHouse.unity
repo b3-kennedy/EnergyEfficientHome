@@ -15948,7 +15948,7 @@ MonoBehaviour:
   liveTemperature: 0
   returnToBaseMultiplier: 0
   heatingCost: 0
-  weatherManager: {fileID: 0}
+  weatherManager: {fileID: 922519328}
   adjacentRooms:
   - {fileID: 2078492843}
   - {fileID: 169351302}

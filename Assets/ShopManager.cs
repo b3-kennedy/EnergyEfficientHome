@@ -40,7 +40,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < itemInfo.Length; i++)
         {
             GameObject newItem = Instantiate(itemPrefab, MobilePhoneScreen.transform);
-            newItem.transform.name = itemNames[i];
+            newItem.transform.name = itemNames[i]+"-"+i;
 
             ShopItem shopItem = newItem.GetComponent<ShopItem>();
             shopItem.SetItemImage(itemImages[i]);
@@ -61,11 +61,12 @@ public class ShopManager : MonoBehaviour
         basketList = new GameObject[Basket.Count];
         for(int i = 0; i< Basket.Count; i++)
         {
+            int closureIndex = i;
             basketList[i] = Instantiate(basketItemPrefab, basketSummaryGO.transform);
             basketList[i].transform.name = Basket[i].name;
             basketList[i].GetComponent<basketSummaryItem>().SetItemImage(Basket[i].itemImageT);
             basketList[i].GetComponent<basketSummaryItem>().SetItemInfo(Basket[i].itemPriceFloat, Basket[i].itemNameString);
-            basketList[i].GetComponent<basketSummaryItem>().removeBtn.onClick.AddListener(() => Debug.Log(i));
+            basketList[i].GetComponent<basketSummaryItem>().removeBtn.onClick.AddListener(() => RemoveItemFromBasket(basketList[closureIndex]));
             sum = sum + "\n" + Basket[i].itemNameString;
         }
         //basketSummary.text = sum;
@@ -85,15 +86,22 @@ public class ShopManager : MonoBehaviour
             Headers.SetActive(false);
             CheckoutPage.SetActive(true);
             MobilePhoneScreen.SetActive(false);
-            CreateCheckoutBasketList();        }
+            CreateCheckoutBasketList();       
+        }
 
     }
-    public void RemoveItemFromBasket(GameObject basketItem)
+    public void RemoveItemFromBasket(GameObject item)
     {
-        Debug.Log("remove 1 "+basketItem.name+" from basket..");
-        //Basket.RemoveAll(item => item == basketItem);
+        
+
+        Debug.Log("remove 1 "+ item.name +" from basket..");
+        Basket.RemoveAll(basketItem => basketItem.itemNameString == item.name.Split('-')[0]);
+
+        GameObject.Destroy(item);
+        SetUpdatedTotalCostTexts();
+
     }
-    
+
 
     private void OnDisable()
     {
@@ -113,16 +121,21 @@ public class ShopManager : MonoBehaviour
     {
         Debug.Log("add item " + item.itemNameString + " to basket");
         Basket.Add(item);
+        SetUpdatedTotalCostTexts();
+
+    }
+    public void SetUpdatedTotalCostTexts()
+    {
 
         float total = 0;
         foreach (ShopItem shopItem in Basket)
         {
+            Debug.Log(total);
             total += shopItem.itemPriceFloat;
             //total = Mathf.RoundToInt(total * 100) / 100f;
         }
         totalAmountText.text = "Total : " + total + " $";
         totalBasket.text = "Total : " + total + " $";
-
 
     }
 
