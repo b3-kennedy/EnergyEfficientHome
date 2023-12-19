@@ -15,6 +15,10 @@ public class ManageEndStates : MonoBehaviour
     public Button settingBtn;
     public Button exitBtn;
 
+    public TMP_Text endGameReasonPrompt;
+    public TMP_Text endGameBudgetPrompt;
+    public TMP_Text[] endGameHintrompts;
+
     public float minComfyTemp = 5;
     public float maxComfyTemp = 45;
 

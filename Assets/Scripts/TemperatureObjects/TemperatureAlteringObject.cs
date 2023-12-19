@@ -12,9 +12,9 @@ public class TemperatureAlteringObject : MonoBehaviour
         if (other.GetComponent<Interact>())
         {
             interact = other.GetComponent<Interact>();
-            BrokenObject();
             Window();
             Radiator();
+            Jumper();
             interact.interactText.gameObject.SetActive(true);
             interact.inTrigger = true;
             interact.heatObject = gameObject;
@@ -25,25 +25,28 @@ public class TemperatureAlteringObject : MonoBehaviour
 
     public void UpdateText()
     {
-        BrokenObject();
         Window();
         Radiator();
+        Jumper();
     }
 
-    void BrokenObject()
+    void Jumper()
     {
-        if (GetComponent<Broken>() && GetComponent<Broken>().enabled)
+        if (GetComponent<Jumper>())
         {
-            interact.interactText.text = "Press 'E' to Fix " + objectName + " This will cost £" + GetComponent<Broken>().fixCost.ToString();
-        }
-        else
-        {
-            interact.interactText.text = "Press 'E' to Interact with " + objectName;
+            interact.interactText.text = "Press 'E' to Wear Jumper";
         }
     }
 
     void Radiator()
     {
+        if (GetComponent<Broken>() && GetComponent<Broken>().enabled)
+        {
+            interact.interactText.text = "Press 'E' to Fix " + objectName + " This will cost £" + GetComponent<Broken>().fixCost.ToString();
+            return;
+        }
+
+
         if (GetComponent<Radiator>() && GetComponent<Radiator>().isOn)
         {
             interact.interactText.text = "Press 'E' to Turn Radiator Off";
@@ -56,7 +59,14 @@ public class TemperatureAlteringObject : MonoBehaviour
 
     void Window()
     {
-        if(GetComponent<Window>() && GetComponent<Window>().isOn)
+        if (GetComponent<Broken>() && GetComponent<Broken>().enabled)
+        {
+            interact.interactText.text = "Press 'E' to Fix " + objectName + " This will cost £" + GetComponent<Broken>().fixCost.ToString();
+            return;
+        }
+
+
+        if (GetComponent<Window>() && GetComponent<Window>().isOn)
         {
             interact.interactText.text = "Press 'E' to Close Window";
         }
