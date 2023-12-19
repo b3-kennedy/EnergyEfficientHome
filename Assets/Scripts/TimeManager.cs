@@ -109,7 +109,6 @@ public class TimeManager : MonoBehaviour
         if (hour != newHour)
         {
             hourPassed.Invoke();
-            LevelManager.Instance.AddCost();
             newHour = hour;
         }
     }

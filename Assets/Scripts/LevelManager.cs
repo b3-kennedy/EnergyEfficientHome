@@ -1,4 +1,5 @@
 
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class LevelManager : MonoBehaviour
 
     public float breakChance;
 
+    public float maxTimeToBreak;
+
     private void Awake()
     {
         Instance = this;
@@ -28,6 +31,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         TimeManager.Instance.dayPassed.AddListener(Break);
+        TimeManager.Instance.hourPassed.AddListener(AddCost);
 
         foreach (Room room in rooms)
         {
@@ -53,7 +57,7 @@ public class LevelManager : MonoBehaviour
         int randomNum = Random.Range(0, 100);
         if(randomNum < breakChance)
         {
-            float breakTime = Random.Range(0, 60);
+            float breakTime = Random.Range(0, maxTimeToBreak);
             StartCoroutine(BreakAfterTime(breakTime));
         }
     }
@@ -80,9 +84,9 @@ public class LevelManager : MonoBehaviour
             {
                 if (item.GetComponent<Radiator>())
                 {
-                    if (item.GetComponent<Radiator>().isOn)
+                    if (item.GetComponent<Radiator>().timeActivated > 0)
                     {
-                        dailyCost += 1;
+                        dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
                     }
                 }
             }

@@ -144,6 +144,10 @@ MonoBehaviour:
   objectName: Radiator
   isOn: 0
   heatingRate: 50
+  timePassed: 0
+  timeActivated: 0
+  costToRun: 1
+  percentCost: 0
 --- !u!114 &2183673473304963354
 MonoBehaviour:
   m_ObjectHideFlags: 0

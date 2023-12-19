@@ -12328,6 +12328,7 @@ MonoBehaviour:
   dailyCost: 0
   tempObjects: []
   breakChance: 50
+  maxTimeToBreak: 30
 --- !u!4 &1498847101
 Transform:
   m_ObjectHideFlags: 0

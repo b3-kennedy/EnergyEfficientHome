@@ -43,6 +43,7 @@ public class Interact : MonoBehaviour
                         heatObject.GetComponent<Broken>().enabled = false;
                     }
                 }
+                heatObject.GetComponent<TemperatureAlteringObject>().UpdateText();
 
             } 
         }
