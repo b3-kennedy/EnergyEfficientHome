@@ -73,7 +73,7 @@ public class ShopManager : MonoBehaviour
     }
     public void DestroyCheckoutBasketList()
     {
-        for (int i = 0; i < Basket.Count; i++)
+        for (int i = 0; i < basketList.Length ; i++)
         {
             GameObject.Destroy(basketList[i],0.001f);
         }
