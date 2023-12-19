@@ -6195,26 +6195,31 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   itemImages:
   - {fileID: 2800000, guid: 6462434252708544d9b151dea7ec02b2, type: 3}
   - {fileID: 2800000, guid: 5b926b773b493084c93efee3250bb44b, type: 3}
   - {fileID: 2800000, guid: 210b15f6094998341b4f003ea6f34ba0, type: 3}
   - {fileID: 2800000, guid: 095e37585e880c04ba905d58850b92c3, type: 3}
+  - {fileID: 2800000, guid: 8ef2ad039cc037f468860baf1dce542d, type: 3}
   itemInfo:
   - jumper for cold days
   - Brand New Radiotor to decrease overall bill costs
   - Save up the heat and cool with these new marble panels.
   - step int the future with these noval alternative for your old boiler set.
+  - No more heat leakage
   itemNames:
   - christmas jumper
   - Radiator
   - PVC Ceiling Panel
   - Heat Pump
+  - Double Glaze
   itemPrices:
   - 12.99
   - 44.96
   - 19.99
   - 150
+  - 69.99
   Basket: []
   itemPrefab: {fileID: 6605855803878103817, guid: afb1f7ad719ddfc479f1ffeceaa5a35c, type: 3}
   MobilePhoneScreen: {fileID: 1521633665}
@@ -7862,7 +7867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7927,6 +7932,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
   m_PrefabInstance: {fileID: 873263009}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &873263011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243908159861742242, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
+  m_PrefabInstance: {fileID: 873263009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &880805617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 753038038243795197, guid: c0118078f34d6b34ea8d5afec2be7cff, type: 3}
@@ -8812,7 +8828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!111 &986546217
 Animation:
   m_ObjectHideFlags: 0
@@ -12959,6 +12975,12 @@ MonoBehaviour:
   restartBtn: {fileID: 1473492839}
   settingBtn: {fileID: 450074730}
   exitBtn: {fileID: 1126788240}
+  endGameReasonPrompt: {fileID: 1341603395}
+  endGameBudgetPrompt: {fileID: 20965563}
+  endGameHintrompts:
+  - {fileID: 7509560724160904485}
+  - {fileID: 873263011}
+  - {fileID: 2143696929}
   minComfyTemp: 9
   maxComfyTemp: 45
 --- !u!4 &1505686802 stripped
@@ -17045,6 +17067,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
   m_PrefabInstance: {fileID: 2143696927}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2143696929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243908159861742242, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
+  m_PrefabInstance: {fileID: 2143696927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1883036300512607575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17446,7 +17479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 147
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17498,6 +17531,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3009907106479381102, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
   m_PrefabInstance: {fileID: 7509560724160904483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7509560724160904485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243908159861742242, guid: 6d845757bdbb7044c888827a31980c18, type: 3}
+  m_PrefabInstance: {fileID: 7509560724160904483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7559705983885195084
 PrefabInstance:
   m_ObjectHideFlags: 0
