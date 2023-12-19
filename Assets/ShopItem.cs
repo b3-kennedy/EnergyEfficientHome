@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,13 +20,8 @@ public class ShopItem : MonoBehaviour
     public delegate void IsAddedToBasket(float price, string name, string des, Texture img);
     public static event IsAddedToBasket OnClickBuy;
 
-    public void AddItemToBasket()
-    {
-        //Debug.Log("add item "+itemName.text+" to basket");
-        //OnClickBuy?.Invoke(itemPriceFloat, itemNameString, itemDescriptionString, itemImageT);
+   
 
-
-    }
     public  void SetItemInfo(float price, string des, string name)
     {
         itemPrice.text = price + "$";
@@ -39,7 +32,6 @@ public class ShopItem : MonoBehaviour
         itemNameString = name;
         itemPriceFloat = price;
 
-        Debug.Log(itemNameString);
 
     }
     public  void SetItemImage(Texture img)
@@ -49,10 +41,7 @@ public class ShopItem : MonoBehaviour
         itemImageT = img;
     }
 
-    public static implicit operator ShopItem(GameObject v)
-    {
-        throw new NotImplementedException();
-    }
+  
 }
 
 

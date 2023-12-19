@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5874662881305039560}
   - component: {fileID: 4465074856302628249}
   - component: {fileID: -823209461589841921}
+  - component: {fileID: 2183673473304963354}
   m_Layer: 0
   m_Name: Radiator
   m_TagString: Untagged
@@ -143,3 +144,29 @@ MonoBehaviour:
   objectName: Radiator
   isOn: 0
   heatingRate: 50
+  timePassed: 0
+  timeActivated: 0
+  costToRun: 1
+  percentCost: 0
+--- !u!114 &2183673473304963354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091173191628551949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824c060c960f8df43bee626215712e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenIndicator: {fileID: 4752269801289164636, guid: b71579d48d6e57645831976bdfc89323, type: 3}
+  yHeight: 1.5
+  enable:
+    m_PersistentCalls:
+      m_Calls: []
+  disable:
+    m_PersistentCalls:
+      m_Calls: []
+  scriptToDisable: {fileID: -823209461589841921}
+  fixCost: 50

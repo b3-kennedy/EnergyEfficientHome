@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,52 +15,101 @@ public class PhoneController : MonoBehaviour
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
 
+    public GameObject Headers;
+    public GameObject BackIconObject;
+    public GameObject CheckoutPage;
+    public Button backBtn;
+    public Scrollbar scroll;
+
+    public ShopManager shopManager;
+
     private void OnEnable()
     {
         shopButton.onClick.AddListener(ActivateShopTab);
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
+
+        backBtn.onClick.AddListener(Back);
+
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            phoneGameObject.SetActive(true);
+        }
+        else if (Input.GetKey(KeyCode.Escape))
+        {
+            phoneGameObject.SetActive(false);
+        }
+
+
     }
     private void OnDisable()
     {
         shopButton.onClick.RemoveAllListeners();
         moneyButton.onClick.RemoveAllListeners();
         temperatureButton.onClick.RemoveAllListeners();
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            phoneGameObject.SetActive(true);
 
-        }
+        backBtn.onClick.RemoveAllListeners();
     }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            phoneGameObject.SetActive(false);
-
-        }
-    }
+   
     public void ActivateShopTab()
-    {   
-        shopListObj.SetActive(true);    
+    {
+        ToggleMenuAndIcon(1);
+        shopListObj.SetActive(true);
         moneyListObj.SetActive(false);
-        temperatureListObj.SetActive(false);    
+        temperatureListObj.SetActive(false);
 
     }
     public void ActivateMoneyTab()
     {
-        moneyListObj.SetActive(true) ;  
-        temperatureListObj.SetActive(false) ;
-        shopListObj.SetActive(false) ;
+        ToggleMenuAndIcon(1);
+        moneyListObj.SetActive(true);
+        temperatureListObj.SetActive(false);
+        shopListObj.SetActive(false);
 
     }
     public void ActivateTemperatureTab()
     {
+        ToggleMenuAndIcon(1);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
+    }
+    public void Back()
+    {
+
+
+        
+      
+        
+        shopManager.DestroyCheckoutBasketList();
+
+        shopManager.Basket.Clear();
+        shopManager.totalAmountText.text = "total : " + shopManager.Basket.Count + " $";
+        shopManager.totalBasket.text = "total : " + shopManager.Basket.Count + " $";
+
+
+        ToggleMenuAndIcon(0);
+        moneyListObj.SetActive(false);
+        temperatureListObj.SetActive(false);
+        shopListObj.SetActive(false);
+        CheckoutPage.SetActive(false);
+        scroll.value = 1;
+    }
+    public void ToggleMenuAndIcon(int i)
+    {
+        if (i == 0)
+        {
+            Headers.SetActive(true);
+            BackIconObject.SetActive(false);
+
+        }
+        else if (i == 1)
+        {
+            Headers.SetActive(false);
+            BackIconObject.SetActive(true);
+        }
     }
 }

@@ -1,14 +1,15 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Window : RoomTempChanger
 {
-    float baseHeatingRate;
+    float normalHeatingRate;
 
     private void Start()
     {
-        baseHeatingRate = heatingRate;
+        normalHeatingRate = heatingRate;
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class Window : RoomTempChanger
         }
         else
         {
-            heatingRate = baseHeatingRate;
+            heatingRate = normalHeatingRate;
         }
     }
 }

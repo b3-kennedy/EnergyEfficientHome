@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class TimeManager : MonoBehaviour
 {
@@ -53,6 +54,12 @@ public class TimeManager : MonoBehaviour
 
     bool newDay;
 
+    [HideInInspector]
+    public UnityEvent hourPassed;
+
+    [HideInInspector]
+    public UnityEvent dayPassed;
+
 
 
     private void Awake()
@@ -101,7 +108,7 @@ public class TimeManager : MonoBehaviour
 
         if (hour != newHour)
         {
-            LevelManager.Instance.AddCost();
+            hourPassed.Invoke();
             newHour = hour;
         }
     }
@@ -114,6 +121,7 @@ public class TimeManager : MonoBehaviour
             if (!newDay)
             {
                 LevelManager.Instance.OnNewDay();
+                dayPassed.Invoke();
                 newDay = true;
             }
 

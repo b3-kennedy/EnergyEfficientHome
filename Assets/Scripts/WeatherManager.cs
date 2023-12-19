@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class WeatherManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class WeatherManager : MonoBehaviour
 
     public TMP_Text weatherText;
     public TMP_Text weatherSummaryText;
+
+    public GameObject snowyIcon;
+    public GameObject rainyIcon;
+    public GameObject cloudyIcon;
     public enum WeatherStatus  { rainy = 0,snowy= 1, clear=2 , Stormy =3};
     private void Start()
     {
@@ -55,15 +60,27 @@ public class WeatherManager : MonoBehaviour
         {
             case 0:
                 weatherSummaryText.text = "Rainy";
+                rainyIcon.SetActive(true);
+                snowyIcon.SetActive(false);
+                cloudyIcon.SetActive(false);
                 break;
             case 1:
                 weatherSummaryText.text = "Snowy";
+                rainyIcon.SetActive(false);
+                snowyIcon.SetActive(true);
+                cloudyIcon.SetActive(false);
                 break;
             case 2:
                 weatherSummaryText.text = "Cloudy";
+                rainyIcon.SetActive(false);
+                snowyIcon.SetActive(false);
+                cloudyIcon.SetActive(true);
                 break;
             case 3:
                 weatherSummaryText.text = "Stormy";
+                rainyIcon.SetActive(false);
+                snowyIcon.SetActive(false);
+                cloudyIcon.SetActive(false);
                 break;
         }
        
