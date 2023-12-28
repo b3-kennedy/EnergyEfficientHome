@@ -11,9 +11,13 @@ public class Room : MonoBehaviour
     public float liveTemperature;
     public float returnToBaseMultiplier;
 
+    float maxTemperature;
+
     public float heatingCost;
 
     public GameObject weatherManager;
+
+    RoomThermostat thermostat;
 
 
     // Start is called before the first frame update
@@ -22,6 +26,7 @@ public class Room : MonoBehaviour
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        thermostat = GetComponentInChildren<RoomThermostat>();
         
     }
 
@@ -42,6 +47,14 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(thermostat != null)
+        {
+            maxTemperature = thermostat.targetTemp;
+            liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
+        }
+        
+
+        
 
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
 

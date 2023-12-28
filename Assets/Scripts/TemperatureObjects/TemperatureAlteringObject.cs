@@ -15,6 +15,7 @@ public class TemperatureAlteringObject : MonoBehaviour
             Window();
             Radiator();
             Jumper();
+            RoomThermostat();
             interact.interactText.gameObject.SetActive(true);
             interact.inTrigger = true;
             interact.heatObject = gameObject;
@@ -28,6 +29,15 @@ public class TemperatureAlteringObject : MonoBehaviour
         Window();
         Radiator();
         Jumper();
+        RoomThermostat();
+    }
+
+    void RoomThermostat()
+    {
+        if (GetComponent<RoomThermostat>())
+        {
+            interact.interactText.text = "Press 'E' to Interact With Thermostat";
+        }
     }
 
     void Jumper()
