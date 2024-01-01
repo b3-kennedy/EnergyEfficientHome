@@ -99,12 +99,21 @@ public class Room : MonoBehaviour
             var temp = other.GetComponent<CharacterTemperature>();
             var anim = other.GetComponent<Animator>();
 
-            
 
-            if(temp.liveTemp < temp.minComfortableTemp)
-            {
-                anim.SetTrigger("RadiatorOn");
-            }
+            //foreach (var item in objects)
+            //{
+            //    if(item.GetComponent<Radiator>().isOn && temp.liveTemp < temp.minComfortableTemp)
+            //    {
+            //        other.GetComponent<AIMove>().radiators = true;
+            //    }
+            //    else
+            //    {
+            //        other.GetComponent<AIMove>().radiators = false;
+            //    }
+            //}
+            //anim.SetBool("EnteredRoom", true);
         }
     }
+
+    
 }

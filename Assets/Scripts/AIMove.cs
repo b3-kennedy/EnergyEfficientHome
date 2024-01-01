@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AIMove : MonoBehaviour
 {
 
-    NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
     public Transform target;
     CharacterTemperature characterTemp;
     public Room currentRoom;
@@ -15,10 +15,6 @@ public class AIMove : MonoBehaviour
     public Room bedRoom;
     public Room kitchen;
     public Room livingRoom;
-
-    public enum State {IDLE, TOO_HOT, TOO_COLD };
-    public State state;
-    bool stateChange;
 
     public float entertainment = 100;
     public float hunger = 100;
@@ -29,6 +25,8 @@ public class AIMove : MonoBehaviour
     public bool entertain;
     public bool sleep;
     public bool eat;
+
+    [HideInInspector] public bool radiators;
 
     public float hungerMultiplier;
     public float tirednessMultiplier;
@@ -45,124 +43,35 @@ public class AIMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!sleep)
-        {
-            tiredness -= Time.deltaTime * tirednessMultiplier;
-            anim.SetFloat("Tiredness", tiredness);
-        }
-
-        if (!entertain)
-        {
-            entertainment -= Time.deltaTime * entertainmentMultiplier;
-            anim.SetFloat("Entertainment", entertainment);
-        }
-
-        if (!eat)
-        {
-            hunger -= Time.deltaTime * hungerMultiplier;
-            anim.SetFloat("Hunger", hunger);
-
-        }
         
-        
-        
-
-
-        
-
-
-
-
-
-        if(characterTemp.liveTemp > characterTemp.maxComfortableTemp)
-        {
-            state = State.TOO_HOT;
-        }
-        else if(characterTemp.liveTemp < characterTemp.minComfortableTemp)
-        {
-            state = State.TOO_COLD;
-        }
-        else
-        {
-            state = State.IDLE;
-        }
-
-
-        //if(currentRoom != null)
-        //{
-        //    if(state == State.IDLE)
-        //    {
-        //        Idle();
-        //    }
-        //    else if(state == State.TOO_HOT)
-        //    {
-        //        TurnOffRadiator();
-        //    }
-        //    else if(state == State.TOO_COLD)
-        //    {
-        //        TurnOnRadiator();
-        //    }
-        //}
-
-        
-
     }
 
 
-    void Idle()
+    public bool TurnOnRadiator()
     {
-
-
-        if(currentRoom != null)
+        agent.SetDestination(target.position);
+        if(Vector3.Distance(transform.position, target.transform.position) <= 1.5f)
         {
-            agent.SetDestination(new Vector3(currentRoom.transform.position.x, transform.position.y, currentRoom.transform.position.z));
+            if (target.GetComponent<Radiator>())
+            {
+                target.GetComponent<Radiator>().isOn = true;
+                return target.GetComponent<Radiator>().isOn;
+            }
+            
+            
         }
+        return false;
+        
     }
 
+    public void MoveToActivity()
+    {
+        agent.SetDestination(target.position);
 
-    //void TurnOffRadiator()
-    //{
+    }
 
-
-    //    foreach (var obj in currentRoom.objects)
-    //    {
-    //        if (obj.GetComponent<Radiator>() && obj.GetComponent<Radiator>().isOn)
-    //        {
-    //            if (Vector3.Distance(transform.position, obj.transform.position) > 1)
-    //            {
-    //                agent.SetDestination(obj.transform.position);
-    //            }
-    //            else
-    //            {
-    //                obj.GetComponent<Radiator>().isOn = false;
-    //            }
-    //        }
-    //    }
-            
-        
-    //}
-
-    //void TurnOnRadiator()
-    //{
-
-
-    //    //turn radiator on
-    //    foreach (var obj in currentRoom.objects)
-    //    {
-    //        if (obj.GetComponent<Radiator>() && !obj.GetComponent<Radiator>().isOn)
-    //        {
-    //            if (Vector3.Distance(transform.position, obj.transform.position) > 1)
-    //            {
-    //                agent.SetDestination(obj.transform.position);
-    //            }
-    //            else
-    //            {
-    //                obj.GetComponent<Radiator>().isOn = true;
-    //            }
-    //        }
-
-    //    }
-
-
-    //}
+    public void MoveRooms()
+    {
+        agent.SetDestination(target.position);
+    }
 }

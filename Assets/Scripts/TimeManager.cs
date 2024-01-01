@@ -87,6 +87,20 @@ public class TimeManager : MonoBehaviour
         CalculateHourPassed();
     }
 
+    public float GetCurrentFloatTime()
+    {
+        string hour = currentTime.ToString("HH");
+        string minutes = currentTime.ToString("mm");
+
+        string time = hour + minutes;
+
+        float floatTime = float.Parse(time);
+
+        return floatTime;
+
+
+    }
+
     private void UpdateTimeOfDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);

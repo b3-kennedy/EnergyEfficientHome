@@ -4245,12 +4245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15d796c51cf06f4091c3767c2264dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 557232085}
+  agent: {fileID: 0}
+  target: {fileID: 0}
   currentRoom: {fileID: 0}
   bedRoom: {fileID: 169351302}
   kitchen: {fileID: 457159725}
   livingRoom: {fileID: 1877684333}
-  state: 1
   entertainment: 100
   hunger: 100
   tiredness: 100
@@ -4364,7 +4364,7 @@ Transform:
   m_GameObject: {fileID: 432047457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.03, y: 0.94, z: -3.44}
+  m_LocalPosition: {x: 5.24, y: 0.94, z: -3.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5298,7 +5298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5728,7 +5728,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c791a03984365d842a8e8a1c486a1c11, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1 &572446187
 GameObject:
@@ -13406,6 +13406,8 @@ MonoBehaviour:
   dailyCost: 0
   tempObjects: []
   breakChance: 50
+  daysInLevel: 0
+  maxDaysInLevel: 7
   maxTimeToBreak: 30
 --- !u!4 &1498847101
 Transform:
@@ -16267,7 +16269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -823209461589841921, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalPosition.x
