@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float sensitivity = 2.0f; // Adjust the rotation sensitivity.
-    public float verticalRotationLimit = 80.0f; // Set the maximum vertical rotation angle.
-    public float horizontalRotationLimit = 90.0f; // Set the maximum horizontal rotation angle.
+    public float sensitivity = 10.0f; 
+    public float verticalRotationLimit = 715.0f; 
 
     private float rotationX = 0.0f;
     private bool onPhone = false;
@@ -21,17 +20,17 @@ public class CameraController : MonoBehaviour
         {
             float horizontalMouseMovement = Input.GetAxisRaw("Mouse X");
             float verticalMouseMovement = -Input.GetAxisRaw("Mouse Y");
+           
+                transform.Rotate(Vector3.up * horizontalMouseMovement * sensitivity, Space.World);
 
-            transform.Rotate(Vector3.up * horizontalMouseMovement * sensitivity, Space.World);
+                rotationX += verticalMouseMovement * sensitivity;
+                rotationX = Mathf.Clamp(rotationX, -verticalRotationLimit, verticalRotationLimit);
+                transform.parent.Rotate(Vector3.up * horizontalMouseMovement * sensitivity, Space.World);
 
-            rotationX += verticalMouseMovement * sensitivity;
-            rotationX = Mathf.Clamp(rotationX, -verticalRotationLimit, verticalRotationLimit);
-            transform.parent.Rotate(Vector3.up * horizontalMouseMovement * sensitivity, Space.World);
-
-            transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-
-            float rotationY = transform.parent.localRotation.eulerAngles.y;
-            transform.parent.localRotation = Quaternion.Euler(0, rotationY, 0);
+                transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            
+          
+               
         }
         
        
