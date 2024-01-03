@@ -6924,8 +6924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlider: {fileID: 995008228}
-  secondSlider: {fileID: 616612525}
 --- !u!114 &616612525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11564,8 +11562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlider: {fileID: 559831180}
-  secondSlider: {fileID: 1037047495}
 --- !u!114 &1037047495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13959,9 +13955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6dd67331ac9414893a595c5979b407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 20
-  verticalRotationLimit: 80
-  horizontalRotationLimit: 90
+  sensitivity: 2
+  verticalRotationLimit: 15
+  horizontalRotationLimit: 15
 --- !u!4 &1278292249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5152956577970951854, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
@@ -17557,8 +17553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlider: {fileID: 2081989022}
-  secondSlider: {fileID: 1684582336}
 --- !u!114 &1684582336
 MonoBehaviour:
   m_ObjectHideFlags: 0
