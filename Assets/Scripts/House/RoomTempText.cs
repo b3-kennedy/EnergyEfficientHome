@@ -18,6 +18,6 @@ public class RoomTempText : MonoBehaviour
     void Update()
     {
         float roundedTemp = Maths.RoundTo2DP(transform.parent.GetComponent<Room>().liveTemperature);
-        txt.text = roundedTemp + " " + UIManager.Instance.degrees;
+        txt.text = roundedTemp.ToString().Split('.')[0] + " " + UIManager.Instance.degrees;
     }
 }

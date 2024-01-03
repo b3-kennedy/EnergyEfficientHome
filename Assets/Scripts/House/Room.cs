@@ -13,12 +13,15 @@ public class Room : MonoBehaviour
 
     public float heatingCost;
 
+    public GameObject weatherManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
+        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
         
     }
 
@@ -39,7 +42,10 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(liveTemperature > baseTemperature)
+
+        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+
+        if (liveTemperature > baseTemperature)
         {
             liveTemperature -= (returnToBaseMultiplier/totalArea) * Time.deltaTime;
         }
