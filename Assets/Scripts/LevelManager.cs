@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class LevelManager : MonoBehaviour
 
     public float maxTimeToBreak;
 
+    public CharacterTemperature[] characters;
+
+    public float comfortScore;
+
+    public float moneySavedScore;
+
     private void Awake()
     {
         Instance = this;
@@ -34,6 +41,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         TimeManager.Instance.dayPassed.AddListener(Break);
         TimeManager.Instance.dayPassed.AddListener(CountDays);
         TimeManager.Instance.hourPassed.AddListener(AddCost);
@@ -53,7 +61,26 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalculateComfortScore();
+    }
 
+    void CalculateComfortScore()
+    {
+        if(daysInLevel < 7)
+        {
+            foreach (var character in characters)
+            {
+                if (character.isComfortable)
+                {
+                    comfortScore += Time.deltaTime;
+                }
+            }
+        }
+    }
+
+    void CalculateMoneySavedScore()
+    {
+        moneySavedScore = budget * 5;
     }
 
     void CountDays()
@@ -61,8 +88,17 @@ public class LevelManager : MonoBehaviour
         daysInLevel++;
         if(daysInLevel >= maxDaysInLevel)
         {
-            Debug.Log("end level");
+            CalculateMoneySavedScore();
+
+            float totalScore = Mathf.Round(comfortScore + moneySavedScore);
+            UIManager.Instance.completeLevelUI.SetActive(true);
+            UIManager.Instance.scoreText.text = "Score: " + totalScore.ToString();
         }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void Break()

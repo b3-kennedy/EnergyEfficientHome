@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
     public Slider tirednessSlider;
     public Slider boredomSlider;
 
+    [Header("Level Complete UI")]
+    public GameObject completeLevelUI;
+    public TextMeshProUGUI scoreText;
+
 
     private void Awake()
     {
