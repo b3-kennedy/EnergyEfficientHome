@@ -21,10 +21,14 @@ public class PhoneController : MonoBehaviour
     public Button backBtn;
     public Scrollbar scroll;
 
+    public AudioSource pickUpAudio;
+
     public ShopManager shopManager;
 
     private void OnEnable()
     {
+
+       
         shopButton.onClick.AddListener(ActivateShopTab);
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
@@ -36,10 +40,12 @@ public class PhoneController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.F))
         {
+            pickUpAudio.Play();
             phoneGameObject.SetActive(true);
         }
         else if (Input.GetKey(KeyCode.Escape))
         {
+            pickUpAudio.Play();
             phoneGameObject.SetActive(false);
         }
 
