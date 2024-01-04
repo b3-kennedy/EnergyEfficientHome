@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2025,7 +2025,7 @@ Transform:
   - {fileID: 371633725}
   - {fileID: 1192445155}
   - {fileID: 1644718327}
-  - {fileID: 636680193}
+  - {fileID: 510631445}
   m_Father: {fileID: 107165771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &169351304
@@ -5067,6 +5067,7 @@ MonoBehaviour:
   entertain: 0
   sleep: 0
   eat: 0
+  radiators: 0
   hungerMultiplier: 3
   tirednessMultiplier: 2
   entertainmentMultiplier: 1
@@ -5570,6 +5571,7 @@ Transform:
   - {fileID: 1527618758}
   - {fileID: 149199328}
   - {fileID: 1721429806}
+  - {fileID: 116872600}
   m_Father: {fileID: 107165771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459285406
@@ -6192,6 +6194,11 @@ Transform:
   - {fileID: 14934140}
   m_Father: {fileID: 107165771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &510631445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+  m_PrefabInstance: {fileID: 362280311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512053061
 GameObject:
   m_ObjectHideFlags: 0
@@ -6267,8 +6274,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 917512698}
+  m_Children: []
   m_Father: {fileID: 1037047493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6745,7 +6751,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a07c41ab61cd8ce479962a5eb3637fca, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &572446187
 GameObject:
@@ -7115,6 +7121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSlider: {fileID: 0}
+  secondSlider: {fileID: 0}
 --- !u!114 &616612525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8483,8 +8491,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 906793170}
+  m_Children: []
   m_Father: {fileID: 1684582334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
@@ -11546,6 +11553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSlider: {fileID: 0}
+  secondSlider: {fileID: 0}
 --- !u!114 &1037047495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13829,11 +13838,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8128322320853617336, guid: 509ac6312e62e5743ae96298947599f7, type: 3}
   m_PrefabInstance: {fileID: 1024524115}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1251477237 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4387646995271922, guid: 3d51d280e33c5fe4c97ae593c2292997, type: 3}
-  m_PrefabInstance: {fileID: 910660093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253360623
 GameObject:
   m_ObjectHideFlags: 0
@@ -15501,6 +15505,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81c4db3f3b5045c4b934166c2133cbd1, type: 3}
   m_PrefabInstance: {fileID: 61241980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1451303483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+  m_PrefabInstance: {fileID: 187709060}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1459562249
 GameObject:
@@ -17539,6 +17548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011aedef8e26a874395437efacdb87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSlider: {fileID: 0}
+  secondSlider: {fileID: 0}
 --- !u!114 &1684582336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18658,7 +18669,7 @@ Transform:
   - {fileID: 355892390}
   - {fileID: 2094573781}
   - {fileID: 1069332961}
-  - {fileID: 914775546}
+  - {fileID: 1451303483}
   m_Father: {fileID: 107165771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1877684335
@@ -20817,6 +20828,10 @@ Transform:
   - {fileID: 398037158}
   - {fileID: 1217920017}
   - {fileID: 557232085}
+  - {fileID: 229662132}
+  - {fileID: 1801661244}
+  - {fileID: 2143883118}
+  - {fileID: 1446037953}
   m_Father: {fileID: 107165771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2078492845
