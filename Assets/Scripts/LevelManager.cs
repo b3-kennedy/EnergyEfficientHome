@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
 
     public float breakChance;
 
+    public int daysInLevel;
+
+    public int maxDaysInLevel;
+
     public float maxTimeToBreak;
 
     private void Awake()
@@ -31,6 +35,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         TimeManager.Instance.dayPassed.AddListener(Break);
+        TimeManager.Instance.dayPassed.AddListener(CountDays);
         TimeManager.Instance.hourPassed.AddListener(AddCost);
 
         foreach (Room room in rooms)
@@ -49,6 +54,15 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void CountDays()
+    {
+        daysInLevel++;
+        if(daysInLevel >= maxDaysInLevel)
+        {
+            Debug.Log("end level");
+        }
     }
 
     void Break()
