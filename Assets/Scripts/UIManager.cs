@@ -23,6 +23,11 @@ public class UIManager : MonoBehaviour
     public Slider tirednessSlider;
     public Slider boredomSlider;
 
+
+    [Header("Notification UI")]
+    public Transform notificationCanvas;
+    public TextMeshProUGUI notification;
+
     [Header("Level Complete UI")]
     public GameObject completeLevelUI;
     public TextMeshProUGUI scoreText;
@@ -38,6 +43,12 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void DisplayNotification(string text)
+    {
+        TextMeshProUGUI noti = Instantiate(notification, notificationCanvas);
+        noti.text = text;
     }
 
     // Update is called once per frame

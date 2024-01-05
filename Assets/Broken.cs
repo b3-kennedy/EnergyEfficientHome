@@ -19,6 +19,7 @@ public class Broken : MonoBehaviour
     {
         indicator = Instantiate(brokenIndicator, new Vector3(transform.position.x, transform.position.y + yHeight, transform.position.z), Quaternion.identity);
         enable.Invoke();
+        UIManager.Instance.DisplayNotification(("A " + GetComponent<RoomTempChanger>().objectName + " HAS BROKEN IN THE " + transform.parent.name).ToUpper());
         scriptToDisable.enabled = false;
     }
 
