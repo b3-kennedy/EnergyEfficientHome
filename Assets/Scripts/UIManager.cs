@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     [Header("Level Complete UI")]
     public GameObject completeLevelUI;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI moneySaved;
 
 
     private void Awake()
