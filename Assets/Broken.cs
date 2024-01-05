@@ -20,7 +20,17 @@ public class Broken : MonoBehaviour
         indicator = Instantiate(brokenIndicator, new Vector3(transform.position.x, transform.position.y + yHeight, transform.position.z), Quaternion.identity);
         enable.Invoke();
         UIManager.Instance.DisplayNotification(("A " + GetComponent<RoomTempChanger>().objectName + " HAS BROKEN IN THE " + transform.parent.name).ToUpper());
-        scriptToDisable.enabled = false;
+        if (GetComponent<Radiator>())
+        {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.radiatorBreakSound, transform.position);
+            scriptToDisable.enabled = false;
+        }
+        else if(GetComponent<Window>())
+        {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.windowSmash, transform.position);
+            GetComponent<Window>().isOn = true;
+        }
+        
     }
 
     private void OnDisable()

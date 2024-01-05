@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Window
   isOn: 0
-  heatingRate: -5
+  heatingRate: -60
 --- !u!114 &-6255072599596871160
 MonoBehaviour:
   m_ObjectHideFlags: 0
