@@ -52,17 +52,17 @@ public class Room : MonoBehaviour
         {
             if (LevelManager.Instance.doubleGlazing)
             {
-                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f;
+                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * TimeManager.Instance.timeControlMultiplier;
             }
             else
             {
-                liveTemperature -= (returnToBaseMultiplier / totalArea) * Time.deltaTime;
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier;
             }
             
         }
         else if (liveTemperature < baseTemperature)
         {
-            liveTemperature += (returnToBaseMultiplier / totalArea) * Time.deltaTime;
+            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier;
         }
     }
 
