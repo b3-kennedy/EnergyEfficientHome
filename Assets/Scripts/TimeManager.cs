@@ -60,6 +60,8 @@ public class TimeManager : MonoBehaviour
     [HideInInspector]
     public UnityEvent dayPassed;
 
+    public int timeControlMultiplier = 1;
+
 
 
     private void Awake()
@@ -103,7 +105,9 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimeOfDay()
     {
-        currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
+        timeControlMultiplier = Mathf.Clamp(timeControlMultiplier,1, 8);
+
+        currentTime = currentTime.AddSeconds((Time.deltaTime * timeMultiplier) * timeControlMultiplier);
        
 
         if (UIManager.Instance.timeText != null)

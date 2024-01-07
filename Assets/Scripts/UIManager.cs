@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI moneySaved;
 
+    [Header("Time Control UI")]
+    public TextMeshProUGUI timeControlMultiplierText;
+
 
     private void Awake()
     {
@@ -44,6 +47,26 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void IncreaseTimeControlMultiplier()
+    {
+        if(TimeManager.Instance.timeControlMultiplier < 8)
+        {
+            TimeManager.Instance.timeControlMultiplier *= 2;
+            timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
+        }
+
+    }
+
+    public void DecreaseTimeControlMultiplier()
+    {
+        if(TimeManager.Instance.timeControlMultiplier > 1)
+        {
+            TimeManager.Instance.timeControlMultiplier /= 2;
+            timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
+        }
+
     }
 
     public void DisplayNotification(string text)

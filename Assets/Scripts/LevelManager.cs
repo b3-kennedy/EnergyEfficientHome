@@ -33,6 +33,10 @@ public class LevelManager : MonoBehaviour
 
     public float moneySavedScore;
 
+    [Header("House Upgrades")]
+    public bool doubleGlazing;
+    public bool heatPump;
+
     private void Awake()
     {
         Instance = this;
@@ -138,7 +142,15 @@ public class LevelManager : MonoBehaviour
                 {
                     if (item.GetComponent<Radiator>().timeActivated > 0)
                     {
-                        dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                        if (heatPump)
+                        {
+                            dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                        }
+                        else
+                        {
+                            dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                        }
+                        
                     }
                 }
             }

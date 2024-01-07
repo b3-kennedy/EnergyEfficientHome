@@ -44,6 +44,28 @@ public class Room : MonoBehaviour
         }
     }
 
+    void ReturnToBaseTemp()
+    {
+        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+
+        if (liveTemperature > baseTemperature)
+        {
+            if (LevelManager.Instance.doubleGlazing)
+            {
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f;
+            }
+            else
+            {
+                liveTemperature -= (returnToBaseMultiplier / totalArea) * Time.deltaTime;
+            }
+            
+        }
+        else if (liveTemperature < baseTemperature)
+        {
+            liveTemperature += (returnToBaseMultiplier / totalArea) * Time.deltaTime;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,20 +74,11 @@ public class Room : MonoBehaviour
             maxTemperature = thermostat.targetTemp;
             liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
         }
-        
 
-        
 
-        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        ReturnToBaseTemp();
 
-        if (liveTemperature > baseTemperature)
-        {
-            liveTemperature -= (returnToBaseMultiplier/totalArea) * Time.deltaTime;
-        }
-        else if(liveTemperature < baseTemperature) 
-        {
-            liveTemperature += (returnToBaseMultiplier / totalArea) * Time.deltaTime;
-        }
+
 
 
         foreach(var heater in objects) 
