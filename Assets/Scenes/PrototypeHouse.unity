@@ -19706,9 +19706,10 @@ MonoBehaviour:
   boredomSlider: {fileID: 995008228}
   notificationCanvas: {fileID: 1672874325}
   notification: {fileID: 1188433129263762174, guid: ce1041405d4389249a92174d2b9df391, type: 3}
-  completeLevelUI: {fileID: 202735806}
+  completeLevelUI: {fileID: 1342044349}
   scoreText: {fileID: 944378679}
   moneySaved: {fileID: 1297770874}
+  timeControlCanvas: {fileID: 720976309}
   timeControlMultiplierText: {fileID: 865059755}
 --- !u!4 &1772892927
 Transform:
@@ -24136,6 +24137,26 @@ PrefabInstance:
     - target: {fileID: 284879944545186793, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4292729565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 1967372462960784792, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_fontStyle

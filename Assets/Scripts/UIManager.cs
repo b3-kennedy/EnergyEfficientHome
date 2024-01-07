@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI moneySaved;
 
     [Header("Time Control UI")]
+    public GameObject timeControlCanvas;
     public TextMeshProUGUI timeControlMultiplierText;
 
 
@@ -47,6 +48,16 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void HideTimeControlUI()
+    {
+        timeControlCanvas.SetActive(false);
+    }
+
+    public void ShowTimeControlUI()
+    {
+        timeControlCanvas.SetActive(true);
     }
 
     public void IncreaseTimeControlMultiplier()
