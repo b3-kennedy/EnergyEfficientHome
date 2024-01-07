@@ -61,6 +61,8 @@ public class TimeManager : MonoBehaviour
     public UnityEvent dayPassed;
 
 
+    public int dayCounter = 0;
+
 
     private void Awake()
     {
@@ -122,6 +124,7 @@ public class TimeManager : MonoBehaviour
             {
                 LevelManager.Instance.OnNewDay();
                 dayPassed.Invoke();
+                dayCounter++;
                 newDay = true;
             }
 
