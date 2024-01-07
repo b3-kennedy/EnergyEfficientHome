@@ -52,17 +52,17 @@ public class Room : MonoBehaviour
         {
             if (LevelManager.Instance.doubleGlazing)
             {
-                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * TimeManager.Instance.timeControlMultiplier;
+                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
             }
             else
             {
-                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier;
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
             }
             
         }
         else if (liveTemperature < baseTemperature)
         {
-            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier;
+            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
         }
     }
 
@@ -85,7 +85,7 @@ public class Room : MonoBehaviour
         {
             if (heater.isOn)
             {
-                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime;
+                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime * (TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100));
             }
         }
     }
