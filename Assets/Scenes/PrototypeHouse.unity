@@ -5382,8 +5382,8 @@ MonoBehaviour:
   baseTemp: 0
   temp: 0
   liveTemp: 0
-  minComfortableTemp: 15
-  maxComfortableTemp: 18
+  minComfortableTemp: 12
+  maxComfortableTemp: 25
   blue: {fileID: 2100000, guid: 6f09bb05742fc434eb6dc0588ea1b6b5, type: 2}
   red: {fileID: 2100000, guid: ae45943289fd8374890c7dd16d379354, type: 2}
   isComfortable: 0
@@ -7311,8 +7311,8 @@ MonoBehaviour:
   baseTemp: 0
   temp: 0
   liveTemp: 0
-  minComfortableTemp: 15
-  maxComfortableTemp: 18
+  minComfortableTemp: 12
+  maxComfortableTemp: 25
   blue: {fileID: 2100000, guid: 6f09bb05742fc434eb6dc0588ea1b6b5, type: 2}
   red: {fileID: 2100000, guid: ae45943289fd8374890c7dd16d379354, type: 2}
   isComfortable: 0
@@ -25069,6 +25069,26 @@ PrefabInstance:
     - target: {fileID: 434948725150041604, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526082564903530627, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.3756104
+      objectReference: {fileID: 0}
+    - target: {fileID: 526082564903530627, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.55166626
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020545883712875137, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.0755005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317978471209059389, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.3826904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317978471209059389, guid: 67d17b39b04d8f843807a9b8ccb09270, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.277008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -49,6 +49,11 @@ public class OnRoomEnter : StateMachineBehaviour
             animator.SetBool("StartRoomActivity", true);
         }
 
+        if (temp.isComfortable)
+        {
+            animator.SetBool("StartRoomActivity", true);
+        }
+
         timer += Time.deltaTime;
         if (timer >= 10)
         {
