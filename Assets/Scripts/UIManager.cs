@@ -51,9 +51,10 @@ public class UIManager : MonoBehaviour
 
     public void IncreaseTimeControlMultiplier()
     {
-        if(TimeManager.Instance.timeControlMultiplier < 8)
+        if(TimeManager.Instance.timeControlMultiplier < 4)
         {
             TimeManager.Instance.timeControlMultiplier *= 2;
+            TimeManager.Instance.timeMultiplier *= 2;
             timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
         }
 
@@ -64,6 +65,7 @@ public class UIManager : MonoBehaviour
         if(TimeManager.Instance.timeControlMultiplier > 1)
         {
             TimeManager.Instance.timeControlMultiplier /= 2;
+            TimeManager.Instance.timeMultiplier /= 2;
             timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
         }
 

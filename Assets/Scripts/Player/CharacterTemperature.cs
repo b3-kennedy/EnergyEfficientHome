@@ -25,7 +25,7 @@ public class CharacterTemperature : MonoBehaviour
     void Update()
     {
 
-        liveTemp = Mathf.Lerp(liveTemp,baseTemp + temp, Time.deltaTime);
+        liveTemp = Mathf.Lerp(liveTemp,baseTemp + temp, Time.deltaTime * TimeManager.Instance.timeControlMultiplier);
 
 
         if(liveTemp < minComfortableTemp)

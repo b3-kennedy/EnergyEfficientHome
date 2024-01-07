@@ -17,7 +17,7 @@ public class Room : MonoBehaviour
 
     public GameObject weatherManager;
 
-    RoomThermostat thermostat;
+    public RoomThermostat thermostat;
 
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
-        thermostat = GetComponentInChildren<RoomThermostat>();
+        //thermostat = GetComponentInChildren<RoomThermostat>();
         
     }
 
@@ -52,17 +52,17 @@ public class Room : MonoBehaviour
         {
             if (LevelManager.Instance.doubleGlazing)
             {
-                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
+                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f)  * (TimeManager.Instance.timeMultiplier / 100);
             }
             else
             {
-                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
             }
             
         }
         else if (liveTemperature < baseTemperature)
         {
-            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100);
+            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
         }
     }
 
@@ -85,7 +85,7 @@ public class Room : MonoBehaviour
         {
             if (heater.isOn)
             {
-                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime * (TimeManager.Instance.timeControlMultiplier * (TimeManager.Instance.timeMultiplier / 100));
+                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime  * (TimeManager.Instance.timeMultiplier / 100);
             }
         }
     }
