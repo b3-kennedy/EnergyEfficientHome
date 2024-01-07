@@ -11,9 +11,13 @@ public class Room : MonoBehaviour
     public float liveTemperature;
     public float returnToBaseMultiplier;
 
+    float maxTemperature;
+
     public float heatingCost;
 
     public GameObject weatherManager;
+
+    public RoomThermostat thermostat;
 
 
     // Start is called before the first frame update
@@ -22,6 +26,7 @@ public class Room : MonoBehaviour
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        //thermostat = GetComponentInChildren<RoomThermostat>();
         
     }
 
@@ -39,27 +44,48 @@ public class Room : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void ReturnToBaseTemp()
     {
-
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
 
         if (liveTemperature > baseTemperature)
         {
-            liveTemperature -= (returnToBaseMultiplier/totalArea) * Time.deltaTime;
+            if (LevelManager.Instance.doubleGlazing)
+            {
+                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f)  * (TimeManager.Instance.timeMultiplier / 100);
+            }
+            else
+            {
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
+            }
+            
         }
-        else if(liveTemperature < baseTemperature) 
+        else if (liveTemperature < baseTemperature)
         {
-            liveTemperature += (returnToBaseMultiplier / totalArea) * Time.deltaTime;
+            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(thermostat != null)
+        {
+            maxTemperature = thermostat.targetTemp;
+            liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
+        }
+
+
+        ReturnToBaseTemp();
+
+
 
 
         foreach(var heater in objects) 
         {
             if (heater.isOn)
             {
-                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime;
+                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime  * (TimeManager.Instance.timeMultiplier / 100);
             }
         }
     }
@@ -86,12 +112,21 @@ public class Room : MonoBehaviour
             var temp = other.GetComponent<CharacterTemperature>();
             var anim = other.GetComponent<Animator>();
 
-            
 
-            if(temp.liveTemp < temp.minComfortableTemp)
-            {
-                anim.SetTrigger("RadiatorOn");
-            }
+            //foreach (var item in objects)
+            //{
+            //    if(item.GetComponent<Radiator>().isOn && temp.liveTemp < temp.minComfortableTemp)
+            //    {
+            //        other.GetComponent<AIMove>().radiators = true;
+            //    }
+            //    else
+            //    {
+            //        other.GetComponent<AIMove>().radiators = false;
+            //    }
+            //}
+            //anim.SetBool("EnteredRoom", true);
         }
     }
+
+    
 }

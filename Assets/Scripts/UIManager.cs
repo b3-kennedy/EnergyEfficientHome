@@ -24,6 +24,20 @@ public class UIManager : MonoBehaviour
     public Slider boredomSlider;
 
 
+    [Header("Notification UI")]
+    public Transform notificationCanvas;
+    public TextMeshProUGUI notification;
+
+    [Header("Level Complete UI")]
+    public GameObject completeLevelUI;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI moneySaved;
+
+    [Header("Time Control UI")]
+    public GameObject timeControlCanvas;
+    public TextMeshProUGUI timeControlMultiplierText;
+
+
     private void Awake()
     {
         Instance = this;
@@ -34,6 +48,44 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void HideTimeControlUI()
+    {
+        timeControlCanvas.SetActive(false);
+    }
+
+    public void ShowTimeControlUI()
+    {
+        timeControlCanvas.SetActive(true);
+    }
+
+    public void IncreaseTimeControlMultiplier()
+    {
+        if(TimeManager.Instance.timeControlMultiplier < 4)
+        {
+            TimeManager.Instance.timeControlMultiplier *= 2;
+            TimeManager.Instance.timeMultiplier *= 2;
+            timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
+        }
+
+    }
+
+    public void DecreaseTimeControlMultiplier()
+    {
+        if(TimeManager.Instance.timeControlMultiplier > 1)
+        {
+            TimeManager.Instance.timeControlMultiplier /= 2;
+            TimeManager.Instance.timeMultiplier /= 2;
+            timeControlMultiplierText.text = TimeManager.Instance.timeControlMultiplier.ToString() + "x";
+        }
+
+    }
+
+    public void DisplayNotification(string text)
+    {
+        TextMeshProUGUI noti = Instantiate(notification, notificationCanvas);
+        noti.text = text;
     }
 
     // Update is called once per frame

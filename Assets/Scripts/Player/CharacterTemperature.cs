@@ -12,6 +12,7 @@ public class CharacterTemperature : MonoBehaviour
     public Material blue;
     public Material red;
     Material defaultMat;
+    public bool isComfortable;
 
     private void Start()
     {
@@ -24,19 +25,22 @@ public class CharacterTemperature : MonoBehaviour
     void Update()
     {
 
-        liveTemp = Mathf.Lerp(liveTemp,baseTemp + temp, Time.deltaTime);
+        liveTemp = Mathf.Lerp(liveTemp,baseTemp + temp, Time.deltaTime * TimeManager.Instance.timeControlMultiplier);
 
 
         if(liveTemp < minComfortableTemp)
         {
+            isComfortable = false;
             GetComponent<MeshRenderer>().material = blue;
         }
         else if(liveTemp > maxComfortableTemp)
         {
+            isComfortable = false;
             GetComponent<MeshRenderer>().material = red;
         }
         else
         {
+            isComfortable = true;
             GetComponent<MeshRenderer>().material = defaultMat;
         }
     }

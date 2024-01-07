@@ -111,6 +111,7 @@ public class ManageEndStates : MonoBehaviour
         endScreen.SetActive(true);
         player.GetComponent<PlayerMove>().enabled = false;
         AICharacter.GetComponent<AIMove>().enabled = false;
+        UIManager.Instance.HideTimeControlUI();
     }
     public void RestartGame()
     {
