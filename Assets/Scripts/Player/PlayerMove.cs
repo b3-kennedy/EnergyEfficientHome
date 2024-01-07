@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -15,7 +13,6 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float range;
     public float gravity;
-
 
 
     [Header("Slope Collision")]
@@ -34,12 +31,13 @@ public class PlayerMove : MonoBehaviour
         Gravity();
         Move();
         GroundCheck();
+
     }
 
     private void Move()
     {
 
-        
+
 
         move = new Vector3(Input.GetAxisRaw("Horizontal"), gravity, Input.GetAxisRaw("Vertical"));
 
@@ -76,9 +74,9 @@ public class PlayerMove : MonoBehaviour
 
     bool OnSlope()
     {
-        if(Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, slopeRayRange))
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, slopeRayRange))
         {
-            if(hit.normal != Vector3.up)
+            if (hit.normal != Vector3.up)
             {
                 return true;
             }
