@@ -9,50 +9,40 @@ public class FridgeInteractionController : MonoBehaviour
     private string[] foodPrefabs;
     private bool isAtFridge=false;
 
+    public Button[] foodClickables;
+
     public TMP_Text fridgeText;
-    public TMP_InputField inputField;
-    public Button sendBtn;
+   
     public GameObject popUpGO;
 
     public GameObject player;
 
     public string userInput;
 
-    void Start()
+   
+    private void OnEnable()
     {
-        foodPrefabs = new string[6] { "banana", "apple", "olive", "milk","soup" ,"lemon"};
+        foreach(Button food in foodClickables)
+        {
+            food.onClick.AddListener(()=>EatFood(food.gameObject.name));
+        }
     }
-
+    void EatFood(string foodName) {
+        fridgeText.text = foodName + " eaten!!\n.";
+        player.GetComponent<CharacterAttributes>().eating = true;
+    }
+    private void OnDisable()
+    {
+        foreach (Button food in foodClickables)
+        {
+            food.onClick.RemoveAllListeners();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         popUpGO.SetActive(true);
         isAtFridge=true;
         fridgeText.text = "hello " + other.gameObject.name;
-        ListOptions();
-        //fridgeText.text += "\n" + "do you want a " + foodPrefabs[0].ToLower() + "\n"+ "press 'L' to see options.";
-        sendBtn.onClick.AddListener(ProcessMsg);
-
-    }
-    void ProcessMsg()
-    {
-        userInput = inputField.text.ToLower();
-        inputField.text = "";
-        if (userInput== "l")
-        {
-            ListOptions();
-        } else
-        {
-            foreach(var item in foodPrefabs)
-            {
-                if (item.Substring(0,1).ToLower() == userInput)
-                {
-                    fridgeText.text = "You ate a " + item +"\n press L to see the list again.";
-                    player.GetComponent<CharacterAttributes>().eating = true;
-                    
-                }
-            }
-
-        }
 
     }
     private void OnTriggerExit(Collider other)
@@ -61,15 +51,4 @@ public class FridgeInteractionController : MonoBehaviour
         popUpGO.SetActive(false);
     }
    
-    public void ListOptions() {
-        fridgeText.text = "";
-        foreach (var item in foodPrefabs)
-        {   
-            fridgeText.text += "\n" + item ;
-            
-        }
-        fridgeText.text += "\n enter the first letter of your desired food item.";
-      
-
-    }
 }
