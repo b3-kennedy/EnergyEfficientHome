@@ -17,7 +17,7 @@ public class Room : MonoBehaviour
 
     public GameObject weatherManager;
 
-    RoomThermostat thermostat;
+    public RoomThermostat thermostat;
 
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
         baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
-        thermostat = GetComponentInChildren<RoomThermostat>();
+        //thermostat = GetComponentInChildren<RoomThermostat>();
         
     }
 
@@ -44,6 +44,28 @@ public class Room : MonoBehaviour
         }
     }
 
+    void ReturnToBaseTemp()
+    {
+        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+
+        if (liveTemperature > baseTemperature)
+        {
+            if (LevelManager.Instance.doubleGlazing)
+            {
+                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f)  * (TimeManager.Instance.timeMultiplier / 100);
+            }
+            else
+            {
+                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
+            }
+            
+        }
+        else if (liveTemperature < baseTemperature)
+        {
+            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,27 +74,18 @@ public class Room : MonoBehaviour
             maxTemperature = thermostat.targetTemp;
             liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
         }
-        
 
-        
 
-        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        ReturnToBaseTemp();
 
-        if (liveTemperature > baseTemperature)
-        {
-            liveTemperature -= (returnToBaseMultiplier/totalArea) * Time.deltaTime;
-        }
-        else if(liveTemperature < baseTemperature) 
-        {
-            liveTemperature += (returnToBaseMultiplier / totalArea) * Time.deltaTime;
-        }
+
 
 
         foreach(var heater in objects) 
         {
             if (heater.isOn)
             {
-                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime;
+                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime  * (TimeManager.Instance.timeMultiplier / 100);
             }
         }
     }

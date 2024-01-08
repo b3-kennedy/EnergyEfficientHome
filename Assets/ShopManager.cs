@@ -24,14 +24,22 @@ public class ShopManager : MonoBehaviour
     public Button checkoutBtn;
     public GameObject basketItemPrefab;
 
+    public Button checkOutBuyButton;
 
     public GameObject basketSummaryGO;
 
     public TMP_Text totalAmountText;
     public TMP_Text basketSummary;
 
+    public TMP_Text[] budgetTexts;
     
+    public static ShopManager Instance;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -50,6 +58,7 @@ public class ShopManager : MonoBehaviour
             shopItem.buyBtn.onClick.AddListener(() => AddToBasket(shopItem));
         }
         checkoutBtn.onClick.AddListener(Checkout);
+        checkOutBuyButton.onClick.AddListener(Buy);
 
     }
     
@@ -90,6 +99,39 @@ public class ShopManager : MonoBehaviour
         }
 
     }
+
+    public void Buy()
+    {
+        foreach (var item in Basket)
+        {
+            LevelManager.Instance.budget -= item.itemPriceFloat;
+
+            if(item.itemName.text == itemNames[4])
+            {
+                LevelManager.Instance.doubleGlazing = true;
+            }
+            
+            if(item.itemName.text == itemNames[3])
+            {
+                LevelManager.Instance.heatPump = true;
+            }
+        }
+
+        UpdateBudgetText();
+        DestroyCheckoutBasketList();
+        totalAmountText.text = "Total : " + 0 + " $";
+        totalBasket.text = "Total : " + 0 + " $";
+    }
+
+    public void UpdateBudgetText()
+    {
+        foreach (var text in budgetTexts)
+        {
+            text.text = "Your Budget: " + LevelManager.Instance.budget;
+        }
+    }
+
+
     public void RemoveItemFromBasket(GameObject item)
     {
         
@@ -136,6 +178,7 @@ public class ShopManager : MonoBehaviour
         }
         totalAmountText.text = "Total : " + total + " $";
         totalBasket.text = "Total : " + total + " $";
+
 
     }
 

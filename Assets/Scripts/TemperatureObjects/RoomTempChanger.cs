@@ -14,6 +14,11 @@ public class RoomTempChanger : TemperatureAlteringObject
         baseHeatingRate = heatingRate;
     }
 
+    private void Update()
+    {
+
+    }
+
     private void Start()
     {
 
