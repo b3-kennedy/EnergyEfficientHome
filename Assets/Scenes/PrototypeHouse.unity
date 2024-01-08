@@ -8006,9 +8006,13 @@ MonoBehaviour:
   totalBasket: {fileID: 639158475}
   checkoutBtn: {fileID: 341509273}
   basketItemPrefab: {fileID: 4493377822645128554, guid: 4c8015f169690784caac3bc0bc6f3c09, type: 3}
+  checkOutBuyButton: {fileID: 778207508}
   basketSummaryGO: {fileID: 5222533}
   totalAmountText: {fileID: 1329605907}
   basketSummary: {fileID: 5222535}
+  budgetTexts:
+  - {fileID: 1964005554}
+  - {fileID: 1544526461}
   basketList: []
 --- !u!1 &701921873
 GameObject:

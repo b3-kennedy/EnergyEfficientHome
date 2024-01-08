@@ -65,6 +65,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(budget <= 0)
+        {
+            RanOutOfMoney();
+        }
         CalculateComfortScore();
     }
 
@@ -76,11 +80,26 @@ public class LevelManager : MonoBehaviour
             {
                 if (character.isComfortable)
                 {
-                    comfortScore += Time.deltaTime;
+                    comfortScore += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
                 }
             }
         }
     }
+
+    void RanOutOfMoney()
+    {
+        foreach (Room room in rooms)
+        {
+            foreach (var item in room.objects)
+            {
+                if (item.GetComponent<Radiator>())
+                {
+                    item.GetComponent<Radiator>().isOn = false;
+                }
+            }
+        }
+    }
+
 
     void CalculateMoneySavedScore()
     {
@@ -129,6 +148,7 @@ public class LevelManager : MonoBehaviour
     public void OnNewDay()
     {
         budget -= dailyCost;
+        ShopManager.Instance.UpdateBudgetText();
         dailyCost = 0;
     }
 
