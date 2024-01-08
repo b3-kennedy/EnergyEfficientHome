@@ -46,7 +46,7 @@ public class FridgeInteractionController : MonoBehaviour
             {
                 if (item.name.ToLower() == userInput)
                 {
-                    fridgeText.text = "You ate a" + userInput;
+                    fridgeText.text = "You ate a/an " + userInput;
                     player.GetComponent<CharacterAttributes>().eating = true;
                 }
             }

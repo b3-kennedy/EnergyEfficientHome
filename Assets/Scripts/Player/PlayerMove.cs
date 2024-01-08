@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -15,8 +14,7 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float range;
     public float gravity;
-
-
+    private Animator animator;
 
     [Header("Slope Collision")]
     public float downForce;
@@ -25,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         ch = GetComponent<CharacterController>();
     }
 
@@ -34,13 +33,11 @@ public class PlayerMove : MonoBehaviour
         Gravity();
         Move();
         GroundCheck();
+
     }
 
     private void Move()
     {
-
-        
-
         move = new Vector3(Input.GetAxisRaw("Horizontal"), gravity, Input.GetAxisRaw("Vertical"));
 
         Vector3 moveDir = (transform.forward * move.z + transform.right * move.x).normalized;
@@ -53,8 +50,20 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.Log("on slope");
             ch.Move(Vector3.down * downForce * Time.deltaTime);
+
+            if (moveDir == Vector3.zero)
+            {
+                animator.SetBool("isMoving", true);
+            }
+
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
     }
+
+    
 
     void Gravity()
     {
@@ -76,14 +85,17 @@ public class PlayerMove : MonoBehaviour
 
     bool OnSlope()
     {
-        if(Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, slopeRayRange))
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, slopeRayRange))
         {
-            if(hit.normal != Vector3.up)
+            if (hit.normal != Vector3.up)
             {
                 return true;
             }
         }
         return false;
 
+        
+
+        
     }
 }
