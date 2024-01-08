@@ -44,7 +44,7 @@ public class FridgeInteractionController : MonoBehaviour
         {
             foreach(var item in foodPrefabs)
             {
-                if (item.Split("")[0].ToLower() == userInput)
+                if (item.Substring(0,1).ToLower() == userInput)
                 {
                     fridgeText.text = "You ate a " + item +"\n press L to see the list again.";
                     player.GetComponent<CharacterAttributes>().eating = true;

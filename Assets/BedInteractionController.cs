@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class BedInteractionController : MonoBehaviour
@@ -7,17 +8,22 @@ public class BedInteractionController : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject popUpGO;
+
+    public TMP_Text text;
+
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hello player!");
-        Debug.Log("press 's' to sleep");
+        text.text = "Hello\n press 'B' to sleep";
+        popUpGO.SetActive(true);
         isNearBed = true;
 
     }
     private void OnTriggerExit(Collider other)
     {
         player.GetComponent<CharacterAttributes>().sleeping = false;
+        popUpGO.SetActive(false);
         isNearBed=false;
     }
 
@@ -26,10 +32,11 @@ public class BedInteractionController : MonoBehaviour
         
         if (isNearBed)
         {
-            if (Input.GetKey(KeyCode.S)){
+            if (Input.GetKey(KeyCode.B)){
 
                 player.GetComponent<CharacterAttributes>().sleeping = true;
-             }           
+                text.text = "Sleeping...zzzzz";
+            }           
 
             
         } if(!isNearBed)
