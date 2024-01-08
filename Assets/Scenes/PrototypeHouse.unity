@@ -20082,7 +20082,7 @@ GameObject:
   - component: {fileID: 7895672398675734872}
   - component: {fileID: 4839503792585202707}
   m_Layer: 0
-  m_Name: guest room
+  m_Name: Office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
