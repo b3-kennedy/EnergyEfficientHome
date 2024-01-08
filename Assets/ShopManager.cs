@@ -119,15 +119,15 @@ public class ShopManager : MonoBehaviour
 
         UpdateBudgetText();
         DestroyCheckoutBasketList();
-        totalAmountText.text = "Total : " + 0 + " $";
-        totalBasket.text = "Total : " + 0 + " $";
+        totalAmountText.text = "Total : £" + 0;
+        totalBasket.text = "Total : £" + 0;
     }
 
     public void UpdateBudgetText()
     {
         foreach (var text in budgetTexts)
         {
-            text.text = "Your Budget: " + LevelManager.Instance.budget;
+            text.text = "Your Budget: £" + LevelManager.Instance.budget;
         }
     }
 
@@ -176,8 +176,8 @@ public class ShopManager : MonoBehaviour
             total += shopItem.itemPriceFloat;
             //total = Mathf.RoundToInt(total * 100) / 100f;
         }
-        totalAmountText.text = "Total : " + total + " $";
-        totalBasket.text = "Total : " + total + " $";
+        totalAmountText.text = "Total : £" + total;
+        totalBasket.text = "Total : £" + total;
 
 
     }

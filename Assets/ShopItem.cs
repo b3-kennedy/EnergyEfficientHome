@@ -24,7 +24,7 @@ public class ShopItem : MonoBehaviour
 
     public  void SetItemInfo(float price, string des, string name)
     {
-        itemPrice.text = price + "$";
+        itemPrice.text = "£"+price;
         itemDescription.text = des;
         itemName.text = name;
 

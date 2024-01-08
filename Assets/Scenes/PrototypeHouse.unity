@@ -589,7 +589,9 @@ MonoBehaviour:
   basketSummaryGO: {fileID: 4127329368325093544}
   totalAmountText: {fileID: 2864154173756883553}
   basketSummary: {fileID: 6957896640114645569}
-  budgetTexts: []
+  budgetTexts:
+  - {fileID: 8992026882734109956}
+  - {fileID: 4004297926632266455}
   basketList: []
 --- !u!4 &703625247 stripped
 Transform:
@@ -10143,7 +10145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total : 0.0 $'
+  m_text: "Total : \xA3 0.0 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -10152,7 +10154,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292454100
+    rgba: 4282786333
   m_fontColor: {r: 0.11485404, g: 0.1342645, b: 0.2735849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -13205,7 +13207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your Budget : 500 $'
+  m_text: "Your Budget : \xA3 500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21064,7 +21066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6854691762000194802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27041,7 +27043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total : 0.0 $'
+  m_text: "Total : \xA3 0.0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -27130,7 +27132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your Budget : 500 $'
+  m_text: "Your Budget : \xA3 500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27139,7 +27141,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294483669
+    rgba: 4282786590
   m_fontColor: {r: 0.11764706, g: 0.13725491, b: 0.27450982, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
