@@ -42,7 +42,7 @@ public class FridgeInteractionController : MonoBehaviour
     {
         popUpGO.SetActive(true);
         isAtFridge=true;
-        fridgeText.text = "hello " + other.gameObject.name;
+        fridgeText.text = "hello " + other.gameObject.name +"\n Have a snack!\n";
 
     }
     private void OnTriggerExit(Collider other)
