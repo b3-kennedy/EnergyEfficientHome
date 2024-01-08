@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FridgeInteractionController : MonoBehaviour
 {
-    public GameObject[] foodPrefabs;
+    private string[] foodPrefabs;
     private bool isAtFridge=false;
 
     public TMP_Text fridgeText;
@@ -20,7 +20,7 @@ public class FridgeInteractionController : MonoBehaviour
 
     void Start()
     {
-        
+        foodPrefabs = new string[6] { "banana", "apple", "olive", "milk","soup" ,"lemon"};
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,8 +28,8 @@ public class FridgeInteractionController : MonoBehaviour
         popUpGO.SetActive(true);
         isAtFridge=true;
         fridgeText.text = "hello " + other.gameObject.name;
-        
-        fridgeText.text += "\n" + "do you want a " + foodPrefabs[0].name.ToLower() + "\n"+ "press 'L' to see options.";
+        ListOptions();
+        //fridgeText.text += "\n" + "do you want a " + foodPrefabs[0].ToLower() + "\n"+ "press 'L' to see options.";
         sendBtn.onClick.AddListener(ProcessMsg);
 
     }
@@ -44,10 +44,11 @@ public class FridgeInteractionController : MonoBehaviour
         {
             foreach(var item in foodPrefabs)
             {
-                if (item.name.ToLower() == userInput)
+                if (item.Split("")[0].ToLower() == userInput)
                 {
-                    fridgeText.text = "You ate a/an " + userInput;
+                    fridgeText.text = "You ate a " + item +"\n press L to see the list again.";
                     player.GetComponent<CharacterAttributes>().eating = true;
+                    
                 }
             }
 
@@ -59,20 +60,15 @@ public class FridgeInteractionController : MonoBehaviour
         isAtFridge=false;
         popUpGO.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
+   
     public void ListOptions() {
         fridgeText.text = "";
         foreach (var item in foodPrefabs)
         {   
-            fridgeText.text += item.name + "\n";
+            fridgeText.text += "\n" + item ;
             
         }
-        fridgeText.text += "enter the name of your desired food item.";
+        fridgeText.text += "\n enter the first letter of your desired food item.";
       
 
     }
