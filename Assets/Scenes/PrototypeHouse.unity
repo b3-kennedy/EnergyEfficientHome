@@ -3045,7 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_UiScaleMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_ScreenMatchMode
@@ -3053,15 +3053,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_MatchWidthOrHeight
-      value: 0
+      value: 0.459
       objectReference: {fileID: 0}
     - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 1920
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1601334246206172529, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 1080
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1967372462960784792, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_fontStyle
@@ -3145,19 +3145,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -137.0109
+      value: -144.915
       objectReference: {fileID: 0}
     - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -42.5956
+      value: -292.7464
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.4765
+      value: 41.952087
       objectReference: {fileID: 0}
     - target: {fileID: 3190132462337200829, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.1210022
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 3536669129626926748, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17201,7 +17209,7 @@ GameObject:
   - component: {fileID: 8523924756443938709}
   - component: {fileID: 6882327334779727612}
   m_Layer: 0
-  m_Name: dining room
+  m_Name: bathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
