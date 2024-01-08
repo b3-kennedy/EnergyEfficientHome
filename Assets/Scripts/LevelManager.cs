@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
 
     public float moneySavedScore;
 
+    public bool gameEnd;
+
     [Header("House Upgrades")]
     public bool doubleGlazing;
     public bool heatPump;
@@ -118,6 +120,8 @@ public class LevelManager : MonoBehaviour
             UIManager.Instance.completeLevelUI.SetActive(true);
             UIManager.Instance.scoreText.text = "Score: " + totalScore.ToString();
             UIManager.Instance.moneySaved.text = "Money Saved: £" + budget.ToString();
+
+            gameEnd = true;
         }
     }
 
@@ -128,13 +132,16 @@ public class LevelManager : MonoBehaviour
 
     void Break()
     {
-        
-        int randomNum = Random.Range(0, 100);
-        if(randomNum < breakChance)
+        if (!gameEnd)
         {
-            float breakTime = Random.Range(0, maxTimeToBreak);
-            StartCoroutine(BreakAfterTime(breakTime));
+            int randomNum = Random.Range(0, 100);
+            if (randomNum < breakChance)
+            {
+                float breakTime = Random.Range(0, maxTimeToBreak);
+                StartCoroutine(BreakAfterTime(breakTime));
+            }
         }
+
     }
 
     IEnumerator BreakAfterTime(float time)
@@ -154,26 +161,30 @@ public class LevelManager : MonoBehaviour
 
     public void AddCost()
     {
-        foreach (Room room in rooms)
+        if (!gameEnd)
         {
-            foreach (var item in room.objects)
+            foreach (Room room in rooms)
             {
-                if (item.GetComponent<Radiator>())
+                foreach (var item in room.objects)
                 {
-                    if (item.GetComponent<Radiator>().timeActivated > 0)
+                    if (item.GetComponent<Radiator>())
                     {
-                        if (heatPump)
+                        if (item.GetComponent<Radiator>().timeActivated > 0)
                         {
-                            dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                            if (heatPump)
+                            {
+                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                            }
+                            else
+                            {
+                                dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                            }
+
                         }
-                        else
-                        {
-                            dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
-                        }
-                        
                     }
                 }
             }
         }
+
     }
 }

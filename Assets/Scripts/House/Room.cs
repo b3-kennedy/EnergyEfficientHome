@@ -46,48 +46,57 @@ public class Room : MonoBehaviour
 
     void ReturnToBaseTemp()
     {
-        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        if (!LevelManager.Instance.gameEnd)
+        {
+            baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
 
-        if (liveTemperature > baseTemperature)
-        {
-            if (LevelManager.Instance.doubleGlazing)
+            if (liveTemperature > baseTemperature)
             {
-                liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f)  * (TimeManager.Instance.timeMultiplier / 100);
+                if (LevelManager.Instance.doubleGlazing)
+                {
+                    liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * (TimeManager.Instance.timeMultiplier / 100);
+                }
+                else
+                {
+                    liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
+                }
+
             }
-            else
+            else if (liveTemperature < baseTemperature)
             {
-                liveTemperature -= ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
+                liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
             }
-            
         }
-        else if (liveTemperature < baseTemperature)
-        {
-            liveTemperature += ((returnToBaseMultiplier / totalArea) * Time.deltaTime) * (TimeManager.Instance.timeMultiplier / 100);
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(thermostat != null)
+
+        if (!LevelManager.Instance.gameEnd)
         {
-            maxTemperature = thermostat.targetTemp;
-            liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
-        }
-
-
-        ReturnToBaseTemp();
-
-
-
-
-        foreach(var heater in objects) 
-        {
-            if (heater.isOn)
+            if (thermostat != null)
             {
-                liveTemperature += (heater.heatingRate/totalArea) * Time.deltaTime  * (TimeManager.Instance.timeMultiplier / 100);
+                maxTemperature = thermostat.targetTemp;
+                liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
+            }
+
+
+            ReturnToBaseTemp();
+
+
+
+
+            foreach (var heater in objects)
+            {
+                if (heater.isOn)
+                {
+                    liveTemperature += (heater.heatingRate / totalArea) * Time.deltaTime * (TimeManager.Instance.timeMultiplier / 100);
+                }
             }
         }
+
     }
 
     private void OnTriggerStay(Collider other)
