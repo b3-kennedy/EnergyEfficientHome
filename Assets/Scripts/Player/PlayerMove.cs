@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +7,6 @@ public class PlayerMove : MonoBehaviour
     CharacterController ch;
     public float speed;
     public float gravityMultiplier;
-    public float rotationSpeed;
 
     Vector3 move;
 
@@ -48,26 +46,33 @@ public class PlayerMove : MonoBehaviour
 
         ch.Move(moveVec * speed * Time.deltaTime);
 
+        if (Input.GetKeyDown("space"))
+        {
+            animator.SetBool("isMoving", false);
+        }
+
+
+        else
+        {
+            animator.SetBool("isMoving", true);
+
+
+        }
+
         if (OnSlope())
         {
             Debug.Log("on slope");
             ch.Move(Vector3.down * downForce * Time.deltaTime);
 
-            if (move == Vector3.zero)
-            {
-                animator.SetBool("isMoving", true);
-            }
-
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
+          
         }
 
         if(move != Vector3.zero)
         {
-            Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+            transform.forward = move.normalized;
+
+
+            
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
