@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     CharacterController ch;
     public float speed;
     public float gravityMultiplier;
+    public float rotationSpeed;
 
     Vector3 move;
 
@@ -64,7 +66,8 @@ public class PlayerMove : MonoBehaviour
 
         if(move != Vector3.zero)
         {
-            transform.forward = move.normalized;
+            Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);

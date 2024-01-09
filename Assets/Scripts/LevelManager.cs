@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
             float totalScore = Mathf.Round(comfortScore + moneySavedScore);
             UIManager.Instance.completeLevelUI.SetActive(true);
             UIManager.Instance.scoreText.text = "Score: " + totalScore.ToString();
-            UIManager.Instance.moneySaved.text = "Money Saved: $" + budget.ToString();
+            UIManager.Instance.moneySaved.text = "Money Saved: £" + budget.ToString();
 
             gameEnd = true;
         }
