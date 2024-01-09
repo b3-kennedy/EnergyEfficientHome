@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
 
     public float moneySavedScore;
 
+    public bool gameEnd;
+
     [Header("House Upgrades")]
     public bool doubleGlazing;
     public bool heatPump;
@@ -65,6 +67,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(budget <= 0)
+        {
+            RanOutOfMoney();
+        }
         CalculateComfortScore();
     }
 
@@ -76,11 +82,26 @@ public class LevelManager : MonoBehaviour
             {
                 if (character.isComfortable)
                 {
-                    comfortScore += Time.deltaTime;
+                    comfortScore += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
                 }
             }
         }
     }
+
+    void RanOutOfMoney()
+    {
+        foreach (Room room in rooms)
+        {
+            foreach (var item in room.objects)
+            {
+                if (item.GetComponent<Radiator>())
+                {
+                    item.GetComponent<Radiator>().isOn = false;
+                }
+            }
+        }
+    }
+
 
     void CalculateMoneySavedScore()
     {
@@ -98,7 +119,9 @@ public class LevelManager : MonoBehaviour
             float totalScore = Mathf.Round(comfortScore + moneySavedScore);
             UIManager.Instance.completeLevelUI.SetActive(true);
             UIManager.Instance.scoreText.text = "Score: " + totalScore.ToString();
-            UIManager.Instance.moneySaved.text = "Money Saved: £" + budget.ToString();
+            UIManager.Instance.moneySaved.text = "Money Saved: $" + budget.ToString();
+
+            gameEnd = true;
         }
     }
 
@@ -109,13 +132,16 @@ public class LevelManager : MonoBehaviour
 
     void Break()
     {
-        
-        int randomNum = Random.Range(0, 100);
-        if(randomNum < breakChance)
+        if (!gameEnd)
         {
-            float breakTime = Random.Range(0, maxTimeToBreak);
-            StartCoroutine(BreakAfterTime(breakTime));
+            int randomNum = Random.Range(0, 100);
+            if (randomNum < breakChance)
+            {
+                float breakTime = Random.Range(0, maxTimeToBreak);
+                StartCoroutine(BreakAfterTime(breakTime));
+            }
         }
+
     }
 
     IEnumerator BreakAfterTime(float time)
@@ -129,31 +155,36 @@ public class LevelManager : MonoBehaviour
     public void OnNewDay()
     {
         budget -= dailyCost;
+        ShopManager.Instance.UpdateBudgetText();
         dailyCost = 0;
     }
 
     public void AddCost()
     {
-        foreach (Room room in rooms)
+        if (!gameEnd)
         {
-            foreach (var item in room.objects)
+            foreach (Room room in rooms)
             {
-                if (item.GetComponent<Radiator>())
+                foreach (var item in room.objects)
                 {
-                    if (item.GetComponent<Radiator>().timeActivated > 0)
+                    if (item.GetComponent<Radiator>())
                     {
-                        if (heatPump)
+                        if (item.GetComponent<Radiator>().timeActivated > 0)
                         {
-                            dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                            if (heatPump)
+                            {
+                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                            }
+                            else
+                            {
+                                dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                            }
+
                         }
-                        else
-                        {
-                            dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
-                        }
-                        
                     }
                 }
             }
         }
+
     }
 }

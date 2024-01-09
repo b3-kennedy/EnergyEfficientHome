@@ -30,7 +30,11 @@ public class Interact : MonoBehaviour
                 }
                 else if(heatObject.GetComponent<RoomTempChanger>())
                 {
-                    heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
+                    if(LevelManager.Instance.budget > 0)
+                    {
+                        heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
+                    }
+                    
                 }
                 else if (heatObject.GetComponent<RoomThermostat>())
                 {

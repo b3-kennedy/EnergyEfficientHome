@@ -26,7 +26,7 @@ public class basketSummaryItem : MonoBehaviour
 
     public void SetItemInfo(float price,  string name)
     {
-        itemPrice.text = price + "$";
+        itemPrice.text = "£"+price;
         
         itemName.text = name;
 
