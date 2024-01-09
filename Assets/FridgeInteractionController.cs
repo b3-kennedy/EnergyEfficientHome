@@ -1,79 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FridgeInteractionController : MonoBehaviour
 {
-    public GameObject[] foodPrefabs;
-    private bool isAtFridge=false;
+    private string[] foodPrefabs;
+    private bool isAtFridge = false;
+
+    public Button[] foodClickables;
 
     public TMP_Text fridgeText;
-    public TMP_InputField inputField;
-    public Button sendBtn;
+
     public GameObject popUpGO;
 
     public GameObject player;
 
     public string userInput;
 
-    void Start()
-    {
-        
-    }
 
+    private void OnEnable()
+    {
+        foreach (Button food in foodClickables)
+        {
+            food.onClick.AddListener(() => EatFood(food.gameObject.name));
+        }
+    }
+    void EatFood(string foodName)
+    {
+        fridgeText.text = foodName + "!!";
+        player.GetComponent<CharacterAttributes>().eating = true;
+    }
+    private void OnDisable()
+    {
+        foreach (Button food in foodClickables)
+        {
+            food.onClick.RemoveAllListeners();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        popUpGO.SetActive(true);
-        isAtFridge=true;
-        fridgeText.text = "hello " + other.gameObject.name;
-        
-        fridgeText.text += "\n" + "do you want a " + foodPrefabs[0].name.ToLower() + "\n"+ "press 'L' to see options.";
-        sendBtn.onClick.AddListener(ProcessMsg);
-
-    }
-    void ProcessMsg()
-    {
-        userInput = inputField.text.ToLower();
-        inputField.text = "";
-        if (userInput== "l")
+        if (other.gameObject.name == "Player")
         {
-            ListOptions();
-        } else
-        {
-            foreach(var item in foodPrefabs)
-            {
-                if (item.name.ToLower() == userInput)
-                {
-                    fridgeText.text = "You ate a/an " + userInput;
-                    player.GetComponent<CharacterAttributes>().eating = true;
-                }
-            }
-
+            popUpGO.SetActive(true);
+            isAtFridge = true;
+            fridgeText.text = "hello " + other.gameObject.name + "\n Have a snack!\n";
         }
+
 
     }
     private void OnTriggerExit(Collider other)
     {
-        isAtFridge=false;
-        popUpGO.SetActive(false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
-    public void ListOptions() {
-        fridgeText.text = "";
-        foreach (var item in foodPrefabs)
-        {   
-            fridgeText.text += item.name + "\n";
-            
-        }
-        fridgeText.text += "enter the name of your desired food item.";
-      
+        if (other.gameObject.name == "Player")
+        {
 
+            isAtFridge = false;
+            popUpGO.SetActive(false);
+        }
     }
+
 }
