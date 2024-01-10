@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +7,6 @@ public class PlayerMove : MonoBehaviour
     CharacterController ch;
     public float speed;
     public float gravityMultiplier;
-    public float rotationSpeed;
 
     Vector3 move;
 
@@ -16,16 +14,19 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float range;
     public float gravity;
-    private Animator animator;
 
     [Header("Slope Collision")]
     public float downForce;
     public float slopeRayRange;
 
+    public Animator anim;
+
+    public float rotationSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        
         ch = GetComponent<CharacterController>();
     }
 
@@ -48,23 +49,24 @@ public class PlayerMove : MonoBehaviour
 
         ch.Move(moveVec * speed * Time.deltaTime);
 
+        if(move != Vector3.zero)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
         if (OnSlope())
         {
             Debug.Log("on slope");
             ch.Move(Vector3.down * downForce * Time.deltaTime);
 
-            if (move == Vector3.zero)
-            {
-                animator.SetBool("isMoving", true);
-            }
-
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
+          
         }
 
-        if(move != Vector3.zero)
+        if (move != Vector3.zero)
         {
             Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
