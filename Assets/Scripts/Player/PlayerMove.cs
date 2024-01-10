@@ -14,16 +14,19 @@ public class PlayerMove : MonoBehaviour
     public Transform groundCheck;
     public float range;
     public float gravity;
-    private Animator animator;
 
     [Header("Slope Collision")]
     public float downForce;
     public float slopeRayRange;
 
+    public Animator anim;
+
+    public float rotationSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        
         ch = GetComponent<CharacterController>();
     }
 
@@ -46,17 +49,13 @@ public class PlayerMove : MonoBehaviour
 
         ch.Move(moveVec * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown("space"))
+        if(move != Vector3.zero)
         {
-            animator.SetBool("isMoving", false);
+            anim.SetBool("isMoving", true);
         }
-
-
         else
         {
-            animator.SetBool("isMoving", true);
-
-
+            anim.SetBool("isMoving", false);
         }
 
         if (OnSlope())
@@ -67,12 +66,10 @@ public class PlayerMove : MonoBehaviour
           
         }
 
-        if(move != Vector3.zero)
+        if (move != Vector3.zero)
         {
-            transform.forward = move.normalized;
-
-
-            
+            Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
