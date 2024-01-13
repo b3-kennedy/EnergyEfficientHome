@@ -16,6 +16,9 @@ public class SofaInteractionController : MonoBehaviour
     public GameObject player;
 
     public bool used = false;
+
+    public GameObject flappyBirdCanvas;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
@@ -35,6 +38,9 @@ public class SofaInteractionController : MonoBehaviour
     }
     void DoActivity(string name)
     {
+        flappyBirdCanvas.SetActive(true);
+        FlappyBirdMenuController.Instance.MainMenu();
+
         Debug.Log(name);
         popUpGO.SetActive(false);
         player.GetComponent<CharacterAttributes>().entertaining = true;
