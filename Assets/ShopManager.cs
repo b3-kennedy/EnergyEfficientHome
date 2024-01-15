@@ -109,6 +109,7 @@ public class ShopManager : MonoBehaviour
             if(item.itemName.text == itemNames[4])
             {
                 LevelManager.Instance.doubleGlazing = true;
+                LevelManager.Instance.DoubleGlazing();
             }
             
             if(item.itemName.text == itemNames[3])

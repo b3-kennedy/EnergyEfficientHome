@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     public float baseTemperature;
     public float liveTemperature;
     public float returnToBaseMultiplier;
+    public float minTemp;
 
     float maxTemperature;
 
@@ -70,6 +71,11 @@ public class Room : MonoBehaviour
 
     }
 
+    public void UpdateMinTemp()
+    {
+        minTemp += 2;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -79,7 +85,7 @@ public class Room : MonoBehaviour
             if (thermostat != null)
             {
                 maxTemperature = thermostat.targetTemp;
-                liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
+                liveTemperature = Mathf.Clamp(liveTemperature, minTemp, maxTemperature);
             }
 
 

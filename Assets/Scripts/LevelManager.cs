@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -39,9 +40,22 @@ public class LevelManager : MonoBehaviour
     public bool doubleGlazing;
     public bool heatPump;
 
+    public GameObject notification;
+
+
+
     private void Awake()
     {
         Instance = this;
+    }
+
+
+    public void DoubleGlazing()
+    {
+        foreach (var room in rooms)
+        {
+            room.UpdateMinTemp();
+        }
     }
 
     // Start is called before the first frame update
@@ -73,6 +87,7 @@ public class LevelManager : MonoBehaviour
         }
         CalculateComfortScore();
     }
+
 
     void CalculateComfortScore()
     {

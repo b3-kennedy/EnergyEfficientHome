@@ -43,9 +43,10 @@ public class FlappyBirdController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Pipe"))
+        if (other.transform.CompareTag("Pipe") || other.transform.CompareTag("Floor"))
         {
             FlappyBirdMenuController.Instance.GameEnd();
         }
+
     }
 }

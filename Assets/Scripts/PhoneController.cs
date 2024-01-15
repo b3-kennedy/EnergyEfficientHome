@@ -10,10 +10,12 @@ public class PhoneController : MonoBehaviour
     public Button shopButton;
     public Button moneyButton;
     public Button temperatureButton;
+    public Button notificationButton;
 
     public GameObject shopListObj;
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
+    public GameObject notificationListObj;
 
     public GameObject Headers;
     public GameObject BackIconObject;
@@ -27,12 +29,12 @@ public class PhoneController : MonoBehaviour
 
     private void OnEnable()
     {
-
+        
        
         shopButton.onClick.AddListener(ActivateShopTab);
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
-
+        notificationButton.onClick.AddListener(ActivateNotificationTab);
         backBtn.onClick.AddListener(Back);
 
     }
@@ -66,6 +68,7 @@ public class PhoneController : MonoBehaviour
         shopListObj.SetActive(true);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
+        notificationListObj.SetActive(false);
 
     }
     public void ActivateMoneyTab()
@@ -74,6 +77,7 @@ public class PhoneController : MonoBehaviour
         moneyListObj.SetActive(true);
         temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
+        notificationListObj.SetActive(false);
 
     }
     public void ActivateTemperatureTab()
@@ -82,14 +86,27 @@ public class PhoneController : MonoBehaviour
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
+        notificationListObj.SetActive(false);
+        
     }
+
+    public void ActivateNotificationTab()
+    {
+        ToggleMenuAndIcon(1);
+        scroll.value = 1;
+        notificationListObj.SetActive(true);
+        shopListObj.SetActive(false);
+        moneyListObj.SetActive(false);
+        temperatureListObj.SetActive(false);
+    }
+
+    public void AddNotification(GameObject noti)
+    {
+        noti.transform.SetParent(notificationListObj.transform);
+    }
+
     public void Back()
     {
-
-
-        
-      
-        
         shopManager.DestroyCheckoutBasketList();
 
         shopManager.Basket.Clear();

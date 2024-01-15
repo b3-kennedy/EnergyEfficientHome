@@ -17,7 +17,7 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
     public bool started;
 
-    float speed = 1;
+    public float speed = 1;
     public float speedIncrease;
     public float speedIncreaseInterval;
 

@@ -43,7 +43,7 @@ public class AIMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        agent.speed = 3.5f * TimeManager.Instance.timeControlMultiplier;
     }
 
 
