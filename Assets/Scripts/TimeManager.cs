@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.Events;
 
 public class TimeManager : MonoBehaviour
@@ -10,7 +8,7 @@ public class TimeManager : MonoBehaviour
 
     public static TimeManager Instance;
 
-    
+
     public float timeMultiplier;
 
     [SerializeField]
@@ -66,6 +64,8 @@ public class TimeManager : MonoBehaviour
     public int dayCounter = 0;
 
 
+
+
     private void Awake()
     {
         Instance = this;
@@ -80,17 +80,42 @@ public class TimeManager : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         newHour = hour;
     }
-
+    bool skipped = false;
     // Update is called once per frame
     void Update()
     {
+       
+        if (!skipped)
+        {
+            UpdateTimeOfDay();
+            RotateSun();
+            UpdateLightSettings();
+            CalculateDayEnd();
+            CalculateHourPassed();
+        }
+
+
+
+    }
+
+    public IEnumerator SkipToNextDay()
+    {
+        skipped = true;
+        Debug.Log("skipping to next day yo");
+
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
+        dayPassed.Invoke();
+        Debug.Log("time:" + currentTime.ToString());
+        dayCounter++;
+        Debug.Log("day: " + dayCounter);
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
         CalculateDayEnd();
         CalculateHourPassed();
+        yield return new WaitForSeconds(1f);
+        skipped = false;
     }
-
     public float GetCurrentFloatTime()
     {
         string hour = currentTime.ToString("HH");
@@ -107,10 +132,10 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimeOfDay()
     {
-        timeControlMultiplier = Mathf.Clamp(timeControlMultiplier,1, 8);
+        timeControlMultiplier = Mathf.Clamp(timeControlMultiplier, 1, 8);
 
         currentTime = currentTime.AddSeconds((Time.deltaTime * timeMultiplier) * timeControlMultiplier);
-       
+
 
         if (UIManager.Instance.timeText != null)
         {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterAttributes : MonoBehaviour
@@ -28,6 +26,12 @@ public class CharacterAttributes : MonoBehaviour
     float hungerSleepMul;
     float boredomSleepMul;
 
+    public CanvasGroup canvasGroup;
+    public bool fadeOut = false;
+    public bool fadeIn = false;
+    public float timeToFade;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,36 +55,59 @@ public class CharacterAttributes : MonoBehaviour
 
         if (!eating)
         {
-            hunger += Time.deltaTime * (hungerMultiplier/1000) * TimeManager.Instance.timeMultiplier;
+            hunger += Time.deltaTime * (hungerMultiplier / 1000) * TimeManager.Instance.timeMultiplier;
         }
 
-        if (!sleeping) 
+        if (!sleeping)
         {
-            tiredness += Time.deltaTime * (tirednessMultiplier/1000) * TimeManager.Instance.timeMultiplier;
+            tiredness += Time.deltaTime * (tirednessMultiplier / 1000) * TimeManager.Instance.timeMultiplier;
         }
 
         if (!entertaining)
         {
-            boredom += Time.deltaTime * (boredomMultiplier/1000) * TimeManager.Instance.timeMultiplier;
+            boredom += Time.deltaTime * (boredomMultiplier / 1000) * TimeManager.Instance.timeMultiplier;
         }
-        
 
-        if(boredom <= 0)
+
+        if (boredom <= 0)
         {
             entertaining = false;
         }
 
-        if(hunger <= 0)
+        if (hunger <= 0)
         {
             eating = false;
         }
 
-        if(tiredness <= 0)
+        if (tiredness <= 0)
         {
             sleeping = false;
         }
-        
-        
+        if (fadeIn)
+        {
+            if (canvasGroup.alpha > 0)
+            {
+                canvasGroup.alpha -= timeToFade * Time.deltaTime ;
+            }
+            if (canvasGroup.alpha == 0)
+            {
+                fadeIn = false;
+            }
+        }
+        if (fadeOut)
+        {
+
+            if (canvasGroup.alpha < 1)
+            {
+                canvasGroup.alpha += timeToFade * Time.deltaTime ;
+            }
+            if (canvasGroup.alpha >= 1)
+            {
+                fadeOut = false;
+            }
+        }
+
+
     }
 
     void UI()
@@ -102,15 +129,23 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (sleeping)
         {
-            hungerMultiplier = hungerSleepMul;
-            boredomMultiplier = boredomSleepMul;
-            tiredness -= Time.deltaTime * (tirednessRecoveryRate / 1000) * TimeManager.Instance.timeMultiplier;
+            tiredness -= 0.5f;
+            if (tiredness <= 0)
+            {
+                sleeping = false;
+                StartCoroutine(TimeManager.Instance.SkipToNextDay());
+
+                FadeIn();
+            }
+
+
         }
         else
         {
             hungerMultiplier = baseHungerMul;
             boredomMultiplier = baseBoredemMul;
         }
+
     }
 
     void Eating()
@@ -127,5 +162,16 @@ public class CharacterAttributes : MonoBehaviour
         {
             boredom -= Time.deltaTime * (boredomRecoveryRate / 1000) * TimeManager.Instance.timeMultiplier;
         }
+    }
+    public void FadeIn()
+    {
+        fadeIn = true;
+
+
+    }
+    public void FadeOut()
+    {
+        fadeOut = true;
+
     }
 }
