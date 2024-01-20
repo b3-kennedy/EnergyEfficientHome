@@ -35,8 +35,10 @@ public class ManageEndStates : MonoBehaviour
 
     public TimeManager timeManager;
 
-   
-    
+
+
+    public TMP_Text dayCountUItxt;
+    public TMP_Text budgetUItxt;
     private void OnEnable()
     {
 
@@ -57,7 +59,7 @@ public class ManageEndStates : MonoBehaviour
     }
     public void PassDay()
     {
-       dayCount++; 
+       dayCount++;
     }
     public void OptionMenu()
     {
@@ -67,6 +69,9 @@ public class ManageEndStates : MonoBehaviour
     void Update()
     {
         gameTimer += Time.deltaTime;
+        budgetUItxt.text = "Budget: £" + LevelManager.Instance.budget;
+
+        dayCountUItxt.text = "Day Count : " + dayCount ;
         if (gameTimer > 5 && dayCount<7)
         {
             float playerTemp = player.GetComponent<CharacterTemperature>().liveTemp;
