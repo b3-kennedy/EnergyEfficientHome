@@ -177,7 +177,6 @@ public class LevelManager : MonoBehaviour
     public void AddCost()
     {
 
-        Debug.Log("test");
         if (!gameEnd)
         {
             foreach (Room room in rooms)
@@ -241,18 +240,10 @@ public class LevelManager : MonoBehaviour
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun);
                             }
-                            Debug.Log(dailyCost);
                         }
                     }
                 }
             }
-        }
-
-        
-        if (!gameEnd)
-        {
-            //Debug.Log(dailyCost);
-            //dailyCost += newDiff * 1;
         }
 
         OnNewDay();

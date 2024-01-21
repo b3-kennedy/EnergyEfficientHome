@@ -17,6 +17,8 @@ public class ManageEndStates : MonoBehaviour
     public Button nextBtn;
     public Button optionsBtn;
 
+    float endTimer;
+
     public GameObject nextButtonGO;
     public GameObject restartButtonGO;
 
@@ -78,15 +80,26 @@ public class ManageEndStates : MonoBehaviour
             float aiTemp = AICharacter.GetComponent<CharacterTemperature>().liveTemp;
             if (playerTemp < minComfyTemp)
             {
+                endTimer += Time.deltaTime;
+                if(endTimer >= 3.5f)
+                {
+                    End();
+                    endGamePrompt.text = "You Froze To Death!!";
+                    endTimer = 0;
+                }
 
-                End();
-                endGamePrompt.text = "You Froze To Death!!";
             }
             else if (playerTemp > maxComfyTemp)
             {
+                endTimer += Time.deltaTime;
+                if(endTimer >= 3.5f)
+                {
 
-                End();
-                endGamePrompt.text = "You Melted!!";
+                    End();
+                    endGamePrompt.text = "You Melted!!";
+                    endTimer = 0;
+                }
+
             }
             else if (aiTemp < minComfyTemp)
             {
