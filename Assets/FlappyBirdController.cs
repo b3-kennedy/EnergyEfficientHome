@@ -17,14 +17,19 @@ public class FlappyBirdController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!FlappyBirdLevelGenerator.Instance.started)
+
+        if (!FlappyBirdLevelGenerator.Instance.pause)
         {
-            rb.isKinematic = true;
+            if (!FlappyBirdLevelGenerator.Instance.started)
+            {
+                rb.isKinematic = true;
+            }
+            else
+            {
+                rb.isKinematic = false;
+            }
         }
-        else
-        {
-            rb.isKinematic = false;
-        }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

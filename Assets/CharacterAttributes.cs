@@ -26,6 +26,10 @@ public class CharacterAttributes : MonoBehaviour
     float hungerSleepMul;
     float boredomSleepMul;
 
+    bool displayTiredness;
+    bool displayBoredom;
+    bool displayHunger;
+
     public CanvasGroup canvasGroup;
     public bool fadeOut = false;
     public bool fadeIn = false;
@@ -68,20 +72,44 @@ public class CharacterAttributes : MonoBehaviour
             boredom += Time.deltaTime * (boredomMultiplier / 1000) * TimeManager.Instance.timeMultiplier;
         }
 
+        if(hunger >= 95 && !displayHunger)
+        {
+            GetComponent<CharacterTemperature>().isComfortable = false;
+            UIManager.Instance.DisplayNotification("You are hungry you should eat!");
+            displayHunger = true;
+        }
+
+        if(tiredness >= 95 && !displayTiredness)
+        {
+            GetComponent<CharacterTemperature>().isComfortable = false;
+            UIManager.Instance.DisplayNotification("You are tired you should sleep!");
+            displayTiredness = true;
+        }
+
+        if(boredom >= 95 && !displayBoredom)
+        {
+            GetComponent<CharacterTemperature>().isComfortable = false;
+            UIManager.Instance.DisplayNotification("You are bored!");
+            displayBoredom = true;
+        }
+
 
         if (boredom <= 0)
         {
             entertaining = false;
+            displayBoredom = false;
         }
 
         if (hunger <= 0)
         {
             eating = false;
+            displayHunger = false;
         }
 
         if (tiredness <= 0)
         {
             sleeping = false;
+            displayTiredness = false;
         }
         if (fadeIn)
         {

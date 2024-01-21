@@ -66,6 +66,7 @@ public class FlappyBirdMenuController : MonoBehaviour
         FlappyBirdLevelGenerator.Instance.score = 0;
         FlappyBirdLevelGenerator.Instance.scoreText.text = "0";
         FlappyBirdLevelGenerator.Instance.speed = 1;
+        FlappyBirdLevelGenerator.Instance.bird.transform.localPosition = new Vector3(-8, -0.7f, 0);
 
 
         GameStart();

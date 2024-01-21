@@ -26,7 +26,7 @@ public class MoveRoom : StateMachineBehaviour
         move = animator.transform.GetComponent<AIMove>();
         agent = animator.transform.GetComponent<NavMeshAgent>();
 
-        if(TimeManager.Instance.GetCurrentFloatTime() >= 2200)
+        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) >= 2200)
         {
             Debug.Log("go to bed");
             room = move.bedRoom;

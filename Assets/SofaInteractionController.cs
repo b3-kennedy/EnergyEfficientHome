@@ -39,7 +39,7 @@ public class SofaInteractionController : MonoBehaviour
     void DoActivity(string name)
     {
         flappyBirdCanvas.SetActive(true);
-        FlappyBirdMenuController.Instance.MainMenu();
+        //FlappyBirdMenuController.Instance.MainMenu();
 
         Debug.Log(name);
         popUpGO.SetActive(false);
@@ -59,8 +59,8 @@ public class SofaInteractionController : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
+            flappyBirdCanvas.SetActive(false);
 
-          
             if (used)
             {
                 Debug.Log("end of entertainment.");
