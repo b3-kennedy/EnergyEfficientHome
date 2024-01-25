@@ -35,6 +35,10 @@ public class ShopManager : MonoBehaviour
     
     public static ShopManager Instance;
 
+    public GameObject infoPanel;
+    public TextMeshProUGUI infoPanelTitle;
+    public TextMeshProUGUI infoPanelBody;
+
 
     private void Awake()
     {
@@ -56,6 +60,7 @@ public class ShopManager : MonoBehaviour
 
             shopItems[i] = newItem;
             shopItem.buyBtn.onClick.AddListener(() => AddToBasket(shopItem));
+            shopItem.infoBtn.onClick.AddListener( () => DisplayItemInfo(shopItem));
         }
         checkoutBtn.onClick.AddListener(Checkout);
         checkOutBuyButton.onClick.AddListener(Buy);
@@ -122,6 +127,26 @@ public class ShopManager : MonoBehaviour
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
         totalBasket.text = "Total : £" + 0;
+    }
+
+    void DisplayItemInfo(ShopItem item)
+    {
+        Time.timeScale = 0;
+        infoPanel.SetActive(true);
+        if (item.itemName.text == itemNames[4])
+        {
+            
+            infoPanelTitle.text = "Double Glazing";
+            infoPanelBody.text = "Double glazed windows work by trapping a layer of air, which is a natural insulator, " +
+                "between two panes of glass. This stops the air from circulating which significantly lessens convection resulting in a decrease of heat loss across the window.\n" +
+                "\nDouble glazing can improve the warmth of your house by up to 64%";
+        }
+        else if(item.itemName.text == itemNames[3])
+        {
+            infoPanelTitle.text = "Heat Pump";
+            infoPanelBody.text = "Heat pumps are more efficient than other heating systems because the amount of heat they produce is more than the amount of electricity they use.\n" +
+                "\nHeat pumps could potentially reduce heating costs by anything between 10% to 41%";
+        }
     }
 
     public void UpdateBudgetText()
