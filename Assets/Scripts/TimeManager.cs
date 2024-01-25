@@ -109,14 +109,18 @@ public class TimeManager : MonoBehaviour
         timeBeforeSleep = currentTime;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
         dayPassed.Invoke();
-        LevelManager.Instance.OnNewDay();
         Debug.Log("time:" + currentTime.ToString());
         dayCounter++;
         Debug.Log("day: " + dayCounter);
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        LevelManager.Instance.DailyCostAfterSleep();
+        Debug.Log(GetFloatTime(currentTime));
+        if(!(GetFloatTime(timeBeforeSleep) > 0 && GetFloatTime(timeBeforeSleep) < 1000))
+        {
+            LevelManager.Instance.DailyCostAfterSleep();
+        }
+        
         //CalculateHourPassed();
         yield return new WaitForSeconds(1f);
         

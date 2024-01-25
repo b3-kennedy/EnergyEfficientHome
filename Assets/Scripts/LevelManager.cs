@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour
 
     public GameObject notification;
 
+    public List<float> budgetOverDays = new List<float>();
+
 
 
     private void Awake()
@@ -61,6 +63,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        budgetOverDays.Add(budget);
 
         TimeManager.Instance.dayPassed.AddListener(Break);
         TimeManager.Instance.dayPassed.AddListener(CountDays);
@@ -170,6 +173,7 @@ public class LevelManager : MonoBehaviour
     public void OnNewDay()
     {
         budget -= dailyCost;
+        budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
         dailyCost = 0;
     }
