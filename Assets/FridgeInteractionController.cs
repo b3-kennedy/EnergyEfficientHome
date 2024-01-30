@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class FridgeInteractionController : MonoBehaviour
 {
     private string[] foodPrefabs;
-    private bool isAtFridge = false;
+    private bool isPlaying = false;
 
     public Button[] foodClickables;
 
@@ -20,6 +20,8 @@ public class FridgeInteractionController : MonoBehaviour
     public GameObject pacmanGO;
     public Button plagGame;
 
+    
+
 
     private void OnEnable()
     {
@@ -31,7 +33,19 @@ public class FridgeInteractionController : MonoBehaviour
         {
             popUpGO.SetActive(false);
             pacmanGO.SetActive(true);
+            isPlaying = true;
+            player.GetComponent<PlayerMove>().canMove = false;
         });
+    }
+
+    private void Update() {
+
+        if (Input.GetKey(KeyCode.Escape) && isPlaying)
+        {
+            pacmanGO.SetActive(false);
+            isPlaying = false;
+            player.GetComponent<PlayerMove>().canMove = true;
+        }
     }
     void EatFood(string foodName)
     {
@@ -51,7 +65,7 @@ public class FridgeInteractionController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             popUpGO.SetActive(true);
-            isAtFridge = true;
+            
             fridgeText.text = "hello " + other.gameObject.name + "\n Have a snack!\n";
         }
 
@@ -62,7 +76,6 @@ public class FridgeInteractionController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
 
-            isAtFridge = false;
             popUpGO.SetActive(false);
         }
     }

@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
 
     public float rotationSpeed;
 
+    public bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,13 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Gravity();
+        if (canMove)
+        {
+            Gravity();
         Move();
-        GroundCheck();
+        GroundCheck(); 
+        }
+       
 
     }
 
