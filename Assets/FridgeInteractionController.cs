@@ -17,6 +17,9 @@ public class FridgeInteractionController : MonoBehaviour
 
     public string userInput;
 
+    public GameObject pacmanGO;
+    public Button plagGame;
+
 
     private void OnEnable()
     {
@@ -24,6 +27,11 @@ public class FridgeInteractionController : MonoBehaviour
         {
             food.onClick.AddListener(() => EatFood(food.gameObject.name));
         }
+        plagGame.onClick.AddListener(() =>
+        {
+            popUpGO.SetActive(false);
+            pacmanGO.SetActive(true);
+        });
     }
     void EatFood(string foodName)
     {
@@ -36,6 +44,7 @@ public class FridgeInteractionController : MonoBehaviour
         {
             food.onClick.RemoveAllListeners();
         }
+        plagGame.onClick.RemoveAllListeners();
     }
     private void OnTriggerEnter(Collider other)
     {
