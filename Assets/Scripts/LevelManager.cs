@@ -148,6 +148,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void ChangeClickToMoveValue()
+    {
+        characters[0].GetComponent<PlayerMove>().clickToMove = !characters[0].GetComponent<PlayerMove>().clickToMove;
+    }
+
     void Break()
     {
         if (!gameEnd)

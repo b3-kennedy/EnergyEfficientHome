@@ -68,6 +68,15 @@ public class PlayerMove : MonoBehaviour
         GetComponent<NavMeshAgent>().speed = 7 * TimeManager.Instance.timeControlMultiplier;
         //GetComponent<NavMeshAgent>().angularSpeed = 700 * TimeManager.Instance.timeControlMultiplier;
 
+        if(GetComponent<NavMeshAgent>().velocity.x != 0 || GetComponent<NavMeshAgent>().velocity.z != 0)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("move");
