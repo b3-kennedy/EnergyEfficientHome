@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -79,13 +81,22 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("move");
             Ray pos = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(pos, out var hit))
+            if (Physics.Raycast(pos, out var hit) && !IsPointerOverUIObject())
             {
                 GetComponent<NavMeshAgent>().destination = hit.point;
             }
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
     void NormalMove()

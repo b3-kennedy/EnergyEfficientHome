@@ -47,6 +47,8 @@ public class SofaInteractionController : MonoBehaviour
         used = true;
 
     }
+
+
     private void OnDisable()
     {
         foreach (Button activity in activities)
@@ -65,7 +67,6 @@ public class SofaInteractionController : MonoBehaviour
             {
                 Debug.Log("end of entertainment.");
                 used = false;
-                player.GetComponent<CharacterAttributes>().entertaining = false;
             }
 
             popUpGO.SetActive(false);
