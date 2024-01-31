@@ -1,8 +1,9 @@
 
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -39,14 +40,30 @@ public class LevelManager : MonoBehaviour
     public bool doubleGlazing;
     public bool heatPump;
 
+    public GameObject notification;
+
+    public List<float> budgetOverDays = new List<float>();
+
+
+
     private void Awake()
     {
         Instance = this;
     }
 
+
+    public void DoubleGlazing()
+    {
+        foreach (var room in rooms)
+        {
+            room.UpdateMinTemp();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        budgetOverDays.Add(budget);
 
         TimeManager.Instance.dayPassed.AddListener(Break);
         TimeManager.Instance.dayPassed.AddListener(CountDays);
@@ -73,6 +90,7 @@ public class LevelManager : MonoBehaviour
         }
         CalculateComfortScore();
     }
+
 
     void CalculateComfortScore()
     {
@@ -130,14 +148,19 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void ChangeClickToMoveValue()
+    {
+        characters[0].GetComponent<PlayerMove>().clickToMove = !characters[0].GetComponent<PlayerMove>().clickToMove;
+    }
+
     void Break()
     {
         if (!gameEnd)
         {
-            int randomNum = Random.Range(0, 100);
+            int randomNum = UnityEngine.Random.Range(0, 100);
             if (randomNum < breakChance)
             {
-                float breakTime = Random.Range(0, maxTimeToBreak);
+                float breakTime = UnityEngine.Random.Range(0, maxTimeToBreak);
                 StartCoroutine(BreakAfterTime(breakTime));
             }
         }
@@ -147,7 +170,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator BreakAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        int indexNum = Random.Range(0, tempObjects.Count);
+        int indexNum = UnityEngine.Random.Range(0, tempObjects.Count);
         tempObjects[indexNum].GetComponent<Broken>().enabled = true;
 
     }
@@ -155,12 +178,14 @@ public class LevelManager : MonoBehaviour
     public void OnNewDay()
     {
         budget -= dailyCost;
+        budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
         dailyCost = 0;
     }
 
     public void AddCost()
     {
+
         if (!gameEnd)
         {
             foreach (Room room in rooms)
@@ -186,5 +211,51 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void DailyCostAfterSleep()
+    {
+        float timeDifference = TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) - TimeManager.Instance.GetFloatTime(TimeManager.Instance.timeBeforeSleep);
+
+        float newDiff;
+
+        if(timeDifference < 0)
+        {
+            newDiff = timeDifference *= -1;
+        }
+        else
+        {
+            newDiff = timeDifference;
+        }
+
+        newDiff = 24 - newDiff / 100;
+
+
+        for (int i = 0; i < Mathf.Round(newDiff); i++) 
+        {
+            foreach (Room room in rooms)
+            {
+                foreach (var item in room.objects)
+                {
+                    if (item.GetComponent<Radiator>())
+                    {
+                        if (item.GetComponent<Radiator>().timeActivated > 0)
+                        {
+                            if (heatPump)
+                            {
+                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * 0.7f);
+                            }
+                            else
+                            {
+                                dailyCost += (item.GetComponent<Radiator>().costToRun);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        OnNewDay();
+        
     }
 }

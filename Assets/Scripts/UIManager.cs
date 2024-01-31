@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,9 +23,13 @@ public class UIManager : MonoBehaviour
     public Slider boredomSlider;
 
 
+
+
     [Header("Notification UI")]
     public Transform notificationCanvas;
     public TextMeshProUGUI notification;
+    public Transform notificationPhoneParent;
+    public GameObject phoneNoti;
 
     [Header("Level Complete UI")]
     public GameObject completeLevelUI;
@@ -86,6 +89,10 @@ public class UIManager : MonoBehaviour
     {
         TextMeshProUGUI noti = Instantiate(notification, notificationCanvas);
         noti.text = text;
+        GameObject pNoti = Instantiate(phoneNoti, notificationPhoneParent);
+        pNoti.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = text;
+        GetComponent<AudioSource>().Play();
+
     }
 
     // Update is called once per frame
