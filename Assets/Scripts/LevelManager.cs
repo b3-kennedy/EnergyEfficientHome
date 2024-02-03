@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour
 
 
 
+
     private void Awake()
     {
         Instance = this;
@@ -152,6 +153,8 @@ public class LevelManager : MonoBehaviour
     {
         characters[0].GetComponent<PlayerMove>().clickToMove = !characters[0].GetComponent<PlayerMove>().clickToMove;
     }
+
+
 
     void Break()
     {

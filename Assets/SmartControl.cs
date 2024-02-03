@@ -9,27 +9,39 @@ public class SmartControl : MonoBehaviour
     bool on;
     public Toggle toggle;
 
-    private void OnEnable()
-    {
-        foreach (var item in room.objects)
-        {
-            if (item.GetComponent<Radiator>())
-            {
-                on = item.GetComponent<Radiator>().isOn;
-            }
-        }
+    //private void Update()
+    //{
+    //    foreach (var item in room.objects)
+    //    {
+    //        if (item.GetComponent<Radiator>() && item.GetComponent<Radiator>().isOn)
+    //        {
+    //            on = true;
+    //            toggle.isOn = true;
+    //        }
+    //        else if(item.GetComponent<Radiator>() && !item.GetComponent<Radiator>().isOn)
+    //        {
+    //            on = false;
+    //            toggle.isOn = false;
+    //        }
+    //    }
 
-        toggle.isOn = on;
-    }
+        
+    //}
 
     public void Toggle()
     {
         foreach (var item in room.objects)
         {
-            if (item.GetComponent<Radiator>())
+            if (item.GetComponent<Radiator>() && item.GetComponent<Radiator>().isOn)
             {
-                item.GetComponent<Radiator>().isOn = !on;
-                toggle.isOn = item.GetComponent<Radiator>().isOn;
+                on = false;
+                item.GetComponent<Radiator>().isOn = false;
+                
+            }
+            else if(item.GetComponent<Radiator>() && !item.GetComponent<Radiator>().isOn)
+            {
+                on = true;
+                item.GetComponent<Radiator>().isOn = true;
             }
         }
     }

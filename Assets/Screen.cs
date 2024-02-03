@@ -36,6 +36,8 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
 
     public PhoneController phone;
 
+    public GameObject trigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,6 +165,9 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
 
         if (startTimer)
         {
+
+            Destroy(trigger);
+
             timer += Time.deltaTime;
             if(timer >= timeAfterCompletion)
             {

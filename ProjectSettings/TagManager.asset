@@ -12,6 +12,9 @@ TagManager:
   - RedEnd
   - GreenEnd
   - BlueEnd
+  - Task
+  - FlyTask
+  - WireTask
   layers:
   - Default
   - TransparentFX
