@@ -18,6 +18,7 @@ public class SofaInteractionController : MonoBehaviour
     public bool used = false;
 
     public GameObject flappyBirdCanvas;
+    public GameObject wireCanvas;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,8 +39,17 @@ public class SofaInteractionController : MonoBehaviour
     }
     void DoActivity(string name)
     {
-        flappyBirdCanvas.SetActive(true);
+        
         //FlappyBirdMenuController.Instance.MainMenu();
+
+        if (name == "Play a game")
+        {
+            flappyBirdCanvas.SetActive(true);
+        }
+        else if(name == "Read a book")
+        {
+            wireCanvas.SetActive(true);
+        }
 
         Debug.Log(name);
         popUpGO.SetActive(false);
@@ -62,6 +72,7 @@ public class SofaInteractionController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             flappyBirdCanvas.SetActive(false);
+            wireCanvas.SetActive(false);
 
             if (used)
             {

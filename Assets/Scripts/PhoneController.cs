@@ -11,11 +11,13 @@ public class PhoneController : MonoBehaviour
     public Button moneyButton;
     public Button temperatureButton;
     public Button notificationButton;
+    public Button smartControlButton;
 
     public GameObject shopListObj;
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
     public GameObject notificationListObj;
+    public GameObject smartControlListObj;
 
     public GameObject Headers;
     public GameObject BackIconObject;
@@ -35,6 +37,7 @@ public class PhoneController : MonoBehaviour
         moneyButton.onClick.AddListener(ActivateMoneyTab);
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
         notificationButton.onClick.AddListener(ActivateNotificationTab);
+        smartControlButton.onClick.AddListener(ActivateSmartControlTab);
         backBtn.onClick.AddListener(Back);
 
     }
@@ -69,6 +72,7 @@ public class PhoneController : MonoBehaviour
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
 
     }
     public void ActivateMoneyTab()
@@ -78,6 +82,7 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
 
     }
     public void ActivateTemperatureTab()
@@ -87,6 +92,7 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
         
     }
 
@@ -97,6 +103,18 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(true);
         shopListObj.SetActive(false);
         moneyListObj.SetActive(false);
+        temperatureListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
+    }
+
+    public void ActivateSmartControlTab()
+    {
+        ToggleMenuAndIcon(1);
+        scroll.value = 1;
+        moneyListObj.SetActive(false);
+        smartControlListObj.SetActive(true);
+        shopListObj.SetActive(false);
+        notificationListObj.SetActive(false);
         temperatureListObj.SetActive(false);
     }
 
@@ -119,6 +137,8 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
         CheckoutPage.SetActive(false);
+        notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
         scroll.value = 1;
     }
     public void ToggleMenuAndIcon(int i)

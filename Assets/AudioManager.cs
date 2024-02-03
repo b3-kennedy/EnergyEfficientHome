@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip radiatorBreakSound;
     public AudioClip windowSmash;
     public AudioClip phoneNotification;
+    public AudioClip winTaskSound;
 
 
     // Start is called before the first frame update

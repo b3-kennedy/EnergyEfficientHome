@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Pipe
   - Floor
+  - RedStart
+  - GreenStart
+  - BlueStart
+  - RedEnd
+  - GreenEnd
+  - BlueEnd
   layers:
   - Default
   - TransparentFX
