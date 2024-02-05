@@ -167,6 +167,7 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
         {
 
             Destroy(trigger);
+            LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
 
             timer += Time.deltaTime;
             if(timer >= timeAfterCompletion)

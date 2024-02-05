@@ -22,6 +22,7 @@ public class TaskTrigger : MonoBehaviour
         if (other.GetComponent<PlayerMove>())
         {
             QuitTask();
+            other.GetComponent<Interact>().interactText.text = "";
         }
     }
 

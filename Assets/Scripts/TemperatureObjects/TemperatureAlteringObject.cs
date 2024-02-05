@@ -44,6 +44,10 @@ public class TemperatureAlteringObject : MonoBehaviour
         {
             interact.interactText.text = "Press 'E' to Fix TV";
         }
+        else if (gameObject.CompareTag("SortTask"))
+        {
+            interact.interactText.text = "Press 'E' to Sort Paper";
+        }
     }
 
     void RoomThermostat()

@@ -1,40 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 
-public class FliesScreen : MonoBehaviour, IPointerDownHandler
+public class PaperSortScreen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler
 {
 
-    public GameObject[] flies;
     RectTransform thisRect;
     public Canvas canvas;
     public Camera screenCam;
-    public int fliesSwatted;
+    public enum Click {DOWN, UP};
+    public Click click;
+
+    GameObject dragObj;
+
+    public Transform paperParent;
+
     bool startTimer;
-    float timer;
-    public float timeAfterCompletion;
-    public GameObject trigger;
-
     public PhoneController phone;
-
+    public GameObject trigger;
+    public float timeAfterCompletion;
+    float timer;
+    bool complete;
 
     // Start is called before the first frame update
     void Start()
     {
         thisRect = GetComponent<RectTransform>();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
-        {
-            if (hit.collider.GetComponent<FlyMovement>())
-            {
-                Destroy(hit.collider.gameObject);
-                fliesSwatted++;
-            }
-        }
     }
 
     Vector3 GetCursorPos(PointerEventData eventData)
@@ -66,30 +59,72 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
         return Vector3.zero;
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
-        if(fliesSwatted >= flies.Length)
+        if(paperParent.childCount <= 0 && !complete)
         {
-            Debug.Log("complete");
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
             startTimer = true;
-            fliesSwatted = 0;
-
-            phone.smartControlListObj.transform.GetChild(2).gameObject.SetActive(true);
-
+            Debug.Log("task complete");
+            phone.smartControlListObj.transform.GetChild(4).gameObject.SetActive(true);
+            complete = true;
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
         }
 
         if (startTimer)
         {
+
+            Destroy(trigger);
+            LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
+
             timer += Time.deltaTime;
             if (timer >= timeAfterCompletion)
             {
-                Destroy(trigger);
-                LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
                 gameObject.transform.parent.gameObject.SetActive(false);
+            }
+        }
+    }
+    
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (click == Click.DOWN)
+        {
+            if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
+            {
+                if (dragObj != null)
+                {
+                    dragObj.transform.position = new Vector3(hit.point.x, hit.point.y, dragObj.transform.position.z);
+                }
+            }
+
+            
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+
+        click = Click.UP;
+        if(dragObj != null)
+        {
+            dragObj = null;
+        }
+        
+
+
+    }
+
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
+        click = Click.DOWN;
+        if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag("Paper"))
+            {
+                dragObj = hit.collider.gameObject;
             }
         }
     }
