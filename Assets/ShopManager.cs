@@ -153,7 +153,7 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var text in budgetTexts)
         {
-            text.text = "Your Budget: £" + LevelManager.Instance.budget;
+            text.text = "Your Budget: £" + Mathf.Round(LevelManager.Instance.budget);
         }
     }
 

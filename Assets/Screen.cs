@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler
+public class Screen : Task, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler
 {
 
     public Camera screenCam;
@@ -16,6 +16,10 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
     public ActiveWire wire;
 
     LineRenderer hitLr;
+
+    public LineRenderer redLr;
+    public LineRenderer greenLr;
+    public LineRenderer blueLr;
 
     public WireConnect wireConnect;
 
@@ -37,6 +41,8 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
     public PhoneController phone;
 
     public GameObject trigger;
+
+    public bool workTask;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +77,23 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
             
         }
         return Vector3.zero;
+    }
+
+    void Reset()
+    {
+        green = false;
+        blue = false;
+        red = false;
+
+        redLr.SetPosition(1, redLr.GetPosition(0));
+        greenLr.SetPosition(1, greenLr.GetPosition(0));
+        blueLr.SetPosition(1, blueLr.GetPosition(0));
+
+        complete = false;
+
+        timer = 0;
+        startTimer = false;
+
     }
 
     public void OnPointerMove(PointerEventData eventData)
@@ -152,6 +175,8 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
     {
         if(red && blue && green)
         {
+
+            complete = true;
             startTimer = true;
             Debug.Log("task complete");
             phone.smartControlListObj.transform.GetChild(0).gameObject.SetActive(true);
@@ -165,14 +190,20 @@ public class Screen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, I
 
         if (startTimer)
         {
-
+            
             Destroy(trigger);
             LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
 
             timer += Time.deltaTime;
             if(timer >= timeAfterCompletion)
             {
-                gameObject.transform.parent.gameObject.SetActive(false);
+                if (!workTask)
+                {
+                    gameObject.transform.parent.gameObject.SetActive(false);
+                }
+                
+                Reset();
+
             }
         }
     }

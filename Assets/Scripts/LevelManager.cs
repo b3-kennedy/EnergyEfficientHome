@@ -42,7 +42,13 @@ public class LevelManager : MonoBehaviour
 
     public GameObject notification;
 
+    public bool followCam;
+
     public List<float> budgetOverDays = new List<float>();
+
+    public GameObject flyScreen;
+    public GameObject wireScreen;
+    public GameObject sortScreen;
 
 
 
@@ -50,6 +56,11 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
     }
 
 
@@ -152,6 +163,11 @@ public class LevelManager : MonoBehaviour
     public void ChangeClickToMoveValue()
     {
         characters[0].GetComponent<PlayerMove>().clickToMove = !characters[0].GetComponent<PlayerMove>().clickToMove;
+    }
+
+    public void ChangeStaticCamValue()
+    {
+        followCam = !followCam;
     }
 
 

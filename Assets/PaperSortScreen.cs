@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 
-public class PaperSortScreen : MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler
+public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler
 {
 
     RectTransform thisRect;
@@ -22,7 +22,8 @@ public class PaperSortScreen : MonoBehaviour, IPointerDownHandler, IPointerMoveH
     public GameObject trigger;
     public float timeAfterCompletion;
     float timer;
-    bool complete;
+
+    public GameObject[] paper;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,31 @@ public class PaperSortScreen : MonoBehaviour, IPointerDownHandler, IPointerMoveH
         return Vector3.zero;
     }
 
+    void Reset()
+    {
+        for (int i = 0; i < Random.Range(5,13); i++)
+        {
+            int paperNum = Random.Range(0, paper.Length);
+            GameObject spawnedPaper = Instantiate(paper[paperNum], paperParent);
+            int index = i;
+            Debug.Log(index * 0.1f);
+            if(i > 0)
+            {
+                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, 0.67f + (i * 0.01f));
+            }
+            else
+            {
+                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, 0.67f);
+            }
+            
+        }
+
+        startTimer = false;
+        timer = 0;
+        complete = false;
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -74,13 +100,14 @@ public class PaperSortScreen : MonoBehaviour, IPointerDownHandler, IPointerMoveH
         if (startTimer)
         {
 
-            Destroy(trigger);
+            //Destroy(trigger);
             LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
 
             timer += Time.deltaTime;
             if (timer >= timeAfterCompletion)
             {
-                gameObject.transform.parent.gameObject.SetActive(false);
+                //gameObject.transform.parent.gameObject.SetActive(false);
+                Reset();
             }
         }
     }

@@ -71,7 +71,7 @@ public class ManageEndStates : MonoBehaviour
     void Update()
     {
         gameTimer += Time.deltaTime;
-        budgetUItxt.text = "Budget: £" + LevelManager.Instance.budget;
+        budgetUItxt.text = "Budget: £" + Mathf.Round(LevelManager.Instance.budget);
 
         dayCountUItxt.text = "Day Count : " + dayCount ;
         if (gameTimer > 5 && dayCount<7)

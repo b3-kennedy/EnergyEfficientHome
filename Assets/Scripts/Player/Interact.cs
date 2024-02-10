@@ -45,6 +45,10 @@ public class Interact : MonoBehaviour
                 {
                     heatObject.GetComponent<TaskTrigger>().StartTask();
                 }
+                else if (heatObject.GetComponent<WorkTrigger>())
+                {
+                    heatObject.GetComponent<WorkTrigger>().StartWork();
+                }
 
                 if (heatObject.GetComponent<Broken>())
                 {

@@ -17,6 +17,7 @@ TagManager:
   - WireTask
   - Paper
   - SortTask
+  - Work
   layers:
   - Default
   - TransparentFX

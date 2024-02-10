@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public class FliesScreen : MonoBehaviour, IPointerDownHandler
 {
 
-    public GameObject[] flies;
+    public List<GameObject> flies;
+    public GameObject fly;
     RectTransform thisRect;
     public Canvas canvas;
     public Camera screenCam;
@@ -15,7 +16,7 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
     float timer;
     public float timeAfterCompletion;
     public GameObject trigger;
-
+    public Transform parent;
     public PhoneController phone;
 
 
@@ -31,7 +32,7 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
         {
             if (hit.collider.GetComponent<FlyMovement>())
             {
-                Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.SetActive(false);
                 fliesSwatted++;
             }
         }
@@ -66,12 +67,23 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
         return Vector3.zero;
     }
 
+    public void Reset()
+    {
+        fliesSwatted = 0;
+        for (int i = 0; i < flies.Count; i++)
+        {
+            flies[i].SetActive(true);
+        }
+        Debug.Log("reset");
+
+    }
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if(fliesSwatted >= flies.Length)
+        if(fliesSwatted >= flies.Count)
         {
             Debug.Log("complete");
             AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
@@ -80,6 +92,8 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
 
             phone.smartControlListObj.transform.GetChild(2).gameObject.SetActive(true);
 
+            Destroy(trigger);
+
         }
 
         if (startTimer)
@@ -87,9 +101,12 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
             timer += Time.deltaTime;
             if (timer >= timeAfterCompletion)
             {
-                Destroy(trigger);
+                
+                Reset();
                 LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
                 gameObject.transform.parent.gameObject.SetActive(false);
+                timer = 0;
+                startTimer = false;
             }
         }
     }

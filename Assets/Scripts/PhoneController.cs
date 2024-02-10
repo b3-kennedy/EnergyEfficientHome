@@ -13,6 +13,8 @@ public class PhoneController : MonoBehaviour
     public Button notificationButton;
     public Button smartControlButton;
 
+    public Transform phoneBG;
+
     public GameObject shopListObj;
     public GameObject moneyListObj;
     public GameObject temperatureListObj;
@@ -29,6 +31,10 @@ public class PhoneController : MonoBehaviour
 
     public ShopManager shopManager;
 
+    public Vector2 showPos;
+    public Vector2 hidePos;
+    public bool hidden;
+
     private void OnEnable()
     {
         
@@ -43,15 +49,26 @@ public class PhoneController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             pickUpAudio.Play();
-            phoneGameObject.SetActive(true);
+            //phoneGameObject.SetActive(true);
+            hidden = !hidden;
         }
-        else if (Input.GetKey(KeyCode.Escape))
+        //else if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    pickUpAudio.Play();
+        //    hidden = true;
+        //    //phoneGameObject.SetActive(false);
+        //}
+
+        if (hidden)
         {
-            pickUpAudio.Play();
-            phoneGameObject.SetActive(false);
+            phoneBG.localPosition = Vector3.Lerp(phoneBG.localPosition, hidePos, Time.deltaTime * 5);
+        }
+        else
+        {
+            phoneBG.localPosition = Vector3.Lerp(phoneBG.localPosition, showPos, Time.deltaTime * 5);
         }
 
 
@@ -121,6 +138,7 @@ public class PhoneController : MonoBehaviour
     public void AddNotification(GameObject noti)
     {
         noti.transform.SetParent(notificationListObj.transform);
+        Debug.Log("notification");
     }
 
     public void Back()
