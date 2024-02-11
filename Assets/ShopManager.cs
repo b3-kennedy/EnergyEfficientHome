@@ -121,6 +121,15 @@ public class ShopManager : MonoBehaviour
             {
                 LevelManager.Instance.heatPump = true;
             }
+
+            if(item.itemName.text == itemNames[5])
+            {
+                for (int i = 0; i < MobilePhoneScreen.transform.parent.GetChild(5).childCount; i++)
+                {
+                    MobilePhoneScreen.transform.parent.GetChild(5).GetChild(i).gameObject.SetActive(true);
+                }
+                
+            }
         }
 
         UpdateBudgetText();

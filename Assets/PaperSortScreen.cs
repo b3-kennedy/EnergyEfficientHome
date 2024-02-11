@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
@@ -14,6 +15,8 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     public Click click;
 
     GameObject dragObj;
+    public GameObject moneyEarnedText;
+    public Transform moneyEarnedPos;
 
     public Transform paperParent;
 
@@ -22,13 +25,22 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     public GameObject trigger;
     public float timeAfterCompletion;
     float timer;
-
+    public float gameTimer;
+    bool started;
+    public TextMeshPro timerText;
+    bool textSpawned;
     public GameObject[] paper;
 
     // Start is called before the first frame update
     void Start()
     {
         thisRect = GetComponent<RectTransform>();
+        gameTimer = 5;
+    }
+
+    void OnEnable()
+    {
+        
     }
 
     Vector3 GetCursorPos(PointerEventData eventData)
@@ -66,8 +78,6 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
         {
             int paperNum = Random.Range(0, paper.Length);
             GameObject spawnedPaper = Instantiate(paper[paperNum], paperParent);
-            int index = i;
-            Debug.Log(index * 0.1f);
             if(i > 0)
             {
                 spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, 0.67f + (i * 0.01f));
@@ -79,34 +89,57 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             
         }
 
+        timerText.text = "5.0";
+
         startTimer = false;
         timer = 0;
         complete = false;
+        textSpawned = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (started)
+        {
+            gameTimer -= Time.deltaTime;
+            timerText.text = (Mathf.Round(gameTimer * 10f) * 0.1f).ToString();
+        }
+        
+
         if(paperParent.childCount <= 0 && !complete)
         {
+
+
+            started = false;
             startTimer = true;
             Debug.Log("task complete");
-            phone.smartControlListObj.transform.GetChild(4).gameObject.SetActive(true);
+            //phone.smartControlListObj.transform.GetChild(4).gameObject.SetActive(true);
             complete = true;
             AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+            
         }
 
         if (startTimer)
         {
-
+            if (!textSpawned)
+            {
+                LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
+                GameObject txt = Instantiate(moneyEarnedText, moneyEarnedPos.position, Quaternion.identity);
+                txt.GetComponent<TextMeshPro>().text = "+£" +Mathf.Round(gameTimer * 2).ToString();
+                textSpawned = true;
+            }
             //Destroy(trigger);
-            LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
+
 
             timer += Time.deltaTime;
             if (timer >= timeAfterCompletion)
             {
-                //gameObject.transform.parent.gameObject.SetActive(false);
+                LevelManager.Instance.budget += gameTimer * 2;
+                gameTimer = 5;
+                gameObject.transform.parent.gameObject.SetActive(false);
+                WorkTrigger.Instance.StartWork();
                 Reset();
             }
         }
@@ -122,6 +155,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
                 if (dragObj != null)
                 {
                     dragObj.transform.position = new Vector3(hit.point.x, hit.point.y, dragObj.transform.position.z);
+                    started = true;
                 }
             }
 

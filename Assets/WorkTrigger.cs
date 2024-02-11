@@ -8,6 +8,14 @@ public class WorkTrigger : MonoBehaviour
     public GameObject[] workTasks;
     Task currentTask;
 
+    public static WorkTrigger Instance;
+
+
+    private void Awake()
+    {
+        Instance = this; 
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,18 +32,12 @@ public class WorkTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (currentTask != null && currentTask.complete)
-        {
-            StartWork();
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<PlayerMove>())
         {
-            Debug.Log("testt");
             foreach (var task in workTasks)
             {
                 task.SetActive(false);

@@ -1,41 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FliesScreen : MonoBehaviour, IPointerDownHandler
+public class ReplyToEmail : Task, IPointerDownHandler
 {
 
-    public List<GameObject> flies;
-    public GameObject fly;
-    RectTransform thisRect;
-    public Canvas canvas;
     public Camera screenCam;
-    public int fliesSwatted;
+    RectTransform thisRect;
+    public GameObject canvas;
     bool startTimer;
     float timer;
     public float timeAfterCompletion;
-    public GameObject trigger;
-    public Transform parent;
-    public PhoneController phone;
+    bool correct;
+    public Transform[] positions;
+    public GameObject[] emails;
+    public Transform emailParent;
+    GameObject currentEmail;
+    float gameTimer = 10;
+    public TextMeshPro gameTimerText;
+    bool textSpawned;
+    public GameObject moneyEarnedText;
+    public Transform moneyEarnedPos;
 
 
     // Start is called before the first frame update
     void Start()
     {
         thisRect = GetComponent<RectTransform>();
+        gameTimer = 10;
+    }
+
+    void OnEnable()
+    {
+        Reset();
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
         {
-            if (hit.collider.GetComponent<FlyMovement>())
+            Debug.Log(hit.transform.gameObject);
+            if (hit.transform.GetComponent<EmailOption>() && hit.transform.GetComponent<EmailOption>().correctOption)
             {
-                hit.collider.gameObject.SetActive(false);
-                fliesSwatted++;
+                startTimer = true;
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+                SpawnText();
+            }
+            else
+            {
+                SpawnText();
             }
         }
+    }
+
+    void SpawnText()
+    {
+        if (!textSpawned)
+        {
+            GameObject txt = Instantiate(moneyEarnedText, moneyEarnedPos.position, Quaternion.identity);
+            txt.GetComponent<TextMeshPro>().text = "+£" + Mathf.Round(gameTimer * 2).ToString();
+            textSpawned = true;
+        }
+    }
+
+    void Reset()
+    {
+        GameObject prevEmail = null;
+        gameTimer = 10;
+        if(currentEmail != null)
+        {
+            prevEmail = currentEmail;
+            Destroy(currentEmail);
+        }
+
+        int randomNum = Random.Range(0, emails.Length);
+        if (emails[randomNum] != prevEmail)
+        {
+            currentEmail = Instantiate(emails[randomNum], emailParent);
+        }
+        else
+        {
+            WorkTrigger.Instance.StartWork();
+        }
+        
+        //complete = false;
+        startTimer = false;
+        textSpawned = false;
     }
 
     Vector3 GetCursorPos(PointerEventData eventData)
@@ -67,44 +120,25 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
         return Vector3.zero;
     }
 
-    public void Reset()
-    {
-        fliesSwatted = 0;
-        for (int i = 0; i < flies.Count; i++)
-        {
-            flies[i].SetActive(true);
-        }
-        Debug.Log("reset");
-
-    }
-
-
-
     // Update is called once per frame
     void Update()
     {
-        if(fliesSwatted >= flies.Count)
-        {
-            Debug.Log("complete");
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
-            startTimer = true;
-            fliesSwatted = 0;
+        gameTimer -= Time.deltaTime;
+        gameTimerText.text = (Mathf.Round(gameTimer * 10f) * 0.1f).ToString();
 
-            //phone.smartControlListObj.transform.GetChild(2).gameObject.SetActive(true);
-
-            Destroy(trigger);
-
-        }
 
         if (startTimer)
         {
             timer += Time.deltaTime;
+            
             if (timer >= timeAfterCompletion)
             {
-                
+                LevelManager.Instance.budget += gameTimer * 2;
+                complete = true;
+                gameObject.transform.parent.gameObject.SetActive(false);
+                WorkTrigger.Instance.StartWork();
                 Reset();
                 LevelManager.Instance.characters[0].GetComponent<Interact>().interactText.text = "";
-                gameObject.transform.parent.gameObject.SetActive(false);
                 timer = 0;
                 startTimer = false;
             }

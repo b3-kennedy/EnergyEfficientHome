@@ -179,7 +179,7 @@ public class Screen : Task, IPointerDownHandler, IPointerMoveHandler, IPointerUp
             complete = true;
             startTimer = true;
             Debug.Log("task complete");
-            phone.smartControlListObj.transform.GetChild(0).gameObject.SetActive(true);
+            //phone.smartControlListObj.transform.GetChild(0).gameObject.SetActive(true);
 
             AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
 

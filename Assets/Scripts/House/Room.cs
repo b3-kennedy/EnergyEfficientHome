@@ -113,7 +113,7 @@ public class Room : MonoBehaviour
         if (liveTemperature < 15 && flyGame == null && !flyIsOnCd)
         {
             miniGameSpawnTimer += Time.deltaTime;
-            if(miniGameSpawnTimer >= 10)
+            if(miniGameSpawnTimer >= Random.Range(5,60))
             {
                 int randomNum = Random.Range(0, 100);
                 if(randomNum <= flySpawnChance)
