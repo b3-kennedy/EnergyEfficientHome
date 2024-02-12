@@ -8,24 +8,25 @@ public class ChangeVisibleWalls : MonoBehaviour
     public Material defaultWallMaterial;
     public Material invisibleWallMaterial;
 
-    public Toggle toggleWalls;
+    //public Toggle toggleWalls;
 
     void Start()
     {
-        
+        gameObject.GetComponent<MeshRenderer>().material = invisibleWallMaterial;
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(toggleWalls.isOn)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = invisibleWallMaterial;
-        }
-        else if(!toggleWalls.isOn)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = defaultWallMaterial;
-        }
+    //void Update()
+    //{
+    //    if(toggleWalls.isOn)
+    //    {
+    //        gameObject.GetComponent<MeshRenderer>().material = invisibleWallMaterial;
+    //    }
+    //    else if(!toggleWalls.isOn)
+    //    {
+    //        gameObject.GetComponent<MeshRenderer>().material = defaultWallMaterial;
+    //    }
         
-    }
+    //}
 }

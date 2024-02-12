@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11992,7 +11992,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1 &910663091383112291
 GameObject:
   m_ObjectHideFlags: 0
@@ -12474,7 +12473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1 &1147213512509281864
 GameObject:
   m_ObjectHideFlags: 0
@@ -12981,7 +12979,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!114 &1302494899976296729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12996,7 +12993,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!65 &1311479563505396681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15223,7 +15219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!23 &2056050826851161715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17162,7 +17157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!114 &2755258895363018928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19057,7 +19051,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1001 &3466501641447234727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19503,7 +19496,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!224 &3632833986585954216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19910,7 +19902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!114 &3849416967942899545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20976,7 +20967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!222 &4184087149926569529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21097,7 +21087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 563, y: 268}
+  m_AnchoredPosition: {x: 880, y: 457}
   m_SizeDelta: {x: 127.1733, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &4359763404975735270
@@ -21595,7 +21585,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1 &4510952675827893337
 GameObject:
   m_ObjectHideFlags: 0
@@ -21842,7 +21831,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!23 &4596467190042462177
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23118,7 +23106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!4 &5045240899185074277
 Transform:
   m_ObjectHideFlags: 0
@@ -25781,6 +25768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3526368147761133809}
     m_Modifications:
+    - target: {fileID: 953175406927113029, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: effc7045bdaac894d9d523d3e7907c5e, type: 3}
     - target: {fileID: 1005721159146335541, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25793,13 +25784,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAttributes
       objectReference: {fileID: 0}
+    - target: {fileID: 2946656331278862631, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7fb0aad007e9ba478f25325c264312d, type: 3}
     - target: {fileID: 3121368497706834862, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3121368497706834862, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 29.4629
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121368497706834862, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 7.9098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121368497706834862, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121368497706834862, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3652667342790247306, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652667342790247306, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 27.7625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652667342790247306, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652667342790247306, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.69999695
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652667342790247306, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_Pivot.x
@@ -25900,6 +25927,22 @@ PrefabInstance:
     - target: {fileID: 8232870228880717180, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232870228880717180, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 34.3365
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232870228880717180, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20.1876
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232870228880717180, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232870228880717180, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8352548639493288028, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_LocalScale.x
@@ -26896,7 +26939,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!65 &6393773704813897876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27076,7 +27118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1001 &6473572095225550401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29321,7 +29362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!114 &7400883994077948918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29412,7 +29452,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!4 &7433705745550999793
 Transform:
   m_ObjectHideFlags: 0
@@ -29443,7 +29482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!1 &7453880989943109920
 GameObject:
   m_ObjectHideFlags: 0
@@ -31914,7 +31952,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!224 &8360582913246854559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32174,7 +32211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultWallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   invisibleWallMaterial: {fileID: 2100000, guid: c7fd5be9307259344be070e502b0ef6c, type: 2}
-  toggleWalls: {fileID: 5608424755714380959}
 --- !u!65 &8456948336371408061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33612,7 +33648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &8886086251295748017
 GameObject:
   m_ObjectHideFlags: 0
