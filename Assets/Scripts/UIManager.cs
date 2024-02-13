@@ -29,7 +29,9 @@ public class UIManager : MonoBehaviour
     public Transform notificationCanvas;
     public TextMeshProUGUI notification;
     public Transform notificationPhoneParent;
+    public Transform hudParent;
     public GameObject phoneNoti;
+    public GameObject hudNoti;
 
     [Header("Level Complete UI")]
     public GameObject completeLevelUI;
@@ -87,12 +89,15 @@ public class UIManager : MonoBehaviour
 
     public void DisplayNotification(string text)
     {
-        TextMeshProUGUI noti = Instantiate(notification, notificationCanvas);
-        noti.text = text;
+        //TextMeshProUGUI noti = Instantiate(notification, notificationCanvas);
+        //noti.text = text;
         GameObject pNoti = Instantiate(phoneNoti, notificationPhoneParent);
         pNoti.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = text;
         GetComponent<AudioSource>().Play();
+        GameObject hNoti = Instantiate(hudNoti, hudParent);
+        hNoti.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = text;
 
+            
     }
 
     // Update is called once per frame

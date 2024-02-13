@@ -6,6 +6,18 @@ TagManager:
   tags:
   - Pipe
   - Floor
+  - RedStart
+  - GreenStart
+  - BlueStart
+  - RedEnd
+  - GreenEnd
+  - BlueEnd
+  - Task
+  - FlyTask
+  - WireTask
+  - Paper
+  - SortTask
+  - Work
   layers:
   - Default
   - TransparentFX

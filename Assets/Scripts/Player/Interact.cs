@@ -41,6 +41,14 @@ public class Interact : MonoBehaviour
                     heatObject.GetComponent<RoomThermostat>().Activate();
                     heatObject.GetComponent<RoomThermostat>().playerInteract = this;
                 }
+                else if (heatObject.GetComponent<TaskTrigger>())
+                {
+                    heatObject.GetComponent<TaskTrigger>().StartTask();
+                }
+                else if (heatObject.GetComponent<WorkTrigger>())
+                {
+                    heatObject.GetComponent<WorkTrigger>().StartWork();
+                }
 
                 if (heatObject.GetComponent<Broken>())
                 {
