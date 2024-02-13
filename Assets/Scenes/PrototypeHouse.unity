@@ -2207,6 +2207,7 @@ MonoBehaviour:
   windowSmash: {fileID: 8300000, guid: d17965e0a1052fd4f8522f61ea22354b, type: 3}
   phoneNotification: {fileID: 8300000, guid: f374818c3a287e54ea2222c5a592c37d, type: 3}
   winTaskSound: {fileID: 8300000, guid: 45892df7da59a9641bb4aa42699533c1, type: 3}
+  incorrectAnswer: {fileID: 8300000, guid: 5aa46865c3c58914587c4e828c90e01a, type: 3}
 --- !u!4 &331979751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8e6ec1536fde4b7e9a051a22d82a2f9, type: 3}

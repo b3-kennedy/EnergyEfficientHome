@@ -45,13 +45,11 @@ public class ReplyToEmail : Task, IPointerDownHandler
             Debug.Log(hit.transform.gameObject);
             if (hit.transform.GetComponent<EmailOption>() && hit.transform.GetComponent<EmailOption>().correctOption)
             {
-                startTimer = true;
-                AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
-                SpawnText();
+                CorrectAnswer();
             }
             else
             {
-                SpawnText();
+                IncorrectAnswer();
             }
         }
     }
@@ -64,6 +62,18 @@ public class ReplyToEmail : Task, IPointerDownHandler
             txt.GetComponent<TextMeshPro>().text = "+£" + Mathf.Round(gameTimer * 2).ToString();
             textSpawned = true;
         }
+    }
+
+    void CorrectAnswer()
+    {
+        startTimer = true;
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+        SpawnText();
+    }
+
+    void IncorrectAnswer()
+    {
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.incorrectAnswer, Camera.main.transform.position);
     }
 
     void Reset()
