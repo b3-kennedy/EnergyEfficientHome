@@ -199,6 +199,7 @@ public class LevelManager : MonoBehaviour
         budget -= dailyCost;
         budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
+        WorkTrigger.Instance.OffCooldown();
         dailyCost = 0;
     }
 

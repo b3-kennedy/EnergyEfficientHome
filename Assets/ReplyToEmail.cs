@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ReplyToEmail : Task, IPointerDownHandler
 {
@@ -23,6 +25,8 @@ public class ReplyToEmail : Task, IPointerDownHandler
     bool textSpawned;
     public GameObject moneyEarnedText;
     public Transform moneyEarnedPos;
+    Transform optionParent;
+
 
 
     // Start is called before the first frame update
@@ -45,11 +49,15 @@ public class ReplyToEmail : Task, IPointerDownHandler
             Debug.Log(hit.transform.gameObject);
             if (hit.transform.GetComponent<EmailOption>() && hit.transform.GetComponent<EmailOption>().correctOption)
             {
+                optionParent = hit.transform.parent;
                 CorrectAnswer();
+                
             }
             else
             {
+                optionParent = hit.transform.parent;
                 IncorrectAnswer();
+                
             }
         }
     }
@@ -62,17 +70,40 @@ public class ReplyToEmail : Task, IPointerDownHandler
             txt.GetComponent<TextMeshPro>().text = "+£" + Mathf.Round(gameTimer * 2).ToString();
             textSpawned = true;
         }
+        LevelManager.Instance.budget += gameTimer * 2;
     }
 
     void CorrectAnswer()
     {
         startTimer = true;
         AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+        AnswerColour();
         SpawnText();
+    }
+
+    void AnswerColour()
+    {
+        if (optionParent != null)
+        {
+            for (int i = 0; i < optionParent.childCount; i++)
+            {
+                if (optionParent.GetChild(i).GetComponent<EmailOption>().correctOption)
+                {
+                    optionParent.GetChild(i).GetComponent<SpriteRenderer>().color = Color.green;
+                }
+                else
+                {
+                    optionParent.GetChild(i).GetComponent<SpriteRenderer>().color = Color.red;
+                }
+            }
+        }
     }
 
     void IncorrectAnswer()
     {
+        AnswerColour();
+        startTimer = true;
+
         AudioSource.PlayClipAtPoint(AudioManager.Instance.incorrectAnswer, Camera.main.transform.position);
     }
 
@@ -143,7 +174,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
             
             if (timer >= timeAfterCompletion)
             {
-                LevelManager.Instance.budget += gameTimer * 2;
+                
                 complete = true;
                 gameObject.transform.parent.gameObject.SetActive(false);
                 WorkTrigger.Instance.StartWork();

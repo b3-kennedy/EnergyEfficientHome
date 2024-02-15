@@ -50,7 +50,11 @@ public class TemperatureAlteringObject : MonoBehaviour
         }
         else if (gameObject.CompareTag("Work"))
         {
-            interact.interactText.text = "Press 'E' to Work";
+            
+            if (!WorkTrigger.Instance.onCd)
+            {
+                interact.interactText.text = "Press 'E' to Work";
+            }
         }
     }
 
