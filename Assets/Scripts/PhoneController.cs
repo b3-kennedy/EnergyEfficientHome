@@ -27,6 +27,8 @@ public class PhoneController : MonoBehaviour
 
     public ShopManager shopManager;
 
+    bool isBeingUsed=false;
+
     private void OnEnable()
     {
         
@@ -40,15 +42,17 @@ public class PhoneController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && !isBeingUsed)
         {
             pickUpAudio.Play();
             phoneGameObject.SetActive(true);
+            isBeingUsed = true;
         }
-        else if (Input.GetKey(KeyCode.Escape))
+        else if (Input.GetKey(KeyCode.Escape) && isBeingUsed)
         {
             pickUpAudio.Play();
             phoneGameObject.SetActive(false);
+            isBeingUsed=false;
         }
 
 
