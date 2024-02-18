@@ -1,10 +1,7 @@
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
+
 
 public class FridgeInteractionController : MonoBehaviour
 {
@@ -142,12 +139,9 @@ public class FridgeInteractionController : MonoBehaviour
                 item.GetComponent<RecycleItem>().isRecyclable = true;
                 item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
                 item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-                //item.transform.position = positions[posIndex].transform.position;
+               
                 item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
 
-                Transform newPosition = positions[posIndex].transform;
-                item.transform.SetParent(newPosition); // Set the parent to the correct position object
-                item.transform.localPosition = Vector3.zero;
 
 
             }
@@ -159,12 +153,9 @@ public class FridgeInteractionController : MonoBehaviour
                 item.GetComponent<RecycleItem>().isRecyclable = false;
                 item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
                 item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-                //item.transform.position = positions[posIndex].transform.position;
+              
                 item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
 
-                Transform newPosition = positions[posIndex].transform;
-                item.transform.SetParent(newPosition); // Set the parent to the correct position object
-                item.transform.localPosition = Vector3.zero;
 
 
             }
