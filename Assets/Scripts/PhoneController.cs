@@ -29,6 +29,8 @@ public class PhoneController : MonoBehaviour
 
     bool isBeingUsed=false;
 
+    public GameObject scrollBar;
+
     private void OnEnable()
     {
         
@@ -38,6 +40,7 @@ public class PhoneController : MonoBehaviour
         temperatureButton.onClick.AddListener(ActivateTemperatureTab);
         notificationButton.onClick.AddListener(ActivateNotificationTab);
         backBtn.onClick.AddListener(Back);
+        scrollBar.SetActive(false);
 
     }
     private void Update()
@@ -73,6 +76,7 @@ public class PhoneController : MonoBehaviour
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        scrollBar.SetActive(true);
 
     }
     public void ActivateMoneyTab()
@@ -82,6 +86,7 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        scrollBar.SetActive(false);
 
     }
     public void ActivateTemperatureTab()
@@ -91,7 +96,8 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
-        
+        scrollBar.SetActive(false);
+
     }
 
     public void ActivateNotificationTab()
@@ -102,6 +108,7 @@ public class PhoneController : MonoBehaviour
         shopListObj.SetActive(false);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
+        scrollBar.SetActive(false);
     }
 
     public void AddNotification(GameObject noti)
@@ -117,7 +124,7 @@ public class PhoneController : MonoBehaviour
         shopManager.totalAmountText.text = "total : " + shopManager.Basket.Count + " $";
         shopManager.totalBasket.text = "total : " + shopManager.Basket.Count + " $";
 
-
+        scrollBar.SetActive(false);
         ToggleMenuAndIcon(0);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
