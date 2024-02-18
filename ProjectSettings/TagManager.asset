@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pipe
   - Floor
+  - recycleBin
+  - nonRecycleBin
   layers:
   - Default
   - TransparentFX

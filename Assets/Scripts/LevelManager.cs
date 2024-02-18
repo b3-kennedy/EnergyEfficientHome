@@ -34,6 +34,8 @@ public class LevelManager : MonoBehaviour
 
     public float moneySavedScore;
 
+    public float FoodCosts;
+
     public bool gameEnd;
 
     [Header("House Upgrades")]
@@ -44,6 +46,10 @@ public class LevelManager : MonoBehaviour
 
     public List<float> budgetOverDays = new List<float>();
 
+
+    public float electricityCosts ; 
+
+    public float fridgeElectricity= 0.0225f ;
 
 
     private void Awake()
@@ -209,6 +215,12 @@ public class LevelManager : MonoBehaviour
                     }
                 }
             }
+
+            dailyCost += electricityCosts + fridgeElectricity;
+            dailyCost += FoodCosts;
+
+            electricityCosts = 0;
+            FoodCosts = 0;
         }
 
     }
