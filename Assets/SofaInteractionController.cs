@@ -19,6 +19,9 @@ public class SofaInteractionController : MonoBehaviour
 
     public GameObject flappyBirdCanvas;
 
+    public GameObject levelManager;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
@@ -46,6 +49,7 @@ public class SofaInteractionController : MonoBehaviour
         player.GetComponent<CharacterAttributes>().entertaining = true;
         used = true;
 
+        levelManager.GetComponent<LevelManager>().electricityCosts += 0.015f;
     }
     private void OnDisable()
     {
