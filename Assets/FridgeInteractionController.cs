@@ -121,14 +121,14 @@ public class FridgeInteractionController : MonoBehaviour
 
 
     }
-    bool locked=false;
+    
 
     void HandleCorrect(GameObject item)
     {
 
-       if(!locked) {
+       
             score += 10;
-            locked = true;
+            
             scoreText.text = "Score: " + score;
             Debug.Log(item.name);
             int posIndex = item.GetComponent<RecycleItem>().positionIndex;
@@ -142,9 +142,13 @@ public class FridgeInteractionController : MonoBehaviour
                 item.GetComponent<RecycleItem>().isRecyclable = true;
                 item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
                 item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-                item.transform.position = positions[posIndex].transform.position;
+                //item.transform.position = positions[posIndex].transform.position;
                 item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-               
+
+                Transform newPosition = positions[posIndex].transform;
+                item.transform.SetParent(newPosition); // Set the parent to the correct position object
+                item.transform.localPosition = Vector3.zero;
+
 
             }
             else
@@ -155,13 +159,16 @@ public class FridgeInteractionController : MonoBehaviour
                 item.GetComponent<RecycleItem>().isRecyclable = false;
                 item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
                 item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-                item.transform.position = positions[posIndex].transform.position;
+                //item.transform.position = positions[posIndex].transform.position;
                 item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+
+                Transform newPosition = positions[posIndex].transform;
+                item.transform.SetParent(newPosition); // Set the parent to the correct position object
+                item.transform.localPosition = Vector3.zero;
 
 
             }
-            locked = false;
-        }
+            
 
     }
     
@@ -263,7 +270,7 @@ public class FridgeInteractionController : MonoBehaviour
         {
             popUpGO.SetActive(true);
             
-            fridgeText.text = "hello " + other.gameObject.name + "\n Have a snack!\n";
+            fridgeText.text = "Hello. Have a snack!\n";
 
 
         }
