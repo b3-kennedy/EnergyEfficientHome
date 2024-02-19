@@ -20647,7 +20647,7 @@ MonoBehaviour:
   scroll: {fileID: 6639103085619601826}
   pickUpAudio: {fileID: 671450092188663256}
   shopManager: {fileID: 701088189}
-  scrollBar: {fileID: 5285934582595955207}
+  scrollBar: {fileID: 7653785065486709271}
 --- !u!65 &2757578083207182932
 BoxCollider:
   m_ObjectHideFlags: 0

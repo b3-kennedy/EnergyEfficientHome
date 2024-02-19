@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
 
     public float electricityCosts ; 
 
-    public float fridgeElectricity= 0.0225f ;
+    public float baseElectricityHourlyCost= 0.05f ;
 
 
     private void Awake()
@@ -216,7 +216,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            dailyCost += electricityCosts + fridgeElectricity;
+            dailyCost += electricityCosts + baseElectricityHourlyCost;
             dailyCost += FoodCosts;
 
             electricityCosts = 0;
