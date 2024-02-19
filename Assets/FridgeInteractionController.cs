@@ -215,11 +215,11 @@ public class FridgeInteractionController : MonoBehaviour
     }
     void ResetItems()
     {
-        foreach (GameObject item in onScreenItems)
-        {
-            item.GetComponent<RecycleItem>().onCorrectDropped -= HandleCorrect;
-            Destroy(item);
-        }
+        //foreach (GameObject item in onScreenItems)
+        //{
+        //    item.GetComponent<RecycleItem>().onCorrectDropped -= HandleCorrect;
+        //    Destroy(item);
+        //}
     }
     void StartGame()
     {
