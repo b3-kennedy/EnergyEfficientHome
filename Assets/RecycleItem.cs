@@ -58,11 +58,12 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     }
 
 
-    private void HandleCorrectDrop(GameObject go)
+    private void HandleCorrectDrop(int position)
     {
         
-        if (gameObject.name == go.name)
+        if (positionIndex==position)
         {
+            Debug.Log(positionIndex);
             isDroppedCorrect = true;
            
 

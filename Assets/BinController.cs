@@ -7,7 +7,7 @@ public class BinController : MonoBehaviour
     public bool isRecycleBin;
 
 
-    public event System.Action<GameObject> OnCorrect;
+    public event System.Action<int> OnCorrect;
 
    
 
@@ -23,7 +23,7 @@ public class BinController : MonoBehaviour
             
             Debug.Log("good job");
 
-            OnCorrect?.Invoke(other.gameObject);
+            OnCorrect?.Invoke(other.gameObject.GetComponent<RecycleItem>().positionIndex);
 
             
 

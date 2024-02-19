@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 
 public class FridgeInteractionController : MonoBehaviour
@@ -62,7 +63,9 @@ public class FridgeInteractionController : MonoBehaviour
         
         onScreenItems = new GameObject[14];
 
-       
+        
+            SetUpTheGame();
+
 
     }
     
@@ -127,45 +130,16 @@ public class FridgeInteractionController : MonoBehaviour
             score += 10;
             
             scoreText.text = "Score: " + score;
-            Debug.Log(item.name);
-            int posIndex = item.GetComponent<RecycleItem>().positionIndex;
-            bool isRec = (Random.Range(0, 2) == 0);
-            int index = Random.Range(0, 8);
-            if (Random.Range(0, 2) == 0)
-            {
-
-
-                item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
-                item.GetComponent<RecycleItem>().isRecyclable = true;
-                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-               
-                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-
-
-
-            }
-            else
-            {
-
-
-                item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
-                item.GetComponent<RecycleItem>().isRecyclable = false;
-                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-              
-                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-
-
-
-            }
+            Debug.Log(score + "-"+item.name);
+        CreateRandomItem(item);
             
 
     }
-    
-   void CreateRandomItem(int pos ) {
-
-        int index = Random.Range(0, 8);
+    void SetUpTheGame()
+    {
+        for (int pos = 0; pos < 10; pos++)
+        { 
+            int index = Random.Range(0, 8);
         
         if (Random.Range(0, 2) == 0)
         {
@@ -174,8 +148,8 @@ public class FridgeInteractionController : MonoBehaviour
             item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
             item.GetComponent<RecycleItem>().isRecyclable = true;
             item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin,pos);
-            item.name = recyclebleItems[index].name + index*(Random.Range(10,999));
+            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
+            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
             onScreenItems[pos] = item;
         }
         else
@@ -185,10 +159,47 @@ public class FridgeInteractionController : MonoBehaviour
             item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
             item.GetComponent<RecycleItem>().isRecyclable = false;
             item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin,pos);
+            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
             item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
             onScreenItems[pos] = item;
-          
+
+        }
+        }
+       
+    }
+   void CreateRandomItem(GameObject item ) {
+
+        int posIndex = item.GetComponent<RecycleItem>().positionIndex;
+
+        bool isRec = (Random.Range(0, 2) == 0);
+        int index = Random.Range(0, 8);
+        if (Random.Range(0, 2) == 0)
+        {
+
+
+            item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
+            item.GetComponent<RecycleItem>().isRecyclable = true;
+            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
+
+            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+
+
+
+        }
+        else
+        {
+
+
+            item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
+            item.GetComponent<RecycleItem>().isRecyclable = false;
+            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
+
+            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+
+
+
         }
     }
 
@@ -222,8 +233,8 @@ public class FridgeInteractionController : MonoBehaviour
         
         for (int i = 0; i < 10; i++)
         {
-           
-            CreateRandomItem(i);
+
+            CreateRandomItem(positions[i]);
             
          }
       
