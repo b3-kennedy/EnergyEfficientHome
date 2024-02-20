@@ -24,6 +24,8 @@ public class WeatherManager : MonoBehaviour
     public GameObject snowyIcon;
     public GameObject rainyIcon;
     public GameObject cloudyIcon;
+
+    private bool fluctuated = false;
     public enum WeatherStatus  { rainy = 0,snowy= 1, clear=2 , Stormy =3};
     private void Start()
     {
@@ -88,11 +90,20 @@ public class WeatherManager : MonoBehaviour
         if (currWeather.status== (int)WeatherStatus.clear) {
             timer -= Time.deltaTime;
             currWeather.humidity += 0.001f;
-            if (currWeather.temperature < 7)
-                currWeather.temperature += 0.0002f;
+            if (Random.Range(0, 100) < 10 && !fluctuated) // 10% chance for temperature fluctuation
+            {
+                fluctuated = true;
+                currWeather.temperature += Random.Range(-10f, 10f); // Fluctuate temperature by up to 10 degrees
+            } 
+            else
+            {
+                if (currWeather.temperature < 7)
+                    currWeather.temperature += 0.0002f;
+            }
+            
 
             if (timer < 0) {
-
+                fluctuated = false;
                 float rand = Random.Range(0.1f, 100f);
                 float chanceOfRain = currWeather.GetCurrentChanceOfRain();
                 if (rand < chanceOfRain && currWeather.temperature>= 3  )
@@ -119,15 +130,24 @@ public class WeatherManager : MonoBehaviour
         else if (currWeather.status == (int)WeatherStatus.rainy)
         {
             timer -= Time.deltaTime;
-                
-                currWeather.humidity -= 0.001f;
-            if(currWeather.temperature> 0)
-                currWeather.temperature -= 0.0005f;
+            if (Random.Range(0, 100) < 10 && !fluctuated) // 10% chance for temperature fluctuation
+            {
+                fluctuated = true;
+                currWeather.temperature += Random.Range(-4f, 4f); // Fluctuate temperature by up to 10 degrees
+            }
+            else
+            {
+                if (currWeather.temperature > 0)
+                    currWeather.temperature -= 0.0005f;
+            }
+
+            currWeather.humidity -= 0.001f;
+            
             
             if (timer < 0)
             {
                 DeactivateWeatherEffect((int)WeatherStatus.rainy);
-                
+                fluctuated = false;
                 if (currWeather.humidity < 40)
                 {
                     currWeather.SetNewStatus((int)WeatherStatus.clear);
@@ -151,7 +171,7 @@ public class WeatherManager : MonoBehaviour
            if(currWeather.temperature < 2)
                 currWeather.temperature += 0.0002f;
            else if( currWeather.temperature> 3)
-                currWeather.temperature -= 0.0005f;
+                currWeather.temperature -= 0.0009f;
             currWeather.humidity += 0.002f;
             if (timer < 0 )
             {

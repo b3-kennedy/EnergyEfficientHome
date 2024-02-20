@@ -35,6 +35,10 @@ public class PhoneController : MonoBehaviour
     public Vector2 hidePos;
     public bool hidden;
 
+    bool isBeingUsed=false;
+
+    public GameObject scrollBar;
+
     private void OnEnable()
     {
         
@@ -45,6 +49,7 @@ public class PhoneController : MonoBehaviour
         notificationButton.onClick.AddListener(ActivateNotificationTab);
         smartControlButton.onClick.AddListener(ActivateSmartControlTab);
         backBtn.onClick.AddListener(Back);
+        scrollBar.SetActive(false);
 
     }
     private void Update()
@@ -90,6 +95,7 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
+        scrollBar.SetActive(true);
 
     }
     public void ActivateMoneyTab()
@@ -100,6 +106,7 @@ public class PhoneController : MonoBehaviour
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
+        scrollBar.SetActive(false);
 
     }
     public void ActivateTemperatureTab()
@@ -109,6 +116,8 @@ public class PhoneController : MonoBehaviour
         temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        scrollBar.SetActive(false);
+
         smartControlListObj.SetActive(false);
         
     }
@@ -122,6 +131,7 @@ public class PhoneController : MonoBehaviour
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
         smartControlListObj.SetActive(false);
+        scrollBar.SetActive(false);
     }
 
     public void ActivateSmartControlTab()
@@ -149,7 +159,7 @@ public class PhoneController : MonoBehaviour
         shopManager.totalAmountText.text = "total : " + shopManager.Basket.Count + " $";
         shopManager.totalBasket.text = "total : " + shopManager.Basket.Count + " $";
 
-
+        scrollBar.SetActive(false);
         ToggleMenuAndIcon(0);
         moneyListObj.SetActive(false);
         temperatureListObj.SetActive(false);
