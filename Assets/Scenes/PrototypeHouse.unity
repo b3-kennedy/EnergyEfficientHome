@@ -123,17 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &510772014093695180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 629865202446983539, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
-  m_PrefabInstance: {fileID: 5326217293955759205}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4564813784560447992 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4564813784920309441, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
-  m_PrefabInstance: {fileID: 5326217293955759205}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5326217293955759205
+--- !u!1001 &4205639
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -144,10 +134,6 @@ PrefabInstance:
     - target: {fileID: -32708948196554025, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 821508751719782739, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2057.7207
       objectReference: {fileID: 0}
     - target: {fileID: 2267619443605812158, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
@@ -220,11 +206,11 @@ PrefabInstance:
     - target: {fileID: 3937377700998110579, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 510772014093695180}
+      objectReference: {fileID: 1775826897}
     - target: {fileID: 3937377700998110579, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: levelManager
       value: 
-      objectReference: {fileID: 4564813784560447992}
+      objectReference: {fileID: 2135534183}
     - target: {fileID: 4337631259986035022, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -237,14 +223,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4835324033342367031, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
-      propertyPath: m_Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4835324033342367031, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
-      propertyPath: m_Value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4865665973367675143, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -255,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7243407918260608634, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_Name
-      value: SceneMerge2
+      value: Scene
       objectReference: {fileID: 0}
     - target: {fileID: 7287404055631163292, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
@@ -318,8 +296,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+--- !u!1 &1775826897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 629865202446983539, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+  m_PrefabInstance: {fileID: 4205639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2135534183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4564813784920309441, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+  m_PrefabInstance: {fileID: 4205639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 5326217293955759205}
+  - {fileID: 4205639}
