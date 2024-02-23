@@ -45,7 +45,7 @@ public class FridgeInteractionController : MonoBehaviour
     public GameObject recBin;
     public GameObject nonRecBin;
 
-    public GameObject[] onScreenItems;
+ 
 
     public GameObject levelManager;
 
@@ -61,7 +61,7 @@ public class FridgeInteractionController : MonoBehaviour
         endGame.onClick.AddListener(EndGame);
         restartGame.onClick.AddListener(RestartGame);
         
-        onScreenItems = new GameObject[14];
+        
 
         
             SetUpTheGame();
@@ -82,7 +82,7 @@ public class FridgeInteractionController : MonoBehaviour
     void RestartGame() { 
        
         endGamePanel.SetActive(false);
-        onScreenItems = new GameObject[10];
+       
         score = 0;
         scoreText.text = "score : 0";
         StartGame();
@@ -150,7 +150,7 @@ public class FridgeInteractionController : MonoBehaviour
             item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
             item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
             item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-            onScreenItems[pos] = item;
+            
         }
         else
         {
@@ -161,7 +161,7 @@ public class FridgeInteractionController : MonoBehaviour
             item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
             item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
             item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-            onScreenItems[pos] = item;
+            
 
         }
         }
@@ -226,7 +226,7 @@ public class FridgeInteractionController : MonoBehaviour
         timer = 60;
         timerText.text = "1:00";
 
-        onScreenItems = new GameObject[10];
+        
         startGamePanel.SetActive(false);
         mainGamePanel.SetActive(true);
         gameStarted = true;
