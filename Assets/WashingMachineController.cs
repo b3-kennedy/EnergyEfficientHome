@@ -9,7 +9,7 @@ public class WashingMachineController : MonoBehaviour
 {
     public GameObject popUpGameobject;
 
-    public Slider cupsSlider;
+    public Slider cycleDurSlider;
 
     public Button[] detergents;
 
@@ -19,13 +19,21 @@ public class WashingMachineController : MonoBehaviour
 
     public string detergent = "";
 
-    public float cupsCount;
+    public float cycleDuration;
 
-    public TMP_Text cupsCounttxt;
+    public TMP_Text cycleDurationText;
+    public TMP_Text cycleEndText;
+
+    public GameObject cycleEndPopUp;
+    public GameObject cycleStartPopUp;
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         popUpGameobject.SetActive(true);
-        time = TimeManager.Instance.currentTime;
+        cycleStartPopUp.SetActive(true);
+        cycleEndPopUp.SetActive(false);
 
 
     }
@@ -36,18 +44,33 @@ public class WashingMachineController : MonoBehaviour
             b.onClick.AddListener(() => { SetDetergent(b.name); });
         }
         Start.onClick.AddListener(StartWash);
-        cupsSlider.onValueChanged.AddListener(UpdateCupCount);
+        cycleDurSlider.onValueChanged.AddListener(UpdateCupCount);
 
     }
     void UpdateCupCount(float value) {
-        cupsCount = value;
-        cupsCounttxt.text = cupsCount.ToString();
+        cycleDuration = value*15;
+        cycleDurationText.text = cycleDuration.ToString()+" Min";
     }
     void StartWash()
     {
         if(detergents.Length > 0)
         {
             Debug.Log("wash started");
+            cycleStartPopUp.SetActive(false);
+            cycleEndPopUp.SetActive(true);
+
+            if ( LevelManager.Instance.PV)
+            {
+                //energy efficient wash
+                LevelManager.Instance.electricityCosts += (0.04f*cycleDuration);
+                cycleEndText.text = "You saved " + (0.13f * cycleDuration) + "for having PV panels and doing a wash in sunny hours.";
+                
+            } else
+            {
+                cycleEndText.text = "Wash Ended!";
+                LevelManager.Instance.electricityCosts += (0.17f*cycleDuration);
+            }
+            
         }
     }
     private void OnDisable()

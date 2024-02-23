@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour
     [Header("House Upgrades")]
     public bool doubleGlazing;
     public bool heatPump;
+    public bool PV;
 
     public GameObject notification;
 

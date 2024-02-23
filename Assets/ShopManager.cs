@@ -116,8 +116,12 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
             }
-            
-            if(item.itemName.text == itemNames[3])
+            if (item.itemName.text == itemNames[2])
+            {
+                LevelManager.Instance.PV = true;
+            }
+
+            if (item.itemName.text == itemNames[3])
             {
                 LevelManager.Instance.heatPump = true;
                 AddHeatPumpToRooms();
