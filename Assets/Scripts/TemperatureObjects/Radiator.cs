@@ -25,7 +25,10 @@ public class Radiator : RoomTempChanger
 
 
     }
-
+   public  void AddHeatpump()
+    {
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+    }
     void ResetTimers()
     {
         timePassed = 0;

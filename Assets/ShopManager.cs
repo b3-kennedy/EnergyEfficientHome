@@ -120,6 +120,7 @@ public class ShopManager : MonoBehaviour
             if(item.itemName.text == itemNames[3])
             {
                 LevelManager.Instance.heatPump = true;
+                AddHeatPumpToRooms();
             }
 
             if(item.itemName.text == itemNames[5])
@@ -136,6 +137,7 @@ public class ShopManager : MonoBehaviour
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
         totalBasket.text = "Total : £" + 0;
+        
     }
 
     void DisplayItemInfo(ShopItem item)
@@ -170,8 +172,6 @@ public class ShopManager : MonoBehaviour
     public void RemoveItemFromBasket(GameObject item)
     {
         
-
-        Debug.Log("remove 1 "+ item.name +" from basket..");
         Basket.RemoveAll(basketItem => basketItem.itemNameString == item.name.Split('-')[0]);
 
         GameObject.Destroy(item);
@@ -192,7 +192,19 @@ public class ShopManager : MonoBehaviour
 
     }
 
-
+    public void AddHeatPumpToRooms()
+    {
+        foreach (Room room in LevelManager.Instance.rooms)
+        {
+            foreach (var item in room.objects)
+            {
+                if (item.GetComponent<Radiator>())
+                {
+                    item.GetComponent<Radiator>().AddHeatpump();
+                }
+            }
+        }
+    }
 
     public void AddToBasket(ShopItem item)
     {

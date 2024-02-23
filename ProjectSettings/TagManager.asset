@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pipe
   - Floor
+  - recycleBin
+  - nonRecycleBin
   - RedStart
   - GreenStart
   - BlueStart
@@ -25,7 +27,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - kitchenMinigame
   - 
   - 
   - 

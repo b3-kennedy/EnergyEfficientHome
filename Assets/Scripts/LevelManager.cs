@@ -34,6 +34,8 @@ public class LevelManager : MonoBehaviour
 
     public float moneySavedScore;
 
+    public float FoodCosts;
+
     public bool gameEnd;
 
     [Header("House Upgrades")]
@@ -51,6 +53,10 @@ public class LevelManager : MonoBehaviour
     public GameObject sortScreen;
 
 
+
+    public float electricityCosts ; 
+
+    public float baseElectricityHourlyCost= 0.05f ;
 
 
     private void Awake()
@@ -199,6 +205,7 @@ public class LevelManager : MonoBehaviour
         budget -= dailyCost;
         budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
+        WorkTrigger.Instance.OffCooldown();
         dailyCost = 0;
     }
 
@@ -228,6 +235,12 @@ public class LevelManager : MonoBehaviour
                     }
                 }
             }
+
+            dailyCost += electricityCosts + baseElectricityHourlyCost;
+            dailyCost += FoodCosts;
+
+            electricityCosts = 0;
+            FoodCosts = 0;
         }
 
     }
