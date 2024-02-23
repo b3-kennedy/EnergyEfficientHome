@@ -95,6 +95,11 @@ public class LevelManager : MonoBehaviour
             RanOutOfMoney();
         }
         CalculateComfortScore();
+        if (FoodCosts > 0)
+        {
+            budget -= FoodCosts;
+            FoodCosts = 0;
+        }
     }
 
 
@@ -217,10 +222,10 @@ public class LevelManager : MonoBehaviour
             }
 
             dailyCost += electricityCosts + baseElectricityHourlyCost;
-            dailyCost += FoodCosts;
+            
 
             electricityCosts = 0;
-            FoodCosts = 0;
+            
         }
 
     }

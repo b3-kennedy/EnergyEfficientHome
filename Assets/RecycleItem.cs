@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDragHandler
+public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public bool isRecyclable;
 
@@ -37,19 +37,20 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
     }
-    bool isDroppedCorrect = false;
+    public bool isDroppedCorrect = false;
     public void OnEndDrag(PointerEventData eventData)
     {
-        
-            transform.position = startPosition;
-            if(isDroppedCorrect) {
+
+        transform.position = startPosition;
+        if (isDroppedCorrect)
+        {
             onCorrectDropped?.Invoke(gameObject);
             isDroppedCorrect = false;
         }
@@ -60,15 +61,15 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
 
     private void HandleCorrectDrop(int position)
     {
-        
-        if (positionIndex==position)
-        {
-            Debug.Log(positionIndex);
-            isDroppedCorrect = true;
-           
 
-        }
-       
+        //if (positionIndex==position)
+        //{
+        //    Debug.Log(positionIndex);
+        //    isDroppedCorrect = true;
+
+
+        //}
+
     }
 
 }

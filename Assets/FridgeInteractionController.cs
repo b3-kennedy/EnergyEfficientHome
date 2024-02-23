@@ -127,7 +127,7 @@ public class FridgeInteractionController : MonoBehaviour
     {
 
        
-            score += 10;
+            score += 1;
             
             scoreText.text = "Score: " + score;
             Debug.Log(score + "-"+item.name);
@@ -137,7 +137,7 @@ public class FridgeInteractionController : MonoBehaviour
     }
     void SetUpTheGame()
     {
-        for (int pos = 0; pos < 10; pos++)
+        for (int pos = 0; pos < 16; pos++)
         { 
             int index = Random.Range(0, 8);
         
@@ -248,7 +248,7 @@ public class FridgeInteractionController : MonoBehaviour
         timerText.text = "1:00";
         score = 0;
         scoreText.text = "score : 0";
-        ResetItems();
+       
     }
     void EatFood(string foodName)
     {
