@@ -44,12 +44,12 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     {
         transform.position = Input.mousePosition;
     }
-    bool isDroppedCorrect = false;
+    public bool isDroppedCorrect = false;
     public void OnEndDrag(PointerEventData eventData)
     {
-        
-            transform.position = startPosition;
-            if(isDroppedCorrect) {
+        transform.position = startPosition;
+        if (isDroppedCorrect)
+        {
             onCorrectDropped?.Invoke(gameObject);
             isDroppedCorrect = false;
         }
@@ -61,13 +61,13 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     private void HandleCorrectDrop(int position)
     {
         
-        if (positionIndex==position)
-        {
-            Debug.Log(positionIndex);
-            isDroppedCorrect = true;
+        //if (positionIndex==position)
+        //{
+        //    Debug.Log(positionIndex);
+        //    isDroppedCorrect = true;
            
 
-        }
+        //}
        
     }
 
