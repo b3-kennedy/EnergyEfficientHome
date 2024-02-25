@@ -255,6 +255,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5478237588110797520, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: itemInfo.Array.data[2]
+      value: PV panels
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478237588110797520, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: itemNames.Array.data[2]
+      value: PV Ceiling Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 6067014894523446018, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -420,6 +428,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2041085273998311214, guid: 61d72f1a9e5fc23489647ea08b6cbd23, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4255789972148822581, guid: 61d72f1a9e5fc23489647ea08b6cbd23, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -511,6 +523,10 @@ PrefabInstance:
     - target: {fileID: 7292025237808759095, guid: 61d72f1a9e5fc23489647ea08b6cbd23, type: 3}
       propertyPath: m_Name
       value: Eco
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577569358864224310, guid: 61d72f1a9e5fc23489647ea08b6cbd23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -110,8 +110,11 @@ public class ShopManager : MonoBehaviour
         foreach (var item in Basket)
         {
             LevelManager.Instance.budget -= item.itemPriceFloat;
-
-            if(item.itemName.text == itemNames[4])
+            if (item.itemName.text == itemNames[2])
+            {
+                LevelManager.Instance.PV = true;
+            }
+            if (item.itemName.text == itemNames[4])
             {
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
