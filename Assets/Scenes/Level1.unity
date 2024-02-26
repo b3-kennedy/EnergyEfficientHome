@@ -42237,11 +42237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.z
-      value: 0.2804868
+      value: 0.2321199
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.x
-      value: -0.004463719
+      value: -0.004463698
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.y
@@ -42249,7 +42249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.z
-      value: 0.0047382577
+      value: 0.028921634
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.x
@@ -42261,15 +42261,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.z
-      value: 2.058843
+      value: 1.600685
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.x
-      value: 0.095019795
+      value: 0.09501982
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.z
-      value: 0.52942866
+      value: 0.758507
       objectReference: {fileID: 0}
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
@@ -63141,12 +63141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 898879405417954260}
-  - {fileID: 3195292426590407822}
-  - {fileID: 4110545740458371154}
-  - {fileID: 7707382275951731306}
-  - {fileID: 6695928206383099368}
-  - {fileID: 7268374620604825106}
+  - {fileID: 2081540607}
+  - {fileID: 712427699}
+  - {fileID: 99251593}
+  - {fileID: 629291057}
+  - {fileID: 2143496869}
   budget: 500
   dailyCost: 0
   tempObjects: []
@@ -63172,6 +63171,10 @@ MonoBehaviour:
   sortScreen: {fileID: 522717094875732190}
   electricityCosts: 0
   baseElectricityHourlyCost: 0.05
+  savedMoneyByUpgrades: 0
+  onSavedMoney:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0
@@ -64455,6 +64458,9 @@ MonoBehaviour:
   infoPanel: {fileID: 7878461254242416301}
   infoPanelTitle: {fileID: 3839556674661205241}
   infoPanelBody: {fileID: 7993585813256417258}
+  HouseUpgradeGameObject: {fileID: 0}
+  HouseUpgradeUsageIcons: []
+  savedMoneyText: {fileID: 0}
   basketList: []
 --- !u!224 &5488246707801013897
 RectTransform:
@@ -71980,15 +71986,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.z
-      value: 0.45437512
+      value: 0.09293348
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.x
-      value: -0.062622175
+      value: -0.0626222
       objectReference: {fileID: 0}
     - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.z
-      value: -0.27281293
+      value: -0.09209208
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.x
@@ -72000,7 +72006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.z
-      value: 0.76210546
+      value: 0.39098534
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.x
@@ -72008,7 +72014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.z
-      value: -0.11894413
+      value: 0.16339102
       objectReference: {fileID: 0}
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
@@ -76613,6 +76619,7 @@ MonoBehaviour:
   fadeOut: 0
   fadeIn: 0
   timeToFade: 2
+  uiElementsToHideOnSleep: []
 --- !u!4 &7857648290038675381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}

@@ -227,10 +227,12 @@ public class LevelManager : MonoBehaviour
             {
                 foreach (var item in room.objects)
                 {
+                    
                     if (item.GetComponent<Radiator>())
                     {
-                        if (item.GetComponent<Radiator>().timeActivated > 0)
+                        if (item.GetComponent<Radiator>().timePassed > 0)
                         {
+                            
                             if (heatPump)
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
@@ -240,8 +242,10 @@ public class LevelManager : MonoBehaviour
                             else
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                                Debug.Log("add radiator cost");
                             }
-
+                            item.GetComponent<Radiator>().timePassed = 0;
+                            item.GetComponent<Radiator>().timeActivated = 0;
                         }
                     }
                 }
