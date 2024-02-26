@@ -40,7 +40,7 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI infoPanelBody;
 
     public GameObject HouseUpgradeGameObject;
-    public TMP_Text[] HouseUpgradeTexts;
+    public GameObject[] HouseUpgradeUsageIcons;
     public TMP_Text savedMoneyText;
     private void Awake()
     {
@@ -66,6 +66,8 @@ public class ShopManager : MonoBehaviour
         }
         checkoutBtn.onClick.AddListener(Checkout);
         checkOutBuyButton.onClick.AddListener(Buy);
+
+        LevelManager.Instance.onSavedMoney.AddListener(UpdateMoneySavedText);
 
     }
     
@@ -115,22 +117,24 @@ public class ShopManager : MonoBehaviour
             if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.PV = true;
-                HouseUpgradeTexts[1].text = "In Use 🗸";
-                HouseUpgradeTexts[1].GetComponent<TextMeshPro>().color = Color.green;
+                HouseUpgradeUsageIcons[2].SetActive(false);
+                HouseUpgradeUsageIcons[3].SetActive(true);
+              
             }
             if (item.itemName.text == itemNames[4])
             {
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
-                HouseUpgradeTexts[2].text = "In Use 🗸";
-                HouseUpgradeTexts[2].GetComponent<TextMeshPro>().color = Color.green;
+                HouseUpgradeUsageIcons[5].SetActive(true);
+                HouseUpgradeUsageIcons[4].SetActive(false);
             }
             
             if(item.itemName.text == itemNames[3])
             {
                 LevelManager.Instance.heatPump = true;
-                HouseUpgradeTexts[0].text = "In Use 🗸";
-                HouseUpgradeTexts[0].GetComponent<TextMeshPro>().color = Color.green;
+                HouseUpgradeUsageIcons[0].SetActive(false);
+                HouseUpgradeUsageIcons[1].SetActive(true);
+               
                 AddHeatPumpToRooms();
             }
 
@@ -181,6 +185,7 @@ public class ShopManager : MonoBehaviour
 
     void UpdateMoneySavedText()
     {
+        Debug.Log(LevelManager.Instance.savedMoneyByUpgrades + "£");
         savedMoneyText.text = "Money saved : " + LevelManager.Instance.savedMoneyByUpgrades + "£";
     }
 

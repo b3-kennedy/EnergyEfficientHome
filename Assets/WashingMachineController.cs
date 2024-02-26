@@ -60,13 +60,13 @@ public class WashingMachineController : MonoBehaviour
             cycleStartPopUp.SetActive(false);
             cycleEndPopUp.SetActive(true);
 
-            if (LevelManager.Instance.PV )
+            if (LevelManager.Instance.PV && String.Equals(WeatherManager.Instance.currWeather, "sunny"))
             {
                 //energy efficient wash
                 LevelManager.Instance.electricityCosts += (0.04f * cycleDuration);
                 LevelManager.Instance.savedMoneyByUpgrades += 0.13f * cycleDuration;
-
-                cycleEndText.text = "You saved " + (0.13f * cycleDuration) + "for having PV panels .";
+                LevelManager.Instance.onSavedMoney.Invoke();
+                cycleEndText.text = "You saved " + (0.13f * cycleDuration) + "  for having PV panels and doing a wash in a sunny day.";
 
             }
             else

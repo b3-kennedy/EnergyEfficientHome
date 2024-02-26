@@ -60,6 +60,7 @@ public class LevelManager : MonoBehaviour
     public float baseElectricityHourlyCost= 0.05f ;
 
     public float savedMoneyByUpgrades=0;
+    public UnityEvent onSavedMoney;
 
     private void Awake()
     {
@@ -234,6 +235,7 @@ public class LevelManager : MonoBehaviour
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
                                 savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.3f;
+                                onSavedMoney.Invoke();
                             }
                             else
                             {
@@ -286,6 +288,7 @@ public class LevelManager : MonoBehaviour
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * 0.7f);
                                 savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * 0.3f);
+                                onSavedMoney.Invoke();
                             }
                             else
                             {
