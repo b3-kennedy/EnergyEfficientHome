@@ -64,6 +64,7 @@ public class WashingMachineController : MonoBehaviour
             {
                 //energy efficient wash
                 LevelManager.Instance.electricityCosts += (0.04f * cycleDuration);
+                LevelManager.Instance.savedMoneyByUpgrades += 0.13f * cycleDuration;
 
                 cycleEndText.text = "You saved " + (0.13f * cycleDuration) + "for having PV panels .";
 

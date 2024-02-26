@@ -1,4 +1,4 @@
-
+﻿
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -39,7 +39,9 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI infoPanelTitle;
     public TextMeshProUGUI infoPanelBody;
 
-
+    public GameObject HouseUpgradeGameObject;
+    public TMP_Text[] HouseUpgradeTexts;
+    public TMP_Text savedMoneyText;
     private void Awake()
     {
         Instance = this;
@@ -113,16 +115,22 @@ public class ShopManager : MonoBehaviour
             if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.PV = true;
+                HouseUpgradeTexts[1].text = "In Use 🗸";
+                HouseUpgradeTexts[1].GetComponent<TextMeshPro>().color = Color.green;
             }
             if (item.itemName.text == itemNames[4])
             {
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
+                HouseUpgradeTexts[2].text = "In Use 🗸";
+                HouseUpgradeTexts[2].GetComponent<TextMeshPro>().color = Color.green;
             }
             
             if(item.itemName.text == itemNames[3])
             {
                 LevelManager.Instance.heatPump = true;
+                HouseUpgradeTexts[0].text = "In Use 🗸";
+                HouseUpgradeTexts[0].GetComponent<TextMeshPro>().color = Color.green;
                 AddHeatPumpToRooms();
             }
 
@@ -138,8 +146,8 @@ public class ShopManager : MonoBehaviour
 
         UpdateBudgetText();
         DestroyCheckoutBasketList();
-        totalAmountText.text = "Total : �" + 0;
-        totalBasket.text = "Total : �" + 0;
+        totalAmountText.text = "Total : £" + 0;
+        totalBasket.text = "Total : £" + 0;
         
     }
 
@@ -167,8 +175,13 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var text in budgetTexts)
         {
-            text.text = "Your Budget: �" + Mathf.Round(LevelManager.Instance.budget);
+            text.text = "Your Budget: £" + Mathf.Round(LevelManager.Instance.budget);
         }
+    }
+
+    void UpdateMoneySavedText()
+    {
+        savedMoneyText.text = "Money saved : " + LevelManager.Instance.savedMoneyByUpgrades + "£";
     }
 
 
@@ -226,10 +239,14 @@ public class ShopManager : MonoBehaviour
             total += shopItem.itemPriceFloat;
             //total = Mathf.RoundToInt(total * 100) / 100f;
         }
-        totalAmountText.text = "Total : �" + total;
-        totalBasket.text = "Total : �" + total;
+        totalAmountText.text = "Total : £" + total;
+        totalBasket.text = "Total : £" + total;
 
 
+    }
+    private void Update()
+    {
+       // UpdateMoneySavedText();
     }
 
 
