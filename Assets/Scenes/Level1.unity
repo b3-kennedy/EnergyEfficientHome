@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
+  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -47087,8 +47087,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0024133, y: 1.2949998, z: 1.5949262}
-  m_Center: {x: -0.37620452, y: 0.6474999, z: 0.07753904}
+  m_Size: {x: 3.0024133, y: 1.2949998, z: 2.4830933}
+  m_Center: {x: -0.37620452, y: 0.6474999, z: -0.36654434}
 --- !u!1 &1532790447528811426
 GameObject:
   m_ObjectHideFlags: 0
@@ -55902,27 +55902,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 331}
   m_SizeDelta: {x: 94.97, y: 93.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!65 &3483522738414553579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7562531815725926931}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.035101, y: 1.2949998, z: 2.1673558}
-  m_Center: {x: -0.39254385, y: 0.6474999, z: -0.20867667}
 --- !u!224 &3499477095891195071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63172,6 +63151,10 @@ MonoBehaviour:
   sortScreen: {fileID: 522717094875732190}
   electricityCosts: 0
   baseElectricityHourlyCost: 0.05
+  savedMoneyByUpgrades: 0
+  onSavedMoney:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0
@@ -64455,6 +64438,9 @@ MonoBehaviour:
   infoPanel: {fileID: 7878461254242416301}
   infoPanelTitle: {fileID: 3839556674661205241}
   infoPanelBody: {fileID: 7993585813256417258}
+  HouseUpgradeGameObject: {fileID: 0}
+  HouseUpgradeUsageIcons: []
+  savedMoneyText: {fileID: 0}
   basketList: []
 --- !u!224 &5488246707801013897
 RectTransform:
@@ -74952,7 +74938,7 @@ GameObject:
   - component: {fileID: 5667876133915120787}
   - component: {fileID: 2301144737030976797}
   - component: {fileID: 1531118573089946134}
-  - component: {fileID: 3483522738414553579}
+  - component: {fileID: 7562531815725926932}
   m_Layer: 0
   m_Name: KitchenBase
   m_TagString: Untagged
@@ -74960,6 +74946,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7562531815725926932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562531815725926931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45be27a50e2005d4ca3703beec097662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpGameobject: {fileID: 192852038}
+  cycleDurSlider: {fileID: 192852035}
+  detergents:
+  - {fileID: 703420533}
+  - {fileID: 1150593421}
+  Start: {fileID: 192852036}
+  detergent: 
+  cycleDuration: 0
+  cycleDurationText: {fileID: 192852034}
+  cycleEndText: {fileID: 192852032}
+  cycleEndPopUp: {fileID: 192852033}
+  cycleStartPopUp: {fileID: 192852037}
 --- !u!1 &7565689832888814562
 GameObject:
   m_ObjectHideFlags: 0
@@ -76613,6 +76623,7 @@ MonoBehaviour:
   fadeOut: 0
   fadeIn: 0
   timeToFade: 2
+  uiElementsToHideOnSleep: []
 --- !u!4 &7857648290038675381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
