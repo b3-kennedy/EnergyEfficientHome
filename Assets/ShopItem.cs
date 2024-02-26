@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShopItem : MonoBehaviour
 {
     public Button buyBtn;
+    public Button infoBtn;
 
     public RawImage image;
     public TMP_Text itemName;

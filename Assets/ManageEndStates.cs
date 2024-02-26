@@ -17,6 +17,8 @@ public class ManageEndStates : MonoBehaviour
     public Button nextBtn;
     public Button optionsBtn;
 
+    float endTimer;
+
     public GameObject nextButtonGO;
     public GameObject restartButtonGO;
 
@@ -35,8 +37,10 @@ public class ManageEndStates : MonoBehaviour
 
     public TimeManager timeManager;
 
-   
-    
+
+
+    public TMP_Text dayCountUItxt;
+    public TMP_Text budgetUItxt;
     private void OnEnable()
     {
 
@@ -57,7 +61,7 @@ public class ManageEndStates : MonoBehaviour
     }
     public void PassDay()
     {
-       dayCount++; 
+       dayCount++;
     }
     public void OptionMenu()
     {
@@ -67,21 +71,35 @@ public class ManageEndStates : MonoBehaviour
     void Update()
     {
         gameTimer += Time.deltaTime;
+        budgetUItxt.text = "Budget: £" + Mathf.Round(LevelManager.Instance.budget);
+
+        dayCountUItxt.text = "Day Count : " + dayCount ;
         if (gameTimer > 5 && dayCount<7)
         {
             float playerTemp = player.GetComponent<CharacterTemperature>().liveTemp;
             float aiTemp = AICharacter.GetComponent<CharacterTemperature>().liveTemp;
             if (playerTemp < minComfyTemp)
             {
+                endTimer += Time.deltaTime;
+                if(endTimer >= 3.5f)
+                {
+                    End();
+                    endGamePrompt.text = "You Froze To Death!!";
+                    endTimer = 0;
+                }
 
-                End();
-                endGamePrompt.text = "You Froze To Death!!";
             }
             else if (playerTemp > maxComfyTemp)
             {
+                endTimer += Time.deltaTime;
+                if(endTimer >= 3.5f)
+                {
 
-                End();
-                endGamePrompt.text = "You Melted!!";
+                    End();
+                    endGamePrompt.text = "You Melted!!";
+                    endTimer = 0;
+                }
+
             }
             else if (aiTemp < minComfyTemp)
             {

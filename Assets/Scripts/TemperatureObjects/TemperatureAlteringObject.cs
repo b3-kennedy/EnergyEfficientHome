@@ -16,6 +16,8 @@ public class TemperatureAlteringObject : MonoBehaviour
             Radiator();
             Jumper();
             RoomThermostat();
+            TaskTrigger();
+            Child();
             interact.interactText.gameObject.SetActive(true);
             interact.inTrigger = true;
             interact.heatObject = gameObject;
@@ -30,6 +32,39 @@ public class TemperatureAlteringObject : MonoBehaviour
         Radiator();
         Jumper();
         RoomThermostat();
+        TaskTrigger();
+    }
+
+    private void Child()
+    {
+        if (GetComponent<ChildAIController>())
+        {
+            interact.interactText.text = "Press 'E' to Send Child to Room";
+        }
+    }
+
+    void TaskTrigger()
+    {
+        if (gameObject.CompareTag("FlyTask"))
+        {
+            interact.interactText.text = "Press 'E' to Swat Flies";
+        }
+        else if (gameObject.CompareTag("WireTask"))
+        {
+            interact.interactText.text = "Press 'E' to Fix TV";
+        }
+        else if (gameObject.CompareTag("SortTask"))
+        {
+            interact.interactText.text = "Press 'E' to Sort Paper";
+        }
+        else if (gameObject.CompareTag("Work"))
+        {
+            
+            if (!WorkTrigger.Instance.onCd)
+            {
+                interact.interactText.text = "Press 'E' to Work";
+            }
+        }
     }
 
     void RoomThermostat()

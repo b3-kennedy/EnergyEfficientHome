@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class TimeManager : MonoBehaviour
@@ -10,7 +9,7 @@ public class TimeManager : MonoBehaviour
 
     public static TimeManager Instance;
 
-    
+
     public float timeMultiplier;
 
     [SerializeField]
@@ -66,6 +65,11 @@ public class TimeManager : MonoBehaviour
     public int dayCounter = 0;
 
 
+    [HideInInspector] 
+    public DateTime timeBeforeSleep;
+
+
+
     private void Awake()
     {
         Instance = this;
@@ -80,25 +84,56 @@ public class TimeManager : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         newHour = hour;
     }
-
+    bool skipped = false;
     // Update is called once per frame
     void Update()
     {
+       
+        if (!skipped)
+        {
+            UpdateTimeOfDay();
+            RotateSun();
+            UpdateLightSettings();
+            CalculateDayEnd();
+            CalculateHourPassed();
+        }
+
+
+
+    }
+
+    public IEnumerator SkipToNextDay()
+    {
+        skipped = true;
+        Debug.Log("skipping to next day yo");
+        timeBeforeSleep = currentTime;
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
+        dayPassed.Invoke();
+        Debug.Log("time:" + currentTime.ToString());
+        dayCounter++;
+        Debug.Log("day: " + dayCounter);
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        CalculateDayEnd();
-        CalculateHourPassed();
+        Debug.Log(GetFloatTime(currentTime));
+        if(!(GetFloatTime(timeBeforeSleep) > 0 && GetFloatTime(timeBeforeSleep) < 1000))
+        {
+            LevelManager.Instance.DailyCostAfterSleep();
+        }
+        
+        //CalculateHourPassed();
+        yield return new WaitForSeconds(1f);
+        
+        skipped = false;
     }
-
-    public float GetCurrentFloatTime()
+    public float GetFloatTime(DateTime time)
     {
-        string hour = currentTime.ToString("HH");
-        string minutes = currentTime.ToString("mm");
+        string hour = time.ToString("HH");
+        string minutes = time.ToString("mm");
 
-        string time = hour + minutes;
+        string newTime = hour + minutes;
 
-        float floatTime = float.Parse(time);
+        float floatTime = float.Parse(newTime);
 
         return floatTime;
 
@@ -107,10 +142,10 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimeOfDay()
     {
-        timeControlMultiplier = Mathf.Clamp(timeControlMultiplier,1, 8);
+        timeControlMultiplier = Mathf.Clamp(timeControlMultiplier, 1, 8);
 
         currentTime = currentTime.AddSeconds((Time.deltaTime * timeMultiplier) * timeControlMultiplier);
-       
+
 
         if (UIManager.Instance.timeText != null)
         {
@@ -189,7 +224,7 @@ public class TimeManager : MonoBehaviour
         RenderSettings.ambientLight = Color.Lerp(nightAmbientLight, dayAmbientLight, lightChangeCurve.Evaluate(dotProduct));
     }
 
-    private TimeSpan CalculateTimeDifference(TimeSpan fromTime, TimeSpan toTime)
+    public TimeSpan CalculateTimeDifference(TimeSpan fromTime, TimeSpan toTime)
     {
         TimeSpan difference = toTime - fromTime;
 

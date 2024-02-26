@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     public float baseTemperature;
     public float liveTemperature;
     public float returnToBaseMultiplier;
+    public float minTemp;
 
     float maxTemperature;
 
@@ -18,6 +19,22 @@ public class Room : MonoBehaviour
     public GameObject weatherManager;
 
     public RoomThermostat thermostat;
+
+    public GameObject[] events;
+
+    float miniGameSpawnTimer;
+
+    public int flySpawnChance;
+    public float flyCooldown;
+    bool flyIsOnCd;
+    public Transform flySpawn;
+    float flyCdTimer;
+
+    [Header("Minigames")]
+    public GameObject flyMinigame;
+    GameObject flyGame;
+
+    public bool spawnFlies = true;
 
 
     // Start is called before the first frame update
@@ -46,8 +63,26 @@ public class Room : MonoBehaviour
 
     void ReturnToBaseTemp()
     {
+        foreach (var window in objects)
+        {
+            if (window.GetComponent<Window>())
+            {
+                if (window.GetComponent<Window>().isOn)
+                {
+                    minTemp = baseTemperature;
+                }
+                else
+                {
+                    minTemp = 10;
+                }
+            }
+        }
+
+
         if (!LevelManager.Instance.gameEnd)
         {
+            liveTemperature = Mathf.Clamp(liveTemperature, minTemp, maxTemperature);
+
             baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
 
             if (liveTemperature > baseTemperature)
@@ -70,16 +105,57 @@ public class Room : MonoBehaviour
 
     }
 
+    public void UpdateMinTemp()
+    {
+        minTemp += 2;
+    }
+
+    void SpawnFlies()
+    {
+        if (spawnFlies)
+        {
+            if (liveTemperature < 15 && flyGame == null && !flyIsOnCd)
+            {
+                miniGameSpawnTimer += Time.deltaTime;
+                if (miniGameSpawnTimer >= Random.Range(5, 60))
+                {
+                    int randomNum = Random.Range(0, 100);
+                    if (randomNum <= flySpawnChance)
+                    {
+                        flyGame = Instantiate(flyMinigame, transform);
+                        Debug.Log("spawn");
+                        flyIsOnCd = true;
+                        flyGame.transform.position = flySpawn.position;
+                    }
+                    miniGameSpawnTimer = 0;
+                }
+            }
+
+            if (flyIsOnCd)
+            {
+                flyCdTimer += Time.deltaTime;
+                if (flyCdTimer >= flyCooldown)
+                {
+                    flyCdTimer = 0;
+                    flyIsOnCd = false;
+                }
+            }
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        SpawnFlies();
 
         if (!LevelManager.Instance.gameEnd)
         {
             if (thermostat != null)
             {
                 maxTemperature = thermostat.targetTemp;
-                liveTemperature = Mathf.Clamp(liveTemperature, baseTemperature, maxTemperature);
+                
             }
 
 

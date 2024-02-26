@@ -21,7 +21,15 @@ public class Window : RoomTempChanger
         }
         else
         {
-            heatingRate = normalHeatingRate;
+            if (GetComponent<Broken>().enabled)
+            {
+                heatingRate = normalHeatingRate * 10;
+            }
+            else
+            {
+                heatingRate = normalHeatingRate;
+            }
+            
         }
     }
 }
