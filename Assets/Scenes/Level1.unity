@@ -63444,8 +63444,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.6402876, y: 0.79546034, z: 2.9224048}
-  m_Center: {x: -0.31617543, y: 0.39772975, z: 0.13353676}
+  m_Size: {x: 2.6402876, y: 1.3793546, z: 2.9224055}
+  m_Center: {x: -0.31617543, y: 0.689677, z: 0.13353682}
 --- !u!1 &5138573323162875772
 GameObject:
   m_ObjectHideFlags: 0
@@ -77109,7 +77109,9 @@ MonoBehaviour:
   fadeOut: 0
   fadeIn: 0
   timeToFade: 2
-  uiElementsToHideOnSleep: []
+  uiElementsToHideOnSleep:
+  - {fileID: 1466230815232945921}
+  - {fileID: 8907344975570712792}
 --- !u!4 &7857648290038675381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
