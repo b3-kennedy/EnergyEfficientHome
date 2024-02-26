@@ -72,21 +72,21 @@ public class CharacterAttributes : MonoBehaviour
             boredom += Time.deltaTime * (boredomMultiplier / 1000) * TimeManager.Instance.timeMultiplier;
         }
 
-        if(hunger >= 95 && !displayHunger)
+        if (hunger >= 95 && !displayHunger)
         {
             GetComponent<CharacterTemperature>().isComfortable = false;
             UIManager.Instance.DisplayNotification("You are hungry you should eat!");
             displayHunger = true;
         }
 
-        if(tiredness >= 95 && !displayTiredness)
+        if (tiredness >= 95 && !displayTiredness)
         {
             GetComponent<CharacterTemperature>().isComfortable = false;
             UIManager.Instance.DisplayNotification("You are tired you should sleep!");
             displayTiredness = true;
         }
 
-        if(boredom >= 95 && !displayBoredom)
+        if (boredom >= 95 && !displayBoredom)
         {
             GetComponent<CharacterTemperature>().isComfortable = false;
             UIManager.Instance.DisplayNotification("You are bored!");
@@ -115,7 +115,7 @@ public class CharacterAttributes : MonoBehaviour
         {
             if (canvasGroup.alpha > 0)
             {
-                canvasGroup.alpha -= timeToFade * Time.deltaTime ;
+                canvasGroup.alpha -= timeToFade * Time.deltaTime;
             }
             if (canvasGroup.alpha == 0)
             {
@@ -127,7 +127,7 @@ public class CharacterAttributes : MonoBehaviour
 
             if (canvasGroup.alpha < 1)
             {
-                canvasGroup.alpha += timeToFade * Time.deltaTime ;
+                canvasGroup.alpha += timeToFade * Time.deltaTime;
             }
             if (canvasGroup.alpha >= 1)
             {
@@ -152,7 +152,7 @@ public class CharacterAttributes : MonoBehaviour
         tiredness = Mathf.Clamp(tiredness, 0, 100);
     }
 
-
+    public GameObject[] uiElementsToHideOnSleep;
     void Sleeping()
     {
         if (sleeping)
@@ -194,12 +194,26 @@ public class CharacterAttributes : MonoBehaviour
     public void FadeIn()
     {
         fadeIn = true;
-
+        if (uiElementsToHideOnSleep != null)
+        {
+            foreach (var element in uiElementsToHideOnSleep)
+            {
+                element.SetActive(true);
+            }
+        }
 
     }
     public void FadeOut()
     {
         fadeOut = true;
+        if (uiElementsToHideOnSleep != null)
+        {
+            foreach (var element in uiElementsToHideOnSleep)
+            {
+                element.SetActive(false);
+            }
+        }
+
 
     }
 }

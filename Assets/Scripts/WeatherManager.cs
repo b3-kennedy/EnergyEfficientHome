@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class WeatherManager : MonoBehaviour
 {
     public GameObject[] weatherArray; //0 for rainy, 1 for snowy, 2 for stormy
-  
-   
+
+    public static WeatherManager Instance;
 
     private float timer ;
 
