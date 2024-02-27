@@ -157,7 +157,7 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (sleeping)
         {
-            tiredness -= 0.5f;
+            tiredness -= 1f;
             if (tiredness <= 0)
             {
                 sleeping = false;

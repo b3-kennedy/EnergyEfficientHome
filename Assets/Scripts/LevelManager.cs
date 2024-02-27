@@ -62,6 +62,7 @@ public class LevelManager : MonoBehaviour
     public float savedMoneyByUpgrades=0;
     public UnityEvent onSavedMoney;
 
+    public GameObject[] lamps;
     private void Awake()
     {
         Instance = this;
@@ -251,6 +252,11 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
+            foreach (var lamp in lamps)
+            {
+                if (lamp.GetComponent<LampController>().isOn)
+                    electricityCosts += 0.10f;
+            }
             dailyCost += electricityCosts + baseElectricityHourlyCost;
            
 

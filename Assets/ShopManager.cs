@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -42,6 +43,8 @@ public class ShopManager : MonoBehaviour
     public GameObject HouseUpgradeGameObject;
     public GameObject[] HouseUpgradeUsageIcons;
     public TMP_Text savedMoneyText;
+
+    public GameObject successfulBuyPopup;
     private void Awake()
     {
         Instance = this;
@@ -152,9 +155,18 @@ public class ShopManager : MonoBehaviour
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
         totalBasket.text = "Total : £" + 0;
-        
-    }
 
+        CheckoutPage.SetActive(false);
+        MobilePhoneScreen.SetActive(true);
+
+        StartCoroutine(ShowSuccessfulBuyPopup());
+    }
+    IEnumerator ShowSuccessfulBuyPopup()
+    {
+        successfulBuyPopup.SetActive(true);
+        yield return new WaitForSeconds(2);
+        successfulBuyPopup.SetActive(false);
+    }
     void DisplayItemInfo(ShopItem item)
     {
         Time.timeScale = 0;
@@ -249,10 +261,7 @@ public class ShopManager : MonoBehaviour
 
 
     }
-    private void Update()
-    {
-       // UpdateMoneySavedText();
-    }
+    
 
 
 }
