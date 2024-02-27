@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour
     [Header("House Upgrades")]
     public bool doubleGlazing;
     public bool heatPump;
+    public bool PV;
 
     public GameObject notification;
 
@@ -58,6 +59,8 @@ public class LevelManager : MonoBehaviour
 
     public float baseElectricityHourlyCost= 0.05f ;
 
+    public float savedMoneyByUpgrades=0;
+    public UnityEvent onSavedMoney;
 
     private void Awake()
     {
@@ -96,6 +99,7 @@ public class LevelManager : MonoBehaviour
                     tempObjects.Add(room.objects[i]);
                 }
             }
+
         }
     }
 
@@ -107,6 +111,11 @@ public class LevelManager : MonoBehaviour
             RanOutOfMoney();
         }
         CalculateComfortScore();
+        if (FoodCosts > 0)
+        {
+            budget -= FoodCosts;
+            FoodCosts = 0;
+        }
     }
 
 
@@ -218,29 +227,35 @@ public class LevelManager : MonoBehaviour
             {
                 foreach (var item in room.objects)
                 {
+                    
                     if (item.GetComponent<Radiator>())
                     {
-                        if (item.GetComponent<Radiator>().timeActivated > 0)
+                        if (item.GetComponent<Radiator>().timePassed > 0)
                         {
+                            
                             if (heatPump)
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
+                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.3f;
+                                onSavedMoney.Invoke();
                             }
                             else
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
+                                Debug.Log("add radiator cost");
                             }
-
+                            item.GetComponent<Radiator>().timePassed = 0;
+                            item.GetComponent<Radiator>().timeActivated = 0;
                         }
                     }
                 }
             }
 
             dailyCost += electricityCosts + baseElectricityHourlyCost;
-            dailyCost += FoodCosts;
+           
 
             electricityCosts = 0;
-            FoodCosts = 0;
+           
         }
 
     }
@@ -276,6 +291,8 @@ public class LevelManager : MonoBehaviour
                             if (heatPump)
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * 0.7f);
+                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * 0.3f);
+                                onSavedMoney.Invoke();
                             }
                             else
                             {

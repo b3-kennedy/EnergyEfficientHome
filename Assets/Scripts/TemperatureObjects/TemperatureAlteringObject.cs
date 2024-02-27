@@ -17,6 +17,7 @@ public class TemperatureAlteringObject : MonoBehaviour
             Jumper();
             RoomThermostat();
             TaskTrigger();
+            Child();
             interact.interactText.gameObject.SetActive(true);
             interact.inTrigger = true;
             interact.heatObject = gameObject;
@@ -32,6 +33,14 @@ public class TemperatureAlteringObject : MonoBehaviour
         Jumper();
         RoomThermostat();
         TaskTrigger();
+    }
+
+    private void Child()
+    {
+        if (GetComponent<ChildAIController>())
+        {
+            interact.interactText.text = "Press 'E' to Send Child to Room";
+        }
     }
 
     void TaskTrigger()

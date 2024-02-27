@@ -5,13 +5,13 @@ using UnityEngine;
 public class Radiator : RoomTempChanger
 {
     [HideInInspector] public float timePassed;
-    [HideInInspector] public float timeActivated;
+    public float timeActivated;
     public float costToRun;
 
 
     private void Start()
     {
-        TimeManager.Instance.hourPassed.AddListener(ResetTimers);
+        //TimeManager.Instance.hourPassed.AddListener(ResetTimers);
     }
 
     private void Update()

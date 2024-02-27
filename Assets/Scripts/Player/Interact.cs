@@ -17,6 +17,7 @@ public class Interact : MonoBehaviour
         UIManager.Instance.player = gameObject;
     }
 
+
     private void Update()
     {
         if (inTrigger && heatObject != null)
@@ -48,6 +49,10 @@ public class Interact : MonoBehaviour
                 else if (heatObject.GetComponent<WorkTrigger>())
                 {
                     heatObject.GetComponent<WorkTrigger>().StartWork();
+                }
+                else if (heatObject.GetComponent<ChildAIController>())
+                {
+                    heatObject.GetComponent<ChildAIController>().SwitchState(ChildAIController.State.START_TIMEOUT);
                 }
 
                 if (heatObject.GetComponent<Broken>())

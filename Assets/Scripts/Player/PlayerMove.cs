@@ -28,6 +28,8 @@ public class PlayerMove : MonoBehaviour
 
     public bool clickToMove;
 
+    Vector3 lastRot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -138,6 +140,11 @@ public class PlayerMove : MonoBehaviour
         {
             Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+            lastRot = transform.eulerAngles;
+        }
+        else
+        {
+            transform.eulerAngles = lastRot;
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);

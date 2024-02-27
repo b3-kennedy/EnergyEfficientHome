@@ -34,6 +34,8 @@ public class Room : MonoBehaviour
     public GameObject flyMinigame;
     GameObject flyGame;
 
+    public bool spawnFlies = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -110,32 +112,36 @@ public class Room : MonoBehaviour
 
     void SpawnFlies()
     {
-        if (liveTemperature < 15 && flyGame == null && !flyIsOnCd)
+        if (spawnFlies)
         {
-            miniGameSpawnTimer += Time.deltaTime;
-            if(miniGameSpawnTimer >= Random.Range(5,60))
+            if (liveTemperature < 15 && flyGame == null && !flyIsOnCd)
             {
-                int randomNum = Random.Range(0, 100);
-                if(randomNum <= flySpawnChance)
+                miniGameSpawnTimer += Time.deltaTime;
+                if (miniGameSpawnTimer >= Random.Range(5, 60))
                 {
-                    flyGame = Instantiate(flyMinigame, transform);
-                    Debug.Log("spawn");
-                    flyIsOnCd = true;
-                    flyGame.transform.position = flySpawn.position;
+                    int randomNum = Random.Range(0, 100);
+                    if (randomNum <= flySpawnChance)
+                    {
+                        flyGame = Instantiate(flyMinigame, transform);
+                        Debug.Log("spawn");
+                        flyIsOnCd = true;
+                        flyGame.transform.position = flySpawn.position;
+                    }
+                    miniGameSpawnTimer = 0;
                 }
-                miniGameSpawnTimer = 0;
+            }
+
+            if (flyIsOnCd)
+            {
+                flyCdTimer += Time.deltaTime;
+                if (flyCdTimer >= flyCooldown)
+                {
+                    flyCdTimer = 0;
+                    flyIsOnCd = false;
+                }
             }
         }
 
-        if (flyIsOnCd)
-        {
-            flyCdTimer += Time.deltaTime;
-            if(flyCdTimer >= flyCooldown)
-            {
-                flyCdTimer = 0;
-                flyIsOnCd = false;
-            }
-        }
     }
 
     // Update is called once per frame
