@@ -38293,6 +38293,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947107240}
   m_Mesh: {fileID: 8728854048086142887, guid: 260c4dc89855640f68b49e2d332b4c9f, type: 3}
+--- !u!1 &1949408060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2014820887670842292, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+  m_PrefabInstance: {fileID: 2118534950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950881938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7887587906704532359, guid: 1b2f0f0fe4ddd46fa9826274c8d00505, type: 3}
@@ -39503,6 +39508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 318021740149115717}
     m_Modifications:
+    - target: {fileID: 408943592487884459, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a00e3eaee5a42f4c933ea3d0d1bfa68, type: 3}
     - target: {fileID: 2014820887670842292, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_Name
       value: HouseUpgradesPanel
@@ -39523,6 +39532,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -231.25105
       objectReference: {fileID: 0}
+    - target: {fileID: 3537489636725949378, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd88fdc3edb8cfa49b0c58996bf33f02, type: 3}
     - target: {fileID: 4227201755623698057, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_Pivot.x
       value: 0.4999994
@@ -39541,12 +39554,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4227201755623698057, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 4227201755623698057, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 96.063
+      value: 110
       objectReference: {fileID: 0}
+    - target: {fileID: 4901136786476599157, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7fa4635726bb8184bb5a888008498bf1, type: 3}
     - target: {fileID: 5467948619187344776, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_fontColor.b
       value: 0.10519756
@@ -39579,6 +39596,40 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_text
+      value: 'House Upgrades
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontSize
+      value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.20069422
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20069422
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214142300560813619, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281545525
+      objectReference: {fileID: 0}
     - target: {fileID: 6883187026779867486, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_Name
       value: savedMoneyText
@@ -39593,7 +39644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6886623156752995501, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 6886623156752995501, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -39609,11 +39660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6983496539010101546, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4138
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983496539010101546, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 176.48
+      value: 207
       objectReference: {fileID: 0}
     - target: {fileID: 7657501606905014637, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_Pivot.x
@@ -39705,11 +39756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787965586589236600, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 7787965586589236600, guid: ed8b6096137c0854baa6c7014e049734, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -136.59
+      value: -138
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65081,11 +65132,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemImages:
-  - {fileID: 2800000, guid: 6462434252708544d9b151dea7ec02b2, type: 3}
+  - {fileID: 2800000, guid: c72dac3f939412c4a816484c220f1a3a, type: 3}
   - {fileID: 2800000, guid: 5b926b773b493084c93efee3250bb44b, type: 3}
-  - {fileID: 2800000, guid: 5f9dfc3ee421b1f4bbfbeb5391ad6303, type: 3}
-  - {fileID: 2800000, guid: 095e37585e880c04ba905d58850b92c3, type: 3}
-  - {fileID: 2800000, guid: 8ef2ad039cc037f468860baf1dce542d, type: 3}
+  - {fileID: 2800000, guid: cd88fdc3edb8cfa49b0c58996bf33f02, type: 3}
+  - {fileID: 2800000, guid: 7fa4635726bb8184bb5a888008498bf1, type: 3}
+  - {fileID: 2800000, guid: 2a00e3eaee5a42f4c933ea3d0d1bfa68, type: 3}
   - {fileID: 2800000, guid: d86675269b649bf4595f94aa566d858d, type: 3}
   - {fileID: 2800000, guid: 73d3e237f6896c846bcd9b18cbcd1e0d, type: 3}
   itemInfo:
@@ -65130,7 +65181,7 @@ MonoBehaviour:
   infoPanel: {fileID: 7878461254242416301}
   infoPanelTitle: {fileID: 3839556674661205241}
   infoPanelBody: {fileID: 7993585813256417258}
-  HouseUpgradeGameObject: {fileID: 0}
+  HouseUpgradeGameObject: {fileID: 1949408060}
   HouseUpgradeUsageIcons:
   - {fileID: 2118534952}
   - {fileID: 2118534953}
@@ -68476,6 +68527,8 @@ MonoBehaviour:
   hidePos: {x: 509, y: -718}
   hidden: 1
   scrollBar: {fileID: 8244220193286302007}
+  mobileClockText: {fileID: 901470305468891404}
+  timeText: {fileID: 7258210634346958441}
 --- !u!224 &6191281690754168894
 RectTransform:
   m_ObjectHideFlags: 0
