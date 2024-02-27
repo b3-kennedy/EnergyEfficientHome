@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 namespace EpicToonFX
 {
@@ -36,13 +37,26 @@ namespace EpicToonFX
 			//		print(projectileParticleName);
 		}
 
-		public void getProjectileNames()            // Find and diplay the name of the currently selected projectile
+		public void getProjectileNames()
 		{
-			// Access the currently selected projectile's 'ProjectileScript'
 			projectileScript = effectScript.projectiles[effectScript.currentProjectile].GetComponent<ETFXProjectileScript>();
-			projectileParticleName = projectileScript.projectileParticle.name;  // Assign the name of the currently selected projectile to projectileParticleName
-		}
+			projectileParticleName = projectileScript.projectileParticle.name;
+		}          // Find and diplay the name of the currently selected projectile
+		public bool overButton()        // This function will return either true or false
+		{
+			Rect button1 = new Rect(buttonsX, buttonsY, buttonsSizeX, buttonsSizeY);
+			Rect button2 = new Rect(buttonsX + buttonsDistance, buttonsY, buttonsSizeX, buttonsSizeY);
 
+			if (button1.Contains(new Vector2(Input.mousePosition.x, UnityEngine.Screen.height - Input.mousePosition.y)) ||
+			   button2.Contains(new Vector2(Input.mousePosition.x, UnityEngine.Screen.height - Input.mousePosition.y)))
+			{
+				// Access the currently selected projectile's 'ProjectileScript'
+				projectileScript = effectScript.projectiles[effectScript.currentProjectile].GetComponent<ETFXProjectileScript>();
+				projectileParticleName = projectileScript.projectileParticle.name;  // Assign the name of the currently selected projectile to projectileParticleName
+				return true;
+			}
+			return false;
+
+		}
 	}
-}
-		
+}	

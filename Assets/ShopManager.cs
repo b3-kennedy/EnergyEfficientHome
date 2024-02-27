@@ -1,4 +1,5 @@
-
+ï»¿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -39,7 +40,11 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI infoPanelTitle;
     public TextMeshProUGUI infoPanelBody;
 
+    public GameObject HouseUpgradeGameObject;
+    public GameObject[] HouseUpgradeUsageIcons;
+    public TMP_Text savedMoneyText;
 
+    public GameObject successfulBuyPopup;
     private void Awake()
     {
         Instance = this;
@@ -64,6 +69,8 @@ public class ShopManager : MonoBehaviour
         }
         checkoutBtn.onClick.AddListener(Checkout);
         checkOutBuyButton.onClick.AddListener(Buy);
+
+        LevelManager.Instance.onSavedMoney.AddListener(UpdateMoneySavedText);
 
     }
     
@@ -113,16 +120,24 @@ public class ShopManager : MonoBehaviour
             if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.PV = true;
+                HouseUpgradeUsageIcons[2].SetActive(false);
+                HouseUpgradeUsageIcons[3].SetActive(true);
+              
             }
             if (item.itemName.text == itemNames[4])
             {
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
+                HouseUpgradeUsageIcons[5].SetActive(true);
+                HouseUpgradeUsageIcons[4].SetActive(false);
             }
             
             if(item.itemName.text == itemNames[3])
             {
                 LevelManager.Instance.heatPump = true;
+                HouseUpgradeUsageIcons[0].SetActive(false);
+                HouseUpgradeUsageIcons[1].SetActive(true);
+               
                 AddHeatPumpToRooms();
             }
 
@@ -138,11 +153,20 @@ public class ShopManager : MonoBehaviour
 
         UpdateBudgetText();
         DestroyCheckoutBasketList();
-        totalAmountText.text = "Total : £" + 0;
-        totalBasket.text = "Total : £" + 0;
-        
-    }
+        totalAmountText.text = "Total : Â£" + 0;
+        totalBasket.text = "Total : Â£" + 0;
 
+        CheckoutPage.SetActive(false);
+        MobilePhoneScreen.SetActive(true);
+
+        StartCoroutine(ShowSuccessfulBuyPopup());
+    }
+    IEnumerator ShowSuccessfulBuyPopup()
+    {
+        successfulBuyPopup.SetActive(true);
+        yield return new WaitForSeconds(2);
+        successfulBuyPopup.SetActive(false);
+    }
     void DisplayItemInfo(ShopItem item)
     {
         Time.timeScale = 0;
@@ -167,8 +191,14 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var text in budgetTexts)
         {
-            text.text = "Your Budget: £" + Mathf.Round(LevelManager.Instance.budget);
+            text.text = "Your Budget: Â£" + Mathf.Round(LevelManager.Instance.budget);
         }
+    }
+
+    void UpdateMoneySavedText()
+    {
+        Debug.Log(LevelManager.Instance.savedMoneyByUpgrades + "Â£");
+        savedMoneyText.text = "Money saved : " + LevelManager.Instance.savedMoneyByUpgrades + "Â£";
     }
 
 
@@ -226,11 +256,12 @@ public class ShopManager : MonoBehaviour
             total += shopItem.itemPriceFloat;
             //total = Mathf.RoundToInt(total * 100) / 100f;
         }
-        totalAmountText.text = "Total : £" + total;
-        totalBasket.text = "Total : £" + total;
+        totalAmountText.text = "Total : Â£" + total;
+        totalBasket.text = "Total : Â£" + total;
 
 
     }
+    
 
 
 }
