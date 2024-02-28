@@ -35,7 +35,7 @@ public class FridgeInteractionController : MonoBehaviour
     public TMP_Text finalScoreText;
 
     public int score = 0;
-    private float timer = 60;
+    private float timer = 30;
 
     private bool gameStarted = false;
 
@@ -108,8 +108,8 @@ public class FridgeInteractionController : MonoBehaviour
         gameStarted = false;
         endGamePanel.SetActive(true);
         mainGamePanel.SetActive(false);
-        timer = 90;
-        timerText.text = "1:30";
+        timer = 30;
+        timerText.text = "0:30";
 
         finalScoreText.text = "Score : "+score;
         score = 0;
@@ -222,8 +222,8 @@ public class FridgeInteractionController : MonoBehaviour
     }
     void StartGame()
     {
-        timer = 60;
-        timerText.text = "1:00";
+        timer = 30;
+        timerText.text = "0:30";
 
        
         startGamePanel.SetActive(false);
@@ -243,8 +243,8 @@ public class FridgeInteractionController : MonoBehaviour
 
         miniGameGO.SetActive(false);
         player.GetComponent<CharacterAttributes>().entertaining = false;
-        timer = 60;
-        timerText.text = "1:00";
+        timer = 30;
+        timerText.text = "0:30";
         score = 0;
         scoreText.text = "score : 0";
        
