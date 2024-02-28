@@ -335,6 +335,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6175271304439193502, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 786718308}
+    - target: {fileID: 6175271304439193502, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: mobileClockText
+      value: 
+      objectReference: {fileID: 4205644}
     - target: {fileID: 6483360420579263081, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -521,6 +529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8445576056322783783, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
   m_PrefabInstance: {fileID: 4205639}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4205644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 901470305473097035, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+  m_PrefabInstance: {fileID: 4205639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &28440521 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3561132669175735293, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
@@ -843,6 +862,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1466230815237129030, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
   m_PrefabInstance: {fileID: 4205639}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &786718308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7258210634351157806, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+  m_PrefabInstance: {fileID: 4205639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &877911634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8907344975566509215, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
@@ -1566,6 +1596,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 858330672318069764, guid: f2573ddec4d2d3645a433d9a5ee65f7f, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965927294757088955, guid: f2573ddec4d2d3645a433d9a5ee65f7f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172955026859256622, guid: f2573ddec4d2d3645a433d9a5ee65f7f, type: 3}
