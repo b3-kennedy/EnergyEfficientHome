@@ -1,77 +1,131 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AIMove : MonoBehaviour
 {
 
-    [HideInInspector] public NavMeshAgent agent;
-    public Transform target;
-    CharacterTemperature characterTemp;
-    public Room currentRoom;
+    NavMeshAgent agent;
+    public Transform sleepPos;
+    public Transform fridgePos;
+    public Transform idlePos;
 
-    public Room bedRoom;
-    public Room kitchen;
-    public Room livingRoom;
+    public enum State {IDLE, SLEEP, FRIDGE};
+    public State state;
 
-    public float entertainment = 100;
-    public float hunger = 100;
-    public float tiredness = 100;
+    [Header("Idle Parameters")]
+    public float minTime;
+    public float maxTime;
+    float idleTimer;
+    float randomTime;
+    bool generateRandomTime;
 
-    Animator anim;
+    [Header("Fridge Parameters")]
+    public float fridgeTime;
+    float fridgeTimer;
 
-    public bool entertain;
-    public bool sleep;
-    public bool eat;
 
-    [HideInInspector] public bool radiators;
-
-    public float hungerMultiplier;
-    public float tirednessMultiplier;
-    public float entertainmentMultiplier;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        characterTemp = GetComponent<CharacterTemperature>();
-        anim = GetComponent<Animator>();
+        state = State.IDLE;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         agent.speed = 3.5f * TimeManager.Instance.timeControlMultiplier;
+
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 2000)
+        {
+            state = State.SLEEP;
+        }
+
+        switch (state)
+        {
+            case State.IDLE:
+                Idle();
+                break;
+            case State.SLEEP:
+                Sleep();
+                break;
+            case State.FRIDGE:
+                Fridge();
+                break;
+            default:
+                break;
+        }
+    
     }
 
-
-    public bool TurnOnRadiator()
+    void SwitchState(State oldState)
     {
-        agent.SetDestination(target.position);
-        if(Vector3.Distance(transform.position, target.transform.position) <= 1.5f)
+        Debug.Log("switch");
+        if(oldState == State.IDLE)
         {
-            if (target.GetComponent<Radiator>())
+            state = State.FRIDGE;
+        }
+        else if(state == State.FRIDGE)
+        {
+            state = State.IDLE;
+        }
+        else if(state == State.SLEEP)
+        {
+            state = State.IDLE;
+        }
+    }
+
+    void Fridge()
+    {
+        agent.destination = fridgePos.position;
+
+        Debug.Log(Vector3.Distance(transform.position, fridgePos.position));
+        if (Vector3.Distance(transform.position, fridgePos.position) < 1.5f)
+        {
+            fridgeTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
+
+            if(fridgeTimer >= fridgeTime)
             {
-                target.GetComponent<Radiator>().isOn = true;
-                return target.GetComponent<Radiator>().isOn;
+                SwitchState(State.FRIDGE);
+                fridgeTimer = 0;
             }
             
-            
         }
-        return false;
+    }
+
+    void Sleep()
+    {
+        agent.destination = sleepPos.position;
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
+        {
+            SwitchState(State.SLEEP);
+        }
+    }
+
+    void Idle()
+    {
+        if (!generateRandomTime)
+        {
+            randomTime = Random.Range(minTime, maxTime);
+            generateRandomTime = true;
+            Debug.Log(randomTime);
+        }
+        agent.destination = idlePos.position;
+
         
-    }
+        if (Vector3.Distance(transform.position, idlePos.position) < 1.5f)
+        {
 
-    public void MoveToActivity()
-    {
-        agent.SetDestination(target.position);
-
-    }
-
-    public void MoveRooms()
-    {
-        agent.SetDestination(target.position);
+            idleTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
+            transform.localEulerAngles = new Vector3(0, -90, 0);
+            if (idleTimer >= randomTime)
+            {
+                SwitchState(State.IDLE);
+                idleTimer = 0;
+                generateRandomTime = false;
+            }
+        }
     }
 }
+
+

@@ -186,7 +186,7 @@ public class Room : MonoBehaviour
 
         if (other.GetComponent<AIMove>())
         {
-            other.GetComponent<AIMove>().currentRoom = this;
+            //other.GetComponent<AIMove>().currentRoom = this;
         }
     }
 
