@@ -102,4 +102,29 @@ public class Interact : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<SecondFloorTrigger>())
+        {
+            switch (other.GetComponent<SecondFloorTrigger>().floor)
+            {
+                case SecondFloorTrigger.Floor.GROUND:
+                    other.GetComponent<SecondFloorTrigger>().secondFloor.SetActive(false);
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
+                    Camera.main.GetComponent<FollowPlayer>().panDown = true;
+                    break;
+                case SecondFloorTrigger.Floor.SECOND:
+                    other.GetComponent<SecondFloorTrigger>().ChangeFloorState();
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
+                    break;
+                case SecondFloorTrigger.Floor.PLANE:
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = true;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+    }
 }

@@ -37739,18 +37739,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -54335,6 +54323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7857648290038675381}
   type: 1
+  panYpos: 0
 --- !u!224 &2729723499308063432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77263,6 +77252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7857648290038675381}
   type: 0
+  panYpos: 0
 --- !u!114 &7649997951235029058
 MonoBehaviour:
   m_ObjectHideFlags: 0

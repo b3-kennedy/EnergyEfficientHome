@@ -243,7 +243,6 @@ public class LevelManager : MonoBehaviour
                             else
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
-                                Debug.Log("add radiator cost");
                             }
                             item.GetComponent<Radiator>().timePassed = 0;
                             item.GetComponent<Radiator>().timeActivated = 0;

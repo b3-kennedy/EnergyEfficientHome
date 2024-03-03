@@ -130,7 +130,6 @@ public class PlayerMove : MonoBehaviour
 
         if (OnSlope())
         {
-            Debug.Log("on slope");
             ch.Move(Vector3.down * downForce * Time.deltaTime);
 
 
@@ -148,6 +147,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
+        
     }
 
     
