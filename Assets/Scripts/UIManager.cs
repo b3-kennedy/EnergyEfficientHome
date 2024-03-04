@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public Slider hungerSlider;
     public Slider tirednessSlider;
     public Slider boredomSlider;
+    public Slider happinessSlider;
 
 
 

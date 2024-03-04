@@ -25,6 +25,12 @@ public class Interact : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.E))
             {
+                if (heatObject.GetComponent<Window>())
+                {
+                    Debug.Log("ison");
+                    heatObject.GetComponent<Window>().openWindow();
+                }
+
                 if (heatObject.GetComponent<Jumper>())
                 {
                     EquipClothing();
@@ -37,6 +43,7 @@ public class Interact : MonoBehaviour
                     }
                     
                 }
+             
                 else if (heatObject.GetComponent<RoomThermostat>())
                 {
                     heatObject.GetComponent<RoomThermostat>().Activate();

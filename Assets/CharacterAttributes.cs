@@ -5,14 +5,17 @@ public class CharacterAttributes : MonoBehaviour
     public float hunger;
     public float tiredness;
     public float boredom;
+    public float happiness;
 
     public float hungerMultiplier;
     public float boredomMultiplier;
     public float tirednessMultiplier;
+    public float happinessMultiplier;
 
     public float hungerRecoveryRate;
     public float boredomRecoveryRate;
     public float tirednessRecoveryRate;
+    public float happinessRecoveryRate;
 
     public float sleepMultiplier;
 
@@ -29,6 +32,7 @@ public class CharacterAttributes : MonoBehaviour
     bool displayTiredness;
     bool displayBoredom;
     bool displayHunger;
+    bool displayHappiness;
 
     public CanvasGroup canvasGroup;
     public bool fadeOut = false;
@@ -143,6 +147,7 @@ public class CharacterAttributes : MonoBehaviour
         UIManager.Instance.boredomSlider.value = boredom / 100;
         UIManager.Instance.hungerSlider.value = hunger / 100;
         UIManager.Instance.tirednessSlider.value = tiredness / 100;
+        UIManager.Instance.happinessSlider.value = happiness / 100;
     }
 
     void Clamp()
@@ -150,6 +155,7 @@ public class CharacterAttributes : MonoBehaviour
         hunger = Mathf.Clamp(hunger, 0, 100);
         boredom = Mathf.Clamp(boredom, 0, 100);
         tiredness = Mathf.Clamp(tiredness, 0, 100);
+        happiness = Mathf.Clamp(happiness, 0, 100);
     }
 
     public GameObject[] uiElementsToHideOnSleep;
@@ -189,6 +195,7 @@ public class CharacterAttributes : MonoBehaviour
         if (entertaining)
         {
             boredom -= Time.deltaTime * (boredomRecoveryRate / 1000) * TimeManager.Instance.timeMultiplier;
+            happiness += Time.deltaTime * (happinessRecoveryRate / 1000) * TimeManager.Instance.timeMultiplier;
         }
     }
     public void FadeIn()
