@@ -73797,7 +73797,7 @@ MonoBehaviour:
   used: 0
   flappyBirdCanvas: {fileID: 4272229574218430819}
   wireCanvas: {fileID: 8470182462099403271}
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 4564813784916103814}
 --- !u!222 &6851707141502178911
 CanvasRenderer:
   m_ObjectHideFlags: 0
