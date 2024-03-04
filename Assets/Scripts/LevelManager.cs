@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance;
 
+    public Graph graph;
+
     public Room[] rooms;
 
     public float budget;

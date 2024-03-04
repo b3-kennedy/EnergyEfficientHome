@@ -79,7 +79,6 @@ public class AIMove : MonoBehaviour
     {
         agent.destination = fridgePos.position;
 
-        Debug.Log(Vector3.Distance(transform.position, fridgePos.position));
         if (Vector3.Distance(transform.position, fridgePos.position) < 1.5f)
         {
             fridgeTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;

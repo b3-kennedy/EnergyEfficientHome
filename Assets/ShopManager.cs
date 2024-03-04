@@ -48,6 +48,7 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
 
     private void OnEnable()
@@ -116,7 +117,20 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var item in Basket)
         {
+            float day = LevelManager.Instance.daysInLevel + 1;
+            float maxDaysInLevel = LevelManager.Instance.maxDaysInLevel;
+            float hour = TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime);
+            float hourPercent = (hour / 2400);
+            float dayPercent = (day/maxDaysInLevel) * 100;
+            float dayHourPercent = dayPercent;
+
+            PricePoint price = new PricePoint(LevelManager.Instance.budget, dayHourPercent);
             LevelManager.Instance.budget -= item.itemPriceFloat;
+
+
+            LevelManager.Instance.graph.pricePointPercentages.Add(price);
+
+
             if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.PV = true;
