@@ -77848,15 +77848,15 @@ MonoBehaviour:
   hunger: 50
   tiredness: 50
   boredom: 0
-  happiness: 0
+  happiness: 50
   hungerMultiplier: 7
   boredomMultiplier: 3.17
   tirednessMultiplier: 2
-  happinessMultiplier: 0
+  happinessMultiplier: 2
   hungerRecoveryRate: 100
   boredomRecoveryRate: 10
   tirednessRecoveryRate: 1
-  happinessRecoveryRate: 0
+  happinessRecoveryRate: 2
   sleepMultiplier: 0.1
   sleeping: 0
   eating: 0
