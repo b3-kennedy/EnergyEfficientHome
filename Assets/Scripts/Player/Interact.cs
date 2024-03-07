@@ -28,14 +28,18 @@ public class Interact : MonoBehaviour
                 if (heatObject.GetComponent<Window>())
                 {
                     Debug.Log("ison");
-                    heatObject.GetComponent<Window>().openWindow();
+                    if (!heatObject.GetComponent<Broken>().enabled)
+                    {
+                        heatObject.GetComponent<Window>().openWindow();
+                    }
+                    
                 }
 
                 if (heatObject.GetComponent<Jumper>())
                 {
                     EquipClothing();
                 }
-                else if(heatObject.GetComponent<RoomTempChanger>())
+                else if(heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
                 {
                     if(LevelManager.Instance.budget > 0)
                     {
