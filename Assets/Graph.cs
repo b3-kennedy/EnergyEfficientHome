@@ -5,15 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class PricePoint
+public class GraphData
 {
-    public float budgetValue;
+    public int dayValue;
     public float percentage;
+    public List<string> information = new List<string>();
 
-    public PricePoint (float budget, float percent)
+    public GraphData (int day)
     {
-        budgetValue = budget;
-        percentage = percent;
+        dayValue = day;
+    }
+
+    public void AddInfoToList(string info)
+    {
+        information.Add(info);
     }
 }
 
@@ -25,7 +30,11 @@ public class Graph : MonoBehaviour
     public RectTransform container;
     public RectTransform labelTemplateX;
     public RectTransform labelTemplateY;
-    public List<PricePoint> pricePointPercentages = new List<PricePoint>();
+    public List<GameObject> graphPoints;
+    public GameObject graphPoint;
+    public GameObject graphInfoText;
+
+    //public PricePoint testPoint;
 
     private void Awake()
     {
@@ -35,13 +44,19 @@ public class Graph : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //List<float> values = new List<float>() {100, 90, 80, 70, 30, 20, 10};
+
+
+        //for (int i = 0; i < pricePointPercentages.Length; i++)
+        //{
+        //    pricePointPercentages[i].information = new List<string>();
+        //}
+        //List<float> values = new List<float>() { 100, 90, 80, 70, 30, 20, 10 };
         //ShowGraph(values);
     }
 
-    GameObject CreateGraphPoint(Vector2 anchorPos)
+    GameObject CreateGraphPoint(Vector2 anchorPos, int day)
     {
-        GameObject go = new GameObject("point", typeof(Image));
+        GameObject go = Instantiate(graphPoint);
         go.transform.SetParent(container, false);
         go.GetComponent<Image>().sprite = circle;
         RectTransform rectTransform = go.GetComponent<RectTransform>();
@@ -49,6 +64,19 @@ public class Graph : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(11, 11);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
+
+        go.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Day " + day.ToString();
+        
+
+        for (int i = 0; i < LevelManager.Instance.infoForGraph[day].information.Count; i++)
+        {
+            GameObject infoText = Instantiate(graphInfoText, go.transform.GetChild(0).GetChild(0));
+            infoText.GetComponent<TextMeshProUGUI>().text = LevelManager.Instance.infoForGraph[day].information[i];
+        }
+
+        //go.transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = new Vector2(container.sizeDelta.x / 2, container.sizeDelta.y / 2);
+
+
         return go;
     }
 
@@ -59,31 +87,14 @@ public class Graph : MonoBehaviour
         float xSize = container.sizeDelta.x / values.Count;
         float yMax = 500f;
 
-        float totalSizeX = 0;
-        float totalSizeY = 0;
-
-        float firstPointX = 0;
-        float lastPointX = 0;
-
-        float firstPointY = 0;
-        float lastPointY = 0;
-
         GameObject lastPoint = null;
         for (int i = 0; i < values.Count; i++)
         {
 
             float xPos = (xSize/5) + i * xSize;
             float yPos = (values[i] / yMax) * graphHeight;
-            if (i == 0)
-            {
-                firstPointX = xPos;
-            }
-            if(i == values.Count - 1)
-            {
-                lastPointX = xPos;
-                totalSizeX = lastPointX - firstPointX;
-            }
-            GameObject point = CreateGraphPoint(new Vector2(xPos, yPos));
+            GameObject point = CreateGraphPoint(new Vector2(xPos, yPos), i);
+            graphPoints.Add(point);
             if(lastPoint != null)
             {
                 CreateDotConnection(lastPoint.GetComponent<RectTransform>().anchoredPosition, point.GetComponent<RectTransform>().anchoredPosition);
@@ -105,39 +116,7 @@ public class Graph : MonoBehaviour
             labelY.gameObject.SetActive(true);
             float value = i * 1f / separators;
             labelY.anchoredPosition = new Vector2(-50f, value * graphHeight);
-            if(i == 0)
-            {
-                firstPointY = value * graphHeight;
-            }
-            if(i == separators)
-            {
-                lastPointY = value * graphHeight;
-                totalSizeY = lastPointY - firstPointY;
-                
-            }
             labelY.GetComponent<TextMeshProUGUI>().text = Mathf.RoundToInt(value * yMax).ToString();
-        }
-
-        Debug.Log(totalSizeX);
-
-        for (int i = 0; i < pricePointPercentages.Count; i++)
-        {
-            float xPos = firstPointX + ((pricePointPercentages[i].percentage * totalSizeX) / 100);
-            float yPercent = (pricePointPercentages[i].budgetValue / 500) * 100;
-            Debug.Log(yPercent);
-            float yPos = firstPointY + ((yPercent * totalSizeY) / 100);
-            GameObject go = new GameObject("PricePoint", typeof(Image));
-            go.transform.SetParent(container, false);
-            go.GetComponent<Image>().sprite = circle;
-            RectTransform rectTransform = go.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(xPos, yPos);
-            rectTransform.sizeDelta = new Vector2(11, 11);
-            rectTransform.anchorMin = new Vector2(0, 0);
-            rectTransform.anchorMax = new Vector2(0, 0);
-
-
-
-            Debug.Log(xPos);
         }
 
 
@@ -156,6 +135,39 @@ public class Graph : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(dist, 3);
         rectTransform.anchoredPosition = posA + dir * dist * 0.5f;
         rectTransform.localEulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(dir));
+
+        //GraphInfo();
+    }
+
+    //void GraphInfo()
+    //{
+    //    for (int i = 0; i < pricePointPercentages.Length; i++)
+    //    {
+    //        float distance = Vector3.Distance(graphPoints[pricePointPercentages[i].dayValue].GetComponent<RectTransform>().anchoredPosition, 
+    //            graphPoints[pricePointPercentages[i].dayValue+1].GetComponent<RectTransform>().anchoredPosition);
+
+    //        Vector2 direction = (graphPoints[pricePointPercentages[i].dayValue].GetComponent<RectTransform>().anchoredPosition -
+    //            graphPoints[pricePointPercentages[i].dayValue+1].GetComponent<RectTransform>().anchoredPosition).normalized;
+    //        CreateLineOnGraph(distance, direction, pricePointPercentages[i].percentage, pricePointPercentages[i].dayValue);
+    //    }
+
+    //}
+
+    void CreateLineOnGraph(float distance, Vector2 dir, float perc, int dayValue)
+    {
+        GameObject go = new GameObject("line", typeof(Image));
+        go.transform.SetParent(container, false);
+        RectTransform rectTransform = go.GetComponent<RectTransform>();
+
+        float percentDist = (perc / 100f) * distance;
+
+        rectTransform.anchorMin = new Vector2(0, 0);
+        rectTransform.anchorMax = new Vector2(0, 0);
+        rectTransform.sizeDelta = new Vector2(2, 30);
+        rectTransform.anchoredPosition = graphPoints[dayValue].GetComponent<RectTransform>().anchoredPosition;
+
+
+
     }
 
 

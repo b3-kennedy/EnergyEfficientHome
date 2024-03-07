@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,6 +170,14 @@ PrefabInstance:
     - target: {fileID: 2267619443605812158, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024676430298202082, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: testPoint.dayValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024676430298202082, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
+      propertyPath: testPoint.percentage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3024676430298202082, guid: a94a4c040edebaa49a5547e26f311d89, type: 3}
       propertyPath: pricePointPercentage.Array.size
@@ -1177,6 +1185,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4198874954005751684, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326994498373311490, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458722849631534930, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5839876387576432524, guid: d854e665afd875f45a6d5faf71ab9886, type: 3}

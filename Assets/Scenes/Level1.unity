@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44794315, g: 0.4979456, b: 0.57548696, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11008,7 +11008,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: animator
@@ -15664,7 +15664,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: animator
@@ -22506,7 +22506,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: animator
@@ -37570,7 +37570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: animator
@@ -39311,7 +39311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: isOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7303414172550721064, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: animator
@@ -48107,6 +48107,42 @@ PrefabInstance:
     - target: {fileID: 100771851480935674, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: graphPoint
+      value: 
+      objectReference: {fileID: 6046222757655385907, guid: 26b0753eec1ad4247872f098b7d87a16, type: 3}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: graphInfoText
+      value: 
+      objectReference: {fileID: 7016363569109809909, guid: 2710325ee23842e45a4334e04fec5249, type: 3}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: testPoint.dayValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: testPoint.percentage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: pricePointPercentages.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: pricePointPercentages.Array.data[0].information.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: pricePointPercentages.Array.data[0].information.Array.data[0]
+      value: meow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: pricePointPercentages.Array.data[0].information.Array.data[1]
+      value: woof
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297522414477386002, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
+      propertyPath: pricePointPercentages.Array.data[0].information.Array.data[2]
+      value: xdd
       objectReference: {fileID: 0}
     - target: {fileID: 8640370807768993437, guid: 8324fe9e86bb6d04292bfa0c0480c11e, type: 3}
       propertyPath: m_Name
@@ -65534,7 +65570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1a8df1a4e01c14b9d158b47a8620e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 0}
+  graph: {fileID: 1991136964}
   rooms:
   - {fileID: 2081540607}
   - {fileID: 712427699}
@@ -65574,6 +65610,30 @@ MonoBehaviour:
   - {fileID: 820502302}
   - {fileID: 1181557378}
   - {fileID: 399235765}
+  fixCost: 0
+  moneyFromWork: 0
+  infoForGraph:
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
+  - dayValue: 0
+    percentage: 0
+    information: []
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0
@@ -73611,7 +73671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &6833051403759339832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79492,6 +79552,7 @@ GameObject:
   - component: {fileID: 5614188945385010591}
   - component: {fileID: 1116594283499379842}
   - component: {fileID: 4307136421403484415}
+  - component: {fileID: 8942338925790042197}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -84976,6 +85037,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8722349350004653472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8942338925790042197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921710008219196898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 9dcf026b2aa985c4fbb59d44eb796fdc, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &8955915278039519769
 GameObject:
   m_ObjectHideFlags: 0

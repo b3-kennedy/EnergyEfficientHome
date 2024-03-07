@@ -65,6 +65,12 @@ public class LevelManager : MonoBehaviour
     public UnityEvent onSavedMoney;
 
     public GameObject[] lamps;
+
+    public float fixCost;
+    public float moneyFromWork;
+
+    public GraphData[] infoForGraph;
+
     private void Awake()
     {
         Instance = this;
@@ -87,6 +93,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < infoForGraph.Length; i++)
+        {
+            infoForGraph[i] = new GraphData(0);
+        }
+
         budgetOverDays.Add(budget);
 
         TimeManager.Instance.dayPassed.AddListener(Break);
@@ -214,11 +225,16 @@ public class LevelManager : MonoBehaviour
 
     public void OnNewDay()
     {
-        budget -= dailyCost;
+
+        
+        
+        fixCost = 0;
+        moneyFromWork = 0;
         budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
         WorkTrigger.Instance.OffCooldown();
         dailyCost = 0;
+        
     }
 
     public void AddCost()

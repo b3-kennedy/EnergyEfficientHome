@@ -69,6 +69,7 @@ public class Interact : MonoBehaviour
                     {
                         interactText.gameObject.SetActive(false);
                         LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
+                        LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
                         heatObject.GetComponent<Broken>().enabled = false;
                     }
                 }
