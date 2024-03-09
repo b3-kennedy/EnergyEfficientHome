@@ -137,6 +137,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             if (timer >= timeAfterCompletion)
             {
                 LevelManager.Instance.budget += gameTimer * 2;
+                LevelManager.Instance.moneyFromWork += gameTimer * 2;
                 gameTimer = 5;
                 gameObject.transform.parent.gameObject.SetActive(false);
                 WorkTrigger.Instance.StartWork();

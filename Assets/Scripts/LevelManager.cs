@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance;
 
+    public Graph graph;
+
     public Room[] rooms;
 
     public float budget;
@@ -62,6 +64,13 @@ public class LevelManager : MonoBehaviour
     public float savedMoneyByUpgrades=0;
     public UnityEvent onSavedMoney;
 
+    public GameObject[] lamps;
+
+    public float fixCost;
+    public float moneyFromWork;
+
+    public GraphData[] infoForGraph;
+
     private void Awake()
     {
         Instance = this;
@@ -84,6 +93,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < infoForGraph.Length; i++)
+        {
+            infoForGraph[i] = new GraphData(0);
+        }
+
         budgetOverDays.Add(budget);
 
         TimeManager.Instance.dayPassed.AddListener(Break);
@@ -211,11 +225,16 @@ public class LevelManager : MonoBehaviour
 
     public void OnNewDay()
     {
-        budget -= dailyCost;
+
+        
+        
+        fixCost = 0;
+        moneyFromWork = 0;
         budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
         WorkTrigger.Instance.OffCooldown();
         dailyCost = 0;
+        
     }
 
     public void AddCost()
@@ -242,7 +261,6 @@ public class LevelManager : MonoBehaviour
                             else
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
-                                Debug.Log("add radiator cost");
                             }
                             item.GetComponent<Radiator>().timePassed = 0;
                             item.GetComponent<Radiator>().timeActivated = 0;
@@ -251,6 +269,11 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
+            foreach (var lamp in lamps)
+            {
+                if (lamp.GetComponent<LampController>().isOn)
+                    electricityCosts += 0.10f;
+            }
             dailyCost += electricityCosts + baseElectricityHourlyCost;
            
 

@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -42,9 +43,12 @@ public class ShopManager : MonoBehaviour
     public GameObject HouseUpgradeGameObject;
     public GameObject[] HouseUpgradeUsageIcons;
     public TMP_Text savedMoneyText;
+
+    public GameObject successfulBuyPopup;
     private void Awake()
     {
         Instance = this;
+
     }
 
     private void OnEnable()
@@ -113,13 +117,28 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var item in Basket)
         {
-            LevelManager.Instance.budget -= item.itemPriceFloat;
+            int day = LevelManager.Instance.daysInLevel;
+            float maxDaysInLevel = LevelManager.Instance.maxDaysInLevel;
+            float hour = TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime);
+            float hourPercent = (hour / 2400) * 100;
+
+
+
+
             if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.PV = true;
                 HouseUpgradeUsageIcons[2].SetActive(false);
                 HouseUpgradeUsageIcons[3].SetActive(true);
-              
+                
+                LevelManager.Instance.budget -= item.itemPriceFloat;
+
+                LevelManager.Instance.budgetOverDays.Add(LevelManager.Instance.budget);
+
+                LevelManager.Instance.infoForGraph[day].AddInfoToList("Bought" + " " + item.itemName.text + " at " + TimeManager.Instance.currentTime.ToString("HH:mm") + 
+                    " for £" + item.itemPriceFloat);
+                
+
             }
             if (item.itemName.text == itemNames[4])
             {
@@ -127,6 +146,16 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.DoubleGlazing();
                 HouseUpgradeUsageIcons[5].SetActive(true);
                 HouseUpgradeUsageIcons[4].SetActive(false);
+                
+                LevelManager.Instance.budget -= item.itemPriceFloat;
+                LevelManager.Instance.budgetOverDays.Add(LevelManager.Instance.budget);
+
+    
+
+                LevelManager.Instance.infoForGraph[day].AddInfoToList("Bought" + " " + item.itemName.text + " at " + TimeManager.Instance.currentTime.ToString("HH:mm") +
+                    " for £" + item.itemPriceFloat);
+
+
             }
             
             if(item.itemName.text == itemNames[3])
@@ -134,7 +163,14 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.heatPump = true;
                 HouseUpgradeUsageIcons[0].SetActive(false);
                 HouseUpgradeUsageIcons[1].SetActive(true);
-               
+                
+                LevelManager.Instance.budget -= item.itemPriceFloat;
+                LevelManager.Instance.budgetOverDays.Add(LevelManager.Instance.budget);
+
+                LevelManager.Instance.infoForGraph[day].AddInfoToList("Bought" + " " + item.itemName.text + " at " + TimeManager.Instance.currentTime.ToString("HH:mm") +
+                    " for £" + item.itemPriceFloat);
+
+
                 AddHeatPumpToRooms();
             }
 
@@ -152,9 +188,18 @@ public class ShopManager : MonoBehaviour
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
         totalBasket.text = "Total : £" + 0;
-        
-    }
 
+        CheckoutPage.SetActive(false);
+        MobilePhoneScreen.SetActive(true);
+
+        StartCoroutine(ShowSuccessfulBuyPopup());
+    }
+    IEnumerator ShowSuccessfulBuyPopup()
+    {
+        successfulBuyPopup.SetActive(true);
+        yield return new WaitForSeconds(2);
+        successfulBuyPopup.SetActive(false);
+    }
     void DisplayItemInfo(ShopItem item)
     {
         Time.timeScale = 0;
@@ -186,7 +231,8 @@ public class ShopManager : MonoBehaviour
     void UpdateMoneySavedText()
     {
         Debug.Log(LevelManager.Instance.savedMoneyByUpgrades + "£");
-        savedMoneyText.text = "Money saved : " + LevelManager.Instance.savedMoneyByUpgrades + "£";
+        int m = Mathf.RoundToInt(LevelManager.Instance.savedMoneyByUpgrades);
+        savedMoneyText.text = "Money saved : " + m + "£";
     }
 
 
@@ -249,10 +295,7 @@ public class ShopManager : MonoBehaviour
 
 
     }
-    private void Update()
-    {
-       // UpdateMoneySavedText();
-    }
+    
 
 
 }

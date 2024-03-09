@@ -28,14 +28,18 @@ public class Interact : MonoBehaviour
                 if (heatObject.GetComponent<Window>())
                 {
                     Debug.Log("ison");
-                    heatObject.GetComponent<Window>().openWindow();
+                    if (!heatObject.GetComponent<Broken>().enabled)
+                    {
+                        heatObject.GetComponent<Window>().openWindow();
+                    }
+                    
                 }
 
                 if (heatObject.GetComponent<Jumper>())
                 {
                     EquipClothing();
                 }
-                else if(heatObject.GetComponent<RoomTempChanger>())
+                else if(heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
                 {
                     if(LevelManager.Instance.budget > 0)
                     {
@@ -69,6 +73,7 @@ public class Interact : MonoBehaviour
                     {
                         interactText.gameObject.SetActive(false);
                         LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
+                        LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
                         heatObject.GetComponent<Broken>().enabled = false;
                     }
                 }
@@ -107,6 +112,31 @@ public class Interact : MonoBehaviour
             
             
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<SecondFloorTrigger>())
+        {
+            switch (other.GetComponent<SecondFloorTrigger>().floor)
+            {
+                case SecondFloorTrigger.Floor.GROUND:
+                    other.GetComponent<SecondFloorTrigger>().secondFloor.SetActive(false);
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
+                    Camera.main.GetComponent<FollowPlayer>().panDown = true;
+                    break;
+                case SecondFloorTrigger.Floor.SECOND:
+                    other.GetComponent<SecondFloorTrigger>().ChangeFloorState();
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
+                    break;
+                case SecondFloorTrigger.Floor.PLANE:
+                    other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = true;
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }

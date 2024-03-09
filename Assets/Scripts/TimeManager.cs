@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -171,12 +172,26 @@ public class TimeManager : MonoBehaviour
 
     void CalculateDayEnd()
     {
-        if (currentTime.ToString("HH:mm") == "00:00")
+        if (GetFloatTime(currentTime) == 1)
         {
             if (!newDay)
             {
+                LevelManager.Instance.budget -= LevelManager.Instance.dailyCost;
+                if (LevelManager.Instance.dailyCost > 0)
+                {
+                    LevelManager.Instance.infoForGraph[LevelManager.Instance.daysInLevel].AddInfoToList("Spent £" + LevelManager.Instance.dailyCost.ToString() + " on electricity and heating");
+                }
+                if (LevelManager.Instance.fixCost > 0)
+                {
+                    LevelManager.Instance.infoForGraph[LevelManager.Instance.daysInLevel].AddInfoToList("Spent £" + LevelManager.Instance.fixCost.ToString() + " to fix windows and radiators");
+                }
+                if (LevelManager.Instance.moneyFromWork > 0)
+                {
+                    LevelManager.Instance.infoForGraph[LevelManager.Instance.daysInLevel].AddInfoToList("Earned £" + LevelManager.Instance.moneyFromWork.ToString() + " from working");
+                }
                 LevelManager.Instance.OnNewDay();
                 dayPassed.Invoke();
+
                 dayCounter++;
                 newDay = true;
             }

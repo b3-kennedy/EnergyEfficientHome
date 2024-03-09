@@ -36,7 +36,7 @@ public class Window : RoomTempChanger
 
     public void openWindow()
     {
-        animator.SetBool("IsOpen", isOn);
+        animator.SetBool("IsOpen", !isOn);
         
         
     }

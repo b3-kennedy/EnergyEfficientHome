@@ -71,6 +71,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
             textSpawned = true;
         }
         LevelManager.Instance.budget += gameTimer * 2;
+        LevelManager.Instance.moneyFromWork += gameTimer * 2;
     }
 
     void CorrectAnswer()

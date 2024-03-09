@@ -1,6 +1,5 @@
 
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class BinController : MonoBehaviour
 {

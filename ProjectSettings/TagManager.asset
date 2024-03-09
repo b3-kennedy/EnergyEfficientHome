@@ -20,6 +20,8 @@ TagManager:
   - Paper
   - SortTask
   - Work
+  - SecondFloor
+  - EnableFloor
   layers:
   - Default
   - TransparentFX

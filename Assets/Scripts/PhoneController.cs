@@ -1,4 +1,5 @@
 
+using TMPro;
 using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +40,9 @@ public class PhoneController : MonoBehaviour
 
     public GameObject scrollBar;
 
+    public TMP_Text mobileClockText;
+    public TMP_Text timeText;
+
     private void OnEnable()
     {
         
@@ -60,6 +64,7 @@ public class PhoneController : MonoBehaviour
             //phoneGameObject.SetActive(true);
             hidden = !hidden;
         }
+        mobileClockText.text = timeText.text;
         //else if (Input.GetKeyDown(KeyCode.Escape))
         //{
         //    pickUpAudio.Play();
@@ -92,7 +97,7 @@ public class PhoneController : MonoBehaviour
         ToggleMenuAndIcon(1);
         shopListObj.SetActive(true);
         moneyListObj.SetActive(false);
-        temperatureListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(true);
@@ -102,7 +107,7 @@ public class PhoneController : MonoBehaviour
     {
         ToggleMenuAndIcon(1);
         moneyListObj.SetActive(true);
-        temperatureListObj.SetActive(false);
+       // temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
@@ -113,7 +118,7 @@ public class PhoneController : MonoBehaviour
     {
         ToggleMenuAndIcon(1);
         moneyListObj.SetActive(false);
-        temperatureListObj.SetActive(true);
+        //temperatureListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
         scrollBar.SetActive(false);
@@ -129,7 +134,7 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(true);
         shopListObj.SetActive(false);
         moneyListObj.SetActive(false);
-        temperatureListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(false);
     }
@@ -142,7 +147,7 @@ public class PhoneController : MonoBehaviour
         smartControlListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
-        temperatureListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
     }
 
     public void AddNotification(GameObject noti)
@@ -162,7 +167,7 @@ public class PhoneController : MonoBehaviour
         scrollBar.SetActive(false);
         ToggleMenuAndIcon(0);
         moneyListObj.SetActive(false);
-        temperatureListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
         shopListObj.SetActive(false);
         CheckoutPage.SetActive(false);
         notificationListObj.SetActive(false);
