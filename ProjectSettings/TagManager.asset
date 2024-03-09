@@ -22,6 +22,8 @@ TagManager:
   - Work
   - SecondFloor
   - EnableFloor
+  - Noted
+  - Activator
   layers:
   - Default
   - TransparentFX
