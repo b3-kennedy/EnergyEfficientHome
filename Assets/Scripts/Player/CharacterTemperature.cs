@@ -13,10 +13,16 @@ public class CharacterTemperature : MonoBehaviour
     public Material red;
     Material defaultMat;
     public bool isComfortable;
+    CharacterAttributes characterAttributes;
 
     private void Start()
     {
         defaultMat = GetComponent<MeshRenderer>().material;
+        if (GetComponent<CharacterAttributes>())
+        {
+            characterAttributes = GetComponent<CharacterAttributes>();
+        }
+        
     }
 
 
@@ -30,17 +36,25 @@ public class CharacterTemperature : MonoBehaviour
 
         if(liveTemp < minComfortableTemp)
         {
-            isComfortable = false;
+            if(characterAttributes != null)
+            {
+                characterAttributes.isCold = true;
+            }
+            
             GetComponent<MeshRenderer>().material = blue;
         }
         else if(liveTemp > maxComfortableTemp)
         {
-            isComfortable = false;
+            
             GetComponent<MeshRenderer>().material = red;
         }
         else
         {
-            isComfortable = true;
+            if(characterAttributes != null)
+            {
+                characterAttributes.isCold = false;
+            }
+            
             GetComponent<MeshRenderer>().material = defaultMat;
         }
     }

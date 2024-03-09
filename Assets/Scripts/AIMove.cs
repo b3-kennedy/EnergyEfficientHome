@@ -60,7 +60,6 @@ public class AIMove : MonoBehaviour
 
     void SwitchState(State oldState)
     {
-        Debug.Log("switch");
         if(oldState == State.IDLE)
         {
             state = State.FRIDGE;
@@ -107,7 +106,6 @@ public class AIMove : MonoBehaviour
         {
             randomTime = Random.Range(minTime, maxTime);
             generateRandomTime = true;
-            Debug.Log(randomTime);
         }
         agent.destination = idlePos.position;
 

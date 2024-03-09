@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -42,7 +43,11 @@ public class Room : MonoBehaviour
     {
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
-        baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        if(weatherManager != null && weatherManager.GetComponent<WeatherManager>().currWeather != null)
+        {
+            baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
+        }
+        
         //thermostat = GetComponentInChildren<RoomThermostat>();
         
     }
@@ -123,7 +128,7 @@ public class Room : MonoBehaviour
                     if (randomNum <= flySpawnChance)
                     {
                         flyGame = Instantiate(flyMinigame, transform);
-                        Debug.Log("spawn");
+                        LevelManager.Instance.spawnedFlies.Add(flyGame);
                         flyIsOnCd = true;
                         flyGame.transform.position = flySpawn.position;
                     }

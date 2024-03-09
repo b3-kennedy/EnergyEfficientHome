@@ -16756,7 +16756,7 @@ MonoBehaviour:
   returnToBaseMultiplier: 0
   minTemp: 0
   heatingCost: 0
-  weatherManager: {fileID: 0}
+  weatherManager: {fileID: 1504758311}
   thermostat: {fileID: 0}
   events: []
   flySpawnChance: 0
@@ -43527,7 +43527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1534.05
+      value: -1537.49
       objectReference: {fileID: 0}
     - target: {fileID: 2676693676903137007, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46220,7 +46220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5334356689572413198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fb33939cbe60954e938f133f089d45d, type: 3}
   m_Name: 
@@ -65638,6 +65638,7 @@ MonoBehaviour:
   - dayValue: 0
     percentage: 0
     information: []
+  spawnedFlies: []
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0
@@ -66086,7 +66087,7 @@ MonoBehaviour:
   baseTemp: 0
   temp: 0
   liveTemp: 0
-  minComfortableTemp: 17
+  minComfortableTemp: 15
   maxComfortableTemp: 24
   blue: {fileID: 2100000, guid: 6f09bb05742fc434eb6dc0588ea1b6b5, type: 2}
   red: {fileID: 2100000, guid: ae45943289fd8374890c7dd16d379354, type: 2}
@@ -79203,7 +79204,7 @@ MonoBehaviour:
   hungerMultiplier: 7
   boredomMultiplier: 3.17
   tirednessMultiplier: 2
-  happinessMultiplier: 2
+  happinessMultiplier: 1
   hungerRecoveryRate: 100
   boredomRecoveryRate: 10
   tirednessRecoveryRate: 1
@@ -79216,6 +79217,11 @@ MonoBehaviour:
   fadeOut: 0
   fadeIn: 0
   timeToFade: 2
+  isCold: 0
+  isTired: 0
+  isBored: 0
+  isHungry: 0
+  flies: 0
   uiElementsToHideOnSleep:
   - {fileID: 1466230815232945921}
   - {fileID: 8907344975570712792}

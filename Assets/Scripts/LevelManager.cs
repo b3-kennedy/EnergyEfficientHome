@@ -71,6 +71,8 @@ public class LevelManager : MonoBehaviour
 
     public GraphData[] infoForGraph;
 
+    public List<GameObject> spawnedFlies;
+
     private void Awake()
     {
         Instance = this;

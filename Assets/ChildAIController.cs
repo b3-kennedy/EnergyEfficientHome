@@ -209,7 +209,6 @@ public class ChildAIController : MonoBehaviour
         {
             randomTime = Random.Range(minTime, maxTime);
             generateRandomTime = true;
-            Debug.Log(randomTime);
         }
         agent.destination = idlePos.position;
 

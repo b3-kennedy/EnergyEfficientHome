@@ -268,7 +268,6 @@ public class FridgeInteractionController : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            Debug.Log("fridge");
             popUpGO.SetActive(true);
             
             fridgeText.text = "Hello. Have a snack!\n";
