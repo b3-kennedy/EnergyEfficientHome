@@ -50095,8 +50095,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.4
-  m_fontSizeBase: 29.4
+  m_fontSize: 17.87
+  m_fontSizeBase: 17.87
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -57105,8 +57105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.63, y: -226.22}
-  m_SizeDelta: {x: 190.6892, y: 45.025}
+  m_AnchoredPosition: {x: 173.27, y: -219.231}
+  m_SizeDelta: {x: 110.86, y: 31.6055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3432068309595884943
 RectTransform:
