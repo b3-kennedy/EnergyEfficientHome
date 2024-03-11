@@ -167,7 +167,20 @@ public class PlayerMove : MonoBehaviour
 
     bool GroundCheck()
     {
-        return Physics.Raycast(groundCheck.position, Vector3.down, range);
+        if(Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, range))
+        {
+            if (hit.transform.GetComponent<Collider>().isTrigger)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
+        return false;
+        
     }
 
     bool OnSlope()

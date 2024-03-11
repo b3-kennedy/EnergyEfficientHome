@@ -45,7 +45,6 @@ public class FollowPlayer : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, panPos, Time.deltaTime * 5);
             if(Vector3.Distance(transform.position, panPos) < 0.5f)
             {
-                Debug.Log("stopped panning");
                 panUp = false;
             }
         }
@@ -56,7 +55,6 @@ public class FollowPlayer : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, panPos, Time.deltaTime * 5);
             if (Vector3.Distance(transform.position, panPos) < 0.5f)
             {
-                Debug.Log("stopped panning");
                 panDown = false;
             }
 

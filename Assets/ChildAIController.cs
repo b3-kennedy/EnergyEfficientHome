@@ -37,6 +37,8 @@ public class ChildAIController : MonoBehaviour
 
     public Transform sleepPos;
 
+    public MeshRenderer modelRenderer;
+
     // Start is called before the first frame update
     void Start()
     {

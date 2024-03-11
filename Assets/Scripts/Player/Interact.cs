@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 public class Interact : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class Interact : MonoBehaviour
     public TextMeshPro interactText;
     public Transform clothingSlot;
 
+    public int playerFloor;
+
 
     private void Start()
     {
+        playerFloor = 0;
         UIManager.Instance.player = gameObject;
     }
 
@@ -22,7 +26,7 @@ public class Interact : MonoBehaviour
     {
         if (inTrigger && heatObject != null)
         {
-            
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (heatObject.GetComponent<Window>())
@@ -122,12 +126,12 @@ public class Interact : MonoBehaviour
             switch (other.GetComponent<SecondFloorTrigger>().floor)
             {
                 case SecondFloorTrigger.Floor.GROUND:
-                    other.GetComponent<SecondFloorTrigger>().secondFloor.SetActive(false);
+                    other.GetComponent<SecondFloorTrigger>().ChangeFloorState(false);
                     other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
                     Camera.main.GetComponent<FollowPlayer>().panDown = true;
                     break;
                 case SecondFloorTrigger.Floor.SECOND:
-                    other.GetComponent<SecondFloorTrigger>().ChangeFloorState();
+                    other.GetComponent<SecondFloorTrigger>().ChangeFloorState(true);
                     other.GetComponent<SecondFloorTrigger>().secondFloorPlane.GetComponent<Collider>().enabled = false;
                     break;
                 case SecondFloorTrigger.Floor.PLANE:

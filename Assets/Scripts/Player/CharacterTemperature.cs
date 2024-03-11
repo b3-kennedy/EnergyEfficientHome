@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 public class CharacterTemperature : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CharacterTemperature : MonoBehaviour
     Material defaultMat;
     public bool isComfortable;
     CharacterAttributes characterAttributes;
+    public int floorNumber;
+    bool isPlayer;
 
     private void Start()
     {
@@ -22,9 +25,13 @@ public class CharacterTemperature : MonoBehaviour
         {
             characterAttributes = GetComponent<CharacterAttributes>();
         }
+
+        if (GetComponent<PlayerMove>())
+        {
+            isPlayer = true;
+        }
         
     }
-
 
 
     // Update is called once per frame

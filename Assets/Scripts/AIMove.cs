@@ -25,7 +25,7 @@ public class AIMove : MonoBehaviour
     public float fridgeTime;
     float fridgeTimer;
 
-
+    public SkinnedMeshRenderer modelRenderer;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
