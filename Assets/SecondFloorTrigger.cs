@@ -10,7 +10,6 @@ public class SecondFloorTrigger : MonoBehaviour
     public enum Floor {GROUND, SECOND, PLANE};
     public Floor floor;
 
-    public GameObject[] secondFloorObjects;
 
     public int playerFloor;
 

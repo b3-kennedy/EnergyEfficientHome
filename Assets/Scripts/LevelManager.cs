@@ -108,6 +108,7 @@ public class LevelManager : MonoBehaviour
 
         foreach (Room room in rooms)
         {
+            room.SetRoomData();
             for (int i = 0; i < room.objects.Length; i++)
             {
                 if (room.objects[i].GetComponent<TemperatureAlteringObject>())
@@ -246,9 +247,9 @@ public class LevelManager : MonoBehaviour
         {
             foreach (Room room in rooms)
             {
+                
                 foreach (var item in room.objects)
                 {
-                    
                     if (item.GetComponent<Radiator>())
                     {
                         if (item.GetComponent<Radiator>().timePassed > 0)

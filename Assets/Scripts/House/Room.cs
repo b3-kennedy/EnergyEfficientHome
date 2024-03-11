@@ -41,15 +41,20 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        SetRoomData();
+    }
+
+    public void SetRoomData()
+    {
         GetArea();
         objects = transform.GetComponentsInChildren<RoomTempChanger>();
-        if(weatherManager != null && weatherManager.GetComponent<WeatherManager>().currWeather != null)
+        if (weatherManager != null && weatherManager.GetComponent<WeatherManager>().currWeather != null)
         {
             baseTemperature = weatherManager.GetComponent<WeatherManager>().currWeather.temperature;
         }
-        
+
         //thermostat = GetComponentInChildren<RoomThermostat>();
-        
     }
 
 
