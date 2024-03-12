@@ -65,6 +65,11 @@ public class Interact : MonoBehaviour
                 {
                     heatObject.GetComponent<WorkTrigger>().StartWork();
                 }
+                else if (heatObject.GetComponent<ActivateExercise>())
+                {
+                    heatObject.GetComponent<ActivateExercise>().exerciseScreen.SetActive(true);
+                    SpawnManager.Instance.start = true;
+                }
                 else if (heatObject.GetComponent<ChildAIController>())
                 {
                     heatObject.GetComponent<ChildAIController>().SwitchState(ChildAIController.State.START_TIMEOUT);

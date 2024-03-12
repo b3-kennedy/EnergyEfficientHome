@@ -41,6 +41,8 @@ public class CharacterAttributes : MonoBehaviour
 
     CharacterTemperature temp;
 
+    public bool isExercising;
+
     [Header("Comfortable Bools")]
     public bool isCold;
     public bool isTired;
@@ -189,6 +191,11 @@ public class CharacterAttributes : MonoBehaviour
             {
                 fadeOut = false;
             }
+        }
+
+        if (isExercising)
+        {
+            happiness += Time.deltaTime * (happinessMultiplier * 5 * TimeManager.Instance.timeControlMultiplier);
         }
 
 

@@ -65,6 +65,10 @@ public class TemperatureAlteringObject : MonoBehaviour
                 interact.interactText.text = "Press 'E' to Work";
             }
         }
+        else if (gameObject.CompareTag("Exercise"))
+        {
+            interact.interactText.text = "Press 'E' to Exercise";
+        }
     }
 
     void RoomThermostat()

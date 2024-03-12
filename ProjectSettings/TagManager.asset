@@ -24,6 +24,7 @@ TagManager:
   - EnableFloor
   - Noted
   - Activator
+  - Exercise
   layers:
   - Default
   - TransparentFX

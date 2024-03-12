@@ -16,6 +16,10 @@ public class Noted : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!SpawnManager.Instance.start)
+        {
+            deactivated();
+        }
         moveRight();
         if (Input.GetKeyDown(KeyCode.Space) && canPress)
         {
