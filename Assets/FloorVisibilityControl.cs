@@ -22,6 +22,14 @@ public class FloorVisibilityControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(floor == Floor.GROUND)
+        {
+            if (skinnedMeshRenderer != null)
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
+
         if(player != null)
         {
             if (floor != playerFloor.floor)

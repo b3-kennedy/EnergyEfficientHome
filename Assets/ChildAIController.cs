@@ -155,7 +155,7 @@ public class ChildAIController : MonoBehaviour
 
         agent.destination = timeoutPos.position;
 
-        if(Vector3.Distance(transform.position, timeoutPos.position) < 2f)
+        if(Vector3.Distance(transform.position, timeoutPos.position) < 2.5f)
         {
             timeoutTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             if(timeoutTimer >= randomTimeoutTime)
