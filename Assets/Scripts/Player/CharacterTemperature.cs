@@ -20,7 +20,7 @@ public class CharacterTemperature : MonoBehaviour
 
     private void Start()
     {
-        defaultMat = GetComponent<MeshRenderer>().material;
+        //defaultMat = GetComponent<MeshRenderer>().material;
         if (GetComponent<CharacterAttributes>())
         {
             characterAttributes = GetComponent<CharacterAttributes>();
