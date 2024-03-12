@@ -46,7 +46,6 @@ public class ReplyToEmail : Task, IPointerDownHandler
     {
         if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
         {
-            Debug.Log(hit.transform.gameObject);
             if (hit.transform.GetComponent<EmailOption>() && hit.transform.GetComponent<EmailOption>().correctOption)
             {
                 optionParent = hit.transform.parent;
@@ -71,6 +70,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
             textSpawned = true;
         }
         LevelManager.Instance.budget += gameTimer * 2;
+        LevelManager.Instance.moneyFromWork += gameTimer * 2;
     }
 
     void CorrectAnswer()

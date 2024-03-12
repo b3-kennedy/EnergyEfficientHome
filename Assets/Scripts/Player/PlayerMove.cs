@@ -130,7 +130,6 @@ public class PlayerMove : MonoBehaviour
 
         if (OnSlope())
         {
-            Debug.Log("on slope");
             ch.Move(Vector3.down * downForce * Time.deltaTime);
 
 
@@ -148,6 +147,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
+        
     }
 
     
@@ -167,7 +167,20 @@ public class PlayerMove : MonoBehaviour
 
     bool GroundCheck()
     {
-        return Physics.Raycast(groundCheck.position, Vector3.down, range);
+        if(Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, range))
+        {
+            if (hit.transform.GetComponent<Collider>().isTrigger)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
+        return false;
+        
     }
 
     bool OnSlope()

@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance;
 
+    public Graph graph;
+
     public Room[] rooms;
 
     public float budget;
@@ -63,6 +65,14 @@ public class LevelManager : MonoBehaviour
     public UnityEvent onSavedMoney;
 
     public GameObject[] lamps;
+
+    public float fixCost;
+    public float moneyFromWork;
+
+    public GraphData[] infoForGraph;
+
+    public List<GameObject> spawnedFlies;
+
     private void Awake()
     {
         Instance = this;
@@ -85,6 +95,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < infoForGraph.Length; i++)
+        {
+            infoForGraph[i] = new GraphData(0);
+        }
+
         budgetOverDays.Add(budget);
 
         TimeManager.Instance.dayPassed.AddListener(Break);
@@ -93,6 +108,7 @@ public class LevelManager : MonoBehaviour
 
         foreach (Room room in rooms)
         {
+            room.SetRoomData();
             for (int i = 0; i < room.objects.Length; i++)
             {
                 if (room.objects[i].GetComponent<TemperatureAlteringObject>())
@@ -176,6 +192,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void ChangeClickToMoveValue()
     {
         characters[0].GetComponent<PlayerMove>().clickToMove = !characters[0].GetComponent<PlayerMove>().clickToMove;
@@ -212,11 +233,16 @@ public class LevelManager : MonoBehaviour
 
     public void OnNewDay()
     {
-        budget -= dailyCost;
+
+        
+        
+        fixCost = 0;
+        moneyFromWork = 0;
         budgetOverDays.Add(budget);
         ShopManager.Instance.UpdateBudgetText();
         WorkTrigger.Instance.OffCooldown();
         dailyCost = 0;
+        
     }
 
     public void AddCost()
@@ -226,12 +252,14 @@ public class LevelManager : MonoBehaviour
         {
             foreach (Room room in rooms)
             {
+                
                 foreach (var item in room.objects)
                 {
                     if (item.GetComponent<Radiator>())
                     {
-                        if (item.GetComponent<Radiator>().timeActivated > 0)
+                        if (item.GetComponent<Radiator>().timePassed > 0)
                         {
+                            
                             if (heatPump)
                             {
                                 dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
@@ -242,7 +270,8 @@ public class LevelManager : MonoBehaviour
                             {
                                 dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
                             }
-
+                            item.GetComponent<Radiator>().timePassed = 0;
+                            item.GetComponent<Radiator>().timeActivated = 0;
                         }
                     }
                 }

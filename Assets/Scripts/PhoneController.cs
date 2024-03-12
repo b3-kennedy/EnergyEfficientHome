@@ -1,4 +1,5 @@
 
+using TMPro;
 using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +40,9 @@ public class PhoneController : MonoBehaviour
 
     public GameObject scrollBar;
 
+    public TMP_Text mobileClockText;
+    public TMP_Text timeText;
+
     private void OnEnable()
     {
         
@@ -60,6 +64,7 @@ public class PhoneController : MonoBehaviour
             //phoneGameObject.SetActive(true);
             hidden = !hidden;
         }
+        mobileClockText.text = timeText.text;
         //else if (Input.GetKeyDown(KeyCode.Escape))
         //{
         //    pickUpAudio.Play();

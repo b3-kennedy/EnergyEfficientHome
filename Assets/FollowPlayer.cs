@@ -8,11 +8,16 @@ public class FollowPlayer : MonoBehaviour
     Vector3 normalPos;
     public enum ObjectType {CAM, TEXT};
     public ObjectType type;
+    public bool panUp;
+    public bool panDown;
+    public float panYpos;
+    float startYpos;
 
     // Start is called before the first frame update
     void Start()
     {
         normalPos = transform.position;
+        startYpos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -26,7 +31,7 @@ public class FollowPlayer : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.Lerp(transform.position, normalPos, Time.deltaTime * 10);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(normalPos.x, transform.position.y, normalPos.z), Time.deltaTime * 10);
             }
         }
         else
@@ -34,6 +39,35 @@ public class FollowPlayer : MonoBehaviour
             transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);
         }
 
-        
+        if (panUp)
+        {
+            Vector3 panPos = new Vector3(transform.position.x, panYpos, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, panPos, Time.deltaTime * 5);
+            if(Vector3.Distance(transform.position, panPos) < 0.5f)
+            {
+                panUp = false;
+            }
+        }
+
+        if (panDown)
+        {
+            Vector3 panPos = new Vector3(transform.position.x, startYpos, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, panPos, Time.deltaTime * 5);
+            if (Vector3.Distance(transform.position, panPos) < 0.5f)
+            {
+                panDown = false;
+            }
+
+        }
+    }
+
+    public void PanUp()
+    {
+        panUp = true;
+    }
+
+    public void PanDown()
+    {
+        panDown = true;
     }
 }

@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation.meta
+guid: 3d7a11ca330cdb245a30ca003263949c
+folderAsset: yes
+========
 guid: 2a7477119085c0543ab993533aa56fad
+>>>>>>>> origin/Art:Assets/Epic Toon FX/Upgrade/ETFX 2019.3 URP Fix.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

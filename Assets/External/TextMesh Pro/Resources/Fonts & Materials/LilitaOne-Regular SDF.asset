@@ -1728,18 +1728,10 @@ MonoBehaviour:
     m_Y: 84
     m_Width: 34
     m_Height: 64
-  - m_X: 205
-    m_Y: 149
-    m_Width: 2
-    m_Height: 66
   - m_X: 140
     m_Y: 196
     m_Width: 1
     m_Height: 19
-  - m_X: 205
-    m_Y: 168
-    m_Width: 62
-    m_Height: 47
   - m_X: 65
     m_Y: 204
     m_Width: 12

@@ -20,6 +20,11 @@ TagManager:
   - Paper
   - SortTask
   - Work
+  - SecondFloor
+  - EnableFloor
+  - Noted
+  - Activator
+  - Exercise
   layers:
   - Default
   - TransparentFX

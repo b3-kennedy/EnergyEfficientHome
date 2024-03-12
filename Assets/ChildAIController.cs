@@ -37,6 +37,8 @@ public class ChildAIController : MonoBehaviour
 
     public Transform sleepPos;
 
+    public MeshRenderer modelRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,28 +94,11 @@ public class ChildAIController : MonoBehaviour
         }
         else if(oldState == State.OPEN_WINDOW)
         {
-            int randomNum = Random.Range(1, 11);
-            if(randomNum <= 5)
-            {
-                state = State.IDLE;
-            }
-            else
-            {
-                state = State.RADIATOR;
-            }
-            
+            state = State.IDLE;            
         }
         else if(oldState == State.RADIATOR)
         {
-            int randomNum = Random.Range(1, 11);
-            if (randomNum <= 5)
-            {
-                state = State.IDLE;
-            }
-            else
-            {
-                state = State.OPEN_WINDOW;
-            }
+            state = State.IDLE;
         }
         else if(oldState == State.START_TIMEOUT)
         {
@@ -134,7 +119,6 @@ public class ChildAIController : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        Debug.Log(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime));
         if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
         {
             SwitchState(State.SLEEP);
@@ -154,6 +138,7 @@ public class ChildAIController : MonoBehaviour
 
         if(Vector3.Distance(transform.position, radiator.position) < 2f) 
         {
+            UIManager.Instance.DisplayNotification("Child has messed with a radiator");
             radiator.GetComponent<Radiator>().isOn = !radiator.GetComponent<Radiator>().isOn;
             pickRadiator = false;
             SwitchState(State.RADIATOR);
@@ -196,6 +181,7 @@ public class ChildAIController : MonoBehaviour
         //Debug.Log(Vector3.Distance(transform.position, window.position));
         if(Vector3.Distance(transform.position, window.position) < 2f)
         {
+            UIManager.Instance.DisplayNotification("Child has messed with a window");
             window.GetComponent<Window>().isOn = true;
             Debug.Log("open window");
             pickWindow = false;
@@ -210,7 +196,6 @@ public class ChildAIController : MonoBehaviour
         {
             randomTime = Random.Range(minTime, maxTime);
             generateRandomTime = true;
-            Debug.Log(randomTime);
         }
         agent.destination = idlePos.position;
 

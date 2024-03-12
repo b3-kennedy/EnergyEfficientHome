@@ -76,6 +76,7 @@ public class ManageEndStates : MonoBehaviour
         dayCountUItxt.text = "Day Count : " + dayCount ;
         if (gameTimer > 5 && dayCount<7)
         {
+            float happinessValue = player.GetComponent<CharacterAttributes>().happiness;
             float playerTemp = player.GetComponent<CharacterTemperature>().liveTemp;
             float aiTemp = AICharacter.GetComponent<CharacterTemperature>().liveTemp;
             if (playerTemp < minComfyTemp)
@@ -112,6 +113,11 @@ public class ManageEndStates : MonoBehaviour
                 End();
                 endGamePrompt.text = "Your Friend Melted!!";
             }
+            else if(happinessValue <= 0)
+            {
+                End();
+                endGamePrompt.text = "You were too unhappy!";
+            }
         }
         if (dayCount == 7)
         {
@@ -140,7 +146,7 @@ public class ManageEndStates : MonoBehaviour
     }
     public void NextLevel()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ExitGame()
     {

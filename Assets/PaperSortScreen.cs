@@ -35,7 +35,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     void Start()
     {
         thisRect = GetComponent<RectTransform>();
-        gameTimer = 5;
+        gameTimer = 10;
     }
 
     void OnEnable()
@@ -89,7 +89,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             
         }
 
-        timerText.text = "5.0";
+        timerText.text = "10.0";
 
         startTimer = false;
         timer = 0;
@@ -103,8 +103,10 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     {
         if (started)
         {
+            float roundedNum = (Mathf.Round(gameTimer * 10f) * 0.1f);
+            timerText.text = roundedNum.ToString();
             gameTimer -= Time.deltaTime;
-            timerText.text = (Mathf.Round(gameTimer * 10f) * 0.1f).ToString();
+            
         }
         
 
@@ -137,7 +139,8 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             if (timer >= timeAfterCompletion)
             {
                 LevelManager.Instance.budget += gameTimer * 2;
-                gameTimer = 5;
+                LevelManager.Instance.moneyFromWork += gameTimer * 2;
+                gameTimer = 10;
                 gameObject.transform.parent.gameObject.SetActive(false);
                 WorkTrigger.Instance.StartWork();
                 Reset();
