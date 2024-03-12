@@ -94,7 +94,7 @@ public class AIMove : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 2201)
         {
             SwitchState(State.SLEEP);
         }

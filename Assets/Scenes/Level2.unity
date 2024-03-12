@@ -71799,6 +71799,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1083917507}
+    - target: {fileID: 7179805580207430997, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91371,7 +91375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6575979023760270474}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59cfcfde3b0a57b4485b464a7d361b72, type: 3}
   m_Name: 

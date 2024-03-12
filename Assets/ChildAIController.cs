@@ -199,10 +199,11 @@ public class ChildAIController : MonoBehaviour
         }
         agent.destination = idlePos.position;
 
-        if(Vector3.Distance(transform.position, idlePos.position) < 0.5f)
+        if (Vector3.Distance(transform.position, idlePos.position) < 1.5f)
         {
             
             idleTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
+            
             if (idleTimer >= randomTime)
             {
                 SwitchState(State.IDLE);
