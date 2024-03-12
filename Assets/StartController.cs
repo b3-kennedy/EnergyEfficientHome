@@ -29,7 +29,7 @@ public class StartController : MonoBehaviour
     public void StartGame()
     {
         clickSound.Play();
-        SceneManager.LoadScene("PrototypeHouse");
+        SceneManager.LoadScene(1);
 
     }
     public void ExitGame()
