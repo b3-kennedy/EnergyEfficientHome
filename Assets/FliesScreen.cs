@@ -74,7 +74,6 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
         {
             flies[i].SetActive(true);
         }
-        Debug.Log("reset");
 
     }
 
@@ -85,7 +84,6 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
     {
         if(fliesSwatted >= flies.Count)
         {
-            Debug.Log("complete");
             AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
             startTimer = true;
             fliesSwatted = 0;
@@ -93,6 +91,7 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
             //phone.smartControlListObj.transform.GetChild(2).gameObject.SetActive(true);
 
             Destroy(trigger);
+            LevelManager.Instance.spawnedFlies.Remove(trigger);
 
         }
 

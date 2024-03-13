@@ -10,10 +10,8 @@ public class Paper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.GetComponent<Folder>())
         {
-            Debug.Log("paper");
             if (other.GetComponent<Folder>().colour == colour)
             {
                 Destroy(gameObject);

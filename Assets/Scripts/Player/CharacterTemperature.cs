@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 public class CharacterTemperature : MonoBehaviour
 {
@@ -13,12 +14,24 @@ public class CharacterTemperature : MonoBehaviour
     public Material red;
     Material defaultMat;
     public bool isComfortable;
+    CharacterAttributes characterAttributes;
+    public int floorNumber;
+    bool isPlayer;
 
     private void Start()
     {
         defaultMat = GetComponent<MeshRenderer>().material;
-    }
+        if (GetComponent<CharacterAttributes>())
+        {
+            characterAttributes = GetComponent<CharacterAttributes>();
+        }
 
+        if (GetComponent<PlayerMove>())
+        {
+            isPlayer = true;
+        }
+        
+    }
 
 
     // Update is called once per frame
@@ -30,17 +43,25 @@ public class CharacterTemperature : MonoBehaviour
 
         if(liveTemp < minComfortableTemp)
         {
-            isComfortable = false;
+            if(characterAttributes != null)
+            {
+                characterAttributes.isCold = true;
+            }
+            
             GetComponent<MeshRenderer>().material = blue;
         }
         else if(liveTemp > maxComfortableTemp)
         {
-            isComfortable = false;
+            
             GetComponent<MeshRenderer>().material = red;
         }
         else
         {
-            isComfortable = true;
+            if(characterAttributes != null)
+            {
+                characterAttributes.isCold = false;
+            }
+            
             GetComponent<MeshRenderer>().material = defaultMat;
         }
     }
