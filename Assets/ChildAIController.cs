@@ -181,7 +181,7 @@ public class ChildAIController : MonoBehaviour
         //Debug.Log(Vector3.Distance(transform.position, window.position));
         if(Vector3.Distance(transform.position, window.position) < 2f)
         {
-            UIManager.Instance.DisplayNotification("Child has messed with a window");
+            UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
             window.GetComponent<Window>().isOn = true;
             Debug.Log("open window");
             pickWindow = false;
