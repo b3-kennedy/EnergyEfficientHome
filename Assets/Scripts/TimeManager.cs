@@ -172,7 +172,7 @@ public class TimeManager : MonoBehaviour
 
     void CalculateDayEnd()
     {
-        if (GetFloatTime(currentTime) == 1)
+        if (GetFloatTime(currentTime) > 800 && GetFloatTime(currentTime) < 805)
         {
             if (!newDay)
             {
@@ -197,7 +197,7 @@ public class TimeManager : MonoBehaviour
             }
 
         }
-        else
+        else if(GetFloatTime(currentTime) > 805)
         {
             newDay = false;
         }

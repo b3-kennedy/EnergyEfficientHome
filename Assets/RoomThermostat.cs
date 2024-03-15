@@ -15,6 +15,7 @@ public class RoomThermostat : TemperatureAlteringObject
     // Start is called before the first frame update
     void Start()
     {
+        targetTemp = 20;
         thermostatUI = transform.GetChild(0).gameObject;
         UpdateTargetText();
         

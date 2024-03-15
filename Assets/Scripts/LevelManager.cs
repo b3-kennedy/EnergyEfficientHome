@@ -194,7 +194,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= SceneManager.loadedSceneCount)
+        if(SceneManager.GetActiveScene().buildIndex >= 4)
         {
             SceneManager.LoadScene(0);
         }

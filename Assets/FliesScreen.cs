@@ -30,11 +30,20 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
     {
         if (Physics.Raycast(screenCam.ScreenPointToRay(GetCursorPos(eventData)), out RaycastHit hit))
         {
-            if (hit.collider.GetComponent<FlyMovement>())
+            foreach (var fly in flies)
             {
-                hit.collider.gameObject.SetActive(false);
-                fliesSwatted++;
+                if(Vector3.Distance(hit.point, fly.transform.position) < 1)
+                {
+                    fly.SetActive(false);
+                    fliesSwatted++;
+                }
             }
+            
+            //if (hit.collider.GetComponent<FlyMovement>())
+            //{
+            //    hit.collider.gameObject.SetActive(false);
+            //    fliesSwatted++;
+            //}
         }
     }
 

@@ -20,7 +20,6 @@ public class BinController : MonoBehaviour
         if (correct)
         {
             
-            Debug.Log("good job");
 
             OnCorrect?.Invoke(other.gameObject.GetComponent<RecycleItem>().positionIndex);
             other.gameObject.GetComponent<RecycleItem>().isDroppedCorrect = true;

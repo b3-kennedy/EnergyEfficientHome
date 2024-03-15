@@ -47067,7 +47067,6 @@ Transform:
   - {fileID: 5983007143586348558}
   - {fileID: 4083501149798335204}
   - {fileID: 3714040441895620224}
-  - {fileID: 1487880671405551030}
   - {fileID: 6534545090506815128}
   - {fileID: 4088688946807273349}
   - {fileID: 1845986699152988776}
@@ -49212,17 +49211,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
   m_PrefabInstance: {fileID: 4700473593856494362}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1857860018 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -823209461589841921, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
-  m_PrefabInstance: {fileID: 4700473593856494362}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c63c863d81f764ba2a7061342678a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1860979404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57518,27 +57506,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 376872478623908165, guid: 9175620515ce6e149b96602e04b831bf, type: 3}
   m_PrefabInstance: {fileID: 8396544693683563048}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &190712892539091510
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627411124929031375}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10.128586, y: 3.1761332, z: 3.578538}
-  m_Center: {x: 0.5161009, y: 1.0880666, z: -0.26329088}
 --- !u!1 &196280871288437965
 GameObject:
   m_ObjectHideFlags: 0
@@ -61912,7 +61879,7 @@ PrefabInstance:
     - target: {fileID: 3057993551651189910, guid: 0e294e762b0a41149899f75d81a315ae, type: 3}
       propertyPath: room
       value: 
-      objectReference: {fileID: 6695928206383099368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3057993551651189910, guid: 0e294e762b0a41149899f75d81a315ae, type: 3}
       propertyPath: toggle
       value: 
@@ -62745,21 +62712,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1487880671405551030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627411124929031375}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.60247, y: 0, z: -0.18158112}
-  m_LocalScale: {x: 0.29349628, y: 0.29349628, z: 0.29349628}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1691096510}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1493832168478363746
 Transform:
   m_ObjectHideFlags: 0
@@ -63564,24 +63516,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1627411124929031375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1487880671405551030}
-  - component: {fileID: 6695928206383099368}
-  - component: {fileID: 190712892539091510}
-  m_Layer: 0
-  m_Name: Office
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &1652741676504276023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80669,37 +80603,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6695928206383099368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627411124929031375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb33939cbe60954e938f133f089d45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliders:
-  - {fileID: 190712892539091510}
-  objects:
-  - {fileID: 1857860018}
-  - {fileID: 0}
-  totalArea: 0
-  baseTemperature: 13
-  liveTemperature: 16
-  returnToBaseMultiplier: 5
-  minTemp: 10
-  heatingCost: 0
-  weatherManager: {fileID: 1830574240}
-  thermostat: {fileID: 969205584}
-  events: []
-  flySpawnChance: 50
-  flyCooldown: 0
-  flySpawn: {fileID: 7251848865457540397}
-  flyMinigame: {fileID: 4850342234189840647, guid: 25b951636302e574f93684776405d773, type: 3}
-  spawnFlies: 1
 --- !u!33 &6697621764460989211
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -85595,15 +85498,15 @@ MonoBehaviour:
   hunger: 50
   tiredness: 50
   boredom: 0
-  happiness: 0
-  hungerMultiplier: 7
+  happiness: 50
+  hungerMultiplier: 2
   boredomMultiplier: 3.17
   tirednessMultiplier: 2
-  happinessMultiplier: 0
+  happinessMultiplier: 3
   hungerRecoveryRate: 100
   boredomRecoveryRate: 10
   tirednessRecoveryRate: 1
-  happinessRecoveryRate: 0
+  happinessRecoveryRate: 2
   sleepMultiplier: 0.1
   sleeping: 0
   eating: 0
@@ -85613,12 +85516,15 @@ MonoBehaviour:
   fadeIn: 0
   timeToFade: 2
   isExercising: 0
+  happinessChange: 0.5
   isCold: 0
   isTired: 0
   isBored: 0
   isHungry: 0
   flies: 0
-  uiElementsToHideOnSleep: []
+  uiElementsToHideOnSleep:
+  - {fileID: 1466230815232945921}
+  - {fileID: 8907344975570712792}
 --- !u!114 &7857648290038675386
 MonoBehaviour:
   m_ObjectHideFlags: 0

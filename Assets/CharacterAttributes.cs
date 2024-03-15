@@ -41,14 +41,16 @@ public class CharacterAttributes : MonoBehaviour
 
     CharacterTemperature temp;
 
-    public bool isExercising;
+    public bool isExercising = false;
+
+    public float happinessChange;
 
     [Header("Comfortable Bools")]
-    public bool isCold;
-    public bool isTired;
-    public bool isBored;
-    public bool isHungry;
-    public bool flies;
+    public bool isCold = false;
+    public bool isTired = false;
+    public bool isBored = false;
+    public bool isHungry = false;
+    public bool flies = false;
 
 
 
@@ -77,7 +79,6 @@ public class CharacterAttributes : MonoBehaviour
         if(!isCold && !isBored && !isHungry && !isTired && !flies)
         {
             temp.isComfortable = true;
-            happinessMultiplier = 10;
         }
         else
         {
@@ -124,7 +125,7 @@ public class CharacterAttributes : MonoBehaviour
         if (hunger >= 95 && !displayHunger)
         {
             isHungry = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are hungry you should eat!");
             displayHunger = true;
         }
@@ -132,7 +133,7 @@ public class CharacterAttributes : MonoBehaviour
         if (tiredness >= 95 && !displayTiredness)
         {
             isTired = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are tired you should sleep!");
             displayTiredness = true;
         }
@@ -140,7 +141,7 @@ public class CharacterAttributes : MonoBehaviour
         if (boredom >= 95 && !displayBoredom)
         {
             isBored = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are bored!");
             displayBoredom = true;
         }
@@ -149,7 +150,7 @@ public class CharacterAttributes : MonoBehaviour
         if (boredom <= 0)
         {
             isBored = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             entertaining = false;
             displayBoredom = false;
         }
@@ -157,7 +158,7 @@ public class CharacterAttributes : MonoBehaviour
         if (hunger <= 0)
         {
             isHungry = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             eating = false;
             displayHunger = false;
         }
@@ -165,7 +166,7 @@ public class CharacterAttributes : MonoBehaviour
         if (tiredness <= 0)
         {
             isTired = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             sleeping = false;
             displayTiredness = false;
         }

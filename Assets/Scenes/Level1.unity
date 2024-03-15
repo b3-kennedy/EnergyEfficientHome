@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10480,7 +10480,7 @@ MonoBehaviour:
   thermostat: {fileID: 805102172}
   events: []
   flySpawnChance: 50
-  flyCooldown: 0
+  flyCooldown: 10
   flySpawn: {fileID: 1871202418}
   flyMinigame: {fileID: 4850342234189840647, guid: 25b951636302e574f93684776405d773, type: 3}
   spawnFlies: 1
@@ -15953,7 +15953,7 @@ MonoBehaviour:
   thermostat: {fileID: 2050800101}
   events: []
   flySpawnChance: 50
-  flyCooldown: 0
+  flyCooldown: 10
   flySpawn: {fileID: 0}
   flyMinigame: {fileID: 4850342234189840647, guid: 25b951636302e574f93684776405d773, type: 3}
   spawnFlies: 0
@@ -16425,7 +16425,7 @@ MonoBehaviour:
   weatherManager: {fileID: 1504758311}
   thermostat: {fileID: 0}
   events: []
-  flySpawnChance: 0
+  flySpawnChance: 10
   flyCooldown: 0
   flySpawn: {fileID: 0}
   flyMinigame: {fileID: 0}
@@ -39694,7 +39694,7 @@ MonoBehaviour:
   thermostat: {fileID: 829712951}
   events: []
   flySpawnChance: 50
-  flyCooldown: 0
+  flyCooldown: 10
   flySpawn: {fileID: 1127255716213625768}
   flyMinigame: {fileID: 4850342234189840647, guid: 25b951636302e574f93684776405d773, type: 3}
   spawnFlies: 1
@@ -40603,7 +40603,7 @@ MonoBehaviour:
   thermostat: {fileID: 1717660043}
   events: []
   flySpawnChance: 50
-  flyCooldown: 0
+  flyCooldown: 10
   flySpawn: {fileID: 1942543643}
   flyMinigame: {fileID: 4850342234189840647, guid: 25b951636302e574f93684776405d773, type: 3}
   spawnFlies: 1
@@ -74551,10 +74551,10 @@ MonoBehaviour:
   tiredness: 50
   boredom: 0
   happiness: 50
-  hungerMultiplier: 7
+  hungerMultiplier: 2
   boredomMultiplier: 3.17
   tirednessMultiplier: 2
-  happinessMultiplier: 1
+  happinessMultiplier: 3
   hungerRecoveryRate: 100
   boredomRecoveryRate: 10
   tirednessRecoveryRate: 1
@@ -74568,6 +74568,7 @@ MonoBehaviour:
   fadeIn: 0
   timeToFade: 2
   isExercising: 0
+  happinessChange: 0.5
   isCold: 0
   isTired: 0
   isBored: 0
