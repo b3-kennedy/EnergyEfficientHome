@@ -127,6 +127,12 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            NextLevel();
+        }
+
         if(budget <= 0)
         {
             RanOutOfMoney();
@@ -198,10 +204,8 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-
-        SceneManager.LoadScene(nextScene);
-        
-
+        SceneManager.LoadSceneAsync(nextScene);
+        //SceneManager.LoadScene(nextScene);
         
     }
 
