@@ -68717,6 +68717,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5162953141875990979}
+    - target: {fileID: 2334473884056206006, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 2792293930914150462, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -75248,6 +75252,8 @@ MonoBehaviour:
     percentage: 0
     information: []
   spawnedFlies: []
+  nextScene: 3
+  currentScene: 2
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0

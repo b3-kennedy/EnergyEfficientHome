@@ -61962,6 +61962,8 @@ MonoBehaviour:
     percentage: 0
     information: []
   spawnedFlies: []
+  nextScene: 2
+  currentScene: 1
 --- !u!1 &5165038019041540295
 GameObject:
   m_ObjectHideFlags: 0

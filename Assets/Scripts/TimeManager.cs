@@ -106,21 +106,14 @@ public class TimeManager : MonoBehaviour
     public IEnumerator SkipToNextDay()
     {
         skipped = true;
-        Debug.Log("skipping to next day yo");
         timeBeforeSleep = currentTime;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
         dayPassed.Invoke();
-        Debug.Log("time:" + currentTime.ToString());
         dayCounter++;
-        Debug.Log("day: " + dayCounter);
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        Debug.Log(GetFloatTime(currentTime));
-        if(!(GetFloatTime(timeBeforeSleep) > 0 && GetFloatTime(timeBeforeSleep) < 1000))
-        {
-            LevelManager.Instance.DailyCostAfterSleep();
-        }
+        LevelManager.Instance.DailyCostAfterSleep();
         
         //CalculateHourPassed();
         yield return new WaitForSeconds(1f);
