@@ -163,6 +163,7 @@ public class ChildAIController : MonoBehaviour
                 SwitchState(State.FINISH_TIMEOUT);
                 randomTimeoutTime = 0;
                 generateRandomTime = false;
+                timeoutTimer = 0;
             }
         }
     }
