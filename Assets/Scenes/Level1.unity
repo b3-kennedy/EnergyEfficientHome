@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
+  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,8 +147,8 @@ MonoBehaviour:
   - {fileID: 703420533}
   Start: {fileID: 192852036}
   detergent: 
-  cycleDuration: 0
-  cycleDurationText: {fileID: 192852034}
+  temperature: 0
+  temperatureText: {fileID: 0}
   cycleEndText: {fileID: 192852032}
   cycleEndPopUp: {fileID: 192852033}
   cycleStartPopUp: {fileID: 192852037}
@@ -18356,6 +18356,56 @@ Transform:
   - {fileID: 2143496868}
   m_Father: {fileID: 543450653381333270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &919030663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
+  m_PrefabInstance: {fileID: 2006729634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &919030665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919030663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2388744, y: 1, z: 2.1001296}
+  m_Center: {x: 0.11943701, y: 0, z: 0.5500647}
+--- !u!114 &919030666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919030663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45be27a50e2005d4ca3703beec097662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpGameobject: {fileID: 192852038}
+  cycleDurSlider: {fileID: 192852035}
+  detergents:
+  - {fileID: 703420533}
+  - {fileID: 1150593421}
+  Start: {fileID: 192852036}
+  detergent: 
+  temperature: 0
+  temperatureText: {fileID: 192852034}
+  cycleEndText: {fileID: 192852032}
+  cycleEndPopUp: {fileID: 192852033}
+  cycleStartPopUp: {fileID: 192852037}
 --- !u!114 &919664491 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -823209461589841921, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
@@ -39334,7 +39384,13 @@ PrefabInstance:
     - {fileID: 1370978051037256875, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
     - {fileID: -2094515069526901273, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919030666}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919030665}
   m_SourcePrefab: {fileID: 100100000, guid: cab7a719e39104cac8d2480078bda8eb, type: 3}
 --- !u!1 &2020906774
 GameObject:
@@ -47842,7 +47898,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 3.0024133, y: 1.2949998, z: 2.4830933}
   m_Center: {x: -0.37620452, y: 0.6474999, z: -0.36654434}
@@ -64625,6 +64681,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7526979906883191445}
     m_Modifications:
+    - target: {fileID: 883601772970215648, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2638502703029320567, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_fontColor.b
       value: 0.1302065
@@ -64657,9 +64717,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2876316978484372617, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876316978484372617, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -195
+      objectReference: {fileID: 0}
     - target: {fileID: 3845060491348078165, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_Name
       value: FridgePopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609239293744160334, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5724865920712824490, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -64784,6 +64856,10 @@ PrefabInstance:
     - target: {fileID: 7598420858978521818, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694998164852390589, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8944833102688745638, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_IsActive
@@ -72812,7 +72888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562531815725926931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45be27a50e2005d4ca3703beec097662, type: 3}
   m_Name: 
@@ -72824,8 +72900,8 @@ MonoBehaviour:
   - {fileID: 1150593421}
   Start: {fileID: 192852036}
   detergent: 
-  cycleDuration: 0
-  cycleDurationText: {fileID: 192852034}
+  temperature: 0
+  temperatureText: {fileID: 0}
   cycleEndText: {fileID: 192852032}
   cycleEndPopUp: {fileID: 192852033}
   cycleStartPopUp: {fileID: 192852037}
