@@ -73,6 +73,10 @@ public class LevelManager : MonoBehaviour
 
     public List<GameObject> spawnedFlies;
 
+    [Header("Scenes")]
+    public int nextScene;
+    public int currentScene;
+
     private void Awake()
     {
         Instance = this;
@@ -123,6 +127,12 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            NextLevel();
+        }
+
         if(budget <= 0)
         {
             RanOutOfMoney();
@@ -189,19 +199,13 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(currentScene);
     }
 
     public void NextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= 4)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        SceneManager.LoadSceneAsync(nextScene);
+        //SceneManager.LoadScene(nextScene);
         
     }
 
@@ -343,7 +347,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        OnNewDay();
+        //OnNewDay();
         
     }
 }

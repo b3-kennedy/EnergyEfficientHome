@@ -119,7 +119,7 @@ public class ChildAIController : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
+        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
         {
             SwitchState(State.SLEEP);
         }
@@ -163,6 +163,7 @@ public class ChildAIController : MonoBehaviour
                 SwitchState(State.FINISH_TIMEOUT);
                 randomTimeoutTime = 0;
                 generateRandomTime = false;
+                timeoutTimer = 0;
             }
         }
     }
