@@ -49,9 +49,13 @@ public class TemperatureAlteringObject : MonoBehaviour
 
     private void Child()
     {
+        button = canvas.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        canvas.transform.GetChild(0).GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(player.transform.position);
+
         if (GetComponent<ChildAIController>())
         {
-            interact.interactText.text = "Press 'E' to Send Child to Room";
+            //interact.interactText.text = "Press 'E' to Send Child to Room";
+            canvas.SetActive(true);
         }
     }
 

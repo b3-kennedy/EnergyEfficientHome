@@ -30,6 +30,14 @@ public class Interact : MonoBehaviour
         
     }
 
+    public void Timeout()
+    {
+        if (heatObject.GetComponent<ChildAIController>())
+        {
+            heatObject.GetComponent<ChildAIController>().SwitchState(ChildAIController.State.START_TIMEOUT);
+        }
+    }
+
     public void RadiatorAndWindow()
     {
 
