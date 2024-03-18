@@ -19,9 +19,9 @@ public class WashingMachineController : MonoBehaviour
 
     public string detergent = "";
 
-    public float cycleDuration;
+    public float temperature;
 
-    public TMP_Text cycleDurationText;
+    public TMP_Text temperatureText;
     public TMP_Text cycleEndText;
 
     public GameObject cycleEndPopUp;
@@ -49,8 +49,12 @@ public class WashingMachineController : MonoBehaviour
     }
     void UpdateCupCount(float value)
     {
-        cycleDuration = value * 15;
-        cycleDurationText.text = cycleDuration.ToString() + " Min";
+        temperature = value * 15;
+        if (temperatureText)
+        {
+            temperatureText.text = temperature.ToString() + " Degrees";
+        }
+       
     }
     void StartWash()
     {
@@ -63,16 +67,16 @@ public class WashingMachineController : MonoBehaviour
             if (LevelManager.Instance.PV && String.Equals(WeatherManager.Instance.currWeather, "sunny"))
             {
                 //energy efficient wash
-                LevelManager.Instance.electricityCosts += (0.04f * cycleDuration);
-                LevelManager.Instance.savedMoneyByUpgrades += 0.13f * cycleDuration;
+                LevelManager.Instance.electricityCosts += (0.04f * temperature);
+                LevelManager.Instance.savedMoneyByUpgrades += 0.13f * temperature;
                 LevelManager.Instance.onSavedMoney.Invoke();
-                cycleEndText.text = "You saved " + (0.13f * cycleDuration) + "  for having PV panels and doing a wash in a sunny day.";
+                cycleEndText.text = "You saved " + (0.13f * temperature) + "  for having PV panels and doing a wash in a sunny day.";
 
             }
             else
             {
-                cycleEndText.text = "Wash in progress!"+ cycleDuration + "minute wash with "+detergent+" laundry liquid.";
-                LevelManager.Instance.electricityCosts += (0.17f * cycleDuration);
+                cycleEndText.text = "Wash in progress!"+ temperature + " degrees with "+detergent+" laundry liquid.";
+                LevelManager.Instance.electricityCosts += (0.17f * temperature);
             }
 
         }
