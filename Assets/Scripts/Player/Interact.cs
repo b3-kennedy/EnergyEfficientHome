@@ -21,75 +21,122 @@ public class Interact : MonoBehaviour
         UIManager.Instance.player = gameObject;
     }
 
+    public void StartWork()
+    {
+        if (heatObject.GetComponent<WorkTrigger>())
+        {
+            heatObject.GetComponent<WorkTrigger>().StartWork();
+        }
+        
+    }
+
+    public void RadiatorAndWindow()
+    {
+
+
+
+
+        if (heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
+        {
+            if (LevelManager.Instance.budget > 0)
+            {
+                heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
+            }
+            heatObject.GetComponent<RoomTempChanger>().UpdateText();
+        }
+
+        if (heatObject.GetComponent<Broken>())
+        {
+
+            if (heatObject.GetComponent<Broken>().enabled)
+            {
+                interactText.gameObject.SetActive(false);
+                LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
+                LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
+                heatObject.GetComponent<Broken>().enabled = false;
+            }
+        }
+    }
+
+    public void RoomThermostat()
+    {
+        heatObject.GetComponent<RoomThermostat>().Activate();
+        heatObject.GetComponent<RoomThermostat>().playerInteract = this;
+    }
+
+    public void Jumper()
+    {
+        if (heatObject.GetComponent<Jumper>())
+        {
+            EquipClothing();
+            heatObject.GetComponent<Jumper>().canvas.SetActive(false);
+        }
+    }
+
 
     private void Update()
     {
-        if (inTrigger && heatObject != null)
-        {
+        //if (inTrigger && heatObject != null)
+        //{
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (heatObject.GetComponent<Window>())
-                {
-                    Debug.Log("ison");
-                    if (!heatObject.GetComponent<Broken>().enabled)
-                    {
-                        heatObject.GetComponent<Window>().openWindow();
-                    }
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        if (heatObject.GetComponent<Window>())
+        //        {
+        //            Debug.Log("ison");
+        //            if (!heatObject.GetComponent<Broken>().enabled)
+        //            {
+        //                heatObject.GetComponent<Window>().openWindow();
+        //            }
                     
-                }
-
-                if (heatObject.GetComponent<Jumper>())
-                {
-                    EquipClothing();
-                }
-                else if(heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
-                {
-                    if(LevelManager.Instance.budget > 0)
-                    {
-                        heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
-                    }
+        //        }
+        //        else if(heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
+        //        {
+        //            if(LevelManager.Instance.budget > 0)
+        //            {
+        //                heatObject.GetComponent<RoomTempChanger>().isOn = !heatObject.GetComponent<RoomTempChanger>().isOn;
+        //            }
                     
-                }
+        //        }
              
-                else if (heatObject.GetComponent<RoomThermostat>())
-                {
-                    heatObject.GetComponent<RoomThermostat>().Activate();
-                    heatObject.GetComponent<RoomThermostat>().playerInteract = this;
-                }
-                else if (heatObject.GetComponent<TaskTrigger>())
-                {
-                    heatObject.GetComponent<TaskTrigger>().StartTask();
-                }
-                else if (heatObject.GetComponent<WorkTrigger>())
-                {
-                    heatObject.GetComponent<WorkTrigger>().StartWork();
-                }
-                else if (heatObject.GetComponent<ActivateExercise>())
-                {
-                    heatObject.GetComponent<ActivateExercise>().exerciseScreen.SetActive(true);
-                    SpawnManager.Instance.start = true;
-                }
-                else if (heatObject.GetComponent<ChildAIController>())
-                {
-                    heatObject.GetComponent<ChildAIController>().SwitchState(ChildAIController.State.START_TIMEOUT);
-                }
+        //        else if (heatObject.GetComponent<RoomThermostat>())
+        //        {
+        //            heatObject.GetComponent<RoomThermostat>().Activate();
+        //            heatObject.GetComponent<RoomThermostat>().playerInteract = this;
+        //        }
+        //        else if (heatObject.GetComponent<TaskTrigger>())
+        //        {
+        //            heatObject.GetComponent<TaskTrigger>().StartTask();
+        //        }
+        //        else if (heatObject.GetComponent<WorkTrigger>())
+        //        {
+                    
+        //        }
+        //        else if (heatObject.GetComponent<ActivateExercise>())
+        //        {
+        //            heatObject.GetComponent<ActivateExercise>().exerciseScreen.SetActive(true);
+        //            SpawnManager.Instance.start = true;
+        //        }
+        //        else if (heatObject.GetComponent<ChildAIController>())
+        //        {
+        //            heatObject.GetComponent<ChildAIController>().SwitchState(ChildAIController.State.START_TIMEOUT);
+        //        }
 
-                if (heatObject.GetComponent<Broken>())
-                {
+        //        if (heatObject.GetComponent<Broken>())
+        //        {
 
-                    if (heatObject.GetComponent<Broken>().enabled)
-                    {
-                        interactText.gameObject.SetActive(false);
-                        LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
-                        LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
-                        heatObject.GetComponent<Broken>().enabled = false;
-                    }
-                }
-                heatObject.GetComponent<TemperatureAlteringObject>().UpdateText();
+        //            if (heatObject.GetComponent<Broken>().enabled)
+        //            {
+        //                interactText.gameObject.SetActive(false);
+        //                LevelManager.Instance.budget -= heatObject.GetComponent<Broken>().fixCost;
+        //                LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
+        //                heatObject.GetComponent<Broken>().enabled = false;
+        //            }
+        //        }
+        //        heatObject.GetComponent<TemperatureAlteringObject>().UpdateText();
 
-            } 
-        }
+        //    } 
+        //}
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

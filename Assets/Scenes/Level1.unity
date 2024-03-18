@@ -11000,6 +11000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522762852952831533, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049151631016870494, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -11060,9 +11064,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -368
+      objectReference: {fileID: 0}
     - target: {fileID: 7488372698236433536, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     - target: {fileID: 8701439407220554779, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_IsActive
@@ -12315,6 +12335,16 @@ Light:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4941292495746800420, guid: 188e1e37780ea974199102a56b6af0d9, type: 3}
   m_PrefabInstance: {fileID: 4231963113421729513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &327228847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4275161622968173078, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+  m_PrefabInstance: {fileID: 1601063611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &327228848 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+  m_PrefabInstance: {fileID: 1601063611}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &331388619 stripped
 Transform:
@@ -15463,6 +15493,14 @@ PrefabInstance:
     - target: {fileID: 7488372698236433536, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     - target: {fileID: 8701439407220554779, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_IsActive
@@ -19982,6 +20020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  canvas: {fileID: 0}
 --- !u!1 &1009917368
 GameObject:
   m_ObjectHideFlags: 0
@@ -22386,6 +22425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522762852952831533, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049151631016870494, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22446,9 +22489,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -329
+      objectReference: {fileID: 0}
     - target: {fileID: 7488372698236433536, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     - target: {fileID: 8701439407220554779, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_IsActive
@@ -35514,6 +35569,111 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596320558}
   m_Mesh: {fileID: 8728854048086142887, guid: 260c4dc89855640f68b49e2d332b4c9f, type: 3}
+--- !u!1001 &1601063611
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5953801048693572386}
+    m_Modifications:
+    - target: {fileID: 4275161622968173078, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Name
+      value: InteractionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338536614883720835, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7338536614883720835, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jumper
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
 --- !u!1 &1612027615
 GameObject:
   m_ObjectHideFlags: 0
@@ -37598,6 +37758,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1129026232328623744, guid: 141294e56bd0fad4f8ca737271e17ace, type: 3}
   m_PrefabInstance: {fileID: 510772014415403956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1780136434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+  m_PrefabInstance: {fileID: 4700473593856494362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1780236199
 GameObject:
   m_ObjectHideFlags: 0
@@ -37718,6 +37883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522762852952831533, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049151631016870494, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -37778,9 +37947,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -286
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 376
+      objectReference: {fileID: 0}
     - target: {fileID: 7488372698236433536, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     - target: {fileID: 8701439407220554779, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_IsActive
@@ -39592,6 +39777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3522762852952831533, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049151631016870494, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -39652,9 +39841,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590260119753744534, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 7488372698236433536, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     - target: {fileID: 8701439407220554779, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
       propertyPath: m_IsActive
@@ -40221,6 +40430,16 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2725250814644084973, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
   m_PrefabInstance: {fileID: 3299487817501386169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2062538942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4275161622968173078, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+  m_PrefabInstance: {fileID: 1645282152323290689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2062538943 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+  m_PrefabInstance: {fileID: 1645282152323290689}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066625426 stripped
 GameObject:
@@ -43235,6 +43454,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.11
       objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43452,6 +43679,14 @@ PrefabInstance:
     - target: {fileID: 4256989611829691891, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_Name
       value: RoomThermostat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RoomThermostat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44260,6 +44495,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143496868}
     m_Modifications:
+    - target: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.31026706
@@ -44346,7 +44585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.z
-      value: 1.600685
+      value: 0.47405604
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.x
@@ -44354,11 +44593,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Center.z
-      value: 0.758507
+      value: 0.19519226
       objectReference: {fileID: 0}
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
       value: Radiator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008731105730493576, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -147
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44378,6 +44629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Jumper
+  canvas: {fileID: 327228847}
   heatIncrease: 3
 --- !u!114 &588411389429778463
 MonoBehaviour:
@@ -44557,6 +44809,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6875804051534938679}
     m_Modifications:
+    - target: {fileID: 3353414755293357411, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3799996
@@ -44600,6 +44856,22 @@ PrefabInstance:
     - target: {fileID: 4256989611829691891, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_Name
       value: RoomThermostat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RoomThermostat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46683,6 +46955,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48492,6 +48772,7 @@ Transform:
   - {fileID: 5042333589693708267}
   - {fileID: 3650827149705813215}
   - {fileID: 7251848865457540397}
+  - {fileID: 2062538943}
   m_Father: {fileID: 317827273937686671}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1493832168478363746
@@ -48987,6 +49268,111 @@ RectTransform:
   m_AnchoredPosition: {x: -0.21, y: 1.5449836}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1645282152323290689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1487880671405551030}
+    m_Modifications:
+    - target: {fileID: 3536698609075719175, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_text
+      value: Work
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275161622968173078, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Name
+      value: InteractionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338536614883720835, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
 --- !u!1001 &1652741676504276023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51228,6 +51614,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 99251592}
     m_Modifications:
+    - target: {fileID: 3353414755293357411, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15236533
@@ -51254,11 +51644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalRotation.y
@@ -51274,7 +51664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -51283,6 +51673,22 @@ PrefabInstance:
     - target: {fileID: 4256989611829691891, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_Name
       value: RoomThermostat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 172
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RoomThermostat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52851,7 +53257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'E' to Interact
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -56504,6 +56910,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58507,6 +58921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  canvas: {fileID: 2062538942}
 --- !u!224 &4181336075741406821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60000,6 +60415,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.978
       objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60680,6 +61103,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 99251592}
     m_Modifications:
+    - target: {fileID: -823209461589841921, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1780136434}
+    - target: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.49866128
@@ -60752,10 +61183,6 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.01564836
       objectReference: {fileID: 0}
-    - target: {fileID: 4465074856302628249, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5874662881305039560, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Size.x
       value: 1.5113963
@@ -60779,6 +61206,14 @@ PrefabInstance:
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
       value: Radiator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65830,6 +66265,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 629291056}
     m_Modifications:
+    - target: {fileID: 3353414755293357411, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15236534
@@ -65884,6 +66323,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4256989611829691891, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_Name
+      value: RoomThermostat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RoomThermostat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -66455,7 +66910,8 @@ Transform:
   m_LocalPosition: {x: -74.22, y: 0.947, z: -4.64}
   m_LocalScale: {x: 0.2363, y: 1, z: 0.4520915}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 327228848}
   m_Father: {fileID: 2671996871003188907}
   m_LocalEulerAnglesHint: {x: 0, y: -88.311, z: 90}
 --- !u!1001 &5962001938166160185
@@ -67689,6 +68145,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2081540605}
     m_Modifications:
+    - target: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.49866128
@@ -67789,6 +68249,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radiator
       objectReference: {fileID: 0}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008731105730493576, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -186
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008731105730493576, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -131
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67837,6 +68313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6875804051534938679}
     m_Modifications:
+    - target: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.495
@@ -67944,6 +68424,14 @@ PrefabInstance:
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
       value: Radiator (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70404,6 +70892,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.12
       objectReference: {fileID: 0}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 7953509592002988728, guid: dc6518c520bbb704bbb94e68cbbf64db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70954,6 +71450,10 @@ PrefabInstance:
       propertyPath: isOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 32291447404653107, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906129220804576638, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.19543436
@@ -71049,6 +71549,22 @@ PrefabInstance:
     - target: {fileID: 6091173191628551949, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
       propertyPath: m_Name
       value: Radiator (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 6841368148967921318, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008731105730493576, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008731105730493576, guid: 1c67a32e8b951ce41b31a04b82ab0fe3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75324,6 +75840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  canvas: {fileID: 0}
 --- !u!222 &7824003759674094909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81343,6 +81860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2143496868}
     m_Modifications:
+    - target: {fileID: 3353414755293357411, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3913837249030838009, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15236533
@@ -81398,6 +81919,26 @@ PrefabInstance:
     - target: {fileID: 4256989611829691891, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
       propertyPath: m_Name
       value: RoomThermostat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052399332694815704, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -166
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5880625909567926572}
+    - target: {fileID: 8073384029453392374, guid: 352e50fb7e81b1349b1a9c8b17418f26, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RoomThermostat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
