@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterAttributes : MonoBehaviour
 {
@@ -52,6 +53,11 @@ public class CharacterAttributes : MonoBehaviour
     public bool isHungry = false;
     public bool flies = false;
 
+    Image hungerFill;
+    Image tirednessFill;
+    Image boredomFill;
+    Image happinessFill;
+
 
 
 
@@ -60,6 +66,11 @@ public class CharacterAttributes : MonoBehaviour
     {
         baseHungerMul = hungerMultiplier;
         baseBoredemMul = boredomMultiplier;
+
+        hungerFill = UIManager.Instance.hungerSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        tirednessFill = UIManager.Instance.tirednessSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        boredomFill = UIManager.Instance.boredomSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        happinessFill = UIManager.Instance.happinessSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
 
         hungerSleepMul = hungerMultiplier * sleepMultiplier;
         boredomSleepMul = boredomMultiplier * sleepMultiplier;
@@ -132,6 +143,7 @@ public class CharacterAttributes : MonoBehaviour
 
         if(happiness <= 10 && !displayHappiness)
         {
+            
             UIManager.Instance.DisplayNotification("You are unhappy");
             displayHappiness = true;
         }
@@ -216,9 +228,16 @@ public class CharacterAttributes : MonoBehaviour
     void UI()
     {
         UIManager.Instance.boredomSlider.value = boredom / 100;
+        boredomFill.color = Color.Lerp(Color.green, Color.red, boredom / 100);
+
         UIManager.Instance.hungerSlider.value = hunger / 100;
+        hungerFill.color = Color.Lerp(Color.green, Color.red, hunger / 100);
+
         UIManager.Instance.tirednessSlider.value = tiredness / 100;
+        tirednessFill.color = Color.Lerp(Color.green, Color.red, tiredness / 100);
+
         UIManager.Instance.happinessSlider.value = happiness / 100;
+        happinessFill.color = Color.Lerp(Color.red, Color.green, happiness / 100);
     }
 
     void Clamp()
