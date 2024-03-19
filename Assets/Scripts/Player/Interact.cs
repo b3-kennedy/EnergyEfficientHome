@@ -63,6 +63,7 @@ public class Interact : MonoBehaviour
                 LevelManager.Instance.fixCost += heatObject.GetComponent<Broken>().fixCost;
                 heatObject.GetComponent<Broken>().enabled = false;
             }
+            heatObject.GetComponent<RoomTempChanger>().UpdateText();
         }
     }
 

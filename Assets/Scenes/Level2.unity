@@ -71929,7 +71929,7 @@ MonoBehaviour:
     m_Top: 30
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_StartCorner: 0
+  m_StartCorner: 2
   m_StartAxis: 0
   m_CellSize: {x: 280, y: 100}
   m_Spacing: {x: 0, y: 0}
@@ -72015,6 +72015,7 @@ MonoBehaviour:
   recBin: {fileID: 183240486}
   nonRecBin: {fileID: 949576737}
   levelManager: {fileID: 4564813784916103814}
+  isPlaying: 0
 --- !u!1 &3939266920922122055
 GameObject:
   m_ObjectHideFlags: 0
@@ -75165,7 +75166,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4337631259990240521}
   m_Direction: 2
   m_Value: 1.0000005
-  m_Size: 0.18249549
+  m_Size: 0.18249547
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
