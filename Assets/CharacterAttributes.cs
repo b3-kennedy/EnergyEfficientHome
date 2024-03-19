@@ -130,6 +130,12 @@ public class CharacterAttributes : MonoBehaviour
             displayHunger = true;
         }
 
+        if(happiness <= 10 && !displayHappiness)
+        {
+            UIManager.Instance.DisplayNotification("You are unhappy");
+            displayHappiness = true;
+        }
+
         if (tiredness >= 95 && !displayTiredness)
         {
             isTired = true;
@@ -161,6 +167,11 @@ public class CharacterAttributes : MonoBehaviour
             happinessMultiplier -= happinessChange;
             eating = false;
             displayHunger = false;
+        }
+
+        if(happiness > 10)
+        {
+            displayHappiness = false;
         }
 
         if (tiredness <= 0)
