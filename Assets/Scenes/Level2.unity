@@ -73024,6 +73024,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6819230752079996535, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7112425846084687488, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
       propertyPath: m_Name
       value: Child
@@ -75171,7 +75175,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4337631259990240521}
   m_Direction: 2
   m_Value: 1.0000005
-  m_Size: 0.18249547
+  m_Size: 0.18249552
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
