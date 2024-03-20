@@ -140,8 +140,10 @@ public class ChildAIController : MonoBehaviour
         {
             UIManager.Instance.DisplayNotification("Child has messed with a radiator");
             radiator.GetComponent<Radiator>().isOn = !radiator.GetComponent<Radiator>().isOn;
+            radiator.GetComponent<RoomTempChanger>().UpdateText();
             pickRadiator = false;
             SwitchState(State.RADIATOR);
+            
         }
     }
 
@@ -184,6 +186,7 @@ public class ChildAIController : MonoBehaviour
         {
             UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
             window.GetComponent<Window>().isOn = true;
+            window.GetComponent<RoomTempChanger>().UpdateText();
             Debug.Log("open window");
             pickWindow = false;
             SwitchState(State.OPEN_WINDOW);

@@ -22,7 +22,7 @@ public class LampController : MonoBehaviour
                 {
                     obj.SetActive(isOn);
                 }
-                lampPopUp.GetComponent<TextMeshPro>().text = "Press E to turn the lamp" + (isOn ? " off" : " on");
+                //lampPopUp.GetComponent<TextMeshPro>().text = "Press E to turn the lamp" + (isOn ? " off" : " on");
             }
         }
     }
@@ -31,7 +31,7 @@ public class LampController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             lampPopUp.SetActive(true);
-            lampPopUp.GetComponent<TextMeshPro>().text = "Press E to turn the lamp"+ (isOn ? " off" : " on");
+            //lampPopUp.GetComponent<TextMeshPro>().text = "Press E to turn the lamp"+ (isOn ? " off" : " on");
             isNearLamp = true;
         }
     }
