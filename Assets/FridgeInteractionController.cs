@@ -220,6 +220,7 @@ public class FridgeInteractionController : MonoBehaviour
         miniGameGO.SetActive(true);
         startGamePanel.SetActive(true);
         mainGamePanel.SetActive(false);
+        endGamePanel.SetActive(false);
         isPlaying = true;
 
 
