@@ -141,7 +141,6 @@ public class TemperatureAlteringObject : MonoBehaviour
         else if (GetComponent<Radiator>() && !GetComponent<Radiator>().isOn)
         {
             canvas.SetActive(true);
-            Debug.Log(buttonText);
             buttonText.text = "Turn On";
             //interact.interactText.text = "Press 'E' to Turn Radiator On";
         }
