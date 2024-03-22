@@ -60,14 +60,14 @@ public class PhoneController : MonoBehaviour
         scrollBar.SetActive(false);
 
         phoneUpButton.onClick.AddListener(PhoneUp);
-        
+        buttonText.text = "";
 
     }
     void PhoneUp() {
         pickUpAudio.Play();
         //phoneGameObject.SetActive(true);
         hidden = !hidden;
-        buttonText.text = hidden ? "Phone Up " : "Phone  Down ";
+        buttonText.text = hidden ? " " : " ";
     }
     
     private void Update()
