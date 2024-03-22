@@ -138,10 +138,16 @@ public class ChildAIController : MonoBehaviour
 
         if(Vector3.Distance(transform.position, radiator.position) < 2f) 
         {
-            UIManager.Instance.DisplayNotification("Child has messed with a radiator");
+            if (pickRadiator)
+            {
+                UIManager.Instance.DisplayNotification("Child has messed with a radiator");
+                pickRadiator = false;
+            }
+            
             radiator.GetComponent<Radiator>().isOn = !radiator.GetComponent<Radiator>().isOn;
-            pickRadiator = false;
+            radiator.GetComponent<RoomTempChanger>().UpdateText();
             SwitchState(State.RADIATOR);
+            
         }
     }
 
@@ -182,10 +188,16 @@ public class ChildAIController : MonoBehaviour
         //Debug.Log(Vector3.Distance(transform.position, window.position));
         if(Vector3.Distance(transform.position, window.position) < 2f)
         {
-            UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
+            if (pickWindow)
+            {
+                UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
+                pickWindow = false;
+            }
+            
             window.GetComponent<Window>().isOn = true;
+            window.GetComponent<RoomTempChanger>().UpdateText();
             Debug.Log("open window");
-            pickWindow = false;
+
             SwitchState(State.OPEN_WINDOW);
         }
     }
