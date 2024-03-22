@@ -145,7 +145,7 @@ public class ChildAIController : MonoBehaviour
             }
             
             radiator.GetComponent<Radiator>().isOn = !radiator.GetComponent<Radiator>().isOn;
-            radiator.GetComponent<RoomTempChanger>().UpdateText();
+            //radiator.GetComponent<RoomTempChanger>().UpdateText();
             SwitchState(State.RADIATOR);
             
         }
@@ -195,7 +195,7 @@ public class ChildAIController : MonoBehaviour
             }
             
             window.GetComponent<Window>().isOn = true;
-            window.GetComponent<RoomTempChanger>().UpdateText();
+            //window.GetComponent<RoomTempChanger>().UpdateText();
             Debug.Log("open window");
 
             SwitchState(State.OPEN_WINDOW);
