@@ -69,6 +69,7 @@ public class TimeManager : MonoBehaviour
     [HideInInspector] 
     public DateTime timeBeforeSleep;
 
+    public bool gameEnded = false;
 
 
     private void Awake()
@@ -90,7 +91,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
        
-        if (!skipped)
+        if (!skipped && !gameEnded)
         {
             UpdateTimeOfDay();
             RotateSun();

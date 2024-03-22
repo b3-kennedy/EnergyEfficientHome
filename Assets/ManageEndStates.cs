@@ -25,7 +25,10 @@ public class ManageEndStates : MonoBehaviour
     public TMP_Text endGameReasonPrompt;
     public TMP_Text endGameBudgetPrompt;
     public TMP_Text endGameHintPrompt;
+
     public TMP_Text[] endGameHintrompts;
+  
+   
 
     public float minComfyTemp = 5;
     public float maxComfyTemp = 45;
@@ -41,6 +44,7 @@ public class ManageEndStates : MonoBehaviour
 
     public TMP_Text dayCountUItxt;
     public TMP_Text budgetUItxt;
+
     private void OnEnable()
     {
 
@@ -62,6 +66,38 @@ public class ManageEndStates : MonoBehaviour
     public void PassDay()
     {
         dayCount++;
+    }
+
+    public void SetHouseUpgradesInUse()
+    {
+        //if (LevelManager.Instance.PV || LevelManager.Instance.heatPump || LevelManager.Instance.doubleGlazing)
+        //{
+        //    endGameUpgradesPrompt.text = " You were using   " + (LevelManager.Instance.PV ? " 'PV Panels'  " : "") + (LevelManager.Instance.heatPump ? " 'Heat Pump'  " : "") + (LevelManager.Instance.doubleGlazing ? " 'Double Glzing'  " : " from house upgrades.");
+        //}
+        if (!LevelManager.Instance.PV)
+        {
+            endGameHintrompts[1].text = "You weren't using PV panels. PV panels reduce energy costs on sunny days.";
+        }
+        if (LevelManager.Instance.PV)
+        {
+            endGameHintrompts[1].text = "You were using PV panels and they helped you save money on sunny days.";
+        }
+        if (!LevelManager.Instance.heatPump)
+        {
+            endGameHintrompts[0].text = "You didn't use Heat pump.";
+        }
+        if (LevelManager.Instance.heatPump)
+        {
+            endGameHintrompts[0].text = "You were using Heat pump and it reduced the cost of heating in your house. Good job!.";
+        }
+        if (!LevelManager.Instance.doubleGlazing)
+        {
+            endGameHintrompts[2].text = "You didn't use Double Glazing on your windows and a lot of heat was wasted.";
+        }
+        if (LevelManager.Instance.heatPump)
+        {
+            endGameHintrompts[2].text = "You were using Double Glazing and it helped keep your home warmer. Good job!.";
+        }
     }
     public void OptionMenu()
     {
@@ -88,7 +124,7 @@ public class ManageEndStates : MonoBehaviour
                     End();
                     endGamePrompt.text = "You Lost!!";
                     endGameReasonPrompt.text = "You Froze To Death on day "+dayCount+"!!";
-                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget when this tragedy happened";
+                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
                 }
@@ -102,7 +138,7 @@ public class ManageEndStates : MonoBehaviour
 
                     End();
                     endGamePrompt.text = "You Lost!!";
-                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget when this tragedy happened";
+                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
                     endGameReasonPrompt.text = "You Melted and died on day "+dayCount+"!!";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
@@ -115,7 +151,7 @@ public class ManageEndStates : MonoBehaviour
                 End();
                 endGamePrompt.text = "You Lost!!";
                 endGameReasonPrompt.text = "Your Friend forze on day "+dayCount+"!!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget when this tragedy happened";
+                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
                 endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
 
             }
@@ -123,7 +159,7 @@ public class ManageEndStates : MonoBehaviour
             {
                 End();
                 endGamePrompt.text = "You Lost!!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget when this tragedy happened";
+                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
                 endGameReasonPrompt.text = "Your Friend Melted on day"+dayCount+"!!";
                 endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
             }
@@ -132,9 +168,9 @@ public class ManageEndStates : MonoBehaviour
                 End();
                 endGamePrompt.text = "You Lost!";
                 endGameReasonPrompt.text = "You were too unhappy and died on day "+dayCount+"!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget when this tragedy happened";
-                endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
-
+                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
+                endGameHintPrompt.text = " Here are some hints that can help you do better next time.";
+                
             }
         }
         if (dayCount == 7)
@@ -146,6 +182,7 @@ public class ManageEndStates : MonoBehaviour
             endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
             endGameReasonPrompt.text = "Good Job! You Managed To Stay In A comfortable situation for 7 consequitive days. you now passed the first level(tutorial)";
             endGameHintPrompt.text = "you really seemed to know what you were doing! still, here are some hints that can help you do even better after the tutorial.";
+           
         }
 
     }
@@ -155,6 +192,8 @@ public class ManageEndStates : MonoBehaviour
         player.GetComponent<PlayerMove>().enabled = false;
         AICharacter.GetComponent<AIMove>().enabled = false;
         UIManager.Instance.HideTimeControlUI();
+        TimeManager.Instance.gameEnded = true;
+        SetHouseUpgradesInUse();
     }
     public void RestartGame()
     {
