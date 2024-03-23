@@ -25,6 +25,7 @@ TagManager:
   - Noted
   - Activator
   - Exercise
+  - GroundFloor
   layers:
   - Default
   - TransparentFX

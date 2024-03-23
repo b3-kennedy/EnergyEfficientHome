@@ -64,5 +64,6 @@ public class SecondFloorTrigger : MonoBehaviour
                 other.GetComponent<FloorVisibilityControl>().floor = FloorVisibilityControl.Floor.GROUND;
             }
         }
+
     }
 }
