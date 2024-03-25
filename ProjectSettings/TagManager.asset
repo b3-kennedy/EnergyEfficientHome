@@ -26,6 +26,7 @@ TagManager:
   - Activator
   - Exercise
   - GroundFloor
+  - Score
   layers:
   - Default
   - TransparentFX

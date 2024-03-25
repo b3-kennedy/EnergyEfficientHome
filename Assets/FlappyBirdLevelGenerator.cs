@@ -8,7 +8,7 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
     public static FlappyBirdLevelGenerator Instance;
 
-    public GameObject pipes;
+    public GameObject[] pipes;
     public float distanceBetweenPipes;
     public float maxHeight;
     public float minHeight;
@@ -47,7 +47,8 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
     public void OnStart()
     {
-        GameObject pipe = Instantiate(pipes, transform.GetChild(0));
+        int randomPipe = Random.Range(0, pipes.Length);
+        GameObject pipe = Instantiate(pipes[randomPipe], transform.GetChild(0));
         pipe.transform.localPosition = new Vector3(0, Random.Range(minHeight, maxHeight), 0);
         spawnedPipes.Add(pipe);
         foreach (var p in spawnedPipes)
@@ -65,7 +66,8 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
         if (dist > distanceBetweenPipes)
         {
-            GameObject pipe = Instantiate(pipes, transform.GetChild(0));
+            int randomPipe = Random.Range(0, pipes.Length);
+            GameObject pipe = Instantiate(pipes[randomPipe], transform.GetChild(0));
             pipe.transform.localPosition = new Vector3(0, Random.Range(minHeight, maxHeight), 0);
             spawnedPipes.Add(pipe);
             foreach (var p in spawnedPipes)
