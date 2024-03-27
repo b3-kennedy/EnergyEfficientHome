@@ -19,9 +19,29 @@ public class FloorVisibilityControl : MonoBehaviour
         playerFloor = player.gameObject.GetComponent<FloorVisibilityControl>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("SecondFloor"))
+        {
+            floor = Floor.FIRST;
+        }
+        else if (other.CompareTag("GroundFloor"))
+        {
+            floor = Floor.GROUND;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(floor == Floor.GROUND)
+        {
+            if (skinnedMeshRenderer != null)
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
+
         if(player != null)
         {
             if (floor != playerFloor.floor)
@@ -35,7 +55,8 @@ public class FloorVisibilityControl : MonoBehaviour
                     meshRenderer.enabled = false;
                 }
             }
-            else
+
+            if(floor == playerFloor.floor)
             {
                 if (skinnedMeshRenderer != null)
                 {

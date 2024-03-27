@@ -46,4 +46,11 @@ public class ScoreManager : MonoBehaviour
         return HighestCombo;
     }
 
+    public void resetScore()
+    {
+        HighestCombo = 0;
+        combo = 1;
+        score = 0;
+    }
+
 }

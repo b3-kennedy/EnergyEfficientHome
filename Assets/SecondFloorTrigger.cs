@@ -59,10 +59,11 @@ public class SecondFloorTrigger : MonoBehaviour
             {
                 other.GetComponent<FloorVisibilityControl>().floor = FloorVisibilityControl.Floor.FIRST;
             }
-            else if (floor == Floor.SECOND && other.GetComponent<FloorVisibilityControl>().floor == FloorVisibilityControl.Floor.FIRST)
+            else if (floor == Floor.GROUND && other.GetComponent<FloorVisibilityControl>().floor == FloorVisibilityControl.Floor.FIRST)
             {
                 other.GetComponent<FloorVisibilityControl>().floor = FloorVisibilityControl.Floor.GROUND;
             }
         }
+
     }
 }

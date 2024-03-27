@@ -1,4 +1,4 @@
-
+﻿
 using TMPro;
 using Unity.Services.Analytics;
 using UnityEngine;
@@ -43,6 +43,10 @@ public class PhoneController : MonoBehaviour
     public TMP_Text mobileClockText;
     public TMP_Text timeText;
 
+    public Button phoneUpButton;
+
+    public TMP_Text buttonText;
+
     private void OnEnable()
     {
         
@@ -55,15 +59,25 @@ public class PhoneController : MonoBehaviour
         backBtn.onClick.AddListener(Back);
         scrollBar.SetActive(false);
 
+        phoneUpButton.onClick.AddListener(PhoneUp);
+        buttonText.text = "";
+
     }
+    void PhoneUp() {
+        pickUpAudio.Play();
+        //phoneGameObject.SetActive(true);
+        hidden = !hidden;
+        buttonText.text = hidden ? " " : " ";
+    }
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            pickUpAudio.Play();
-            //phoneGameObject.SetActive(true);
-            hidden = !hidden;
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    pickUpAudio.Play();
+        //    //phoneGameObject.SetActive(true);
+        //    hidden = !hidden;
+        //}
         mobileClockText.text = timeText.text;
         //else if (Input.GetKeyDown(KeyCode.Escape))
         //{

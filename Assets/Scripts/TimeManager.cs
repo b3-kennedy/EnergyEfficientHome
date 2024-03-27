@@ -69,6 +69,7 @@ public class TimeManager : MonoBehaviour
     [HideInInspector] 
     public DateTime timeBeforeSleep;
 
+    public bool gameEnded = false;
 
 
     private void Awake()
@@ -90,7 +91,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
        
-        if (!skipped)
+        if (!skipped && !gameEnded)
         {
             UpdateTimeOfDay();
             RotateSun();
@@ -106,21 +107,14 @@ public class TimeManager : MonoBehaviour
     public IEnumerator SkipToNextDay()
     {
         skipped = true;
-        Debug.Log("skipping to next day yo");
         timeBeforeSleep = currentTime;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
         dayPassed.Invoke();
-        Debug.Log("time:" + currentTime.ToString());
         dayCounter++;
-        Debug.Log("day: " + dayCounter);
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        Debug.Log(GetFloatTime(currentTime));
-        if(!(GetFloatTime(timeBeforeSleep) > 0 && GetFloatTime(timeBeforeSleep) < 1000))
-        {
-            LevelManager.Instance.DailyCostAfterSleep();
-        }
+        LevelManager.Instance.DailyCostAfterSleep();
         
         //CalculateHourPassed();
         yield return new WaitForSeconds(1f);
@@ -172,7 +166,7 @@ public class TimeManager : MonoBehaviour
 
     void CalculateDayEnd()
     {
-        if (GetFloatTime(currentTime) == 1)
+        if (GetFloatTime(currentTime) > 800 && GetFloatTime(currentTime) < 805)
         {
             if (!newDay)
             {
@@ -197,7 +191,7 @@ public class TimeManager : MonoBehaviour
             }
 
         }
-        else
+        else if(GetFloatTime(currentTime) > 805)
         {
             newDay = false;
         }

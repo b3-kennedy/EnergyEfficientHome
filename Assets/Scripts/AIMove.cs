@@ -36,7 +36,7 @@ public class AIMove : MonoBehaviour
     {
         agent.speed = 3.5f * TimeManager.Instance.timeControlMultiplier;
 
-        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 2000)
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 2201)
         {
             state = State.SLEEP;
         }
@@ -94,7 +94,7 @@ public class AIMove : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) >= 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
         {
             SwitchState(State.SLEEP);
         }

@@ -40,7 +40,7 @@ public class FlappyBirdController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PipeMove>())
+        if (other.CompareTag("Score"))
         {
             FlappyBirdLevelGenerator.Instance.UpdateScore();
         }

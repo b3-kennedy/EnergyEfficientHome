@@ -42,6 +42,7 @@ public class Room : MonoBehaviour
     void Start()
     {
 
+        liveTemperature = 20;
         SetRoomData();
     }
 

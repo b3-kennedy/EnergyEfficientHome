@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BedInteractionController : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class BedInteractionController : MonoBehaviour
 
     public TMP_Text text;
 
+    public Button sleepBtn;
 
+    private void OnEnable()
+    {
+        sleepBtn.onClick.AddListener(StartSleep);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player" && player.GetComponent<CharacterAttributes>().tiredness>50)
+        if (other.gameObject.name == "Player" && player.GetComponent<CharacterAttributes>().tiredness<50)
         {
-            text.text = "You Seem Tired!\n Press 'B' To Sleep";
+            text.text = "You're Tired!\n Press  To Sleep";
             popUpGO.SetActive(true);
             isNearBed = true;
         }
@@ -42,7 +48,7 @@ public class BedInteractionController : MonoBehaviour
 
         if (isNearBed)
         {
-            if (Input.GetKey(KeyCode.B) && player.GetComponent<CharacterAttributes>().tiredness > 60)
+            if (Input.GetKey(KeyCode.B) && player.GetComponent<CharacterAttributes>().tiredness < 40)
             {
                 popUpGO.SetActive(false);
 
@@ -52,5 +58,16 @@ public class BedInteractionController : MonoBehaviour
             }
         } 
         
+    }
+    private void StartSleep()
+    {
+        if ( player.GetComponent<CharacterAttributes>().tiredness < 40)
+        {
+            popUpGO.SetActive(false);
+
+            player.GetComponent<CharacterAttributes>().sleeping = true;
+
+            player.GetComponent<CharacterAttributes>().FadeOut();
+        }
     }
 }

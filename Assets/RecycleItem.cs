@@ -26,8 +26,6 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
         positionIndex = posIndex;
         startPosition = transform.position;
 
-        recBin.GetComponent<BinController>().OnCorrect += HandleCorrectDrop;
-        nonRecBin.GetComponent<BinController>().OnCorrect += HandleCorrectDrop;
     }
     public void SetImg(Texture texture)
     {
@@ -58,17 +56,6 @@ public class RecycleItem : MonoBehaviour, IBeginDragHandler, IDragHandler,IEndDr
     }
 
 
-    private void HandleCorrectDrop(int position)
-    {
-        
-        //if (positionIndex==position)
-        //{
-        //    Debug.Log(positionIndex);
-        //    isDroppedCorrect = true;
-           
-
-        //}
-       
-    }
+    
 
 }

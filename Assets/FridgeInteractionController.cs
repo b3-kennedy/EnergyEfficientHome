@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 
 public class FridgeInteractionController : MonoBehaviour
 {
-   
+
 
     public Button[] foodClickables;
 
@@ -48,7 +49,11 @@ public class FridgeInteractionController : MonoBehaviour
 
     public GameObject levelManager;
 
-    
+    public bool isPlaying = false;
+
+    List<GameObject> onscreenItems = new List<GameObject>();
+
+
     private void OnEnable()
     {
         foreach (Button food in foodClickables)
@@ -59,27 +64,28 @@ public class FridgeInteractionController : MonoBehaviour
         startGame.onClick.AddListener(StartGame);
         endGame.onClick.AddListener(EndGame);
         restartGame.onClick.AddListener(RestartGame);
-        
-        
 
-        
-            SetUpTheGame();
+
+
+
+        //SetUpTheGame();
 
 
     }
-    
+
     private void Update()
     {
-       if(gameStarted && timer > 0)
+        if (gameStarted && timer > 0)
         {
             UpdateTimerDisplay();
             player.GetComponent<CharacterAttributes>().entertaining = true;
-           
+
         }
     }
 
-    void RestartGame() { 
-       
+    void RestartGame()
+    {
+
         endGamePanel.SetActive(false);
         score = 0;
         scoreText.text = "score : 0";
@@ -95,7 +101,7 @@ public class FridgeInteractionController : MonoBehaviour
         int seconds = Mathf.FloorToInt(timer % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        
+
 
         if (timer <= 0)
         {
@@ -110,95 +116,102 @@ public class FridgeInteractionController : MonoBehaviour
         timer = 30;
         timerText.text = "0:30";
 
-        finalScoreText.text = "Score : "+score;
+        finalScoreText.text = "Score : " + score;
         score = 0;
         scoreText.text = "Score: 0";
 
-   
+
 
 
 
     }
-    
+
 
     void HandleCorrect(GameObject item)
     {
 
-       
-            score += 1;
-            
-            scoreText.text = "Score: " + score;
-            Debug.Log(score + "-"+item.name);
-        CreateRandomItem(item);
-            
+
+        score += 1;
+
+
+        scoreText.text = "Score: " + score;
+        int index = item.GetComponent<RecycleItem>().positionIndex;
+        Destroy(item);
+        CreateRandomItem(index);
+
 
     }
     void SetUpTheGame()
     {
-        for (int pos = 0; pos < 16; pos++)
-        { 
+        for (int pos = 0; pos < 10; pos++)
+        {
             int index = Random.Range(0, 8);
-        
-        if (Random.Range(0, 2) == 0)
-        {
 
-            GameObject item = Instantiate(itemPrefab, positions[pos].transform, false);
-            item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
-            item.GetComponent<RecycleItem>().isRecyclable = true;
-            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
-            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-        
-        }
-        else
-        {
+            if (Random.Range(0, 2) == 0)
+            {
 
-            GameObject item = Instantiate(itemPrefab, positions[pos].transform, false);
-            item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
-            item.GetComponent<RecycleItem>().isRecyclable = false;
-            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
-            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-         
+                GameObject item = Instantiate(itemPrefab, positions[pos].transform, false);
+                item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
+                item.GetComponent<RecycleItem>().isRecyclable = true;
+                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
+                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
 
+            }
+            else
+            {
+
+                GameObject item = Instantiate(itemPrefab, positions[pos].transform, false);
+                item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
+                item.GetComponent<RecycleItem>().isRecyclable = false;
+                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, pos);
+                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+
+
+            }
         }
-        }
-       
+
     }
-   void CreateRandomItem(GameObject item ) {
+    void CreateRandomItem(int posIndex)
+    {
 
-        int posIndex = item.GetComponent<RecycleItem>().positionIndex;
+        
+            bool isRec = (Random.Range(0, 2) == 0);
+            int index = Random.Range(0, 8);
+            if (Random.Range(0, 2) == 0)
+            {
 
-        bool isRec = (Random.Range(0, 2) == 0);
-        int index = Random.Range(0, 8);
-        if (Random.Range(0, 2) == 0)
-        {
+                GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
 
+                item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
+                item.GetComponent<RecycleItem>().isRecyclable = true;
+                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
 
-            item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
-            item.GetComponent<RecycleItem>().isRecyclable = true;
-            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
+                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
 
-            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+                onscreenItems.Add(item);
+
+            }
+            else
+            {
+                GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
+
+                item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
+                item.GetComponent<RecycleItem>().isRecyclable = false;
+                item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
+                item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
+
+                item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
+
+                onscreenItems.Add(item);
 
 
 
         }
-        else
-        {
 
 
-            item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
-            item.GetComponent<RecycleItem>().isRecyclable = false;
-            item.GetComponent<RecycleItem>().onCorrectDropped += HandleCorrect;
-            item.GetComponent<RecycleItem>().SetBins(recBin, nonRecBin, posIndex);
-
-            item.name = recyclebleItems[index].name + index * (Random.Range(10, 999));
-
-
-
-        }
     }
 
     void OpenGameScreen()
@@ -207,35 +220,37 @@ public class FridgeInteractionController : MonoBehaviour
         miniGameGO.SetActive(true);
         startGamePanel.SetActive(true);
         mainGamePanel.SetActive(false);
+        endGamePanel.SetActive(false);
+        isPlaying = true;
 
-        
 
     }
-    void ResetItems()
-    {
-        //foreach (GameObject item in onScreenItems)
-        //{
-        //    item.GetComponent<RecycleItem>().onCorrectDropped -= HandleCorrect;
-        //    Destroy(item);
-        //}
-    }
+
     void StartGame()
     {
         timer = 30;
         timerText.text = "0:30";
 
-       
+
         startGamePanel.SetActive(false);
         mainGamePanel.SetActive(true);
         gameStarted = true;
-        
-        for (int i = 0; i < 10; i++)
+
+        for (int i = 0; i < 13; i++)
         {
 
-            CreateRandomItem(positions[i]);
+            CreateRandomItem(i);
+
+        }
+
+    }
+    void ResetItems()
+    {
+        foreach (var item in onscreenItems)
+        {
+            Destroy(item);
             
-         }
-      
+        }
     }
     void EndGame()
     {
@@ -246,7 +261,9 @@ public class FridgeInteractionController : MonoBehaviour
         timerText.text = "0:30";
         score = 0;
         scoreText.text = "score : 0";
-       
+        isPlaying = false;
+        ResetItems();
+
     }
     void EatFood(string foodName)
     {
@@ -269,7 +286,7 @@ public class FridgeInteractionController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             popUpGO.SetActive(true);
-            
+
             fridgeText.text = "Hello. Have a snack!\n";
 
 
@@ -279,9 +296,10 @@ public class FridgeInteractionController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" && !isPlaying)
         {
             popUpGO.SetActive(false);
+            EndGame();
         }
     }
 

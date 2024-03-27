@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager Instance;
+
     [SerializeField] private float waitTimeBtwNote;        
     [SerializeField] private float Timer;        
     [SerializeField] private List<int> spawnCount;
@@ -14,8 +16,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private TextMeshProUGUI UICombo;
     [SerializeField] private TextMeshProUGUI UIScore;
+    public bool start;
     private bool couStart;
+    public CharacterAttributes playerAttributes;
     //need object to spawn
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,26 +33,39 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+    public void Reset()
+    {
+        Timer = 15;
+        start = false;
+        ScoreManager.Instance.resetScore();
+        playerAttributes.isExercising = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Timer -= Time.deltaTime;
-        UITextMeshPro.text = Timer.ToString();
-        if (Timer > 0)
+        if (start)
         {
-            if (couStart == false)
+            playerAttributes.isExercising = true;
+            Timer -= Time.deltaTime;
+            UITextMeshPro.text = Timer.ToString();
+            if (Timer > 0)
             {
-                StartCoroutine(spawnNote());
-            }
-                   
-        }
-        else
-        {
-            UICombo.text = ScoreManager.Instance.getCombo().ToString();
-            UIScore.text = ScoreManager.Instance.getScore().ToString();
-            canvas.SetActive(true);
+                if (couStart == false)
+                {
+                    StartCoroutine(spawnNote());
+                }
 
+            }
+            else
+            {
+                UICombo.text = ScoreManager.Instance.getCombo().ToString();
+                UIScore.text = ScoreManager.Instance.getScore().ToString();
+                canvas.SetActive(true);
+
+            }
         }
+
        
     }
 

@@ -119,7 +119,7 @@ public class ChildAIController : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) == 801)
+        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
         {
             SwitchState(State.SLEEP);
         }
@@ -138,10 +138,16 @@ public class ChildAIController : MonoBehaviour
 
         if(Vector3.Distance(transform.position, radiator.position) < 2f) 
         {
-            UIManager.Instance.DisplayNotification("Child has messed with a radiator");
+            if (pickRadiator)
+            {
+                UIManager.Instance.DisplayNotification("Child has messed with a radiator");
+                pickRadiator = false;
+            }
+            
             radiator.GetComponent<Radiator>().isOn = !radiator.GetComponent<Radiator>().isOn;
-            pickRadiator = false;
+            //radiator.GetComponent<RoomTempChanger>().UpdateText();
             SwitchState(State.RADIATOR);
+            
         }
     }
 
@@ -155,7 +161,7 @@ public class ChildAIController : MonoBehaviour
 
         agent.destination = timeoutPos.position;
 
-        if(Vector3.Distance(transform.position, timeoutPos.position) < 2f)
+        if(Vector3.Distance(transform.position, timeoutPos.position) < 2.5f)
         {
             timeoutTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             if(timeoutTimer >= randomTimeoutTime)
@@ -163,6 +169,7 @@ public class ChildAIController : MonoBehaviour
                 SwitchState(State.FINISH_TIMEOUT);
                 randomTimeoutTime = 0;
                 generateRandomTime = false;
+                timeoutTimer = 0;
             }
         }
     }
@@ -181,10 +188,16 @@ public class ChildAIController : MonoBehaviour
         //Debug.Log(Vector3.Distance(transform.position, window.position));
         if(Vector3.Distance(transform.position, window.position) < 2f)
         {
-            UIManager.Instance.DisplayNotification("Child has messed with a window");
+            if (pickWindow)
+            {
+                UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
+                pickWindow = false;
+            }
+            
             window.GetComponent<Window>().isOn = true;
+            //window.GetComponent<RoomTempChanger>().UpdateText();
             Debug.Log("open window");
-            pickWindow = false;
+
             SwitchState(State.OPEN_WINDOW);
         }
     }
@@ -199,10 +212,11 @@ public class ChildAIController : MonoBehaviour
         }
         agent.destination = idlePos.position;
 
-        if(Vector3.Distance(transform.position, idlePos.position) < 0.5f)
+        if (Vector3.Distance(transform.position, idlePos.position) < 1.5f)
         {
             
             idleTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
+            
             if (idleTimer >= randomTime)
             {
                 SwitchState(State.IDLE);

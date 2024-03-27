@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterAttributes : MonoBehaviour
 {
@@ -41,12 +42,21 @@ public class CharacterAttributes : MonoBehaviour
 
     CharacterTemperature temp;
 
+    public bool isExercising = false;
+
+    public float happinessChange;
+
     [Header("Comfortable Bools")]
-    public bool isCold;
-    public bool isTired;
-    public bool isBored;
-    public bool isHungry;
-    public bool flies;
+    public bool isCold = false;
+    public bool isTired = false;
+    public bool isBored = false;
+    public bool isHungry = false;
+    public bool flies = false;
+
+    Image hungerFill;
+    Image tirednessFill;
+    Image boredomFill;
+    Image happinessFill;
 
 
 
@@ -57,10 +67,16 @@ public class CharacterAttributes : MonoBehaviour
         baseHungerMul = hungerMultiplier;
         baseBoredemMul = boredomMultiplier;
 
+        hungerFill = UIManager.Instance.hungerSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        tirednessFill = UIManager.Instance.tirednessSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        boredomFill = UIManager.Instance.boredomSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+        happinessFill = UIManager.Instance.happinessSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+
         hungerSleepMul = hungerMultiplier * sleepMultiplier;
         boredomSleepMul = boredomMultiplier * sleepMultiplier;
         temp = GetComponent<CharacterTemperature>();
         happiness = 50;
+        boredom = 100;
     }
 
     // Update is called once per frame
@@ -75,7 +91,6 @@ public class CharacterAttributes : MonoBehaviour
         if(!isCold && !isBored && !isHungry && !isTired && !flies)
         {
             temp.isComfortable = true;
-            happinessMultiplier = 10;
         }
         else
         {
@@ -106,64 +121,76 @@ public class CharacterAttributes : MonoBehaviour
 
         if (!eating)
         {
-            hunger += Time.deltaTime * (hungerMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
+            hunger -= Time.deltaTime * (hungerMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
         }
 
         if (!sleeping)
         {
-            tiredness += Time.deltaTime * (tirednessMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
+            tiredness -= Time.deltaTime * (tirednessMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
         }
 
         if (!entertaining)
         {
-            boredom += Time.deltaTime * (boredomMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
+            boredom -= Time.deltaTime * (boredomMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
         }
 
-        if (hunger >= 95 && !displayHunger)
+        if (hunger <= 5 && !displayHunger)
         {
             isHungry = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are hungry you should eat!");
             displayHunger = true;
         }
 
-        if (tiredness >= 95 && !displayTiredness)
+        if(happiness <= 10 && !displayHappiness)
+        {
+            
+            UIManager.Instance.DisplayNotification("You are unhappy");
+            displayHappiness = true;
+        }
+
+        if (tiredness <= 5 && !displayTiredness)
         {
             isTired = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are tired you should sleep!");
             displayTiredness = true;
         }
 
-        if (boredom >= 95 && !displayBoredom)
+        if (boredom <= 5 && !displayBoredom)
         {
             isBored = true;
-            happinessMultiplier += 1;
+            happinessMultiplier += happinessChange;
             UIManager.Instance.DisplayNotification("You are bored!");
             displayBoredom = true;
         }
 
 
-        if (boredom <= 0)
+        if (boredom >= 100)
         {
             isBored = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             entertaining = false;
             displayBoredom = false;
         }
 
-        if (hunger <= 0)
+        if (hunger >= 100)
         {
             isHungry = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             eating = false;
             displayHunger = false;
         }
 
-        if (tiredness <= 0)
+        if(happiness > 10)
+        {
+            displayHappiness = false;
+        }
+
+        if (tiredness >= 100)
         {
             isTired = false;
-            happinessMultiplier -= 1;
+            happinessMultiplier -= happinessChange;
             sleeping = false;
             displayTiredness = false;
         }
@@ -191,15 +218,27 @@ public class CharacterAttributes : MonoBehaviour
             }
         }
 
+        if (isExercising)
+        {
+            happiness += Time.deltaTime * (happinessMultiplier * 5 * TimeManager.Instance.timeControlMultiplier);
+        }
+
 
     }
 
     void UI()
     {
         UIManager.Instance.boredomSlider.value = boredom / 100;
+        boredomFill.color = Color.Lerp(Color.red, Color.green, boredom / 100);
+
         UIManager.Instance.hungerSlider.value = hunger / 100;
+        hungerFill.color = Color.Lerp(Color.red, Color.green, hunger / 100);
+
         UIManager.Instance.tirednessSlider.value = tiredness / 100;
+        tirednessFill.color = Color.Lerp(Color.red, Color.green, tiredness / 100);
+
         UIManager.Instance.happinessSlider.value = happiness / 100;
+        happinessFill.color = Color.Lerp(Color.red, Color.green, happiness / 100);
     }
 
     void Clamp()
@@ -215,8 +254,8 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (sleeping)
         {
-            tiredness -= 1f;
-            if (tiredness <= 0)
+            tiredness += 1f;
+            if (tiredness >= 95)
             {
                 isTired = false;
                 sleeping = false;
@@ -239,7 +278,7 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (eating)
         {
-            hunger -= Time.deltaTime * (hungerRecoveryRate / 2) * TimeManager.Instance.timeControlMultiplier;
+            hunger += Time.deltaTime * (hungerRecoveryRate / 2) * TimeManager.Instance.timeControlMultiplier;
             
         }
     }
@@ -248,7 +287,7 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (entertaining)
         {
-            boredom -= Time.deltaTime * (boredomRecoveryRate / 2) * TimeManager.Instance.timeControlMultiplier;
+            boredom += Time.deltaTime * (boredomRecoveryRate / 2) * TimeManager.Instance.timeControlMultiplier;
             happiness += Time.deltaTime * (happinessRecoveryRate / 2) * TimeManager.Instance.timeControlMultiplier;
         }
     }

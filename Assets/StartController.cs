@@ -13,6 +13,10 @@ public class StartController : MonoBehaviour
     public Button exitBtn;
     public Button optionsBtn;
 
+    private void Awake()
+    {
+    }
+
     void OnEnable()
     {
         playBtn.onClick.AddListener(StartGame);
@@ -29,7 +33,7 @@ public class StartController : MonoBehaviour
     public void StartGame()
     {
         clickSound.Play();
-        SceneManager.LoadScene("PrototypeHouse");
+        SceneManager.LoadSceneAsync(1);
 
     }
     public void ExitGame()

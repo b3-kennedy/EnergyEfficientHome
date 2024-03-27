@@ -20,7 +20,7 @@ public class CharacterTemperature : MonoBehaviour
 
     private void Start()
     {
-        defaultMat = GetComponent<MeshRenderer>().material;
+        //defaultMat = GetComponent<MeshRenderer>().material;
         if (GetComponent<CharacterAttributes>())
         {
             characterAttributes = GetComponent<CharacterAttributes>();
@@ -48,12 +48,12 @@ public class CharacterTemperature : MonoBehaviour
                 characterAttributes.isCold = true;
             }
             
-            GetComponent<MeshRenderer>().material = blue;
+            //GetComponent<MeshRenderer>().material = blue;
         }
         else if(liveTemp > maxComfortableTemp)
         {
             
-            GetComponent<MeshRenderer>().material = red;
+            //GetComponent<MeshRenderer>().material = red;
         }
         else
         {
@@ -62,7 +62,7 @@ public class CharacterTemperature : MonoBehaviour
                 characterAttributes.isCold = false;
             }
             
-            GetComponent<MeshRenderer>().material = defaultMat;
+            //GetComponent<MeshRenderer>().material = defaultMat;
         }
     }
 }
