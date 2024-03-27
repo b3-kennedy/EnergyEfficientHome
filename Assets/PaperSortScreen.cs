@@ -119,7 +119,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             Debug.Log("task complete");
             //phone.smartControlListObj.transform.GetChild(4).gameObject.SetActive(true);
             complete = true;
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position, 0.5f);
             
         }
 

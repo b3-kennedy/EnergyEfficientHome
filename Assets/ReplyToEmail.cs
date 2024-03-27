@@ -76,7 +76,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
     void CorrectAnswer()
     {
         startTimer = true;
-        AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position, 0.5f);
         AnswerColour();
         SpawnText();
     }
@@ -104,7 +104,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
         AnswerColour();
         startTimer = true;
 
-        AudioSource.PlayClipAtPoint(AudioManager.Instance.incorrectAnswer, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.incorrectAnswer, Camera.main.transform.position, 0.5f);
     }
 
     void Reset()
