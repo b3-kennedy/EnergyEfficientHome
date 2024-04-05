@@ -191,7 +191,8 @@ public class TimeManager : MonoBehaviour
             }
 
         }
-        else if(GetFloatTime(currentTime) > 805)
+        
+        if(GetFloatTime(currentTime) > 805)
         {
             newDay = false;
         }
