@@ -109,8 +109,8 @@ public class TimeManager : MonoBehaviour
         skipped = true;
         timeBeforeSleep = currentTime;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(8); //wake up 8 am next day
-        dayPassed.Invoke();
-        dayCounter++;
+        //dayPassed.Invoke();
+        //dayCounter++;
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();

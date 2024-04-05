@@ -37,4 +37,16 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Tutorial()
+    {
+        pauseMenu.SetActive(false);
+        Tutorials.Instance.closeButton.onClick.AddListener(UnhidePauseAfterTutorial);
+        Tutorials.Instance.tutorialPanel.SetActive(true);
+    }
+
+    public void UnhidePauseAfterTutorial()
+    {
+        pauseMenu.SetActive(true);
+    }
+
 }
