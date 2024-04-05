@@ -58,10 +58,20 @@ public class CharacterAttributes : MonoBehaviour
     Image boredomFill;
     Image happinessFill;
 
-
+    public float timeWhenUnhappy;
+    int dayWhenUnhappy;
+    bool savedUnhappyTime = false;
+    int unhappyHoursPassed;
+    bool unhappy;
 
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        TimeManager.Instance.hourPassed.AddListener(UnhappyHoursPassed);
+    }
+
     void Start()
     {
         baseHungerMul = hungerMultiplier;
@@ -223,6 +233,34 @@ public class CharacterAttributes : MonoBehaviour
             happiness += Time.deltaTime * (happinessMultiplier * 5 * TimeManager.Instance.timeControlMultiplier);
         }
 
+
+        if(happiness <= 0)
+        {
+            if (!savedUnhappyTime)
+            {
+                timeWhenUnhappy = TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime);
+                dayWhenUnhappy = LevelManager.Instance.daysInLevel;
+                savedUnhappyTime = true;
+                unhappy = true;
+            }
+
+            if(unhappyHoursPassed >= 24)
+            {
+                ManageEndStates.Instance.UnhappyEnd();
+                unhappyHoursPassed = 0;
+            }
+
+        }
+        
+    }
+
+    public void UnhappyHoursPassed()
+    {
+        if (unhappy)
+        {
+            unhappyHoursPassed++;
+            Debug.Log(unhappyHoursPassed);
+        }
 
     }
 
