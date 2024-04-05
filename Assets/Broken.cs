@@ -22,12 +22,12 @@ public class Broken : MonoBehaviour
         UIManager.Instance.DisplayNotification(("A " + GetComponent<RoomTempChanger>().objectName + " HAS BROKEN IN THE " + transform.parent.name).ToUpper());
         if (GetComponent<Radiator>())
         {
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.radiatorBreakSound, transform.position);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.radiatorBreakSound, transform.position,0.5f);
             scriptToDisable.enabled = false;
         }
         else if(GetComponent<Window>())
         {
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.windowSmash, transform.position);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.windowSmash, transform.position, 0.5f);
             GetComponent<Window>().isOn = true;
         }
         

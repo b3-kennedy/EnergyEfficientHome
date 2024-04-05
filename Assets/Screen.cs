@@ -181,7 +181,7 @@ public class Screen : Task, IPointerDownHandler, IPointerMoveHandler, IPointerUp
             Debug.Log("task complete");
             //phone.smartControlListObj.transform.GetChild(0).gameObject.SetActive(true);
 
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position, 0.5f);
 
             red = false;
             blue = false;

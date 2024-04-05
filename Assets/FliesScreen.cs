@@ -93,7 +93,7 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
     {
         if(fliesSwatted >= flies.Count)
         {
-            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.winTaskSound, Camera.main.transform.position,0.5f);
             startTimer = true;
             fliesSwatted = 0;
 
