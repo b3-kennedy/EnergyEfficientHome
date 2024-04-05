@@ -193,7 +193,7 @@ public class ManageEndStates : MonoBehaviour
         End();
         endGamePrompt.text = "You Lost!";
         endGameReasonPrompt.text = "You were too unhappy on day " + dayCount + "!";
-        endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
+        endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
         endGameHintPrompt.text = " Here are some hints that can help you do better next time.";
     }
 
