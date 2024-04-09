@@ -170,6 +170,7 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.infoForGraph[day].AddInfoToList("Bought" + " " + item.itemName.text + " at " + TimeManager.Instance.currentTime.ToString("HH:mm") +
                     " for £" + item.itemPriceFloat);
 
+                
 
                 AddHeatPumpToRooms();
             }
@@ -217,6 +218,13 @@ public class ShopManager : MonoBehaviour
             infoPanelTitle.text = "Heat Pump";
             infoPanelBody.text = "Heat pumps are more efficient than other heating systems because the amount of heat they produce is more than the amount of electricity they use.\n" +
                 "\nHeat pumps could potentially reduce heating costs by anything between 10% to 41%";
+        }
+        else if(item.itemName.text == itemNames[2])
+        {
+            infoPanelTitle.text = "Solar PV Panels";
+            infoPanelBody.text = "Solar PV panels convert energy from the sun into electricity. \n \nThe amount of money you save from installing solar PV panels depends on how much energy\n" +
+                "is being used and how many panels are installed, however by following best practices solar PV panels will usually save around 70-80% on electricity bills. In fact solar panels \n" +
+                "can even earn you money as they can generate excess electricity during summer which can be sold back to the grid.";
         }
     }
 
@@ -276,6 +284,7 @@ public class ShopManager : MonoBehaviour
     {
         Debug.Log("add item " + item.itemNameString + " to basket");
         Basket.Add(item);
+        DisplayItemInfo(item);
         SetUpdatedTotalCostTexts();
 
     }

@@ -46443,6 +46443,7 @@ MonoBehaviour:
   - {fileID: 7291372361820708251, guid: fd7fea8efe25cd34782f7c257624cb40, type: 3}
   - {fileID: 7291372361820708251, guid: baeea1c94b09ae846b02a7c410c5d586, type: 3}
   - {fileID: 7291372361820708251, guid: 05ed6a18b65fab0439631d929532def8, type: 3}
+  - {fileID: 7291372361820708251, guid: 6e41b1f3eb01fa740add84d0a6910e0c, type: 3}
   emailParent: {fileID: 2512703171686830189}
   gameTimerText: {fileID: 553394037790665863}
   moneyEarnedText: {fileID: 180765785742253071, guid: 08887243cff006b4b9c9a957cba3143a, type: 3}
