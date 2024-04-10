@@ -707,6 +707,7 @@ MonoBehaviour:
   playerInteract: {fileID: 0}
   targetTemp: 15
   targetTempText: {fileID: 8155337631504119284}
+  maxTemp: 30
 --- !u!1 &4502981336607844484
 GameObject:
   m_ObjectHideFlags: 0
