@@ -61805,7 +61805,7 @@ Transform:
   m_GameObject: {fileID: 8968873019247370055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1594.4673, y: -117.37972, z: 227.88132}
+  m_LocalPosition: {x: -2722.1, y: -117.37972, z: 665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63561,6 +63561,7 @@ MonoBehaviour:
   flyScreen: {fileID: 7681852189624005171}
   wireScreen: {fileID: 8470182462099403271}
   sortScreen: {fileID: 522717094875732190}
+  player: {fileID: 0}
   electricityCosts: 0
   baseElectricityHourlyCost: 0.05
   savedMoneyByUpgrades: 0

@@ -42,4 +42,9 @@ public class Tutorials : MonoBehaviour
     {
         Application.OpenURL("https://www.youtube.com/watch?v=_ETUe63rTUc");
     }
+
+    public void PhoneandMoneyVideo()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=_ETUe63rTUc");
+    }
 }
