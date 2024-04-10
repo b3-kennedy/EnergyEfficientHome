@@ -17857,59 +17857,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: aecd49cd9151f5743bdad339b7e40c2c, type: 3}
---- !u!1 &729944002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7112425846084687488, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
-  m_PrefabInstance: {fileID: 4300551862123360544}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &729944009
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729944002}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &729944016
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729944002}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &730981544 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4741901335261955724, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
@@ -73512,14 +73459,6 @@ PrefabInstance:
       propertyPath: radiatorPositions.Array.data[4]
       value: 
       objectReference: {fileID: 1857860016}
-    - target: {fileID: 5747362541290193025, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
-      propertyPath: m_Acceleration
-      value: 999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747362541290193025, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 999
-      objectReference: {fileID: 0}
     - target: {fileID: 6583684541608468000, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -107.35752
@@ -73583,13 +73522,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7112425846084687488, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 729944009}
-    - targetCorrespondingSourceObject: {fileID: 7112425846084687488, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 729944016}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece0b49050cec1047b188b4439b7b4e0, type: 3}
 --- !u!1 &4302810079386129485
 GameObject:
@@ -76696,6 +76629,7 @@ MonoBehaviour:
   flyScreen: {fileID: 7681852189624005171}
   wireScreen: {fileID: 8470182462099403271}
   sortScreen: {fileID: 522717094875732190}
+  player: {fileID: 0}
   electricityCosts: 0
   baseElectricityHourlyCost: 0.05
   savedMoneyByUpgrades: 0

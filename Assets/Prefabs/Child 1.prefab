@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5032484010896398260}
   - component: {fileID: 3861420079670059553}
   - component: {fileID: 7179805580207430997}
+  - component: {fileID: 3782332405615356775}
+  - component: {fileID: 4840575741635190163}
   m_Layer: 0
   m_Name: Child 1
   m_TagString: Untagged
@@ -70,6 +72,7 @@ MonoBehaviour:
   maxTime: 15
   minTimeout: 5
   maxTimeout: 15
+  timeoutTimer: 0
   sleepPos: {fileID: 0}
   modelRenderer: {fileID: 0}
 --- !u!195 &5747362541290193025
@@ -136,15 +139,63 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112425846084687488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59cfcfde3b0a57b4485b464a7d361b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   floor: 0
-  skinnedMeshRenderer: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 8770779317372255898}
   meshRenderer: {fileID: 0}
+--- !u!65 &3782332405615356775
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112425846084687488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8293228, y: 1, z: 1.6934714}
+  m_Center: {x: -0.0027122498, y: 0, z: 0.05877471}
+--- !u!54 &4840575741635190163
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112425846084687488}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &140047973547080282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +258,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3830a7ac0f6234935b5d4aaef3e738d1, type: 3}
   m_PrefabInstance: {fileID: 140047973547080282}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &8770779317372255898 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8667632346177569984, guid: 3830a7ac0f6234935b5d4aaef3e738d1, type: 3}
+  m_PrefabInstance: {fileID: 140047973547080282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7347247744190473313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,7 +289,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4275161622968173078, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081047365053623487, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_Name
+      value: ChildInteractionButton
       objectReference: {fileID: 0}
     - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_Pivot.x
@@ -321,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7338536614883720835, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Timeout
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

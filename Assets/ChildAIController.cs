@@ -29,7 +29,7 @@ public class ChildAIController : MonoBehaviour
     public float minTimeout;
     public float maxTimeout;
     float randomTimeoutTime;
-    float timeoutTimer;
+    public float timeoutTimer;
     bool generateTimeoutTime;
 
     bool pickRadiator;
@@ -166,7 +166,7 @@ public class ChildAIController : MonoBehaviour
             timeoutTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             if(timeoutTimer >= randomTimeoutTime)
             {
-                randomTimeoutTime = 0;
+                //randomTimeoutTime = 0;
                 generateRandomTime = false;
                 timeoutTimer = 0;
                 SwitchState(State.FINISH_TIMEOUT);
