@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ManageEndStates : MonoBehaviour
 {
+
+    public static ManageEndStates Instance;
+
     public GameObject player;
     public GameObject AICharacter;
     public GameObject levelManager;
@@ -44,6 +47,12 @@ public class ManageEndStates : MonoBehaviour
 
     public TMP_Text dayCountUItxt;
     public TMP_Text budgetUItxt;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -123,7 +132,7 @@ public class ManageEndStates : MonoBehaviour
                 {
                     End();
                     endGamePrompt.text = "You Lost!!";
-                    endGameReasonPrompt.text = "You Froze To Death on day "+dayCount+"!!";
+                    endGameReasonPrompt.text = "You were too cold on day "+dayCount+"!!";
                     endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
@@ -139,7 +148,7 @@ public class ManageEndStates : MonoBehaviour
                     End();
                     endGamePrompt.text = "You Lost!!";
                     endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
-                    endGameReasonPrompt.text = "You Melted and died on day "+dayCount+"!!";
+                    endGameReasonPrompt.text = "You were too hot and died on day "+dayCount+"!!";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
                 }
@@ -150,8 +159,8 @@ public class ManageEndStates : MonoBehaviour
 
                 End();
                 endGamePrompt.text = "You Lost!!";
-                endGameReasonPrompt.text = "Your Friend forze on day "+dayCount+"!!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
+                endGameReasonPrompt.text = "Your Friend was too cold on day "+dayCount+"!!";
+                endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
                 endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
 
             }
@@ -159,18 +168,9 @@ public class ManageEndStates : MonoBehaviour
             {
                 End();
                 endGamePrompt.text = "You Lost!!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
-                endGameReasonPrompt.text = "Your Friend Melted on day"+dayCount+"!!";
+                endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
+                endGameReasonPrompt.text = "Your friend was too hot on day"+dayCount+"!!";
                 endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
-            }
-            else if (happinessValue <= 0)
-            {
-                End();
-                endGamePrompt.text = "You Lost!";
-                endGameReasonPrompt.text = "You were too unhappy and died on day "+dayCount+"!";
-                endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
-                endGameHintPrompt.text = " Here are some hints that can help you do better next time.";
-                
             }
         }
         if (dayCount == 7)
@@ -178,7 +178,7 @@ public class ManageEndStates : MonoBehaviour
             End();
             nextButtonGO.SetActive(true);
             restartButtonGO.SetActive(false);
-            endGamePrompt.text = "Your Won!!";
+            endGamePrompt.text = "You Won!!";
             endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
             endGameReasonPrompt.text = "Good Job! You Managed To Stay In A comfortable situation for 7 consequitive days. you now passed the first level(tutorial)";
             endGameHintPrompt.text = "you really seemed to know what you were doing! still, here are some hints that can help you do even better after the tutorial.";
@@ -186,6 +186,17 @@ public class ManageEndStates : MonoBehaviour
         }
 
     }
+
+
+    public void UnhappyEnd()
+    {
+        End();
+        endGamePrompt.text = "You Lost!";
+        endGameReasonPrompt.text = "You were too unhappy on day " + dayCount + "!";
+        endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
+        endGameHintPrompt.text = " Here are some hints that can help you do better next time.";
+    }
+
     public void End()
     {
         endScreen.SetActive(true);

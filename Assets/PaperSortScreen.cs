@@ -34,6 +34,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     // Start is called before the first frame update
     void Start()
     {
+        //Reset();
         thisRect = GetComponent<RectTransform>();
         gameTimer = 10;
     }
@@ -80,11 +81,11 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             GameObject spawnedPaper = Instantiate(paper[paperNum], paperParent);
             if(i > 0)
             {
-                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, 0.67f + (i * 0.01f));
+                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, -0.13f + (i * 0.1f));
             }
             else
             {
-                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, 0.67f);
+                spawnedPaper.transform.localPosition = new Vector3(0.18f, -2.54f, -0.13f);
             }
             
         }

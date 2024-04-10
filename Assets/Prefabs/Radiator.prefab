@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4789508712005406075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337128228849966683}
+  m_Layer: 0
+  m_Name: IndicatorPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &337128228849966683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789508712005406075}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.366, z: 0.007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3906129220804576638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6091173191628551949
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +67,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7102514735418719735}
+  - {fileID: 337128228849966683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270.044, z: 0}
 --- !u!33 &4126516187007619617
@@ -107,8 +139,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5113963, y: 0.9999998, z: 0.6064491}
-  m_Center: {x: 0.056297906, y: 0, z: 0.22938335}
+  m_Size: {x: 1.5776801, y: 1.018191, z: 0.42792913}
+  m_Center: {x: -0.23948094, y: 0.009097721, z: 0.25972226}
 --- !u!65 &4465074856302628249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -128,8 +160,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4845052, y: 0.9999998, z: 0.31169325}
-  m_Center: {x: 0.06572377, y: 0, z: -0.01564836}
+  m_Size: {x: 1.7156136, y: 0.9999998, z: 0}
+  m_Center: {x: -0.22454876, y: 0, z: 0.0701644}
 --- !u!114 &-823209461589841921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824c060c960f8df43bee626215712e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenIndicator: {fileID: 4752269801289164636, guid: b71579d48d6e57645831976bdfc89323, type: 3}
   yHeight: 1.5
   enable:
     m_PersistentCalls:
@@ -170,7 +201,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   scriptToDisable: {fileID: -823209461589841921}
+  indicatorPos: {fileID: 337128228849966683}
   fixCost: 50
+  windowIndicator: {fileID: 0}
+  radiatorIndicator: {fileID: 4733558079572585825, guid: 6df8fe73d15630146993d8f51679e392, type: 3}
 --- !u!1001 &4262327460603947045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,11 +243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054064676852405421, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 212
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 5054064676852405421, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 171
+      value: -131
       objectReference: {fileID: 0}
     - target: {fileID: 5081047365053623487, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_Name
@@ -298,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 6464890582424409554, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338536614883720835, guid: 27fd8f33a3d09ec43a6e4f321c11b9be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RadiatorAndWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

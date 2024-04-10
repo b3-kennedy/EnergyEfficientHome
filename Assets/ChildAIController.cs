@@ -166,10 +166,11 @@ public class ChildAIController : MonoBehaviour
             timeoutTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             if(timeoutTimer >= randomTimeoutTime)
             {
-                SwitchState(State.FINISH_TIMEOUT);
                 randomTimeoutTime = 0;
                 generateRandomTime = false;
                 timeoutTimer = 0;
+                SwitchState(State.FINISH_TIMEOUT);
+
             }
         }
     }
