@@ -283,8 +283,8 @@ public class LevelManager : MonoBehaviour
                             
                             if (heatPump)
                             {
-                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
-                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.3f;
+                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.4f;
+                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.6f;
                                 onSavedMoney.Invoke();
                             }
                             else
