@@ -456,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3078652901967717500}
   - component: {fileID: 3312645653024316658}
+  - component: {fileID: 1364115414549598806}
   m_Layer: 0
   m_Name: PipeSet 3
   m_TagString: Untagged
@@ -502,6 +503,20 @@ MonoBehaviour:
   correctResponse: {fileID: 6270047204807719988}
   incorrectResponse: {fileID: 109620112586833757}
   moveSpeed: 1
+--- !u!114 &1364115414549598806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6673285718616285108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fd1cd3a1bb646428db108e6bc1d092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 20
+  hide: 1
 --- !u!1 &7024114968194703419
 GameObject:
   m_ObjectHideFlags: 0

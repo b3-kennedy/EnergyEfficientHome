@@ -65649,7 +65649,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!23 &1558643247871594596
 MeshRenderer:
@@ -70598,6 +70598,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5162953141875990979}
+    - target: {fileID: 1581810342549977642, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1960581122641050647, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -209

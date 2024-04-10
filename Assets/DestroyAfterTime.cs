@@ -6,6 +6,7 @@ public class DestroyAfterTime : MonoBehaviour
 {
 
     public float destroyTime;
+    public bool hide;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,14 @@ public class DestroyAfterTime : MonoBehaviour
     IEnumerator Destroy()
     {
         yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
+        if (!hide)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 }

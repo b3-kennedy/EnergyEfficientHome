@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
     public GameObject wireScreen;
     public GameObject sortScreen;
 
-
+    [HideInInspector] public GameObject player;
 
     public float electricityCosts ; 
 
@@ -127,6 +127,8 @@ public class LevelManager : MonoBehaviour
             }
 
         }
+
+        player = GetComponent<ManageEndStates>().player;
     }
 
     // Update is called once per frame

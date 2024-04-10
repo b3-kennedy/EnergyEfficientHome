@@ -331,6 +331,7 @@ public class CharacterAttributes : MonoBehaviour
     }
     public void FadeIn()
     {
+        fadeOut = false;
         fadeIn = true;
         if (uiElementsToHideOnSleep != null)
         {
@@ -343,6 +344,7 @@ public class CharacterAttributes : MonoBehaviour
     }
     public void FadeOut()
     {
+        fadeIn = false;
         fadeOut = true;
         if (uiElementsToHideOnSleep != null)
         {

@@ -56,7 +56,7 @@ public class SofaInteractionController : MonoBehaviour
 
         Debug.Log(name);
         popUpGO.SetActive(false);
-        player.GetComponent<CharacterAttributes>().entertaining = true;
+        //player.GetComponent<CharacterAttributes>().entertaining = true;
         used = true;
 
         levelManager.GetComponent<LevelManager>().electricityCosts += 0.015f;
@@ -73,6 +73,9 @@ public class SofaInteractionController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+
+        player.GetComponent<CharacterAttributes>().entertaining = false;
+
         if (other.gameObject.name == "Player")
         {
             flappyBirdCanvas.SetActive(false);
