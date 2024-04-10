@@ -49,6 +49,13 @@ public class FlyMovement : MonoBehaviour
             randomDir = (centre.transform.position - transform.position).normalized;
         }
 
+        if (randomDir != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(randomDir.y, randomDir.x) * Mathf.Rad2Deg;
+            var newRot = Quaternion.AngleAxis(angle-90, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRot, Time.deltaTime * 10);
+        }
+
         rb.velocity = randomDir * speed;
 
     }
