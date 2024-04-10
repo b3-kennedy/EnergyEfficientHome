@@ -42446,7 +42446,7 @@ RectTransform:
   m_GameObject: {fileID: 6492007391699870409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 922468965}
@@ -44621,7 +44621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -1145}
+  m_AnchoredPosition: {x: 140, y: -225}
   m_SizeDelta: {x: 280, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522356638058768533
@@ -54983,8 +54983,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Your Budget : \xA3 500"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de89b1b0dd06045f49c22203fb56a198, type: 2}
-  m_sharedMaterial: {fileID: -8301804039068048873, guid: de89b1b0dd06045f49c22203fb56a198, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -62111,7 +62111,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7392653490704847186}
   m_HandleRect: {fileID: 4337631259990240521}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.18249549
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -80174,7 +80174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -685}
+  m_AnchoredPosition: {x: 140, y: -225}
   m_SizeDelta: {x: 280, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &8418250966182782563
