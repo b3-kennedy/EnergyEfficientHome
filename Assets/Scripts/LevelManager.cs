@@ -96,6 +96,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -183,7 +188,7 @@ public class LevelManager : MonoBehaviour
     void CountDays()
     {
         daysInLevel++;
-        if(daysInLevel >= maxDaysInLevel)
+        if (daysInLevel >= maxDaysInLevel)
         {
 
             CalculateMoneySavedScore();
@@ -194,6 +199,8 @@ public class LevelManager : MonoBehaviour
             UIManager.Instance.moneySaved.text = "Money Saved: £" + budget.ToString();
 
             gameEnd = true;
+
+            Time.timeScale = 0;
         }
     }
 

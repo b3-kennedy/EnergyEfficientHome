@@ -85,6 +85,8 @@ public class TimeManager : MonoBehaviour
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         newHour = hour;
+
+        Time.timeScale = 1;
     }
     bool skipped = false;
     // Update is called once per frame

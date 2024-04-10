@@ -144,7 +144,7 @@ public class CharacterAttributes : MonoBehaviour
             boredom -= Time.deltaTime * (boredomMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
         }
 
-        if (hunger <= 5 && !displayHunger)
+        if (hunger <= 25 && !displayHunger)
         {
             isHungry = true;
             happinessMultiplier += happinessChange;
@@ -152,14 +152,14 @@ public class CharacterAttributes : MonoBehaviour
             displayHunger = true;
         }
 
-        if(happiness <= 10 && !displayHappiness)
+        if(happiness <= 25 && !displayHappiness)
         {
             
             UIManager.Instance.DisplayNotification("You are unhappy");
             displayHappiness = true;
         }
 
-        if (tiredness <= 5 && !displayTiredness)
+        if (tiredness <= 25 && !displayTiredness)
         {
             isTired = true;
             happinessMultiplier += happinessChange;
@@ -167,7 +167,7 @@ public class CharacterAttributes : MonoBehaviour
             displayTiredness = true;
         }
 
-        if (boredom <= 5 && !displayBoredom)
+        if (boredom <= 25 && !displayBoredom)
         {
             isBored = true;
             happinessMultiplier += happinessChange;
@@ -192,7 +192,7 @@ public class CharacterAttributes : MonoBehaviour
             displayHunger = false;
         }
 
-        if(happiness > 10)
+        if(happiness > 25)
         {
             displayHappiness = false;
         }
