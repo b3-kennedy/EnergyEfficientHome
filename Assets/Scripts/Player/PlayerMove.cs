@@ -137,7 +137,7 @@ public class PlayerMove : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            Quaternion rot = Quaternion.LookRotation(move.normalized, Vector3.up);
+            Quaternion rot = Quaternion.LookRotation(horMove, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotationSpeed * Time.deltaTime);
             lastRot = transform.eulerAngles;
         }
