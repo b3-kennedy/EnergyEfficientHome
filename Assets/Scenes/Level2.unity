@@ -62422,6 +62422,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
+--- !u!1 &916408523680608768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7082820040337114936, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
+  m_PrefabInstance: {fileID: 916408523680608767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918126306447199806
 GameObject:
   m_ObjectHideFlags: 0
@@ -77669,7 +77674,7 @@ MonoBehaviour:
   flies:
   - {fileID: 184442715}
   - {fileID: 1719359516}
-  - {fileID: 0}
+  - {fileID: 916408523680608768}
   fly: {fileID: 232214685474585027, guid: 12daf5aad3c0d7744980058aeb948729, type: 3}
   canvas: {fileID: 2301635082090964698}
   screenCam: {fileID: 1609381750}

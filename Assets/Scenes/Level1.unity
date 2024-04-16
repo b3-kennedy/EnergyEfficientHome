@@ -16867,6 +16867,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4255186633505938192, guid: 23f588d275e5c4c108c23ca90a394249, type: 3}
   m_PrefabInstance: {fileID: 1328470382175933709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &738485076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7082820040337114936, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
+  m_PrefabInstance: {fileID: 916408523680608767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &739972879 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2478847717154721596, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
@@ -46556,7 +46561,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8212094148351273728, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3755456734379755958, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
@@ -65482,7 +65488,7 @@ MonoBehaviour:
   flies:
   - {fileID: 1419877307}
   - {fileID: 1749401699}
-  - {fileID: 0}
+  - {fileID: 738485076}
   fly: {fileID: 232214685474585027, guid: 12daf5aad3c0d7744980058aeb948729, type: 3}
   canvas: {fileID: 2301635082090964698}
   screenCam: {fileID: 739972879}
