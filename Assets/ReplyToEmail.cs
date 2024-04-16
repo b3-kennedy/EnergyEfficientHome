@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -117,7 +118,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
             Destroy(currentEmail);
         }
 
-        int randomNum = Random.Range(0, emails.Length);
+        int randomNum = UnityEngine.Random.Range(0, emails.Length);
         if (emails[randomNum] != prevEmail)
         {
             currentEmail = Instantiate(emails[randomNum], emailParent);
@@ -165,7 +166,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
     void Update()
     {
         gameTimer -= Time.deltaTime;
-        gameTimerText.text = (Mathf.Round(gameTimer * 10f) * 0.1f).ToString();
+        gameTimerText.text = String.Format("{0:0.0}", gameTimer);
 
 
         if (startTimer)

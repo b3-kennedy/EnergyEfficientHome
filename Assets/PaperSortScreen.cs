@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -75,9 +76,9 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
 
     void Reset()
     {
-        for (int i = 0; i < Random.Range(5,13); i++)
+        for (int i = 0; i < UnityEngine.Random.Range(5,13); i++)
         {
-            int paperNum = Random.Range(0, paper.Length);
+            int paperNum = UnityEngine.Random.Range(0, paper.Length);
             GameObject spawnedPaper = Instantiate(paper[paperNum], paperParent);
             if(i > 0)
             {
@@ -104,8 +105,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
     {
         if (started)
         {
-            float roundedNum = (Mathf.Round(gameTimer * 10f) * 0.1f);
-            timerText.text = roundedNum.ToString();
+            timerText.text = String.Format("{0:0.0}", gameTimer);
             gameTimer -= Time.deltaTime;
             
         }
