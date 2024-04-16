@@ -146,8 +146,7 @@ public class CharacterAttributes : MonoBehaviour
 
         if (hunger <= 25 && !displayHunger)
         {
-            isHungry = true;
-            happinessMultiplier += happinessChange;
+            
             UIManager.Instance.DisplayNotification("You are hungry you should eat!");
             displayHunger = true;
         }
@@ -161,18 +160,34 @@ public class CharacterAttributes : MonoBehaviour
 
         if (tiredness <= 25 && !displayTiredness)
         {
-            isTired = true;
-            happinessMultiplier += happinessChange;
+            
             UIManager.Instance.DisplayNotification("You are tired you should sleep!");
             displayTiredness = true;
         }
 
         if (boredom <= 25 && !displayBoredom)
         {
-            isBored = true;
-            happinessMultiplier += happinessChange;
+            
             UIManager.Instance.DisplayNotification("You are bored!");
             displayBoredom = true;
+        }
+
+        if(boredom <= 0)
+        {
+            isBored = true;
+            happinessMultiplier += happinessChange;
+        }
+
+        if(tiredness <= 0)
+        {
+            isTired = true;
+            happinessMultiplier += happinessChange;
+        }
+
+        if(hunger <= 0)
+        {
+            isHungry = true;
+            happinessMultiplier += happinessChange;
         }
 
 
