@@ -254,6 +254,7 @@ public class CharacterAttributes : MonoBehaviour
         else if (happiness > 0)
         {
             unhappy = false;
+            savedUnhappyTime = false;
         }
         
     }
