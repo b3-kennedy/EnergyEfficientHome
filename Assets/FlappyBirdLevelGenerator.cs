@@ -36,6 +36,8 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
     CharacterAttributes characterAttributes;
 
+    public GameObject player;
+
 
     private void Awake()
     {
@@ -45,7 +47,7 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterAttributes = LevelManager.Instance.player.GetComponent<CharacterAttributes>();
+        characterAttributes = player.GetComponent<CharacterAttributes>();
     }
 
     public void OnStart()
