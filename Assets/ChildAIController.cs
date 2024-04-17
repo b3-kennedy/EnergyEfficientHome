@@ -39,11 +39,17 @@ public class ChildAIController : MonoBehaviour
 
     public MeshRenderer modelRenderer;
 
+    [Header("Animator")]
+    public Animator animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         state = State.IDLE;
+        
+      
     }
 
     // Update is called once per frame
@@ -119,7 +125,8 @@ public class ChildAIController : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
-        if(TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
+        animator.SetBool("IsWalk", true);
+        if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) > 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
         {
             SwitchState(State.SLEEP);
         }
@@ -135,9 +142,10 @@ public class ChildAIController : MonoBehaviour
         }
 
         agent.destination = radiator.position;
-
-        if(Vector3.Distance(transform.position, radiator.position) < 2f) 
+        animator.SetBool("IsWalk", true);
+        if (Vector3.Distance(transform.position, radiator.position) < 2f) 
         {
+            animator.SetBool("IsWalk", false);
             if (pickRadiator)
             {
                 UIManager.Instance.DisplayNotification("Child has messed with a radiator");
@@ -160,9 +168,10 @@ public class ChildAIController : MonoBehaviour
         }
 
         agent.destination = timeoutPos.position;
-
-        if(Vector3.Distance(transform.position, timeoutPos.position) < 2.5f)
+        animator.SetBool("IsWalk", true);
+        if (Vector3.Distance(transform.position, timeoutPos.position) < 2.5f)
         {
+            animator.SetBool("IsWalk", false);
             timeoutTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             if(timeoutTimer >= randomTimeoutTime)
             {
@@ -185,10 +194,11 @@ public class ChildAIController : MonoBehaviour
         }
 
         agent.destination = window.position;
-
+        animator.SetBool("IsWalk", true);
         //Debug.Log(Vector3.Distance(transform.position, window.position));
-        if(Vector3.Distance(transform.position, window.position) < 2f)
+        if (Vector3.Distance(transform.position, window.position) < 2f)
         {
+            animator.SetBool("IsWalk", false);
             if (pickWindow)
             {
                 UIManager.Instance.DisplayNotification("Child has messed with a window in the " + window.transform.parent.name);
@@ -212,10 +222,10 @@ public class ChildAIController : MonoBehaviour
             generateRandomTime = true;
         }
         agent.destination = idlePos.position;
-
+        animator.SetBool("IsWalk", true);
         if (Vector3.Distance(transform.position, idlePos.position) < 1.5f)
         {
-            
+            animator.SetBool("IsWalk", false);
             idleTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             
             if (idleTimer >= randomTime)
