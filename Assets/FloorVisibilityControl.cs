@@ -19,7 +19,7 @@ public class FloorVisibilityControl : MonoBehaviour
         playerFloor = player.gameObject.GetComponent<FloorVisibilityControl>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("SecondFloor"))
         {
