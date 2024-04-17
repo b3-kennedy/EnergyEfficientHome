@@ -11,6 +11,7 @@ public class RoomThermostat : TemperatureAlteringObject
     [HideInInspector] public Interact playerInteract;
     public float targetTemp;
     public TextMeshProUGUI targetTempText;
+    public float maxTemp;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,11 @@ public class RoomThermostat : TemperatureAlteringObject
                 thermostatUI.SetActive(false);
                 playerInteract = null;
             }
+        }
+
+        if(targetTemp > maxTemp)
+        {
+            targetTemp = maxTemp;
         }
 
     }

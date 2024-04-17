@@ -125,7 +125,7 @@ public class ShopManager : MonoBehaviour
 
 
 
-            if (item.itemName.text == itemNames[2])
+            if (item.itemName.text == itemNames[0])
             {
                 LevelManager.Instance.PV = true;
                 HouseUpgradeUsageIcons[2].SetActive(false);
@@ -140,7 +140,7 @@ public class ShopManager : MonoBehaviour
                 
 
             }
-            if (item.itemName.text == itemNames[4])
+            if (item.itemName.text == itemNames[2])
             {
                 LevelManager.Instance.doubleGlazing = true;
                 LevelManager.Instance.DoubleGlazing();
@@ -158,7 +158,7 @@ public class ShopManager : MonoBehaviour
 
             }
             
-            if(item.itemName.text == itemNames[3])
+            if(item.itemName.text == itemNames[1])
             {
                 LevelManager.Instance.heatPump = true;
                 HouseUpgradeUsageIcons[0].SetActive(false);
@@ -175,14 +175,14 @@ public class ShopManager : MonoBehaviour
                 AddHeatPumpToRooms();
             }
 
-            if(item.itemName.text == itemNames[5])
-            {
-                for (int i = 0; i < MobilePhoneScreen.transform.parent.GetChild(5).childCount; i++)
-                {
-                    MobilePhoneScreen.transform.parent.GetChild(5).GetChild(i).gameObject.SetActive(true);
-                }
+            //if(item.itemName.text == itemNames[5])
+            //{
+            //    for (int i = 0; i < MobilePhoneScreen.transform.parent.GetChild(5).childCount; i++)
+            //    {
+            //        MobilePhoneScreen.transform.parent.GetChild(5).GetChild(i).gameObject.SetActive(true);
+            //    }
                 
-            }
+            //}
         }
 
         UpdateBudgetText();
@@ -205,7 +205,7 @@ public class ShopManager : MonoBehaviour
     {
         Time.timeScale = 0;
         infoPanel.SetActive(true);
-        if (item.itemName.text == itemNames[4])
+        if (item.itemName.text == itemNames[2])
         {
             
             infoPanelTitle.text = "Double Glazing";
@@ -213,13 +213,13 @@ public class ShopManager : MonoBehaviour
                 "between two panes of glass. This stops the air from circulating which significantly lessens convection resulting in a decrease of heat loss across the window.\n" +
                 "\nDouble glazing can improve the warmth of your house by up to 64%";
         }
-        else if(item.itemName.text == itemNames[3])
+        else if(item.itemName.text == itemNames[1])
         {
             infoPanelTitle.text = "Heat Pump";
             infoPanelBody.text = "Heat pumps are more efficient than other heating systems because the amount of heat they produce is more than the amount of electricity they use.\n" +
                 "\nHeat pumps could potentially reduce heating costs by anything between 10% to 41%";
         }
-        else if(item.itemName.text == itemNames[2])
+        else if(item.itemName.text == itemNames[0])
         {
             infoPanelTitle.text = "Solar PV Panels";
             infoPanelBody.text = "Solar PV panels convert energy from the sun into electricity. \n \nThe amount of money you save from installing solar PV panels depends on how much energy\n" +

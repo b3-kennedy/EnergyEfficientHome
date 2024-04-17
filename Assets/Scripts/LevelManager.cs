@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
     public GameObject wireScreen;
     public GameObject sortScreen;
 
-
+    [HideInInspector] public GameObject player;
 
     public float electricityCosts ; 
 
@@ -96,6 +96,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +127,8 @@ public class LevelManager : MonoBehaviour
             }
 
         }
+
+        player = GetComponent<ManageEndStates>().player;
     }
 
     // Update is called once per frame
@@ -183,7 +190,7 @@ public class LevelManager : MonoBehaviour
     void CountDays()
     {
         daysInLevel++;
-        if(daysInLevel >= maxDaysInLevel)
+        if (daysInLevel >= maxDaysInLevel)
         {
 
             CalculateMoneySavedScore();
@@ -194,6 +201,8 @@ public class LevelManager : MonoBehaviour
             UIManager.Instance.moneySaved.text = "Money Saved: £" + budget.ToString();
 
             gameEnd = true;
+
+            Time.timeScale = 0;
         }
     }
 
@@ -274,8 +283,8 @@ public class LevelManager : MonoBehaviour
                             
                             if (heatPump)
                             {
-                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.7f;
-                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.3f;
+                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.4f;
+                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.6f;
                                 onSavedMoney.Invoke();
                             }
                             else

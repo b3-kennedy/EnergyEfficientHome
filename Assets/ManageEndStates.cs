@@ -173,14 +173,14 @@ public class ManageEndStates : MonoBehaviour
                 endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
             }
         }
-        if (dayCount == 7)
+        if (dayCount >= 7)
         {
             End();
             nextButtonGO.SetActive(true);
             restartButtonGO.SetActive(false);
             endGamePrompt.text = "You Won!!";
             endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
-            endGameReasonPrompt.text = "Good Job! You Managed To Stay In A comfortable situation for 7 consequitive days. you now passed the first level(tutorial)";
+            endGameReasonPrompt.text = "Good Job! You Managed To Stay In A comfortable situation for 7 consequitive days.";
             endGameHintPrompt.text = "you really seemed to know what you were doing! still, here are some hints that can help you do even better after the tutorial.";
            
         }

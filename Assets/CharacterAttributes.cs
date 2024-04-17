@@ -144,35 +144,50 @@ public class CharacterAttributes : MonoBehaviour
             boredom -= Time.deltaTime * (boredomMultiplier / 2) * TimeManager.Instance.timeControlMultiplier;
         }
 
-        if (hunger <= 5 && !displayHunger)
+        if (hunger <= 25 && !displayHunger)
         {
-            isHungry = true;
-            happinessMultiplier += happinessChange;
+            
             UIManager.Instance.DisplayNotification("You are hungry you should eat!");
             displayHunger = true;
         }
 
-        if(happiness <= 10 && !displayHappiness)
+        if(happiness <= 25 && !displayHappiness)
         {
             
             UIManager.Instance.DisplayNotification("You are unhappy");
             displayHappiness = true;
         }
 
-        if (tiredness <= 5 && !displayTiredness)
+        if (tiredness <= 25 && !displayTiredness)
         {
-            isTired = true;
-            happinessMultiplier += happinessChange;
+            
             UIManager.Instance.DisplayNotification("You are tired you should sleep!");
             displayTiredness = true;
         }
 
-        if (boredom <= 5 && !displayBoredom)
+        if (boredom <= 25 && !displayBoredom)
+        {
+            
+            UIManager.Instance.DisplayNotification("You are bored!");
+            displayBoredom = true;
+        }
+
+        if(boredom <= 0)
         {
             isBored = true;
             happinessMultiplier += happinessChange;
-            UIManager.Instance.DisplayNotification("You are bored!");
-            displayBoredom = true;
+        }
+
+        if(tiredness <= 0)
+        {
+            isTired = true;
+            happinessMultiplier += happinessChange;
+        }
+
+        if(hunger <= 0)
+        {
+            isHungry = true;
+            happinessMultiplier += happinessChange;
         }
 
 
@@ -192,7 +207,7 @@ public class CharacterAttributes : MonoBehaviour
             displayHunger = false;
         }
 
-        if(happiness > 10)
+        if(happiness > 25)
         {
             displayHappiness = false;
         }
@@ -250,6 +265,11 @@ public class CharacterAttributes : MonoBehaviour
                 unhappyHoursPassed = 0;
             }
 
+        }
+        else if (happiness > 0)
+        {
+            unhappy = false;
+            savedUnhappyTime = false;
         }
         
     }
@@ -331,6 +351,7 @@ public class CharacterAttributes : MonoBehaviour
     }
     public void FadeIn()
     {
+        fadeOut = false;
         fadeIn = true;
         if (uiElementsToHideOnSleep != null)
         {
@@ -343,6 +364,7 @@ public class CharacterAttributes : MonoBehaviour
     }
     public void FadeOut()
     {
+        fadeIn = false;
         fadeOut = true;
         if (uiElementsToHideOnSleep != null)
         {

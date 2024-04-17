@@ -34,6 +34,10 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
     public TextMeshProUGUI pauseText;
 
+    CharacterAttributes characterAttributes;
+
+    public GameObject player;
+
 
     private void Awake()
     {
@@ -43,6 +47,7 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characterAttributes = player.GetComponent<CharacterAttributes>();
     }
 
     public void OnStart()
@@ -63,6 +68,11 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
 
         float dist = Vector3.Distance(new Vector3(spawnedPipes[spawnedPipes.Count-1].transform.localPosition.x, 0, 0), transform.GetChild(0).localPosition);
 
+        if (!pause)
+        {
+            characterAttributes.entertaining = true;
+        }
+        
 
         if (dist > distanceBetweenPipes)
         {
@@ -83,6 +93,7 @@ public class FlappyBirdLevelGenerator : MonoBehaviour
     {
         if (pause)
         {
+            characterAttributes.entertaining = false;
             pauseText.text = "Press 'P' to Unpause";
             foreach (var pipe in spawnedPipes)
             {
