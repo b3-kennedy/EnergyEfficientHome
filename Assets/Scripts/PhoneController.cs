@@ -85,6 +85,10 @@ public class PhoneController : MonoBehaviour
         //    hidden = true;
         //    //phoneGameObject.SetActive(false);
         //}
+        if(LevelManager.Instance.gameEnd == true)
+        {
+            phoneBG.gameObject.SetActive(false);
+        }
 
         if (hidden)
         {
