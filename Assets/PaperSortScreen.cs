@@ -108,10 +108,18 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
             timerText.text = String.Format("{0:0.0}", gameTimer);
             gameTimer -= Time.deltaTime;
             
-        }
-        
 
-        if(paperParent.childCount <= 0 && !complete)
+        }
+
+
+        if (gameTimer <= 0)
+        {
+            started = false;
+            complete = true;
+            startTimer = true;
+        }
+
+        if (paperParent.childCount <= 0 && !complete)
         {
 
 

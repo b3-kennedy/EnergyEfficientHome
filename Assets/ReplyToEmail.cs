@@ -165,9 +165,20 @@ public class ReplyToEmail : Task, IPointerDownHandler
     // Update is called once per frame
     void Update()
     {
-        gameTimer -= Time.deltaTime;
-        gameTimerText.text = String.Format("{0:0.0}", gameTimer);
 
+        if(gameTimer > 0)
+        {
+            gameTimer -= Time.deltaTime;
+            gameTimerText.text = String.Format("{0:0.0}", gameTimer);
+        }
+
+
+        if (gameTimer <= 0)
+        {
+            complete = true;
+            startTimer = true;
+            SpawnText();
+        }
 
         if (startTimer)
         {
