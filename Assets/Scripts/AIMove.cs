@@ -25,6 +25,11 @@ public class AIMove : MonoBehaviour
     public float fridgeTime;
     float fridgeTimer;
 
+
+    [Header("Animator")]
+    public Animator animator;
+
+
     public SkinnedMeshRenderer modelRenderer;
     private void Start()
     {
@@ -77,9 +82,10 @@ public class AIMove : MonoBehaviour
     void Fridge()
     {
         agent.destination = fridgePos.position;
-
+        animator.SetBool("IsWalk", true);
         if (Vector3.Distance(transform.position, fridgePos.position) < 1.5f)
         {
+            animator.SetBool("IsWalk", false);
             fridgeTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
 
             if(fridgeTimer >= fridgeTime)
@@ -94,25 +100,28 @@ public class AIMove : MonoBehaviour
     void Sleep()
     {
         agent.destination = sleepPos.position;
+        animator.SetBool("IsWalk",true);
         if (TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) >= 800 && TimeManager.Instance.GetFloatTime(TimeManager.Instance.currentTime) < 805)
         {
+            animator.SetBool("IsWalk", false);
             SwitchState(State.SLEEP);
         }
     }
 
     void Idle()
     {
+        
         if (!generateRandomTime)
         {
             randomTime = Random.Range(minTime, maxTime);
             generateRandomTime = true;
         }
         agent.destination = idlePos.position;
+        animator.SetBool("IsWalk", true);
 
-        
         if (Vector3.Distance(transform.position, idlePos.position) < 1.5f)
         {
-
+            animator.SetBool("IsWalk", false);
             idleTimer += Time.deltaTime * TimeManager.Instance.timeControlMultiplier;
             transform.localEulerAngles = new Vector3(0, -90, 0);
             if (idleTimer >= randomTime)
