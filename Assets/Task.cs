@@ -7,4 +7,5 @@ public class Task : MonoBehaviour
 {
     public bool complete = false;
     public TextMeshPro taskCountText;
+    public GameObject miniGameObject;
 }

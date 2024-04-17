@@ -42,7 +42,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
 
     void OnEnable()
     {
-        
+        miniGameObject.SetActive(true);
     }
 
     Vector3 GetCursorPos(PointerEventData eventData)
@@ -153,6 +153,7 @@ public class PaperSortScreen : Task, IPointerDownHandler, IPointerMoveHandler, I
                 gameObject.transform.parent.gameObject.SetActive(false);
                 WorkTrigger.Instance.StartWork();
                 Reset();
+                //miniGameObject.SetActive(false);
             }
         }
     }

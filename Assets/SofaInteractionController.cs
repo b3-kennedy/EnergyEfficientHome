@@ -18,6 +18,7 @@ public class SofaInteractionController : MonoBehaviour
     public bool used = false;
 
     public GameObject flappyBirdCanvas;
+    public GameObject flappyBirdGameObject;
     public GameObject wireCanvas;
 
     public GameObject levelManager;
@@ -47,6 +48,7 @@ public class SofaInteractionController : MonoBehaviour
 
         if (name == "Play a game")
         {
+            flappyBirdGameObject.SetActive(true);
             flappyBirdCanvas.SetActive(true);
         }
         else if(name == "Read a book")
@@ -79,6 +81,7 @@ public class SofaInteractionController : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             flappyBirdCanvas.SetActive(false);
+            flappyBirdGameObject.SetActive(false);
             wireCanvas.SetActive(false);
 
             if (used)

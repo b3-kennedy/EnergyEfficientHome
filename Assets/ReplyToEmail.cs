@@ -27,6 +27,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
     public GameObject moneyEarnedText;
     public Transform moneyEarnedPos;
     Transform optionParent;
+    
 
 
 
@@ -39,6 +40,7 @@ public class ReplyToEmail : Task, IPointerDownHandler
 
     void OnEnable()
     {
+        miniGameObject.SetActive(true);
         Reset();
 
     }

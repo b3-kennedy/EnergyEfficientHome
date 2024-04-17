@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30019,6 +30019,11 @@ Transform:
   - {fileID: 462384434}
   m_Father: {fileID: 969805891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1499594005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165688579768385538, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
+  m_PrefabInstance: {fileID: 916408523680608767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504758311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8627724153496750661, guid: 8ab97e985fccde944adfe5d4abab2bda, type: 3}
@@ -44530,6 +44535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   complete: 0
   taskCountText: {fileID: 8521974624750238393}
+  miniGameObject: {fileID: 8743597663817141673}
   canvas: {fileID: 7566520573927948509}
   screenCam: {fileID: 1167678774320859713}
   click: 0
@@ -46138,6 +46144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   complete: 0
   taskCountText: {fileID: 5599477938245855755}
+  miniGameObject: {fileID: 2067811328625438144}
   screenCam: {fileID: 8939068942285644101}
   canvas: {fileID: 621082905097260945}
   timeAfterCompletion: 1
@@ -46454,6 +46461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwatTheFly
       objectReference: {fileID: 0}
+    - target: {fileID: 2165688579768385538, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4225957906725843144, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -46502,10 +46513,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8212094148351273728, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3755456734379755958, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aadb2bf26727e143ab4569e396eaaf6, type: 3}
 --- !u!1 &918126306447199806
 GameObject:
@@ -49841,6 +49849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   complete: 0
   taskCountText: {fileID: 0}
+  miniGameObject: {fileID: 0}
   screenCam: {fileID: 3195302845944105553}
   canvas: {fileID: 7357525028372225874}
   wire: 0
@@ -50627,7 +50636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2073327598265454970
 Transform:
   m_ObjectHideFlags: 0
@@ -58147,6 +58156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightBulbSelect
       objectReference: {fileID: 0}
+    - target: {fileID: 3608312066265955264, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8719080508845465063, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1957.3
@@ -58190,22 +58203,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 198480924746727565, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3007978240884070109, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3641718132766776439, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 695951519070385616, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4552628821573260073, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb84d663ffc13842ad74193f8c80ceb, type: 3}
 --- !u!1001 &4316165069410988731
 PrefabInstance:
@@ -61676,6 +61674,7 @@ MonoBehaviour:
   followCam: 0
   budgetOverDays: []
   flyScreen: {fileID: 7681852189624005171}
+  flyMiniGameObject: {fileID: 1499594005}
   wireScreen: {fileID: 8470182462099403271}
   sortScreen: {fileID: 522717094875732190}
   player: {fileID: 0}
@@ -68780,6 +68779,7 @@ MonoBehaviour:
   player: {fileID: 1775826897}
   used: 0
   flappyBirdCanvas: {fileID: 4272229574218430819}
+  flappyBirdGameObject: {fileID: 6942716851985292199}
   wireCanvas: {fileID: 8470182462099403271}
   levelManager: {fileID: 4564813784916103814}
 --- !u!222 &6851707141502178911
@@ -69179,6 +69179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlappyBird
       objectReference: {fileID: 0}
+    - target: {fileID: 3845846376083040939, guid: 166dc609bb2dba448abed451ff0e8b41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5379550893694182225, guid: 166dc609bb2dba448abed451ff0e8b41, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -69234,11 +69238,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2737468342299942314, guid: 166dc609bb2dba448abed451ff0e8b41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166dc609bb2dba448abed451ff0e8b41, type: 3}
+--- !u!1 &6942716851985292199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3845846376083040939, guid: 166dc609bb2dba448abed451ff0e8b41, type: 3}
+  m_PrefabInstance: {fileID: 6942716851985292198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &6957058636596842319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71196,7 +71202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &7447945314875450237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77936,7 +77942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &8746735364102406568
 PrefabInstance:
   m_ObjectHideFlags: 0

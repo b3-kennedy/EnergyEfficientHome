@@ -115,6 +115,7 @@ public class FliesScreen : MonoBehaviour, IPointerDownHandler
                 gameObject.transform.parent.gameObject.SetActive(false);
                 timer = 0;
                 startTimer = false;
+                LevelManager.Instance.flyMiniGameObject.SetActive(false);
             }
         }
     }

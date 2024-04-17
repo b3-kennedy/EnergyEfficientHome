@@ -21,6 +21,8 @@ public class TaskTrigger : MonoBehaviour
             case Task.FLY:
                 task = LevelManager.Instance.flyScreen;
                 task.transform.GetChild(0).GetComponent<FliesScreen>().trigger = gameObject;
+                LevelManager.Instance.flyMiniGameObject.SetActive(true);
+                
                 break;
             case Task.PAPER:
                 task = LevelManager.Instance.sortScreen;
@@ -42,6 +44,7 @@ public class TaskTrigger : MonoBehaviour
         if(task != null)
         {
             task.SetActive(false);
+            LevelManager.Instance.flyMiniGameObject.SetActive(false);
         }
         
     }

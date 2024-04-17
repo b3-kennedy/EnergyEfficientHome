@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
     public List<float> budgetOverDays = new List<float>();
 
     public GameObject flyScreen;
+    public GameObject flyMiniGameObject;
     public GameObject wireScreen;
     public GameObject sortScreen;
 

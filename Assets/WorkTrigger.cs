@@ -42,6 +42,10 @@ public class WorkTrigger : MonoBehaviour
         }
         else
         {
+            for (int i = 0; i < workTasks.Length; i++)
+            {
+                workTasks[i].transform.GetChild(0).GetComponent<Task>().miniGameObject.SetActive(false);
+            }
             UIManager.Instance.DisplayNotification("You have completed your work for today, you will be notified when you can work again");
             onCd = true;
         }
