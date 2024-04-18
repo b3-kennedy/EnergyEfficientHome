@@ -45,9 +45,12 @@ public class ShopManager : MonoBehaviour
     public TMP_Text savedMoneyText;
 
     public GameObject successfulBuyPopup;
+
+    public AudioSource buySound;
     private void Awake()
     {
         Instance = this;
+        buySound.volume = 0.3f;
 
     }
 
@@ -186,6 +189,7 @@ public class ShopManager : MonoBehaviour
         }
 
         UpdateBudgetText();
+        buySound.Play();
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
         totalBasket.text = "Total : £" + 0;
