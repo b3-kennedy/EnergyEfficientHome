@@ -21,6 +21,7 @@ public class PhoneController : MonoBehaviour
     public GameObject temperatureListObj;
     public GameObject notificationListObj;
     public GameObject smartControlListObj;
+    public GameObject musicTabObj;
 
     public GameObject Headers;
     public GameObject BackIconObject;
@@ -122,7 +123,7 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(true);
-
+        musicTabObj.SetActive(false);
     }
     public void ActivateMoneyTab()
     {
@@ -133,7 +134,7 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(false);
-
+        musicTabObj.SetActive(false);
     }
     public void ActivateTemperatureTab()
     {
@@ -143,7 +144,7 @@ public class PhoneController : MonoBehaviour
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
         scrollBar.SetActive(false);
-
+        musicTabObj.SetActive(false);
         smartControlListObj.SetActive(false);
         
     }
@@ -158,6 +159,7 @@ public class PhoneController : MonoBehaviour
         //temperatureListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(false);
+        musicTabObj.SetActive(false);
     }
 
     public void ActivateSmartControlTab()
@@ -168,9 +170,22 @@ public class PhoneController : MonoBehaviour
         smartControlListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        musicTabObj.SetActive(false);
         //temperatureListObj.SetActive(false);
     }
+    public void ActivateMusicTab()
+    {
 
+        ToggleMenuAndIcon(1);
+        musicTabObj.SetActive(true);
+        shopListObj.SetActive(false);
+        moneyListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
+        notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
+        scrollBar.SetActive(true);
+
+    }
     public void AddNotification(GameObject noti)
     {
         noti.transform.SetParent(notificationListObj.transform);
@@ -193,6 +208,7 @@ public class PhoneController : MonoBehaviour
         CheckoutPage.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
+        musicTabObj.SetActive(false);
         scroll.value = 1;
     }
     public void ToggleMenuAndIcon(int i)
