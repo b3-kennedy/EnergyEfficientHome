@@ -27,6 +27,7 @@ public class PhoneController : MonoBehaviour
     public GameObject CheckoutPage;
     public Button backBtn;
     public Scrollbar scroll;
+    public GameObject scrolllArea;
 
     public AudioSource pickUpAudio;
 
@@ -62,6 +63,8 @@ public class PhoneController : MonoBehaviour
         phoneUpButton.onClick.AddListener(PhoneUp);
         buttonText.text = "";
 
+        showPos = new Vector2(0, -123);
+        scrolllArea.SetActive(false);
     }
     void PhoneUp() {
         pickUpAudio.Play();
@@ -198,12 +201,14 @@ public class PhoneController : MonoBehaviour
         {
             Headers.SetActive(true);
             BackIconObject.SetActive(false);
+            scrolllArea.SetActive(false);
 
         }
         else if (i == 1)
         {
             Headers.SetActive(false);
             BackIconObject.SetActive(true);
+            scrolllArea.SetActive(true);
         }
     }
 }
