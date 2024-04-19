@@ -66,6 +66,8 @@ public class PhoneController : MonoBehaviour
 
         showPos = new Vector2(0, -123);
         scrolllArea.SetActive(false);
+
+        musicTabObj.SetActive(false);
     }
     void PhoneUp() {
         pickUpAudio.Play();
@@ -183,7 +185,7 @@ public class PhoneController : MonoBehaviour
         //temperatureListObj.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
-        scrollBar.SetActive(true);
+       // scrollBar.SetActive(true);
 
     }
     public void AddNotification(GameObject noti)

@@ -8,34 +8,25 @@ using UnityEngine.UI;
 public class StartController : MonoBehaviour
 {
     public AudioSource clickSound;
-    public AudioSource GameSoundtrack;
 
     public Button playBtn;
     public Button exitBtn;
     public Button optionsBtn;
 
-    public Toggle musicToggleObject;
-    public bool shouldPlayMusic;
+  
+    
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+   
 
     void OnEnable()
     {
         playBtn.onClick.AddListener(StartGame);
         exitBtn.onClick.AddListener(ExitGame);
         optionsBtn.onClick.AddListener(Options);
-        GameSoundtrack.Play();
-        musicToggleObject.onValueChanged.AddListener(ToggleMusic);
+        
     }
 
-    private void ToggleMusic(bool arg0)
-    {
-        if(arg0) { GameSoundtrack.Play(); }
-        if (!arg0) GameSoundtrack.Stop();
-    }
+    
 
     
     private void OnDisable()
