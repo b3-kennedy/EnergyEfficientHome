@@ -54,9 +54,10 @@ public class MusicController : MonoBehaviour
         if(isMuted == true)
         {
             isMuted = false;
-            //MusicManager.Instance.isMuted = isMuted;
-            icons[0].SetActive(false);
-            icons[1].SetActive(true);
+            MusicManager.Instance.ToggleMute();
+            icons[1].SetActive(false);
+            icons[0].SetActive(true);
+
         }
         Debug.Log(index);
         MusicManager.Instance.ChangeMusic(index);
