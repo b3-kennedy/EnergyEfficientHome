@@ -41332,25 +41332,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1851149305}
     m_Modifications:
-    - target: {fileID: 1923314134310860107, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1940945858086750666, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2473309354354443051, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
       propertyPath: m_Name
       value: musicBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473309354354443051, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6888074946810693381, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8879232686695074594, guid: efe378050bdbe32428fb0996c4b00cb3, type: 3}
       propertyPath: m_Pivot.x
@@ -60514,8 +60498,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7392653490704847186}
   m_HandleRect: {fileID: 4337631259990240521}
   m_Direction: 2
-  m_Value: 0.9708278
-  m_Size: 0.44236526
+  m_Value: 0.97082794
+  m_Size: 0.44236523
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

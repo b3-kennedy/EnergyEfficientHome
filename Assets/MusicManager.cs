@@ -50,6 +50,7 @@ public class MusicManager : MonoBehaviour
         {
             currentClipIndex = index;
             PlayBackgroundMusic();
+            Debug.Log("change music to index " + currentClipIndex + " now.");
         }
     }
     public void ToggleMute()

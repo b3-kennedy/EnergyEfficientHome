@@ -15,10 +15,12 @@ public class MusicController : MonoBehaviour
    
     public void OnEnable()
     {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i].onClick.AddListener(() => PlaySong(i));
-        }
+       
+            buttons[0].onClick.AddListener(() => PlaySong(0));
+        buttons[1].onClick.AddListener(() => PlaySong(1));
+        buttons[2].onClick.AddListener(() => PlaySong(2));
+
+
         mute.onClick.AddListener(MuteGame);
         isMuted = MusicManager.Instance.isMuted;
 
@@ -52,10 +54,11 @@ public class MusicController : MonoBehaviour
         if(isMuted == true)
         {
             isMuted = false;
-            MusicManager.Instance.isMuted = isMuted;
+            //MusicManager.Instance.isMuted = isMuted;
             icons[0].SetActive(false);
             icons[1].SetActive(true);
         }
+        Debug.Log(index);
         MusicManager.Instance.ChangeMusic(index);
        
     }
