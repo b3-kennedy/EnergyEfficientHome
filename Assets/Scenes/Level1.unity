@@ -51395,7 +51395,7 @@ PrefabInstance:
       objectReference: {fileID: 2451904806452193746}
     - target: {fileID: 7948900651065835787, guid: ee6275636f1d54746bb7de38014b1351, type: 3}
       propertyPath: nonRecyclebleItems.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7948900651065835787, guid: ee6275636f1d54746bb7de38014b1351, type: 3}
       propertyPath: recyclebleItems.Array.data[0]
@@ -60498,8 +60498,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7392653490704847186}
   m_HandleRect: {fileID: 4337631259990240521}
   m_Direction: 2
-  m_Value: 0.97082794
-  m_Size: 0.44236523
+  m_Value: 0.9708278
+  m_Size: 0.44236526
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
