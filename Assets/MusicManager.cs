@@ -12,6 +12,8 @@ public class MusicManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip[] musicClips;
 
+    public AudioSource washingMachineAudio;
+
     private int currentClipIndex = 0;
 
     public bool isMuted = false;
@@ -57,6 +59,12 @@ public class MusicManager : MonoBehaviour
     {
         isMuted = !isMuted;
         musicSource.mute = isMuted;
+    }
+
+    public void PlayWahingMachineAudio()
+    {
+        //washingMachineAudio.volume -= 12;
+        washingMachineAudio.Play();
     }
 
 }

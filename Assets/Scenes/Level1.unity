@@ -64611,117 +64611,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7526979906883191445}
     m_Modifications:
-    - target: {fileID: 526506531061374543, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.43896484
-      objectReference: {fileID: 0}
-    - target: {fileID: 526506531061374543, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 30.491089
-      objectReference: {fileID: 0}
-    - target: {fileID: 694296088305660628, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 694296088305660628, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 694296088305660628, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 883601772970215648, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2638502703029320567, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.1302065
-      objectReference: {fileID: 0}
-    - target: {fileID: 2638502703029320567, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.1302065
-      objectReference: {fileID: 0}
-    - target: {fileID: 2638502703029320567, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.13207549
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770634457923292542, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770634457923292542, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770634457923292542, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9270432
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770634457923292542, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7837753
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770634457923292542, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876316978484372617, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -258
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876316978484372617, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 3845060491348078165, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_Name
       value: FridgePopUp
       objectReference: {fileID: 0}
-    - target: {fileID: 4404084125638934211, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5609239293744160334, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724865920712824490, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -379
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724865920712824490, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -57
-      objectReference: {fileID: 0}
-    - target: {fileID: 5817895912579569745, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 481
-      objectReference: {fileID: 0}
-    - target: {fileID: 5817895912579569745, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -174
-      objectReference: {fileID: 0}
-    - target: {fileID: 6035420404143416501, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -490
-      objectReference: {fileID: 0}
-    - target: {fileID: 6035420404143416501, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -74
-      objectReference: {fileID: 0}
-    - target: {fileID: 6425097520830964749, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.1302065
-      objectReference: {fileID: 0}
-    - target: {fileID: 6425097520830964749, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.1302065
-      objectReference: {fileID: 0}
-    - target: {fileID: 6425097520830964749, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.13207549
       objectReference: {fileID: 0}
     - target: {fileID: 7118816696303596737, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_Pivot.x
@@ -64803,25 +64703,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7598420858978521818, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598420858978521818, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -296
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296325458668361844, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.1628418
-      objectReference: {fileID: 0}
     - target: {fileID: 8694998164852390589, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8944833102688745638, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
