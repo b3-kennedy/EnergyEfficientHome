@@ -151,9 +151,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 3a329edd4de4be141a5b6d79e1588fdd, type: 3}
   - {fileID: 2800000, guid: 776d98c84832635489c8f1270e82b2a6, type: 3}
   - {fileID: 2800000, guid: 8d09944ccd9930142b4d44c9d44732d0, type: 3}
-  - {fileID: 2800000, guid: 8cd9bcea13483c641b18113b7b4322f5, type: 3}
   - {fileID: 2800000, guid: 6f20884c85b65e84ebb53e12f70ce83c, type: 3}
-  - {fileID: 2800000, guid: b72f36ca36d1f0141ad1e5120c34164a, type: 3}
   playBtn: {fileID: 0}
   startGame: {fileID: 0}
   endGame: {fileID: 0}
@@ -187,6 +185,7 @@ MonoBehaviour:
   recBin: {fileID: 0}
   nonRecBin: {fileID: 0}
   levelManager: {fileID: 0}
+  isPlaying: 0
 --- !u!65 &565039619280966042
 BoxCollider:
   m_ObjectHideFlags: 0

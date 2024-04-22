@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,14 @@ public class StartController : MonoBehaviour
 {
     public AudioSource clickSound;
 
-
     public Button playBtn;
     public Button exitBtn;
     public Button optionsBtn;
 
-    private void Awake()
-    {
-    }
+  
+    
+
+   
 
     void OnEnable()
     {
@@ -24,6 +25,10 @@ public class StartController : MonoBehaviour
         optionsBtn.onClick.AddListener(Options);
         
     }
+
+    
+
+    
     private void OnDisable()
     {
         playBtn?.onClick.RemoveListener(StartGame);
@@ -46,5 +51,7 @@ public class StartController : MonoBehaviour
     {
         clickSound.Play();
     }
+
+    
 
 }

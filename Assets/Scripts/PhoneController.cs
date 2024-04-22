@@ -21,12 +21,14 @@ public class PhoneController : MonoBehaviour
     public GameObject temperatureListObj;
     public GameObject notificationListObj;
     public GameObject smartControlListObj;
+    public GameObject musicTabObj;
 
     public GameObject Headers;
     public GameObject BackIconObject;
     public GameObject CheckoutPage;
     public Button backBtn;
     public Scrollbar scroll;
+    public GameObject scrolllArea;
 
     public AudioSource pickUpAudio;
 
@@ -62,6 +64,10 @@ public class PhoneController : MonoBehaviour
         phoneUpButton.onClick.AddListener(PhoneUp);
         buttonText.text = "";
 
+        showPos = new Vector2(0, -123);
+        scrolllArea.SetActive(false);
+
+        musicTabObj.SetActive(false);
     }
     void PhoneUp() {
         pickUpAudio.Play();
@@ -119,7 +125,7 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(true);
-
+        musicTabObj.SetActive(false);
     }
     public void ActivateMoneyTab()
     {
@@ -130,7 +136,7 @@ public class PhoneController : MonoBehaviour
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(false);
-
+        musicTabObj.SetActive(false);
     }
     public void ActivateTemperatureTab()
     {
@@ -140,7 +146,7 @@ public class PhoneController : MonoBehaviour
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
         scrollBar.SetActive(false);
-
+        musicTabObj.SetActive(false);
         smartControlListObj.SetActive(false);
         
     }
@@ -155,6 +161,7 @@ public class PhoneController : MonoBehaviour
         //temperatureListObj.SetActive(false);
         smartControlListObj.SetActive(false);
         scrollBar.SetActive(false);
+        musicTabObj.SetActive(false);
     }
 
     public void ActivateSmartControlTab()
@@ -165,9 +172,22 @@ public class PhoneController : MonoBehaviour
         smartControlListObj.SetActive(true);
         shopListObj.SetActive(false);
         notificationListObj.SetActive(false);
+        musicTabObj.SetActive(false);
         //temperatureListObj.SetActive(false);
     }
+    public void ActivateMusicTab()
+    {
 
+        ToggleMenuAndIcon(1);
+        musicTabObj.SetActive(true);
+        shopListObj.SetActive(false);
+        moneyListObj.SetActive(false);
+        //temperatureListObj.SetActive(false);
+        notificationListObj.SetActive(false);
+        smartControlListObj.SetActive(false);
+       // scrollBar.SetActive(true);
+
+    }
     public void AddNotification(GameObject noti)
     {
         noti.transform.SetParent(notificationListObj.transform);
@@ -190,6 +210,7 @@ public class PhoneController : MonoBehaviour
         CheckoutPage.SetActive(false);
         notificationListObj.SetActive(false);
         smartControlListObj.SetActive(false);
+        musicTabObj.SetActive(false);
         scroll.value = 1;
     }
     public void ToggleMenuAndIcon(int i)
@@ -198,12 +219,14 @@ public class PhoneController : MonoBehaviour
         {
             Headers.SetActive(true);
             BackIconObject.SetActive(false);
+            scrolllArea.SetActive(false);
 
         }
         else if (i == 1)
         {
             Headers.SetActive(false);
             BackIconObject.SetActive(true);
+            scrolllArea.SetActive(true);
         }
     }
 }

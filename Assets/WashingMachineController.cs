@@ -29,6 +29,7 @@ public class WashingMachineController : MonoBehaviour
 
 
 
+
     private void OnTriggerEnter(Collider other)
     {
         popUpGameobject.SetActive(true);
@@ -58,11 +59,12 @@ public class WashingMachineController : MonoBehaviour
     }
     void StartWash()
     {
-        if (detergents.Length > 0)
+        if (temperature > 0)
         {
             Debug.Log("wash started");
             cycleStartPopUp.SetActive(false);
             cycleEndPopUp.SetActive(true);
+            MusicManager.Instance.PlayWahingMachineAudio();
 
             if (LevelManager.Instance.PV && String.Equals(WeatherManager.Instance.currWeather, "sunny"))
             {
@@ -70,12 +72,12 @@ public class WashingMachineController : MonoBehaviour
                 LevelManager.Instance.electricityCosts += (0.04f * temperature);
                 LevelManager.Instance.savedMoneyByUpgrades += 0.13f * temperature;
                 LevelManager.Instance.onSavedMoney.Invoke();
-                cycleEndText.text = "You saved " + (0.13f * temperature) + "  for having PV panels and doing a wash in a sunny day.";
+                cycleEndText.text = "You saved " + (0.13f * temperature) + "  for having Solar Panels and doing a wash on a sunny day.";
 
             }
             else
             {
-                cycleEndText.text = "Wash in progress!"+ temperature + " degrees with "+detergent+" laundry liquid.";
+                cycleEndText.text = "Wash in progress! "+ temperature + " degrees with "+detergent+" laundry detergent.";
                 LevelManager.Instance.electricityCosts += (0.17f * temperature);
             }
 

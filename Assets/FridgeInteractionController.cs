@@ -178,11 +178,12 @@ public class FridgeInteractionController : MonoBehaviour
 
         
             bool isRec = (Random.Range(0, 2) == 0);
-            int index = Random.Range(0, 8);
+        int index;
             if (Random.Range(0, 2) == 0)
             {
+          index = Random.Range(0, recyclebleItems.Length);
 
-                GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
+            GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
 
                 item.GetComponent<RecycleItem>().SetImg(recyclebleItems[index]);
                 item.GetComponent<RecycleItem>().isRecyclable = true;
@@ -196,7 +197,9 @@ public class FridgeInteractionController : MonoBehaviour
             }
             else
             {
-                GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
+            index = Random.Range(0, nonRecyclebleItems.Length);
+
+            GameObject item = Instantiate(itemPrefab, positions[posIndex].gameObject.transform, false);
 
                 item.GetComponent<RecycleItem>().SetImg(nonRecyclebleItems[index]);
                 item.GetComponent<RecycleItem>().isRecyclable = false;
