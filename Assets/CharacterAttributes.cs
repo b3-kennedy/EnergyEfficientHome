@@ -279,7 +279,6 @@ public class CharacterAttributes : MonoBehaviour
         if (unhappy)
         {
             unhappyHoursPassed++;
-            Debug.Log(unhappyHoursPassed);
         }
 
     }

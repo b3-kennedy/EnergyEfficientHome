@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -54957,6 +54957,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 2725250814644084973, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2792293930914150462, guid: b7c9c1ad3eeb8c4459d1471816fe6770, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -61731,7 +61735,7 @@ MonoBehaviour:
   - {fileID: 99251593}
   - {fileID: 629291057}
   - {fileID: 2143496869}
-  budget: 500
+  budget: 682
   dailyCost: 0
   tempObjects: []
   breakChance: 75
@@ -61757,7 +61761,7 @@ MonoBehaviour:
   sortScreen: {fileID: 522717094875732190}
   player: {fileID: 0}
   electricityCosts: 0
-  baseElectricityHourlyCost: 0.05
+  baseElectricityHourlyCost: 0.858
   savedMoneyByUpgrades: 0
   onSavedMoney:
     m_PersistentCalls:
@@ -61791,6 +61795,7 @@ MonoBehaviour:
     percentage: 0
     information: []
   spawnedFlies: []
+  percentReduced: 1
   nextScene: 2
   currentScene: 1
 --- !u!65 &5166117236862163747
@@ -73421,13 +73426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b40a62af5dbf047b02814531173b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 50
+  hunger: 100
   tiredness: 50
-  boredom: 0
+  boredom: 100
   happiness: 50
   hungerMultiplier: 2
-  boredomMultiplier: 3.17
-  tirednessMultiplier: 2
+  boredomMultiplier: 1.9
+  tirednessMultiplier: 2.5
   happinessMultiplier: 3
   hungerRecoveryRate: 100
   boredomRecoveryRate: 10
@@ -74044,9 +74049,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5995468084566162769, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6839951481051014503, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
       propertyPath: m_Name
       value: endScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839951481051014503, guid: 576f8d676b5f71a47ab4468e92abc6c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

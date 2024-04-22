@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
 
     public float electricityCosts ; 
 
-    public float baseElectricityHourlyCost= 0.05f ;
+    public float baseElectricityHourlyCost;
 
     public float savedMoneyByUpgrades=0;
     public UnityEvent onSavedMoney;
@@ -73,6 +73,8 @@ public class LevelManager : MonoBehaviour
     public GraphData[] infoForGraph;
 
     public List<GameObject> spawnedFlies;
+
+    public float percentReduced = 1;
 
     [Header("Scenes")]
     public int nextScene;
@@ -185,7 +187,7 @@ public class LevelManager : MonoBehaviour
 
     void CalculateMoneySavedScore()
     {
-        moneySavedScore = budget * 5;
+        moneySavedScore = savedMoneyByUpgrades * 5;
     }
 
     void CountDays()
@@ -269,6 +271,12 @@ public class LevelManager : MonoBehaviour
 
     public void AddCost()
     {
+        float cost;
+
+        if (heatPump)
+        {
+            
+        }
 
         if (!gameEnd)
         {
@@ -281,17 +289,16 @@ public class LevelManager : MonoBehaviour
                     {
                         if (item.GetComponent<Radiator>().timePassed > 0)
                         {
-                            
-                            if (heatPump)
+                            cost = ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed));
+
+                            dailyCost += cost * percentReduced;
+                            savedMoneyByUpgrades += cost * (1 - percentReduced);
+
+                            if(percentReduced < 1)
                             {
-                                dailyCost += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.4f;
-                                savedMoneyByUpgrades += ((item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed)) * 0.6f;
                                 onSavedMoney.Invoke();
                             }
-                            else
-                            {
-                                dailyCost += (item.GetComponent<Radiator>().costToRun) * (item.GetComponent<Radiator>().timeActivated / item.GetComponent<Radiator>().timePassed);
-                            }
+
                             item.GetComponent<Radiator>().timePassed = 0;
                             item.GetComponent<Radiator>().timeActivated = 0;
                         }
@@ -304,7 +311,18 @@ public class LevelManager : MonoBehaviour
                 if (lamp.GetComponent<LampController>().isOn)
                     electricityCosts += 0.10f;
             }
-            dailyCost += electricityCosts + baseElectricityHourlyCost;
+
+            if (PV)
+            {
+                dailyCost += (electricityCosts + baseElectricityHourlyCost) * 0.2f;
+                savedMoneyByUpgrades += (electricityCosts + baseElectricityHourlyCost) * 0.8f;
+                onSavedMoney.Invoke();
+            }
+            else
+            {
+                dailyCost += electricityCosts + baseElectricityHourlyCost;
+            }
+            
            
 
             electricityCosts = 0;

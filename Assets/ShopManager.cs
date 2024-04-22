@@ -154,7 +154,9 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.budget -= item.itemPriceFloat;
                 LevelManager.Instance.budgetOverDays.Add(LevelManager.Instance.budget);
 
-    
+                LevelManager.Instance.percentReduced *= 0.95f;
+
+
 
                 LevelManager.Instance.infoForGraph[day].AddInfoToList("Bought" + " " + item.itemName.text + " at " + TimeManager.Instance.currentTime.ToString("HH:mm") +
                     " for £" + item.itemPriceFloat);
@@ -167,6 +169,7 @@ public class ShopManager : MonoBehaviour
                 LevelManager.Instance.heatPump = true;
                 HouseUpgradeUsageIcons[0].SetActive(false);
                 HouseUpgradeUsageIcons[1].SetActive(true);
+                LevelManager.Instance.percentReduced *= 0.63f;
                 
                 LevelManager.Instance.budget -= item.itemPriceFloat;
                 LevelManager.Instance.budgetOverDays.Add(LevelManager.Instance.budget);
