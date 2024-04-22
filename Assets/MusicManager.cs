@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip[] musicClips;
 
     public AudioSource washingMachineAudio;
+    public AudioSource buttonClickAudio;
 
     private int currentClipIndex = 0;
 
@@ -65,6 +66,10 @@ public class MusicManager : MonoBehaviour
     {
         //washingMachineAudio.volume -= 12;
         washingMachineAudio.Play();
+    }
+    public void PlayButtonClickAudio()
+    {
+        buttonClickAudio.Play();
     }
 
 }
