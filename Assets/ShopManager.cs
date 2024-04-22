@@ -107,6 +107,7 @@ public class ShopManager : MonoBehaviour
     {
         if (Basket.Count != 0)
         {
+            MusicManager.Instance.PlayButtonClickAudio();
 
             Headers.SetActive(false);
             CheckoutPage.SetActive(true);
@@ -189,6 +190,7 @@ public class ShopManager : MonoBehaviour
         }
 
         UpdateBudgetText();
+        //buySound.volume = 0.6f;
         buySound.Play();
         DestroyCheckoutBasketList();
         totalAmountText.text = "Total : £" + 0;
@@ -209,6 +211,7 @@ public class ShopManager : MonoBehaviour
     {
         Time.timeScale = 0;
         infoPanel.SetActive(true);
+        MusicManager.Instance.PlayButtonClickAudio();
         if (item.itemName.text == itemNames[2])
         {
             
@@ -290,6 +293,8 @@ public class ShopManager : MonoBehaviour
         Basket.Add(item);
         DisplayItemInfo(item);
         SetUpdatedTotalCostTexts();
+
+        MusicManager.Instance.PlayButtonClickAudio();
 
     }
     public void SetUpdatedTotalCostTexts()
