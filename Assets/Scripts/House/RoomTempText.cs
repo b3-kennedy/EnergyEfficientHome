@@ -32,7 +32,7 @@ public class RoomTempText : MonoBehaviour
         {
             txt.color = Color.blue;
         }
-        else if(roundedTemp > 25)
+        else if(roundedTemp > 26)
         {
             txt.color = Color.red;
         }
