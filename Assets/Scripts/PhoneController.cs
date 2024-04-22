@@ -215,6 +215,7 @@ public class PhoneController : MonoBehaviour
     }
     public void ToggleMenuAndIcon(int i)
     {
+        MusicManager.Instance.PlayButtonClickAudio();
         if (i == 0)
         {
             Headers.SetActive(true);
