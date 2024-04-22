@@ -180,7 +180,7 @@ MonoBehaviour:
   heatingRate: 50
   timePassed: 0
   timeActivated: 0
-  costToRun: 1
+  costToRun: 0.222
 --- !u!114 &2183673473304963354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,12 @@ MonoBehaviour:
   fixCost: 50
   windowIndicator: {fileID: 0}
   radiatorIndicator: {fileID: 4733558079572585825, guid: 6df8fe73d15630146993d8f51679e392, type: 3}
+  windowScaleX: 0
+  windowScaleY: 0
+  windowScaleZ: 0
+  radiatorScaleX: 5
+  radiatorScaleY: 2.5
+  radiatorScaleZ: 1
 --- !u!1001 &4262327460603947045
 PrefabInstance:
   m_ObjectHideFlags: 0

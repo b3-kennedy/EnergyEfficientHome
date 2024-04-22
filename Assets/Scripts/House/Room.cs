@@ -100,7 +100,7 @@ public class Room : MonoBehaviour
             {
                 if (LevelManager.Instance.doubleGlazing)
                 {
-                    liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.64f) * (TimeManager.Instance.timeMultiplier / 100);
+                    liveTemperature -= (((returnToBaseMultiplier / totalArea) * Time.deltaTime) * 0.50f) * (TimeManager.Instance.timeMultiplier / 100);
                 }
                 else
                 {
