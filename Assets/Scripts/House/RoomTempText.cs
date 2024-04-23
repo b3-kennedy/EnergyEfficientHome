@@ -20,11 +20,11 @@ public class RoomTempText : MonoBehaviour
         float roundedTemp = Maths.RoundTo2DP(transform.parent.GetComponent<Room>().liveTemperature);
         txt.text = roundedTemp.ToString().Split('.')[0] + " " + UIManager.Instance.degrees;
 
-        if(roundedTemp > 15 && roundedTemp <= 25)
+        if(roundedTemp > 17 && roundedTemp <= 25)
         {
             txt.color = Color.white;
         }
-        else if(roundedTemp > 10 && roundedTemp < 15)
+        else if(roundedTemp > 10 && roundedTemp < 18)
         {
             txt.color = Color.cyan;
         }

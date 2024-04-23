@@ -249,7 +249,7 @@ public class ShopManager : MonoBehaviour
     void UpdateMoneySavedText()
     {
         int m = Mathf.RoundToInt(LevelManager.Instance.savedMoneyByUpgrades);
-        savedMoneyText.text = "Money saved : " + m + "£";
+        savedMoneyText.text = "Money saved : £" + m;
     }
 
 

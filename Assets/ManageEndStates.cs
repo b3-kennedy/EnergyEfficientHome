@@ -133,7 +133,7 @@ public class ManageEndStates : MonoBehaviour
                     End();
                     endGamePrompt.text = "You Lost!!";
                     endGameReasonPrompt.text = "You were too cold on day "+dayCount+"!!";
-                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
+                    endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
                 }
@@ -142,13 +142,14 @@ public class ManageEndStates : MonoBehaviour
             else if (playerTemp > maxComfyTemp)
             {
                 endTimer += Time.deltaTime;
+                Debug.Log("too hot");
                 if (endTimer >= 3.5f)
                 {
-
+                    
                     End();
                     endGamePrompt.text = "You Lost!!";
-                    endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
-                    endGameReasonPrompt.text = "You were too hot and died on day "+dayCount+"!!";
+                    endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
+                    endGameReasonPrompt.text = "You were too hot on day "+dayCount+"!!";
                     endGameHintPrompt.text = "Here are some hints that can help you do better next time.";
                     endTimer = 0;
                 }
@@ -179,7 +180,7 @@ public class ManageEndStates : MonoBehaviour
             nextButtonGO.SetActive(true);
             restartButtonGO.SetActive(false);
             endGamePrompt.text = "You Won!!";
-            endGameBudgetPrompt.text = "You had " + budget + " pounds left in your budget.";
+            endGameBudgetPrompt.text = "You had £" + budget + " left in your budget.";
             endGameReasonPrompt.text = "Good Job! You Managed To Stay In A comfortable situation for 7 consequitive days.";
             endGameHintPrompt.text = "you really seemed to know what you were doing! still, here are some hints that can help you do even better after the tutorial.";
            

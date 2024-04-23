@@ -45095,7 +45095,7 @@ MonoBehaviour:
   - {fileID: 1907280115}
   - {fileID: 492382796}
   minComfyTemp: 8
-  maxComfyTemp: 45
+  maxComfyTemp: 28
   dayCount: 0
   timeManager: {fileID: 4392058483824666553}
   dayCountUItxt: {fileID: 8233795874874669716}
@@ -54834,8 +54834,8 @@ MonoBehaviour:
   baseTemp: 0
   temp: 0
   liveTemp: 0
-  minComfortableTemp: 12
-  maxComfortableTemp: 25
+  minComfortableTemp: 18
+  maxComfortableTemp: 26
   blue: {fileID: 2100000, guid: 6f09bb05742fc434eb6dc0588ea1b6b5, type: 2}
   red: {fileID: 2100000, guid: ae45943289fd8374890c7dd16d379354, type: 2}
   isComfortable: 0
@@ -62122,8 +62122,8 @@ MonoBehaviour:
   baseTemp: 0
   temp: 0
   liveTemp: 0
-  minComfortableTemp: 15
-  maxComfortableTemp: 24
+  minComfortableTemp: 18
+  maxComfortableTemp: 26
   blue: {fileID: 2100000, guid: 6f09bb05742fc434eb6dc0588ea1b6b5, type: 2}
   red: {fileID: 2100000, guid: ae45943289fd8374890c7dd16d379354, type: 2}
   isComfortable: 0
@@ -62808,7 +62808,7 @@ MonoBehaviour:
   itemPrices:
   - 150
   - 200
-  - 120
+  - 75
   Basket: []
   itemPrefab: {fileID: 6605855803878103817, guid: afb1f7ad719ddfc479f1ffeceaa5a35c, type: 3}
   MobilePhoneScreen: {fileID: 519229609835125396}
@@ -79306,6 +79306,10 @@ PrefabInstance:
     - target: {fileID: 4128008901333837751, guid: 908923dd6171f774584bfde622d34f29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916242027833820018, guid: 908923dd6171f774584bfde622d34f29, type: 3}
+      propertyPath: m_text
+      value: "Money saved : \xA30 "
       objectReference: {fileID: 0}
     - target: {fileID: 9126890805384591714, guid: 908923dd6171f774584bfde622d34f29, type: 3}
       propertyPath: m_Name
