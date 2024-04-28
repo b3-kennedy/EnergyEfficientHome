@@ -19,7 +19,15 @@ public class MusicController : MonoBehaviour
             buttons[0].onClick.AddListener(() => PlaySong(0));
         buttons[1].onClick.AddListener(() => PlaySong(1));
         buttons[2].onClick.AddListener(() => PlaySong(2));
-
+        buttons[3].onClick.AddListener(() => PlaySong(3));
+        buttons[4].onClick.AddListener(() => PlaySong(4));
+        buttons[5].onClick.AddListener(() => PlaySong(5));
+        buttons[6].onClick.AddListener(() => PlaySong(6));
+        buttons[7].onClick.AddListener(() => PlaySong(7));
+        buttons[8].onClick.AddListener(() => PlaySong(8));
+        buttons[9].onClick.AddListener(() => PlaySong(9));
+        buttons[10].onClick.AddListener(() => PlaySong(10));
+        buttons[11].onClick.AddListener(() => PlaySong(11));
 
         mute.onClick.AddListener(MuteGame);
         isMuted = MusicManager.Instance.isMuted;
@@ -59,7 +67,7 @@ public class MusicController : MonoBehaviour
             icons[0].SetActive(true);
 
         }
-        Debug.Log(index);
+       
         MusicManager.Instance.ChangeMusic(index);
        
     }
