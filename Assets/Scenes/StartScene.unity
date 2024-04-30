@@ -5989,6 +5989,54 @@ PrefabInstance:
       propertyPath: musicToggle
       value: 
       objectReference: {fileID: 1569741490}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79e89d8c84776a342a99e9411030c899, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a78178932ee5e643835b979dc79df86, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bd21a90fa12cba419fe969fdbd56d1a, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 67e20c38f7da6d84ea17b5db33ab87ab, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: e4dbdc90a465e4c448ffd640cb646be4, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: cbbe39235d013e5478f7fcb59442964f, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 60198af7d01b017478629f04fc1c4135, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b23539b35a586a41bd9e72c96837414, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: f3ab730955087a24b80c411ebc2834ce, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3784ecce4aa2a154189114813a399809, type: 3}
+    - target: {fileID: 9137236918416951819, guid: 2810153b628f2da4d861f7c82a27565d, type: 3}
+      propertyPath: musicClips.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2064c84a21e51b14888ef2044bde22b6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
