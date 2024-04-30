@@ -18,7 +18,7 @@ public class TemperatureAlteringObject : MonoBehaviour
     {
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<Interact>())
         {

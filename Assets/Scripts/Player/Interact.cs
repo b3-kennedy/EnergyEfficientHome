@@ -43,7 +43,7 @@ public class Interact : MonoBehaviour
 
 
 
-
+        Debug.Log(heatObject);
         if (heatObject.GetComponent<RoomTempChanger>() && !heatObject.GetComponent<Broken>().enabled)
         {
             if (LevelManager.Instance.budget > 0)
