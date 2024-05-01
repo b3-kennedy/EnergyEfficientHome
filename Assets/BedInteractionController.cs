@@ -24,7 +24,7 @@ public class BedInteractionController : MonoBehaviour
     {
         if (other.gameObject.name == "Player" && player.GetComponent<CharacterAttributes>().tiredness<50)
         {
-            text.text = "You're Tired!\n Press  To Sleep";
+            text.text = "Press To Sleep";
             popUpGO.SetActive(true);
             isNearBed = true;
         }
