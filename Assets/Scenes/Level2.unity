@@ -75976,7 +75976,7 @@ MonoBehaviour:
   sortScreen: {fileID: 522717094875732190}
   player: {fileID: 0}
   electricityCosts: 0
-  baseElectricityHourlyCost: 0.05
+  baseElectricityHourlyCost: 0.858
   savedMoneyByUpgrades: 0
   onSavedMoney:
     m_PersistentCalls:
