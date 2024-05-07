@@ -76822,7 +76822,7 @@ MonoBehaviour:
   itemPrices:
   - 150
   - 200
-  - 120
+  - 75
   Basket: []
   itemPrefab: {fileID: 6605855803878103817, guid: afb1f7ad719ddfc479f1ffeceaa5a35c, type: 3}
   MobilePhoneScreen: {fileID: 519229609835125396}
