@@ -180,7 +180,7 @@ MonoBehaviour:
   heatingRate: 50
   timePassed: 0
   timeActivated: 0
-  costToRun: 0.222
+  costToRun: 1
 --- !u!114 &2183673473304963354
 MonoBehaviour:
   m_ObjectHideFlags: 0

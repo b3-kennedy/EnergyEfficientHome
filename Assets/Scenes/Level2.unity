@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4479431, g: 0.49794567, b: 0.57548714, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794375, g: 0.49794638, b: 0.57548785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7021,7 +7021,7 @@ RectTransform:
   m_GameObject: {fileID: 226894445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3107195912879545541}
@@ -7029,7 +7029,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -42.00473}
-  m_SizeDelta: {x: 160, y: 171.545}
+  m_SizeDelta: {x: 222, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226894447
 MonoBehaviour:
@@ -7095,7 +7095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8963294032e4cc7428135afdc6979232, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59cf43af8ce444f4f8860f6f8e4f056a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -48493,6 +48493,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1632808944295327271, guid: 2872cd7b52f20e64ea995614a7b51c19, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c62f347124de7d44daa0e8398d96fa1d, type: 3}
     - target: {fileID: 1963902911118453059, guid: 2872cd7b52f20e64ea995614a7b51c19, type: 3}
       propertyPath: m_Name
       value: SofaPopup
@@ -50603,9 +50607,41 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2517680568169335150, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805896808491025388, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_text
+      value: WHAT DO YOU WANT TO EAT?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805896808491025388, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 2805896808491025388, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2080511050774980492, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 2805896808491025388, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3845060491348078165, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_Name
       value: FridgePopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845060491348078165, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404084125638934211, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368048146538916630, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_text
+      value: BEVERAGES
       objectReference: {fileID: 0}
     - target: {fileID: 5609239293744160334, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_IsActive
@@ -50613,6 +50649,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6234755874694821460, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428900673586114711, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontSize
+      value: 23.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428900673586114711, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 6428900673586114711, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428900673586114711, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2080511050774980492, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 6428900673586114711, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6914758890418186150, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
@@ -50717,6 +50773,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7118816696303596737, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357671783354966918, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontSize
+      value: 23.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357671783354966918, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 8357671783354966918, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357671783354966918, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2080511050774980492, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
+    - target: {fileID: 8357671783354966918, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694998164852390589, guid: eaaa7503c80bea940ad12ad8d17c38ec, type: 3}
@@ -69658,7 +69734,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361739416880509779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69668,8 +69744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 354, y: 201}
-  m_SizeDelta: {x: -1209.1724, y: -824.4454}
+  m_AnchoredPosition: {x: 256, y: 266}
+  m_SizeDelta: {x: -1491.8282, y: -824.4454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3112721573548369140
 MonoBehaviour:
@@ -75900,7 +75976,7 @@ MonoBehaviour:
   sortScreen: {fileID: 522717094875732190}
   player: {fileID: 0}
   electricityCosts: 0
-  baseElectricityHourlyCost: 0.05
+  baseElectricityHourlyCost: 0.858
   savedMoneyByUpgrades: 0
   onSavedMoney:
     m_PersistentCalls:
@@ -75931,6 +76007,7 @@ MonoBehaviour:
     percentage: 0
     information: []
   spawnedFlies: []
+  percentReduced: 1
   nextScene: 3
   currentScene: 2
 --- !u!1 &5165038019041540295
@@ -85127,7 +85204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b40a62af5dbf047b02814531173b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hunger: 50
+  hunger: 100
   tiredness: 50
   boredom: 0
   happiness: 50

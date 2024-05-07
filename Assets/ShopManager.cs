@@ -221,19 +221,19 @@ public class ShopManager : MonoBehaviour
             infoPanelTitle.text = "Double Glazing";
             infoPanelBody.text = "Double glazed windows work by trapping a layer of air, which is a natural insulator, " +
                 "between two panes of glass. This stops the air from circulating which significantly lessens convection resulting in a decrease of heat loss across the window.\n" +
-                "\nDouble glazing can improve the warmth of your house by up to 64%";
+                "\nDouble glazing can improve the warmth of your house by 50%";
         }
         else if(item.itemName.text == itemNames[1])
         {
             infoPanelTitle.text = "Heat Pump";
             infoPanelBody.text = "Heat pumps are more efficient than other heating systems because the amount of heat they produce is more than the amount of electricity they use.\n" +
-                "\nHeat pumps could potentially reduce heating costs by anything between 10% to 41%";
+                "\nHeat pumps could potentially reduce heating costs by 37%";
         }
         else if(item.itemName.text == itemNames[0])
         {
             infoPanelTitle.text = "Solar PV Panels";
             infoPanelBody.text = "Solar PV panels convert energy from the sun into electricity. \n \nThe amount of money you save from installing solar PV panels depends on how much energy\n" +
-                "is being used and how many panels are installed, however by following best practices solar PV panels will usually save around 70-80% on electricity bills. In fact solar panels \n" +
+                "is being used and how many panels are installed, however by following best practices solar PV panels will usually save around 75% on electricity bills. In fact solar panels \n" +
                 "can even earn you money as they can generate excess electricity during summer which can be sold back to the grid.";
         }
     }
