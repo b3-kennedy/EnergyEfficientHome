@@ -75950,7 +75950,7 @@ MonoBehaviour:
   - {fileID: 940449900}
   - {fileID: 588560528}
   - {fileID: 1030182958}
-  budget: 500
+  budget: 682
   dailyCost: 0
   tempObjects: []
   breakChance: 75
