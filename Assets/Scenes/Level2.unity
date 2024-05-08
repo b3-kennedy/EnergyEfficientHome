@@ -69436,7 +69436,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Your Budget : \xA3 500"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de89b1b0dd06045f49c22203fb56a198, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75f9257a050402d418c45b31fb3fc3b8, type: 2}
   m_sharedMaterial: {fileID: -8301804039068048873, guid: de89b1b0dd06045f49c22203fb56a198, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -69500,7 +69500,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3057490660062823416
@@ -75950,7 +75950,7 @@ MonoBehaviour:
   - {fileID: 940449900}
   - {fileID: 588560528}
   - {fileID: 1030182958}
-  budget: 500
+  budget: 682
   dailyCost: 0
   tempObjects: []
   breakChance: 75
@@ -76822,7 +76822,7 @@ MonoBehaviour:
   itemPrices:
   - 150
   - 200
-  - 120
+  - 75
   Basket: []
   itemPrefab: {fileID: 6605855803878103817, guid: afb1f7ad719ddfc479f1ffeceaa5a35c, type: 3}
   MobilePhoneScreen: {fileID: 519229609835125396}
